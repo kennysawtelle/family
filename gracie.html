@@ -34,7 +34,7 @@ footer { text-align:center; color:#667085; padding:25px; }
 <main>
 <div class="actions">
 <a class="button back" href="index.html">🏠 Back Home</a>
-<a class="button add" href="gracie-2026.ics" download>➕ Add to My Calendar</a>
+<a class="button add" href="https://family.kensawtelle.com/gracie-2026.ics" onclick="return addFamilyCalendar('gracie-2026.ics')">➕ Add to My Calendar</a>
 </div>
 <div class="notice">
 <strong>All original game times are Central Time.</strong>
@@ -52,5 +52,15 @@ The Pacific column is two hours earlier. The calendar file stores every event in
 </div>
 </main>
 <footer>Schedule subject to change.</footer>
+
+<script>
+function addFamilyCalendar(fileName) {
+  const httpsUrl = "https://family.kensawtelle.com/" + fileName;
+  const isApple = /iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent);
+  window.location.href = isApple ? httpsUrl.replace(/^https:/, "webcal:") : httpsUrl;
+  return false;
+}
+</script>
+
 </body>
 </html>
