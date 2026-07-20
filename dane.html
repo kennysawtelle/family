@@ -3,57 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dane 2026 Schedule</title>
+<title>Dane — Bonita Football 2026</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#eef3f8;color:#14233b}
-header{background:#9a7200;color:white;text-align:center;padding:28px 16px}
-header h1{margin:0 0 8px}
-main{max-width:1000px;margin:24px auto;padding:0 14px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-a.button{display:inline-block;padding:12px 18px;border-radius:9px;text-decoration:none;font-weight:bold}
-.back{background:white;color:#14233b;border:1px solid #cfd6df}
-.add{background:#2f8f46;color:white}
-.note{background:white;padding:14px 16px;border-radius:10px;margin-bottom:18px;border-left:6px solid #9a7200}
-.table-wrap{overflow-x:auto;background:white;border-radius:12px;border:1px solid #cfd6df}
-table{width:100%;border-collapse:collapse;min-width:760px}
-th{background:#9a7200;color:white;text-align:left;padding:12px}
-td{padding:12px;border-bottom:1px solid #e1e5ea}
-tr:last-child td{border-bottom:none}
-footer{text-align:center;color:#667085;padding:24px}
-@media(max-width:600px){a.button{width:100%;text-align:center}}
+:root { --navy:#06244a; --green:#087334; --bg:#f3f6f9; --line:#d7dee7; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:Arial,Helvetica,sans-serif; background:var(--bg); color:#132238; }
+header { background:var(--navy); color:#fff; text-align:center; padding:28px 16px; }
+header h1 { margin:0 0 6px; font-size:clamp(28px,5vw,44px); }
+header p { margin:0; font-size:18px; }
+main { max-width:1050px; margin:24px auto; padding:0 14px; }
+.actions { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
+.button { display:inline-block; padding:13px 19px; border-radius:9px; text-decoration:none; font-weight:700; }
+.back { background:#fff; color:#132238; border:1px solid #c8d0da; }
+.add { background:var(--green); color:#fff; }
+.notice { background:#fff; border-left:6px solid var(--green); border-radius:10px; padding:14px 16px; margin-bottom:18px; }
+.table-wrap { overflow-x:auto; background:#fff; border:1px solid var(--line); border-radius:12px; }
+table { width:100%; border-collapse:collapse; min-width:760px; }
+th { background:var(--navy); color:#fff; text-align:left; padding:13px; }
+td { padding:13px; border-bottom:1px solid var(--line); }
+tr:last-child td { border-bottom:none; }
+footer { text-align:center; color:#667085; padding:25px; }
+@media(max-width:600px) { .button { width:100%; text-align:center; } }
 </style>
 </head>
 <body>
 <header>
-<h1>🏈 Dane — 2026 Schedule</h1>
-<p>Bonita Football Varsity</p>
+<h1>🏈 Dane — Bonita Football 2026</h1>
+<p>Varsity Schedule</p>
 </header>
 <main>
 <div class="actions">
 <a class="button back" href="index.html">🏠 Back Home</a>
-<a class="button add" href="https://calendar.google.com/calendar/ical/c9ff39b05c916553441de7f317583d37349c202f3aee114185246dfbd9d19bfe%40group.calendar.google.com/public/basic.ics">➕ Add to My Calendar</a>
+<a class="button add" href="dane-2026.ics" download>➕ Add to My Calendar</a>
 </div>
-<div class="note"><strong>All events show both time zones:</strong> Central Time first, Pacific Time second.</div>
+<div class="notice">
+<strong>All original game times are Pacific Time.</strong>
+The Central column is two hours later. The calendar file also stores every event in Pacific Time.
+</div>
 <div class="table-wrap">
 <table>
 <thead>
-<tr><th>Date</th><th>Opponent</th><th>Home/Away</th><th>Central</th><th>Pacific</th></tr>
+<tr>
+<th>Date</th><th>Opponent / Event</th><th>Location</th><th>Pacific</th><th>Central</th>
+</tr>
 </thead>
 <tbody>
-<tr><td>Sep 4, 2026</td><td>@ Western</td><td>Away</td><td>7:00 PM CT</td><td>5:00 PM PT</td></tr>
-<tr><td>Sep 11, 2026</td><td>@ San Dimas (at Mt. SAC)</td><td>Away</td><td>7:00 PM CT</td><td>5:00 PM PT</td></tr>
-<tr><td>Sep 18, 2026</td><td>vs. Schurr</td><td>Home</td><td>7:00 PM CT</td><td>5:00 PM PT</td></tr>
-<tr><td>Oct 1, 2026</td><td>vs. Colony (Thursday)</td><td>Home</td><td>7:00 PM CT</td><td>5:00 PM PT</td></tr>
-<tr><td>Oct 9, 2026</td><td>@ Northview (CDF)</td><td>Away</td><td>7:00 PM CT</td><td>5:00 PM PT</td></tr>
-<tr><td>Oct 16, 2026</td><td>vs. Ayala (Homecoming)</td><td>Home</td><td>7:00 PM CT</td><td>5:00 PM PT</td></tr>
-<tr><td>Oct 23, 2026</td><td>@ Charter Oak</td><td>Away</td><td>7:00 PM CT</td><td>5:00 PM PT</td></tr>
-<tr><td>Oct 30, 2026</td><td>vs. Glendora</td><td>Home</td><td>7:00 PM CT</td><td>5:00 PM PT</td></tr>
-<tr><td>Nov 8, 2026</td><td>UAC Tournament — 1st Round</td><td>TBA</td><td>TBA</td><td>TBA</td></tr>
-<tr><td>Nov 11, 2026</td><td>UAC Tournament — Semifinal</td><td>TBA</td><td>TBA</td><td>TBA</td></tr>
+<tr><td>8/13 (Thu)</td><td>Valley View Scrimmage (Thursday)</td><td>Home</td><td>5:00 PM</td><td>7:00 PM</td></tr><tr><td>8/21 (Fri)</td><td>vs. Muir (Senior Night)</td><td>Home</td><td>7:00 PM</td><td>9:00 PM</td></tr><tr><td>8/28 (Fri)</td><td>@ Diamond Ranch</td><td>Away</td><td>7:00 PM</td><td>9:00 PM</td></tr><tr><td>9/4 (Fri)</td><td>@ Western</td><td>Away</td><td>7:00 PM</td><td>9:00 PM</td></tr><tr><td>9/11 (Fri)</td><td>@ San Dimas (Played at Mt. SAC)</td><td>Away</td><td>7:00 PM</td><td>9:00 PM</td></tr><tr><td>9/18 (Fri)</td><td>vs. Schurr</td><td>Home</td><td>7:00 PM</td><td>9:00 PM</td></tr><tr><td>10/1 (Thu)</td><td>vs. Colony (Thursday)</td><td>Home</td><td>7:00 PM</td><td>9:00 PM</td></tr><tr><td>10/9 (Fri)</td><td>@ Northview (CDF)</td><td>Away</td><td>7:00 PM</td><td>9:00 PM</td></tr><tr><td>10/16 (Fri)</td><td>vs. Ayala (Homecoming)</td><td>Home</td><td>7:00 PM</td><td>9:00 PM</td></tr><tr><td>10/23 (Fri)</td><td>@ Charter Oak</td><td>Away</td><td>7:00 PM</td><td>9:00 PM</td></tr><tr><td>10/29 (Thu)</td><td>vs. Glendora</td><td>Home</td><td>7:00 PM</td><td>9:00 PM</td></tr>
 </tbody>
 </table>
 </div>
 </main>
-<footer>Schedule subject to change.</footer>
+<footer>Schedule transcribed from the Bonita Football 2026 Varsity schedule provided by the family.</footer>
 </body>
 </html>
