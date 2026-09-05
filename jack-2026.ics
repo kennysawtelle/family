@@ -1,0 +1,123 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sawtelle Family Sports//Jack Harn Soquel Football 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Jack Harn — Soquel Football 2026
+X-WR-TIMEZONE:America/Los_Angeles
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+X-LIC-LOCATION:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:jack-soquel-20260828-losgatos@family.kensawtelle.com
+DTSTAMP:20260905T174300Z
+DTSTART;TZID=America/Los_Angeles:20260828T193000
+DTEND;TZID=America/Los_Angeles:20260828T223000
+SUMMARY:Jack Harn — Soquel Football vs Los Gatos
+LOCATION:Soquel High School\, 401 Old San Jose Rd\, Soquel\, CA 95073
+DESCRIPTION:Soquel Knights Varsity Football. Home non-league game. Final: Soquel 0\, Los Gatos 24.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:jack-soquel-20260904-aptos@family.kensawtelle.com
+DTSTAMP:20260905T174300Z
+DTSTART;TZID=America/Los_Angeles:20260904T193000
+DTEND;TZID=America/Los_Angeles:20260904T223000
+SUMMARY:Jack Harn — Soquel Football vs Aptos
+LOCATION:Soquel High School\, 401 Old San Jose Rd\, Soquel\, CA 95073
+DESCRIPTION:Soquel Knights Varsity Football. Home non-league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:jack-soquel-20260911-oaklandtech@family.kensawtelle.com
+DTSTAMP:20260905T174300Z
+DTSTART;TZID=America/Los_Angeles:20260911T193000
+DTEND;TZID=America/Los_Angeles:20260911T223000
+SUMMARY:Jack Harn — Soquel Football at Oakland Tech
+DESCRIPTION:Soquel Knights Varsity Football. Away non-league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:jack-soquel-20260917-salinas@family.kensawtelle.com
+DTSTAMP:20260905T174300Z
+DTSTART;TZID=America/Los_Angeles:20260917T193000
+DTEND;TZID=America/Los_Angeles:20260917T223000
+SUMMARY:Jack Harn — Soquel Football at Salinas
+DESCRIPTION:Soquel Knights Varsity Football. Away league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:jack-soquel-20260925-hollister@family.kensawtelle.com
+DTSTAMP:20260905T174300Z
+DTSTART;TZID=America/Los_Angeles:20260925T193000
+DTEND;TZID=America/Los_Angeles:20260925T223000
+SUMMARY:Jack Harn — Soquel Football at Hollister
+DESCRIPTION:Soquel Knights Varsity Football. Away league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:jack-soquel-20261009-northsalinas@family.kensawtelle.com
+DTSTAMP:20260905T174300Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:Jack Harn — Soquel Football at North Salinas (Time TBA)
+DESCRIPTION:Soquel Knights Varsity Football. Away league game. Kickoff time TBA.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jack-soquel-20261015-carmel@family.kensawtelle.com
+DTSTAMP:20260905T174300Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:Jack Harn — Soquel Football vs Carmel (Time TBA)
+LOCATION:Soquel High School\, 401 Old San Jose Rd\, Soquel\, CA 95073
+DESCRIPTION:Soquel Knights Varsity Football. Home league game. Kickoff time TBA.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:jack-soquel-20261023-monterey@family.kensawtelle.com
+DTSTAMP:20260905T174300Z
+DTSTART;TZID=America/Los_Angeles:20261023T193000
+DTEND;TZID=America/Los_Angeles:20261023T223000
+SUMMARY:Jack Harn — Soquel Football at Monterey
+DESCRIPTION:Soquel Knights Varsity Football. Away league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:jack-soquel-20261030-alisal@family.kensawtelle.com
+DTSTAMP:20260905T174300Z
+DTSTART;TZID=America/Los_Angeles:20261030T193000
+DTEND;TZID=America/Los_Angeles:20261030T223000
+SUMMARY:Jack Harn — Soquel Football vs Alisal
+LOCATION:Soquel High School\, 401 Old San Jose Rd\, Soquel\, CA 95073
+DESCRIPTION:Soquel Knights Varsity Football. Home league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:jack-soquel-20261106-palma@family.kensawtelle.com
+DTSTAMP:20260905T174300Z
+DTSTART;TZID=America/Los_Angeles:20261106T193000
+DTEND;TZID=America/Los_Angeles:20261106T223000
+SUMMARY:Jack Harn — Soquel Football vs Palma
+LOCATION:Soquel High School\, 401 Old San Jose Rd\, Soquel\, CA 95073
+DESCRIPTION:Soquel Knights Varsity Football. Home league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
