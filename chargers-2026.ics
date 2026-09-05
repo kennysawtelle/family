@@ -1,0 +1,169 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sawtelle Family Sports//Los Angeles Chargers 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Los Angeles Chargers 2026
+X-WR-TIMEZONE:America/Los_Angeles
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:chargers-2026-08-13-pre1@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260813T170000
+DTEND;TZID=America/Los_Angeles:20260813T200000
+SUMMARY:Chargers @ Houston Texans
+DESCRIPTION:Los Angeles Chargers 2026 — Preseason Week 1. Away. TV: CBS2 LA.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-08-20-pre2@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260820T190000
+DTEND;TZID=America/Los_Angeles:20260820T220000
+SUMMARY:Chargers vs. San Francisco 49ers
+DESCRIPTION:Los Angeles Chargers 2026 — Preseason Week 2. Home. TV: CBS2 LA.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-08-27-pre3@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260827T190000
+DTEND;TZID=America/Los_Angeles:20260827T220000
+SUMMARY:Chargers vs. Los Angeles Rams
+DESCRIPTION:Los Angeles Chargers 2026 — Preseason Week 3. Home. TV: CBS2 LA.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-09-13-w1@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260913T132500
+DTEND;TZID=America/Los_Angeles:20260913T162500
+SUMMARY:Chargers vs. Arizona Cardinals
+DESCRIPTION:Los Angeles Chargers 2026 — Week 1. Home. TV: CBS.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-09-20-w2@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260920T130500
+DTEND;TZID=America/Los_Angeles:20260920T160500
+SUMMARY:Chargers vs. Las Vegas Raiders
+DESCRIPTION:Los Angeles Chargers 2026 — Week 2. Home. TV: CBS.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-09-27-w3@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260927T100000
+DTEND;TZID=America/Los_Angeles:20260927T130000
+SUMMARY:Chargers @ Buffalo Bills
+DESCRIPTION:Los Angeles Chargers 2026 — Week 3. Away. TV: FOX.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-10-04-w4@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261004T132500
+DTEND;TZID=America/Los_Angeles:20261004T162500
+SUMMARY:Chargers @ Seattle Seahawks
+DESCRIPTION:Los Angeles Chargers 2026 — Week 4. Away. TV: CBS.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-10-11-w5@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261011T130500
+DTEND;TZID=America/Los_Angeles:20261011T160500
+SUMMARY:Chargers vs. Denver Broncos
+DESCRIPTION:Los Angeles Chargers 2026 — Week 5. Home. TV: CBS.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-10-18-w6@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261018T132500
+DTEND;TZID=America/Los_Angeles:20261018T162500
+SUMMARY:Chargers @ Kansas City Chiefs
+DESCRIPTION:Los Angeles Chargers 2026 — Week 6. Away. TV: CBS.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-11-01-w8@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261101T130500
+DTEND;TZID=America/Los_Angeles:20261101T160500
+SUMMARY:Chargers @ Los Angeles Rams
+DESCRIPTION:Los Angeles Chargers 2026 — Week 8. Away. TV: FOX.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-11-08-w9@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261108T130500
+DTEND;TZID=America/Los_Angeles:20261108T160500
+SUMMARY:Chargers vs. Houston Texans
+DESCRIPTION:Los Angeles Chargers 2026 — Week 9. Home. TV: CBS.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-11-16-w10@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261116T171500
+DTEND;TZID=America/Los_Angeles:20261116T201500
+SUMMARY:Chargers @ Baltimore Ravens
+DESCRIPTION:Los Angeles Chargers 2026 — Week 10. Away. TV: ESPN.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-11-22-w11@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261122T130500
+DTEND;TZID=America/Los_Angeles:20261122T160500
+SUMMARY:Chargers vs. New York Jets
+DESCRIPTION:Los Angeles Chargers 2026 — Week 11. Home. TV: FOX.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-11-29-w12@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261129T172000
+DTEND;TZID=America/Los_Angeles:20261129T202000
+SUMMARY:Chargers vs. New England Patriots
+DESCRIPTION:Los Angeles Chargers 2026 — Week 12. Home. TV: NBC.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-12-06-w13@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261206T100000
+DTEND;TZID=America/Los_Angeles:20261206T130000
+SUMMARY:Chargers @ Tampa Bay Buccaneers
+DESCRIPTION:Los Angeles Chargers 2026 — Week 13. Away. TV: CBS.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-12-13-w14@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261213T130500
+DTEND;TZID=America/Los_Angeles:20261213T160500
+SUMMARY:Chargers @ Las Vegas Raiders
+DESCRIPTION:Los Angeles Chargers 2026 — Week 14. Away. TV: CBS.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-12-17-w15@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261217T171500
+DTEND;TZID=America/Los_Angeles:20261217T201500
+SUMMARY:Chargers vs. San Francisco 49ers
+DESCRIPTION:Los Angeles Chargers 2026 — Week 15. Home. TV: Prime Video.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chargers-2026-12-27-w16@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261227T100000
+DTEND;TZID=America/Los_Angeles:20261227T130000
+SUMMARY:Chargers @ Miami Dolphins
+DESCRIPTION:Los Angeles Chargers 2026 — Week 16. Away. TV: FOX.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
