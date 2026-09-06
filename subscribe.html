@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscribe to Calendar — Sawtelle Family Sports</title>
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef3f8;color:#14233b}.wrap{max-width:760px;margin:0 auto;padding:24px}.card{background:#fff;border-radius:18px;box-shadow:0 8px 20px rgba(0,0,0,.15);padding:24px}h1{margin-top:0}.btn{display:block;text-align:center;padding:15px 18px;border-radius:10px;text-decoration:none;font-weight:700;margin:12px 0}.apple{background:#111;color:#fff}.copy{background:#1a73e8;color:#fff;border:0;width:100%;font-size:16px}.back{background:#eee;color:#14233b}.url{word-break:break-all;background:#f5f7fa;padding:12px;border-radius:8px;font-family:monospace}.note{background:#fff8db;border-left:5px solid #e6b53a;padding:12px 14px;margin:18px 0;border-radius:8px}ol{padding-left:22px;line-height:1.55}</style>
+</head>
+<body><div class="wrap"><div class="card">
+<h1 id="title">Subscribe to Calendar</h1>
+<p>This is a live calendar subscription. When the source schedule is corrected or updated, subscribed calendars can refresh automatically.</p>
+<a id="apple" class="btn apple" href="#"> Subscribe on iPhone / iPad / Mac</a>
+<h2>Android / Google Calendar</h2>
+<div class="note"><strong>Google currently requires the initial “From URL” subscription to be added in Google Calendar on the web, not inside the Android app.</strong> After you add it once to your Google account, it will sync into the Google Calendar app on your Android phone.</div>
+<ol><li>On a computer, open Google Calendar.</li><li>Next to <strong>Other calendars</strong>, click <strong>+</strong>.</li><li>Choose <strong>From URL</strong>.</li><li>Paste the calendar URL below and click <strong>Add calendar</strong>.</li></ol>
+<div id="url" class="url"></div>
+<button id="copy" class="btn copy">Copy Calendar URL</button>
+<a class="btn back" href="index.html">Back to Sawtelle Family Sports</a>
+</div></div>
+<script>
+const calendars={
+'gracie':{name:'Gracie — UNA Soccer',file:'gracie-2026.ics'},
+'dane':{name:'Dane — Bonita Football',file:'dane-2026.ics'},
+'eli-soccer':{name:'Eli — Los Gatos United Soccer',file:'eli-2026-27.ics'},
+'eli-football':{name:'Eli — Santa Cruz High Football',file:'eli-football-2026.ics'},
+'jack':{name:'Jack Harn — Soquel JV Football',file:'jack-2026.ics'},
+'raiders':{name:'Las Vegas Raiders',file:'raiders-2026.ics'},
+'broncos':{name:'Denver Broncos',file:'broncos-2026.ics'},
+'49ers':{name:'San Francisco 49ers',file:'49ers-2026.ics'},
+'chargers':{name:'Los Angeles Chargers',file:'chargers-2026.ics'}
+};
+const key=new URLSearchParams(location.search).get('cal')||'gracie';
+const c=calendars[key]||calendars.gracie;
+const httpsUrl='https://family.kensawtelle.com/'+c.file;
+const webcalUrl=httpsUrl.replace(/^https:/,'webcal:');
+document.title='Subscribe — '+c.name;
+document.getElementById('title').textContent='Subscribe — '+c.name;
+document.getElementById('apple').href=webcalUrl;
+document.getElementById('url').textContent=httpsUrl;
+document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(httpsUrl);document.getElementById('copy').textContent='Copied!';}catch(e){window.prompt('Copy this calendar URL:',httpsUrl);}};
+</script>
+</body></html>
