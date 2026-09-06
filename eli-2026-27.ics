@@ -25,22 +25,24 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:eli-2026-08-23-1099265@family.kensawtelle.com
-DTSTAMP:20260823T084500Z
+DTSTAMP:20260906T203900Z
+SEQUENCE:1
 DTSTART;TZID=America/Los_Angeles:20260823T150000
 DTEND;TZID=America/Los_Angeles:20260823T170000
 SUMMARY:Eli Soccer — vs. MVLA ECNL B2008/09
-DESCRIPTION:Los Gatos United club soccer. Home. Match #1099265.
+DESCRIPTION:Los Gatos United club soccer. Home. Final: Los Gatos United 1\, MVLA 1. Match #1099265.
 LOCATION:Branham High School Stadium - Stadium
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-2026-08-30-1099313@family.kensawtelle.com
-DTSTAMP:20260823T084500Z
+DTSTAMP:20260906T203900Z
+SEQUENCE:1
 DTSTART;TZID=America/Los_Angeles:20260830T170000
 DTEND;TZID=America/Los_Angeles:20260830T190000
 SUMMARY:Eli Soccer — @ Marin FC ECNL B2008/09
-DESCRIPTION:Los Gatos United club soccer. Away. Match #1099313.
+DESCRIPTION:Los Gatos United club soccer. Away. Match #1099313. Result not reported by the available source as of Sept. 6\, 2026.
 LOCATION:Redwood High School - Stadium
 STATUS:CONFIRMED
 TRANSP:OPAQUE
