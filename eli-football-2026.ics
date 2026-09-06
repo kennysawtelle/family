@@ -1,0 +1,110 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sawtelle Family Sports//Eli Santa Cruz Varsity Football 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Eli — Santa Cruz Varsity Football 2026
+X-WR-TIMEZONE:America/Los_Angeles
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:eli-sch-football-20260828-watsonville@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260828T193000
+DTEND;TZID=America/Los_Angeles:20260828T223000
+SUMMARY:Eli — Santa Cruz Football at Watsonville
+DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 23\, Watsonville 7.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-sch-football-20260904-scottsvalley@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260904T193000
+DTEND;TZID=America/Los_Angeles:20260904T223000
+SUMMARY:Eli — Santa Cruz Football vs Scotts Valley
+LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
+DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 27\, Scotts Valley 26.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-sch-football-20260911-santaclara@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260911T193000
+DTEND;TZID=America/Los_Angeles:20260911T223000
+SUMMARY:Eli — Santa Cruz Football vs Santa Clara
+LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
+DESCRIPTION:Santa Cruz Cardinals Varsity Football. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-sch-football-20260919-pajarovalley@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260919T180000
+DTEND;TZID=America/Los_Angeles:20260919T210000
+SUMMARY:Eli — Santa Cruz Football vs Pajaro Valley
+LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 6:00 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-sch-football-20260925-seaside@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20260925T193000
+DTEND;TZID=America/Los_Angeles:20260925T223000
+SUMMARY:Eli — Santa Cruz Football at Seaside
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-sch-football-20261002-marina@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261002T193000
+DTEND;TZID=America/Los_Angeles:20261002T223000
+SUMMARY:Eli — Santa Cruz Football vs Marina
+LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-sch-football-20261008-ranchosanjuan@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261008T193000
+DTEND;TZID=America/Los_Angeles:20261008T223000
+SUMMARY:Eli — Santa Cruz Football at Rancho San Juan
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-sch-football-20261016-harbor@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261016T190000
+DTEND;TZID=America/Los_Angeles:20261016T220000
+SUMMARY:Eli — Santa Cruz Football at Harbor
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:00 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-sch-football-20261030-greenfield@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261030T193000
+DTEND;TZID=America/Los_Angeles:20261030T223000
+SUMMARY:Eli — Santa Cruz Football at Greenfield
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-sch-football-20261106-gonzales@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261106T193000
+DTEND;TZID=America/Los_Angeles:20261106T223000
+SUMMARY:Eli — Santa Cruz Football vs Gonzales
+LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
