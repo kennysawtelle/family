@@ -97,12 +97,13 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-09-06-f463b015fec9@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260907T160944Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260906T140000
 DTEND;TZID=America/Chicago:20260906T160000
 SUMMARY:Gracie Soccer — UC San Diego
 LOCATION:Triton Soccer Stadium\, La Jolla\, CA
-DESCRIPTION:University of North Alabama Women's Soccer. Away. Correct kickoff: 2:00 PM Central / 12:00 PM Pacific.
+DESCRIPTION:University of North Alabama Women's Soccer. Away. 2:00 PM Central / 12:00 PM Pacific. Final: 0-0 tie.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
