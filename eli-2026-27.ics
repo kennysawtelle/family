@@ -37,12 +37,12 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-2026-08-30-1099313@family.kensawtelle.com
-DTSTAMP:20260906T203900Z
-SEQUENCE:1
+DTSTAMP:20260907T160944Z
+SEQUENCE:2
 DTSTART;TZID=America/Los_Angeles:20260830T170000
 DTEND;TZID=America/Los_Angeles:20260830T190000
 SUMMARY:Eli Soccer — @ Marin FC ECNL B2008/09
-DESCRIPTION:Los Gatos United club soccer. Away. Match #1099313. Result not reported by the available source as of Sept. 6\, 2026.
+DESCRIPTION:Los Gatos United club soccer. Away. Final: Marin FC 1\, Los Gatos United 0. Match #1099313.
 LOCATION:Redwood High School - Stadium
 STATUS:CONFIRMED
 TRANSP:OPAQUE
