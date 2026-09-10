@@ -27,6 +27,7 @@ UID:eli-sch-football-20260828-watsonville@family.kensawtelle.com
 DTSTART;TZID=America/Los_Angeles:20260828T193000
 DTEND;TZID=America/Los_Angeles:20260828T223000
 SUMMARY:Eli — Santa Cruz Football at Watsonville
+LOCATION:Watsonville High School\, 250 E Beach St\, Watsonville\, CA 95076
 DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 23\, Watsonville 7.
 STATUS:CONFIRMED
 END:VEVENT
@@ -62,6 +63,7 @@ UID:eli-sch-football-20260925-seaside@family.kensawtelle.com
 DTSTART;TZID=America/Los_Angeles:20260925T193000
 DTEND;TZID=America/Los_Angeles:20260925T223000
 SUMMARY:Eli — Santa Cruz Football at Seaside
+LOCATION:Seaside High School\, 2200 Noche Buena St\, Seaside\, CA 93955
 DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
@@ -79,6 +81,7 @@ UID:eli-sch-football-20261008-ranchosanjuan@family.kensawtelle.com
 DTSTART;TZID=America/Los_Angeles:20261008T193000
 DTEND;TZID=America/Los_Angeles:20261008T223000
 SUMMARY:Eli — Santa Cruz Football at Rancho San Juan
+LOCATION:Rancho San Juan High School\, 1100 Rogge Rd\, Salinas\, CA 93906
 DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
@@ -87,6 +90,7 @@ UID:eli-sch-football-20261016-harbor@family.kensawtelle.com
 DTSTART;TZID=America/Los_Angeles:20261016T190000
 DTEND;TZID=America/Los_Angeles:20261016T220000
 SUMMARY:Eli — Santa Cruz Football at Harbor
+LOCATION:Harbor High School\, 300 La Fonda Ave\, Santa Cruz\, CA 95062
 DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:00 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
@@ -95,6 +99,7 @@ UID:eli-sch-football-20261030-greenfield@family.kensawtelle.com
 DTSTART;TZID=America/Los_Angeles:20261030T193000
 DTEND;TZID=America/Los_Angeles:20261030T223000
 SUMMARY:Eli — Santa Cruz Football at Greenfield
+LOCATION:Greenfield High School\, 225 S El Camino Real\, Greenfield\, CA 93927
 DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
