@@ -25,183 +25,221 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:2026-08-05-dccd26673407@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260805T180000
 DTEND;TZID=America/Chicago:20260805T200000
 SUMMARY:Gracie Soccer — Holmes Community College (Ex)
+LOCATION:Cox Creek Sports Complex\, 2500 Chisholm Rd\, Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home exhibition. 6:00 PM Central / 4:00 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-08-08-9a4d25196887@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260808T180000
 DTEND;TZID=America/Chicago:20260808T200000
 SUMMARY:Gracie Soccer — Belmont (Ex)
+LOCATION:E.S. Rose Park\, 1000 Edgehill Ave\, Nashville\, TN 37203
 DESCRIPTION:University of North Alabama Women's Soccer. Away exhibition. 6:00 PM Central / 4:00 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-08-12-287da2e54bf8@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260812T170000
 DTEND;TZID=America/Chicago:20260812T190000
 SUMMARY:Gracie Soccer — ETSU (Canceled)
+LOCATION:Summers-Taylor Stadium\, 1276 Gilbreath Dr\, Johnson City\, TN 37614
 DESCRIPTION:University of North Alabama Women's Soccer. Away game. Canceled.
 STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-08-15-616351ef1d83@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260815T130000
 DTEND;TZID=America/Chicago:20260815T150000
 SUMMARY:Gracie Soccer — UNC Asheville
+LOCATION:Greenwood Soccer Field\, 200 Field Dr\, Asheville\, NC 28804
 DESCRIPTION:University of North Alabama Women's Soccer. Away. 1:00 PM Central / 11:00 AM Pacific. Final: 3-3 tie.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-08-19-45d2d7353b56@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260819T190000
 DTEND;TZID=America/Chicago:20260819T210000
 SUMMARY:Gracie Soccer — Union (Tenn.)
+LOCATION:Cox Creek Sports Complex\, 2500 Chisholm Rd\, Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home. 7:00 PM Central / 5:00 PM Pacific. Final: UNA 6-1.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-08-23-5c5c9500d97e@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260823T180000
 DTEND;TZID=America/Chicago:20260823T200000
 SUMMARY:Gracie Soccer — Tennessee Tech
+LOCATION:Cox Creek Sports Complex\, 2500 Chisholm Rd\, Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home. 6:00 PM Central / 4:00 PM Pacific. Final: UNA 2-0.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-08-30-cc30edd3cacf@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260830T130000
 DTEND;TZID=America/Chicago:20260830T150000
 SUMMARY:Gracie Soccer — Southeast Missouri
+LOCATION:Cox Creek Sports Complex\, 2500 Chisholm Rd\, Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home. 1:00 PM Central / 11:00 AM Pacific. Final: UNA 2-1.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-09-03-f30528c1409c@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260903T210000
 DTEND;TZID=America/Chicago:20260903T230000
 SUMMARY:Gracie Soccer — California Baptist
+LOCATION:CBU Soccer Stadium\, 8432 Magnolia Ave\, Riverside\, CA 92504
 DESCRIPTION:University of North Alabama Women's Soccer. Away. 9:00 PM Central / 7:00 PM Pacific. Final: UNA 0-3.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-09-06-f463b015fec9@family.kensawtelle.com
-DTSTAMP:20260907T160944Z
-SEQUENCE:1
+DTSTAMP:20260910T001800Z
+SEQUENCE:2
 DTSTART;TZID=America/Chicago:20260906T140000
 DTEND;TZID=America/Chicago:20260906T160000
 SUMMARY:Gracie Soccer — UC San Diego
-LOCATION:Triton Soccer Stadium\, La Jolla\, CA
+LOCATION:Triton Soccer Stadium\, 9500 Gilman Dr\, La Jolla\, CA 92093
 DESCRIPTION:University of North Alabama Women's Soccer. Away. 2:00 PM Central / 12:00 PM Pacific. Final: 0-0 tie.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-09-10-97078865fc3b@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260910T180000
 DTEND;TZID=America/Chicago:20260910T200000
 SUMMARY:Gracie Soccer — Chattanooga
+LOCATION:Cox Creek Sports Complex\, 2500 Chisholm Rd\, Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home. 6:00 PM Central / 4:00 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-09-24-70089c819861@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260924T170000
 DTEND;TZID=America/Chicago:20260924T190000
 SUMMARY:Gracie Soccer — West Georgia
+LOCATION:University Soccer Field\, 1601 Maple St\, Carrollton\, GA 30118
 DESCRIPTION:University of North Alabama Women's Soccer. Away. 5:00 PM Central / 3:00 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-09-27-6929c8bc3ef5@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20260927T130000
 DTEND;TZID=America/Chicago:20260927T150000
 SUMMARY:Gracie Soccer — Austin Peay
+LOCATION:Morgan Brothers Soccer Field\, 601 College St\, Clarksville\, TN 37044
 DESCRIPTION:University of North Alabama Women's Soccer. Away. 1:00 PM Central / 11:00 AM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-04-4368e58c6604@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20261004T130000
 DTEND;TZID=America/Chicago:20261004T150000
 SUMMARY:Gracie Soccer — Eastern Kentucky
+LOCATION:Cox Creek Sports Complex\, 2500 Chisholm Rd\, Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home. 1:00 PM Central / 11:00 AM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-08-11965a63e114@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20261008T190000
 DTEND;TZID=America/Chicago:20261008T210000
 SUMMARY:Gracie Soccer — Abilene Christian
+LOCATION:Cox Creek Sports Complex\, 2500 Chisholm Rd\, Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home. 7:00 PM Central / 5:00 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-11-cd1833c1d8be@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20261011T130000
 DTEND;TZID=America/Chicago:20261011T150000
 SUMMARY:Gracie Soccer — Tarleton State
+LOCATION:Cox Creek Sports Complex\, 2500 Chisholm Rd\, Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home. 1:00 PM Central / 11:00 AM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-15-4fa747a7ac68@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20261015T180000
 DTEND;TZID=America/Chicago:20261015T200000
 SUMMARY:Gracie Soccer — Little Rock
+LOCATION:Coleman Sports Complex\, Asher Ave & S University Ave\, Little Rock\, AR 72204
 DESCRIPTION:University of North Alabama Women's Soccer. Away. 6:00 PM Central / 4:00 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-18-807fc52ac5e4@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20261018T130000
 DTEND;TZID=America/Chicago:20261018T150000
 SUMMARY:Gracie Soccer — Central Arkansas
+LOCATION:Bill Stephens Track & Soccer Complex\, 2210 Dave Ward Dr\, Conway\, AR 72034
 DESCRIPTION:University of North Alabama Women's Soccer. Away. 1:00 PM Central / 11:00 AM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-25-86ed380c3bee@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20261025T130000
 DTEND;TZID=America/Chicago:20261025T150000
 SUMMARY:Gracie Soccer — Eastern Kentucky
+LOCATION:EKU Soccer Field\, 521 Lancaster Ave\, Richmond\, KY 40475
 DESCRIPTION:University of North Alabama Women's Soccer. Away. 1:00 PM Central / 11:00 AM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-29-544355e8589d@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20261029T190000
 DTEND;TZID=America/Chicago:20261029T210000
 SUMMARY:Gracie Soccer — Austin Peay
+LOCATION:Cox Creek Sports Complex\, 2500 Chisholm Rd\, Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home. 7:00 PM Central / 5:00 PM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-01-cc9510c9792a@family.kensawtelle.com
-DTSTAMP:20260906T202500Z
+DTSTAMP:20260910T001800Z
+SEQUENCE:1
 DTSTART;TZID=America/Chicago:20261031T130000
 DTEND;TZID=America/Chicago:20261031T150000
 SUMMARY:Gracie Soccer — West Georgia
+LOCATION:Cox Creek Sports Complex\, 2500 Chisholm Rd\, Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home. Corrected date: Oct. 31. 1:00 PM Central / 11:00 AM Pacific.
 STATUS:CONFIRMED
 END:VEVENT
