@@ -34,8 +34,11 @@ document.addEventListener('DOMContentLoaded',async()=>{
     }
     const clean=s=>s.replace(/\\,/g,',').replace(/\\;/g,';').replace(/\\n/g,' ').replace(/\\\\/g,'\\');
     const loc=clean(get('LOCATION'));
+    const summary=clean(get('SUMMARY'));
+    const description=clean(get('DESCRIPTION'));
     const status=(get('STATUS')||'').toUpperCase();
-    return{day,dateKey,status,location:loc?loc.split(',')[0].trim():'TBD'};
+    const home=/\bvs\.?\s/i.test(summary)||/\bHome(?:\.|\s|$)/i.test(description);
+    return{day,dateKey,status,home,location:loc?loc.split(',')[0].trim():'TBD'};
   });
 
   let headers=[...originalHeaders];
@@ -51,6 +54,17 @@ document.addEventListener('DOMContentLoaded',async()=>{
   headRow.innerHTML='';
   headers.forEach(h=>{const th=document.createElement('th');th.textContent=h;headRow.appendChild(th)});
 
+  const teamColor=getComputedStyle(headRow.cells[0]).backgroundColor;
+  const match=teamColor.match(/rgba?\((\d+)\D+(\d+)\D+(\d+)/i);
+  let homeTint='rgb(235,242,250)';
+  if(match){
+    const mix=.16;
+    const r=Math.round(255-(255-Number(match[1]))*mix);
+    const g=Math.round(255-(255-Number(match[2]))*mix);
+    const b=Math.round(255-(255-Number(match[3]))*mix);
+    homeTint=`rgb(${r}, ${g}, ${b})`;
+  }
+
   let ei=0;
   const rendered=[];
   for(const item of originalRows){
@@ -62,6 +76,10 @@ document.addEventListener('DOMContentLoaded',async()=>{
     newValues.Location=isBye?'—':(ev?ev.location:(values.Location||'TBD'));
     row.innerHTML='';
     headers.forEach(h=>{const td=document.createElement('td');td.textContent=newValues[h]??'';row.appendChild(td)});
+    if(ev&&ev.home){
+      row.dataset.home='true';
+      [...row.cells].forEach(td=>td.style.backgroundColor=homeTint);
+    }
     if(ev)rendered.push({row,ev});
   }
 
