@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
   const teamColor=getComputedStyle(headRow.cells[0]).backgroundColor;
   const match=teamColor.match(/rgba?\((\d+)\D+(\d+)\D+(\d+)/i);
-  let homeTint='rgb(235,242,250)';
+  let homeTint='rgb(218,231,247)';
   if(match){
-    const mix=.16;
+    const mix=.30;
     const r=Math.round(255-(255-Number(match[1]))*mix);
     const g=Math.round(255-(255-Number(match[2]))*mix);
     const b=Math.round(255-(255-Number(match[3]))*mix);
