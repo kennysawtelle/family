@@ -55,13 +55,14 @@ DESCRIPTION:Preseason Week 3. Final: 49ers 18\, Raiders 12. Preseason record 2-1
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w1-20260910@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260912T151329Z
+LAST-MODIFIED:20260912T151329Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260910T173500
 DTEND;TZID=America/Los_Angeles:20260910T210500
 SUMMARY:49ers at Los Angeles Rams (Melbourne)
 LOCATION:Melbourne Cricket Ground\, Brunton Ave\, Richmond VIC 3002\, Australia
-DESCRIPTION:NFL Week 1. TV: Netflix.
+DESCRIPTION:NFL Week 1. Final: 49ers 27\, Rams 7. Regular-season record 1-0. TV: Netflix.
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w2-20260920@family.kensawtelle.com
