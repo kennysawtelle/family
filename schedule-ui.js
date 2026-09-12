@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   if(!table)return;
 
   const style=document.createElement('style');
-  style.textContent='.record-big{font-size:clamp(2.6rem,9vw,5rem);font-weight:900;line-height:1;margin:12px 0 6px}.record-asof{margin:0;font-size:.92rem;opacity:.9}.next-game td{font-weight:700}.next-game td:first-child{position:relative}.next-game td:first-child:before{content:"NEXT";display:inline-block;font-size:.68rem;letter-spacing:.04em;margin-right:7px;padding:2px 5px;border-radius:4px;background:rgba(255,255,255,.18)}';
+  style.textContent='.record-big{font-size:clamp(2.6rem,9vw,5rem);font-weight:900;line-height:1;margin:12px 0 6px}.record-asof{margin:0;font-size:.92rem;opacity:.9}';
   document.head.appendChild(style);
 
   const originalHeaders=[...table.tHead.rows[0].cells].map(c=>c.textContent.trim());
@@ -70,10 +70,8 @@ document.addEventListener('DOMContentLoaded',async()=>{
     const today=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
     const next=rendered.find(({ev})=>ev.dateKey&&ev.dateKey>=today&&ev.status!=='CANCELLED');
     if(next){
-      next.row.classList.add('next-game');
       requestAnimationFrame(()=>requestAnimationFrame(()=>{
-        const headerH=table.tHead.getBoundingClientRect().height;
-        const y=window.scrollY+next.row.getBoundingClientRect().top-headerH-8;
+        const y=window.scrollY+next.row.getBoundingClientRect().top;
         window.scrollTo({top:Math.max(0,y),behavior:'auto'});
       }));
     }
