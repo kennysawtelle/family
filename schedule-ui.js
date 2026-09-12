@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
   const teamColor=getComputedStyle(headRow.cells[0]).backgroundColor;
   const match=teamColor.match(/rgba?\((\d+)\D+(\d+)\D+(\d+)/i);
-  let homeTint='rgb(218,231,247)';
+  let homeTint='rgb(224,233,244)';
   if(match){
-    const mix=.30;
+    const mix=.26;
     const r=Math.round(255-(255-Number(match[1]))*mix);
     const g=Math.round(255-(255-Number(match[2]))*mix);
     const b=Math.round(255-(255-Number(match[3]))*mix);
@@ -89,8 +89,17 @@ document.addEventListener('DOMContentLoaded',async()=>{
     const next=rendered.find(({ev})=>ev.dateKey&&ev.dateKey>=today&&ev.status!=='CANCELLED');
     if(next){
       requestAnimationFrame(()=>requestAnimationFrame(()=>{
-        const y=window.scrollY+next.row.getBoundingClientRect().top;
-        window.scrollTo({top:Math.max(0,y),behavior:'auto'});
+        let desiredY=window.scrollY+next.row.getBoundingClientRect().top;
+        const maxScroll=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+        if(desiredY>maxScroll){
+          const spacer=document.createElement('div');
+          spacer.setAttribute('aria-hidden','true');
+          spacer.style.height=`${Math.ceil(desiredY-maxScroll+12)}px`;
+          spacer.style.pointerEvents='none';
+          document.body.appendChild(spacer);
+          desiredY=window.scrollY+next.row.getBoundingClientRect().top;
+        }
+        window.scrollTo({top:Math.max(0,desiredY),behavior:'auto'});
       }));
     }
   }
