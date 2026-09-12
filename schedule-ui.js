@@ -1,9 +1,13 @@
 document.addEventListener('DOMContentLoaded',async()=>{
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  window.scrollTo(0,0);
+
   const table=document.querySelector('table[data-ics]');
   if(!table)return;
+  const wrap=table.closest('.table-wrap');
 
   const style=document.createElement('style');
-  style.textContent='.record-big{font-size:clamp(2.6rem,9vw,5rem);font-weight:900;line-height:1;margin:12px 0 6px}.record-asof{margin:0;font-size:.92rem;opacity:.9}';
+  style.textContent='.record-big{font-size:clamp(2.6rem,9vw,5rem);font-weight:900;line-height:1;margin:12px 0 6px}.record-asof{margin:0;font-size:.92rem;opacity:.9}.table-wrap{max-height:62vh;overflow:auto}.table-wrap thead th{position:sticky;top:0;z-index:3}';
   document.head.appendChild(style);
 
   const originalHeaders=[...table.tHead.rows[0].cells].map(c=>c.textContent.trim());
@@ -83,23 +87,16 @@ document.addEventListener('DOMContentLoaded',async()=>{
     if(ev)rendered.push({row,ev});
   }
 
-  if(!location.hash){
+  if(!location.hash&&wrap){
     const now=new Date();
     const today=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
     const next=rendered.find(({ev})=>ev.dateKey&&ev.dateKey>=today&&ev.status!=='CANCELLED');
     if(next){
       requestAnimationFrame(()=>requestAnimationFrame(()=>{
-        let desiredY=window.scrollY+next.row.getBoundingClientRect().top;
-        const maxScroll=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
-        if(desiredY>maxScroll){
-          const spacer=document.createElement('div');
-          spacer.setAttribute('aria-hidden','true');
-          spacer.style.height=`${Math.ceil(desiredY-maxScroll+12)}px`;
-          spacer.style.pointerEvents='none';
-          document.body.appendChild(spacer);
-          desiredY=window.scrollY+next.row.getBoundingClientRect().top;
-        }
-        window.scrollTo({top:Math.max(0,desiredY),behavior:'auto'});
+        const rowTop=next.row.getBoundingClientRect().top-table.getBoundingClientRect().top+wrap.scrollTop;
+        const headerH=table.tHead.getBoundingClientRect().height;
+        wrap.scrollTop=Math.max(0,rowTop-headerH);
+        window.scrollTo(0,0);
       }));
     }
   }
