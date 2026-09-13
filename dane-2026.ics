@@ -69,13 +69,14 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-09-11-eedb3409386b@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260913T153500Z
+LAST-MODIFIED:20260913T153500Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260911T190000
 DTEND;TZID=America/Los_Angeles:20260911T220000
-SUMMARY:Dane Football — vs. San Dimas
+SUMMARY:Dane Football — San Dimas (Smudge Pot at Mt. SAC)
 LOCATION:Hilmer Lodge Stadium at Mt. San Antonio College\, 1100 N Grand Ave\, Walnut\, CA 91789
-DESCRIPTION:Bonita Varsity Football. Kickoff 7:00 PM Pacific.
+DESCRIPTION:Bonita Varsity Football. Neutral-site Smudge Pot rivalry game; San Dimas was the designated home team. Final: Bonita 28\, San Dimas 16. Record 4-0.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
