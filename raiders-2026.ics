@@ -55,13 +55,14 @@ DESCRIPTION:Preseason Week 3. Final: Raiders 12\, 49ers 18. Preseason record 1-2
 END:VEVENT
 BEGIN:VEVENT
 UID:raiders-w1-20260913@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260914T154300Z
+LAST-MODIFIED:20260914T154300Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260913T132500
 DTEND;TZID=America/Los_Angeles:20260913T165500
 SUMMARY:Raiders vs. Miami Dolphins
 LOCATION:Allegiant Stadium\, 3333 Al Davis Way\, Las Vegas\, NV 89118
-DESCRIPTION:NFL Week 1. TV: FOX.
+DESCRIPTION:NFL Week 1. Final: Raiders 27\, Dolphins 13. TV: FOX.
 END:VEVENT
 BEGIN:VEVENT
 UID:raiders-w2-20260920@family.kensawtelle.com
