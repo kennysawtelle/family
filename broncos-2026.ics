@@ -55,13 +55,14 @@ DESCRIPTION:Preseason Week 3. Final: Broncos 34\, Vikings 6. Preseason record 2-
 END:VEVENT
 BEGIN:VEVENT
 UID:broncos-w1-20260914@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260915T150332Z
+LAST-MODIFIED:20260915T150332Z
+SEQUENCE:3
 DTSTART;TZID=America/Denver:20260914T181500
 DTEND;TZID=America/Denver:20260914T214500
 SUMMARY:Broncos at Kansas City Chiefs
 LOCATION:GEHA Field at Arrowhead Stadium\, 1 Arrowhead Dr\, Kansas City\, MO 64129
-DESCRIPTION:NFL Week 1. TV: ESPN / ABC.
+DESCRIPTION:NFL Week 1. Final: Broncos 10\, Chiefs 31. TV: ESPN / ABC.
 END:VEVENT
 BEGIN:VEVENT
 UID:broncos-w2-20260920@family.kensawtelle.com
