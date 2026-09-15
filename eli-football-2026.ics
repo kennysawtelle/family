@@ -42,14 +42,14 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20260911-santaclara@family.kensawtelle.com
-DTSTAMP:20260912T151329Z
-LAST-MODIFIED:20260912T151329Z
-SEQUENCE:1
+DTSTAMP:20260915T150332Z
+LAST-MODIFIED:20260915T150332Z
+SEQUENCE:2
 DTSTART;TZID=America/Los_Angeles:20260912T153000
 DTEND;TZID=America/Los_Angeles:20260912T183000
 SUMMARY:Eli — Santa Cruz Football vs Santa Clara
 LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
-DESCRIPTION:Santa Cruz Cardinals Varsity Football. Rescheduled from Sept. 11; kickoff 3:30 PM Pacific.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football. Rescheduled from Sept. 11 to Sept. 12 at 3:30 PM Pacific. Final: Santa Cruz 25\, Santa Clara 28.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
