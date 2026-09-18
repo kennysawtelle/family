@@ -47,24 +47,26 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20260911-oaklandtech@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260918T154313Z
+LAST-MODIFIED:20260918T154313Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260911T171500
 DTEND;TZID=America/Los_Angeles:20260911T194500
-SUMMARY:Jack Harn — Soquel JV Football at Oakland Tech
+SUMMARY:Jack Harn — Soquel JV Football at Oakland Tech (Canceled)
 LOCATION:Oakland Technical High School\, 4351 Broadway\, Oakland\, CA 94611
-DESCRIPTION:Soquel Knights JV Football. Kickoff 5:15 PM Pacific.
-STATUS:CONFIRMED
+DESCRIPTION:Soquel Knights JV Football. This JV matchup was removed from the current Soquel and Oakland Tech JV schedules with no result published; treated as canceled/removed pending a later source correction.
+STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20260917-salinas@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260918T154313Z
+LAST-MODIFIED:20260918T154313Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260917T170000
 DTEND;TZID=America/Los_Angeles:20260917T193000
 SUMMARY:Jack Harn — Soquel JV Football at Salinas
 LOCATION:Salinas High School\, 726 S Main St\, Salinas\, CA 93901
-DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.
+DESCRIPTION:Soquel Knights JV Football. Final: Soquel 24\, Salinas 7. Record 2-1.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
