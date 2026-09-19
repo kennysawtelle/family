@@ -24,26 +24,27 @@ document.addEventListener('DOMContentLoaded',async()=>{
     return;
   }
 
-  text=text.replace(/\\r?\\n[ \\t]/g,'');
-  const events=[...text.matchAll(/BEGIN:VEVENT\\r?\\n([\\s\\S]*?)END:VEVENT/g)].map(m=>{
-    const lines=m[1].split(/\\r?\\n/);
+  text=text.replace(/\r?\n[ \t]/g,'');
+  const events=[...text.matchAll(/BEGIN:VEVENT\r?\n([\s\S]*?)END:VEVENT/g)].map(m=>{
+    const lines=m[1].split(/\r?\n/);
     const get=n=>{const l=lines.find(x=>x.startsWith(n+':')||x.startsWith(n+';'));return l?l.slice(l.indexOf(':')+1):''};
     const raw=get('DTSTART');
-    const d=(raw.match(/(\\d{8})/)||[])[1]||'';
+    const d=(raw.match(/(\d{8})/)||[])[1]||'';
     let day='TBD',dateKey='';
     if(d){
       dateKey=`${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}`;
       const dt=new Date(Date.UTC(+d.slice(0,4),+d.slice(4,6)-1,+d.slice(6,8)));
       day=dt.toLocaleDateString('en-US',{weekday:'long',timeZone:'UTC'});
     }
-    const clean=s=>s.replace(/\\\\,/g,',').replace(/\\\\;/g,';').replace(/\\\\n/g,' ').replace(/\\\\\\\\/g,'\\\\');
+    const clean=s=>s.replace(/\\,/g,',').replace(/\\;/g,';').replace(/\\n/g,' ').replace(/\\\\/g,'\\');
     const loc=clean(get('LOCATION'));
     const summary=clean(get('SUMMARY'));
     const description=clean(get('DESCRIPTION'));
     const status=(get('STATUS')||'').toUpperCase();
-    const home=/\\bvs\\.?\\s/i.test(summary)||/\\bHome(?:\\.|\\s|$)/i.test(description);
+    const home=/\bvs\.?\s/i.test(summary)||/\bHome(?:\.|\s|$)/i.test(description);
     return{day,dateKey,status,home,location:loc?loc.split(',')[0].trim():'TBD'};
   });
+
 
   const explicitStreams=(table.dataset.streams||'').split('|').map(s=>s.trim());
   const streamDefault=(table.dataset.streamDefault||'').trim();
@@ -64,7 +65,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const inferNflStream=(values,isBye)=>{
     if(isBye)return '—';
     const s=Object.values(values).join(' ');
-    if(/\\bTBD\\b/i.test(s))return 'TBD';
+    if(/\bTBD\b/i.test(s))return 'TBD';
     if(/Prime Video/i.test(s))return 'Prime Video · NFL+';
     if(/Netflix/i.test(s))return 'Netflix · NFL+';
     if(/NBC/i.test(s))return 'Peacock · NFL+';
@@ -93,14 +94,14 @@ document.addEventListener('DOMContentLoaded',async()=>{
   headers.forEach(h=>{const th=document.createElement('th');th.textContent=h;headRow.appendChild(th)});
 
   const teamColor=getComputedStyle(headRow.cells[0]).backgroundColor;
-  const match=teamColor.match(/rgba?\\((\\d+)\\D+(\\d+)\\D+(\\d+)/i);
+  const match=teamColor.match(/rgba?\((\d+)\D+(\d+)\D+(\d+)/i);
   let homeTint='rgb(224,233,244)';
   if(match){
     const mix=.26;
-    const rr=Math.round(255-(255-Number(match[1]))*mix);
-    const gg=Math.round(255-(255-Number(match[2]))*mix);
-    const bb=Math.round(255-(255-Number(match[3]))*mix);
-    homeTint=`rgb(${rr}, ${gg}, ${bb})`;
+    const r=Math.round(255-(255-Number(match[1]))*mix);
+    const g=Math.round(255-(255-Number(match[2]))*mix);
+    const b=Math.round(255-(255-Number(match[3]))*mix);
+    homeTint=`rgb(${r}, ${g}, ${b})`;
   }
 
   let ei=0;
@@ -108,15 +109,16 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const rendered=[];
   for(const item of originalRows){
     const {row,values}=item;
-    const isBye=/\\bBYE\\b/i.test(row.textContent);
+    const isBye=/\bBYE\b/i.test(row.textContent);
     const ev=isBye?null:events[ei++];
     const newValues={...values};
     newValues.Day=isBye?'—':(ev?ev.day:'TBD');
     newValues.Location=isBye?'—':(ev?ev.location:(values.Location||'TBD'));
+
     let stream='';
     if(explicitStreams[sourceRowIndex]) stream=explicitStreams[sourceRowIndex];
     else if(streamMode==='nfl') stream=inferNflStream(values,isBye);
-    else if(streamDefault) stream=isBye||/Canceled/i.test(Object.values(values).join(' '))?'—':streamDefault;
+    else if(streamDefault) stream=(isBye||/Canceled/i.test(Object.values(values).join(' ')))?'—':streamDefault;
     else stream=isBye?'—':'TBD';
     newValues.Stream=stream;
     sourceRowIndex++;
@@ -137,7 +139,9 @@ document.addEventListener('DOMContentLoaded',async()=>{
           a.rel='noopener noreferrer';
           td.appendChild(a);
         });
-      }else td.textContent=value;
+      }else{
+        td.textContent=value;
+      }
       row.appendChild(td);
     });
     if(ev&&ev.home){
