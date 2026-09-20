@@ -163,77 +163,77 @@ END:VEVENT
 BEGIN:VEVENT
 UID:chargers-2026-11-08-w9@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20261108T130500
 DTEND;TZID=America/Los_Angeles:20261108T160500
 SUMMARY:Chargers vs. Houston Texans
 LOCATION:SoFi Stadium\, 1001 S Stadium Dr\, Inglewood\, CA 90301
-DESCRIPTION:NFL Week 9. Home. TV: CBS.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
+DESCRIPTION:NFL Week 9. Home. TV: CBS.\nWatch: NFL+ — https://www.nfl.com/plus/
 STATUS:CONFIRMED
-URL:https://www.paramountplus.com/live-tv/
-X-STREAM-PROVIDER:Paramount+ · NFL+
-X-STREAM-URL:https://www.paramountplus.com/live-tv/
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
 END:VEVENT
 BEGIN:VEVENT
 UID:chargers-2026-11-16-w10@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20261116T171500
 DTEND;TZID=America/Los_Angeles:20261116T201500
 SUMMARY:Chargers @ Baltimore Ravens
 LOCATION:M&T Bank Stadium\, 1101 Russell St\, Baltimore\, MD 21230
-DESCRIPTION:NFL Week 10. Away. TV: ESPN.\nWatch: ESPN · NFL+ — https://www.espn.com/watch/
+DESCRIPTION:NFL Week 10. Away. TV: ESPN.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
 STATUS:CONFIRMED
-URL:https://www.espn.com/watch/
-X-STREAM-PROVIDER:ESPN · NFL+
-X-STREAM-URL:https://www.espn.com/watch/
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.paramountplus.com/live-tv/
+X-STREAM-PROVIDER:Paramount+ · NFL+
+X-STREAM-URL:https://www.paramountplus.com/live-tv/
 END:VEVENT
 BEGIN:VEVENT
 UID:chargers-2026-11-22-w11@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20261122T130500
 DTEND;TZID=America/Los_Angeles:20261122T160500
 SUMMARY:Chargers vs. New York Jets
 LOCATION:SoFi Stadium\, 1001 S Stadium Dr\, Inglewood\, CA 90301
-DESCRIPTION:NFL Week 11. Home. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
+DESCRIPTION:NFL Week 11. Home. TV: FOX.\nWatch: ESPN · NFL+ — https://www.espn.com/watch/
 STATUS:CONFIRMED
-URL:https://www.nfl.com/plus/
-X-STREAM-PROVIDER:NFL+
-X-STREAM-URL:https://www.nfl.com/plus/
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.espn.com/watch/
+X-STREAM-PROVIDER:ESPN · NFL+
+X-STREAM-URL:https://www.espn.com/watch/
 END:VEVENT
 BEGIN:VEVENT
 UID:chargers-2026-11-29-w12@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20261129T172000
 DTEND;TZID=America/Los_Angeles:20261129T202000
 SUMMARY:Chargers vs. New England Patriots
 LOCATION:SoFi Stadium\, 1001 S Stadium Dr\, Inglewood\, CA 90301
-DESCRIPTION:NFL Week 12. Home. TV: NBC.\nWatch: Peacock · NFL+ — https://www.peacocktv.com/sports/nfl
+DESCRIPTION:NFL Week 12. Home. TV: NBC.\nWatch: NFL+ — https://www.nfl.com/plus/
 STATUS:CONFIRMED
-URL:https://www.peacocktv.com/sports/nfl
-X-STREAM-PROVIDER:Peacock · NFL+
-X-STREAM-URL:https://www.peacocktv.com/sports/nfl
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
 END:VEVENT
 BEGIN:VEVENT
 UID:chargers-2026-12-06-w13@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20261206T100000
 DTEND;TZID=America/Los_Angeles:20261206T130000
 SUMMARY:Chargers @ Tampa Bay Buccaneers
 LOCATION:Raymond James Stadium\, 4201 N Dale Mabry Hwy\, Tampa\, FL 33607
-DESCRIPTION:NFL Week 13. Away. TV: CBS.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
+DESCRIPTION:NFL Week 13. Away. TV: CBS.\nWatch: Peacock · NFL+ — https://www.peacocktv.com/sports/nfl
 STATUS:CONFIRMED
-URL:https://www.paramountplus.com/live-tv/
-X-STREAM-PROVIDER:Paramount+ · NFL+
-X-STREAM-URL:https://www.paramountplus.com/live-tv/
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.peacocktv.com/sports/nfl
+X-STREAM-PROVIDER:Peacock · NFL+
+X-STREAM-URL:https://www.peacocktv.com/sports/nfl
 END:VEVENT
 BEGIN:VEVENT
 UID:chargers-2026-12-13-w14@family.kensawtelle.com
@@ -253,44 +253,48 @@ END:VEVENT
 BEGIN:VEVENT
 UID:chargers-2026-12-17-w15@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20261217T171500
 DTEND;TZID=America/Los_Angeles:20261217T201500
 SUMMARY:Chargers vs. San Francisco 49ers
 LOCATION:SoFi Stadium\, 1001 S Stadium Dr\, Inglewood\, CA 90301
-DESCRIPTION:NFL Week 15. Home. TV: Prime Video.\nWatch: Prime Video · NFL+ — https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
+DESCRIPTION:NFL Week 15. Home. TV: Prime Video.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
 STATUS:CONFIRMED
-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
-X-STREAM-PROVIDER:Prime Video · NFL+
-X-STREAM-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.paramountplus.com/live-tv/
+X-STREAM-PROVIDER:Paramount+ · NFL+
+X-STREAM-URL:https://www.paramountplus.com/live-tv/
 END:VEVENT
 BEGIN:VEVENT
 UID:chargers-2026-12-27-w16@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20261227T100000
 DTEND;TZID=America/Los_Angeles:20261227T130000
 SUMMARY:Chargers @ Miami Dolphins
 LOCATION:Hard Rock Stadium\, 347 Don Shula Dr\, Miami Gardens\, FL 33056
-DESCRIPTION:NFL Week 16. Away. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
+DESCRIPTION:NFL Week 16. Away. TV: FOX.\nWatch: Prime Video · NFL+ — https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
 STATUS:CONFIRMED
-URL:https://www.nfl.com/plus/
-X-STREAM-PROVIDER:NFL+
-X-STREAM-URL:https://www.nfl.com/plus/
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
+X-STREAM-PROVIDER:Prime Video · NFL+
+X-STREAM-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
 END:VEVENT
 BEGIN:VEVENT
 UID:chargers-2026-w17-tbd@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270104
 SUMMARY:TENTATIVE: Chargers vs. Chiefs — date/time TBD
 LOCATION:SoFi Stadium\, 1001 S Stadium Dr\, Inglewood\, CA 90301
-DESCRIPTION:NFL Week 17. Exact date and kickoff time TBD.
+DESCRIPTION:NFL Week 17. Exact date and kickoff time TBD.\nWatch: NFL+ — https://www.nfl.com/plus/
 STATUS:TENTATIVE
 TRANSP:TRANSPARENT
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:chargers-2026-w18-tbd@family.kensawtelle.com
