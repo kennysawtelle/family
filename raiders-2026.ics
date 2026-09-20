@@ -252,41 +252,45 @@ END:VEVENT
 BEGIN:VEVENT
 UID:raiders-w16-20261227@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20261227T130500
 DTEND;TZID=America/Los_Angeles:20261227T163500
 SUMMARY:Raiders vs. Tennessee Titans
 LOCATION:Allegiant Stadium\, 3333 Al Davis Way\, Las Vegas\, NV 89118
-DESCRIPTION:NFL Week 16. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
-URL:https://www.nfl.com/plus/
-X-STREAM-PROVIDER:NFL+
-X-STREAM-URL:https://www.nfl.com/plus/
+DESCRIPTION:NFL Week 16. TV: FOX.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.paramountplus.com/live-tv/
+X-STREAM-PROVIDER:Paramount+ · NFL+
+X-STREAM-URL:https://www.paramountplus.com/live-tv/
 END:VEVENT
 BEGIN:VEVENT
 UID:raiders-w17-20270103@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20270103T130500
 DTEND;TZID=America/Los_Angeles:20270103T163500
 SUMMARY:Raiders at Arizona Cardinals
 LOCATION:State Farm Stadium\, 1 Cardinals Dr\, Glendale\, AZ 85305
-DESCRIPTION:NFL Week 17. TV: CBS.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
-URL:https://www.paramountplus.com/live-tv/
-X-STREAM-PROVIDER:Paramount+ · NFL+
-X-STREAM-URL:https://www.paramountplus.com/live-tv/
+DESCRIPTION:NFL Week 17. TV: CBS.\nWatch: NFL+ — https://www.nfl.com/plus/
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
 END:VEVENT
 BEGIN:VEVENT
 UID:raiders-w18-tbd@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;VALUE=DATE:20270109
 DTEND;VALUE=DATE:20270111
 SUMMARY:TENTATIVE: Raiders at Chiefs — date/time TBD
 LOCATION:GEHA Field at Arrowhead Stadium\, 1 Arrowhead Dr\, Kansas City\, MO 64129
 STATUS:TENTATIVE
 TRANSP:TRANSPARENT
-DESCRIPTION:NFL Week 18. Date and kickoff time TBD.
+DESCRIPTION:NFL Week 18. Date and kickoff time TBD.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
+URL:https://www.paramountplus.com/live-tv/
+X-STREAM-PROVIDER:Paramount+ · NFL+
+X-STREAM-URL:https://www.paramountplus.com/live-tv/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 END:VCALENDAR
