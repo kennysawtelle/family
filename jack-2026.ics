@@ -25,25 +25,33 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:jack-soquel-jv-20260828-losgatos@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260828T170000
 DTEND;TZID=America/Los_Angeles:20260828T193000
 SUMMARY:Jack Harn — Soquel JV Football vs Los Gatos
 LOCATION:Soquel High School\, 401 Old San Jose Rd\, Soquel\, CA 95073
-DESCRIPTION:Soquel Knights JV Football. Final: Soquel 14\, Los Gatos 21.
+DESCRIPTION:Soquel Knights JV Football. Final: Soquel 14\, Los Gatos 21.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20260904-aptos@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260904T170000
 DTEND;TZID=America/Los_Angeles:20260904T193000
 SUMMARY:Jack Harn — Soquel JV Football vs Aptos
 LOCATION:Soquel High School\, 401 Old San Jose Rd\, Soquel\, CA 95073
-DESCRIPTION:Soquel Knights JV Football. Final: Soquel 27\, Aptos 0. Record 1-1.
+DESCRIPTION:Soquel Knights JV Football. Final: Soquel 27\, Aptos 0. Record 1-1.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20260911-oaklandtech@family.kensawtelle.com
@@ -59,81 +67,108 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20260917-salinas@family.kensawtelle.com
-DTSTAMP:20260918T154313Z
-LAST-MODIFIED:20260918T154313Z
-SEQUENCE:3
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20260917T170000
 DTEND;TZID=America/Los_Angeles:20260917T193000
 SUMMARY:Jack Harn — Soquel JV Football at Salinas
 LOCATION:Salinas High School\, 726 S Main St\, Salinas\, CA 93901
-DESCRIPTION:Soquel Knights JV Football. Final: Soquel 24\, Salinas 7. Record 2-1.
+DESCRIPTION:Soquel Knights JV Football. Final: Soquel 24\, Salinas 7. Record 2-1.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20260925-hollister@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260925T170000
 DTEND;TZID=America/Los_Angeles:20260925T193000
 SUMMARY:Jack Harn — Soquel JV Football at Hollister
 LOCATION:Hollister High School\, 1220 Monterey St\, Hollister\, CA 95023
-DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.
+DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20261009-northsalinas@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;VALUE=DATE:20261009
 DTEND;VALUE=DATE:20261010
 SUMMARY:Jack Harn — Soquel JV Football at North Salinas (Time TBA)
 LOCATION:North Salinas High School\, 55 Kip Dr\, Salinas\, CA 93906
-DESCRIPTION:Soquel Knights JV Football. Kickoff time not yet verified.
+DESCRIPTION:Soquel Knights JV Football. Kickoff time not yet verified.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 STATUS:TENTATIVE
 TRANSP:TRANSPARENT
+URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20261015-carmel@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261015T170000
 DTEND;TZID=America/Los_Angeles:20261015T193000
 SUMMARY:Jack Harn — Soquel JV Football vs Carmel
 LOCATION:Soquel High School\, 401 Old San Jose Rd\, Soquel\, CA 95073
-DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.
+DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20261023-monterey@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261023T170000
 DTEND;TZID=America/Los_Angeles:20261023T193000
 SUMMARY:Jack Harn — Soquel JV Football at Monterey
 LOCATION:Monterey High School\, 101 Herrmann Dr\, Monterey\, CA 93940
-DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.
+DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20261030-alisal@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261030T170000
 DTEND;TZID=America/Los_Angeles:20261030T193000
 SUMMARY:Jack Harn — Soquel JV Football vs Alisal
 LOCATION:Soquel High School\, 401 Old San Jose Rd\, Soquel\, CA 95073
-DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.
+DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20261106-palma@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261106T170000
 DTEND;TZID=America/Los_Angeles:20261106T193000
 SUMMARY:Jack Harn — Soquel JV Football vs Palma
 LOCATION:Soquel High School\, 401 Old San Jose Rd\, Soquel\, CA 95073
-DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.
+DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 END:VCALENDAR
