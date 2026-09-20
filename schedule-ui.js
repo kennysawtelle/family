@@ -115,10 +115,10 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const currentSchedule=location.pathname.split('/').pop()||'';
   const opponentRecords={
     'Pajaro Valley':'2–2–0',
-    'West Georgia':'Record TBD',
-    'Davis Legacy':'2–1–0',
-    'Colony':'Record TBD',
-    'Hollister':'Record TBD',
+    'West Georgia':'0–5–2',
+    'Davis Legacy':'Record TBD',
+    'Colony':'1–4–0',
+    'Hollister':'4–0–0',
     'Seaside':'2–2–0'
   };
 
