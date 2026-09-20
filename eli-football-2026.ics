@@ -28,8 +28,14 @@ DTSTART;TZID=America/Los_Angeles:20260828T193000
 DTEND;TZID=America/Los_Angeles:20260828T223000
 SUMMARY:Eli — Santa Cruz Football at Watsonville
 LOCATION:Watsonville High School\, 250 E Beach St\, Watsonville\, CA 95076
-DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 23\, Watsonville 7.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 23\, Watsonville 7.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+SEQUENCE:1
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20260904-scottsvalley@family.kensawtelle.com
@@ -37,20 +43,29 @@ DTSTART;TZID=America/Los_Angeles:20260904T193000
 DTEND;TZID=America/Los_Angeles:20260904T223000
 SUMMARY:Eli — Santa Cruz Football vs Scotts Valley
 LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
-DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 27\, Scotts Valley 26.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 27\, Scotts Valley 26.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+SEQUENCE:1
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20260911-santaclara@family.kensawtelle.com
-DTSTAMP:20260915T150332Z
-LAST-MODIFIED:20260915T150332Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260912T153000
 DTEND;TZID=America/Los_Angeles:20260912T183000
 SUMMARY:Eli — Santa Cruz Football vs Santa Clara
 LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
-DESCRIPTION:Santa Cruz Cardinals Varsity Football. Rescheduled from Sept. 11 to Sept. 12 at 3:30 PM Pacific. Final: Santa Cruz 25\, Santa Clara 28.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football. Rescheduled from Sept. 11 to Sept. 12 at 3:30 PM Pacific. Final: Santa Cruz 25\, Santa Clara 28.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20260919-pajarovalley@family.kensawtelle.com
@@ -58,8 +73,14 @@ DTSTART;TZID=America/Los_Angeles:20260919T180000
 DTEND;TZID=America/Los_Angeles:20260919T210000
 SUMMARY:Eli — Santa Cruz Football vs Pajaro Valley
 LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
-DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 6:00 PM Pacific.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 6:00 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+SEQUENCE:1
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20260925-seaside@family.kensawtelle.com
@@ -67,8 +88,14 @@ DTSTART;TZID=America/Los_Angeles:20260925T193000
 DTEND;TZID=America/Los_Angeles:20260925T223000
 SUMMARY:Eli — Santa Cruz Football at Seaside
 LOCATION:Seaside High School\, 2200 Noche Buena St\, Seaside\, CA 93955
-DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+SEQUENCE:1
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20261002-marina@family.kensawtelle.com
@@ -76,8 +103,14 @@ DTSTART;TZID=America/Los_Angeles:20261002T193000
 DTEND;TZID=America/Los_Angeles:20261002T223000
 SUMMARY:Eli — Santa Cruz Football vs Marina
 LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
-DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+SEQUENCE:1
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20261008-ranchosanjuan@family.kensawtelle.com
@@ -85,8 +118,14 @@ DTSTART;TZID=America/Los_Angeles:20261008T193000
 DTEND;TZID=America/Los_Angeles:20261008T223000
 SUMMARY:Eli — Santa Cruz Football at Rancho San Juan
 LOCATION:Rancho San Juan High School\, 1100 Rogge Rd\, Salinas\, CA 93906
-DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+SEQUENCE:1
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20261016-harbor@family.kensawtelle.com
@@ -94,8 +133,14 @@ DTSTART;TZID=America/Los_Angeles:20261016T190000
 DTEND;TZID=America/Los_Angeles:20261016T220000
 SUMMARY:Eli — Santa Cruz Football at Harbor
 LOCATION:Harbor High School\, 300 La Fonda Ave\, Santa Cruz\, CA 95062
-DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:00 PM Pacific.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:00 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+SEQUENCE:1
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20261030-greenfield@family.kensawtelle.com
@@ -103,8 +148,14 @@ DTSTART;TZID=America/Los_Angeles:20261030T193000
 DTEND;TZID=America/Los_Angeles:20261030T223000
 SUMMARY:Eli — Santa Cruz Football at Greenfield
 LOCATION:Greenfield High School\, 225 S El Camino Real\, Greenfield\, CA 93927
-DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+SEQUENCE:1
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20261106-gonzales@family.kensawtelle.com
@@ -112,7 +163,13 @@ DTSTART;TZID=America/Los_Angeles:20261106T193000
 DTEND;TZID=America/Los_Angeles:20261106T223000
 SUMMARY:Eli — Santa Cruz Football vs Gonzales
 LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
-DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.
+DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
+URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+SEQUENCE:1
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 END:VCALENDAR
