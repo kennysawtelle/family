@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded',async()=>{
     return{day,dateKey,status,home,location:loc?loc.split(',')[0].trim():'TBD'};
   });
 
-
   const explicitStreams=(table.dataset.streams||'').split('|').map(s=>s.trim());
   const streamDefault=(table.dataset.streamDefault||'').trim();
   const streamMode=(table.dataset.streamMode||'').trim();
@@ -104,10 +103,10 @@ document.addEventListener('DOMContentLoaded',async()=>{
     homeTint=`rgb(${r}, ${g}, ${b})`;
   }
 
-  const pageTitle=(document.querySelector('header h1')?.textContent||document.title).replace(/^\\W+/,'').trim();
+  const pageTitle=(document.querySelector('header h1')?.textContent||document.title).replace(/^\W+/,'').trim();
   const record=(document.querySelector('.record-big')?.textContent||'').trim();
   const sport=(document.querySelector('header p:not(.record-big):not(.record-asof)')?.textContent||pageTitle).trim();
-  const teamName=pageTitle.replace(/\\s+[—-]\\s+2026.*$/,'').replace(/\\s+[—-]\\s+.*Football.*$/,'').replace(/\\s+[—-]\\s+Los Gatos United.*$/,'').trim();
+  const teamName=pageTitle.replace(/\s+[—-]\s+2026.*$/,'').replace(/\s+[—-]\s+.*Football.*$/,'').replace(/\s+[—-]\s+Los Gatos United.*$/,'').trim();
   const resultHeader=originalHeaders.find(h=>/Result|Status/.test(h))||'';
   const opponentHeader=originalHeaders.find(h=>/Opponent/.test(h))||'Opponent';
   const haHeader=originalHeaders.includes('Home/Away')?'Home/Away':'';
@@ -115,11 +114,12 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const teamRecord=record||'Record TBD';
   const currentSchedule=location.pathname.split('/').pop()||'';
   const opponentRecords={
-    'Pajaro Valley':'2–1–0',
+    'Pajaro Valley':'2–2–0',
     'West Georgia':'Record TBD',
-    'Davis Legacy':'Record TBD',
+    'Davis Legacy':'2–1–0',
     'Colony':'Record TBD',
-    'Hollister':'Record TBD'
+    'Hollister':'Record TBD',
+    'Seaside':'2–2–0'
   };
 
   let ei=0;
@@ -168,10 +168,10 @@ document.addEventListener('DOMContentLoaded',async()=>{
     }
     if(ev){
       rendered.push({row,ev});
-      const opponent=(values[opponentHeader]||'').replace(/^vs\\.?\\s+|^@\\s*/i,'').trim();
+      const opponent=(values[opponentHeader]||'').replace(/^vs\.?\s+|^@\s*/i,'').trim();
       const ha=haHeader?(values[haHeader]||''):(/^@/.test(values[opponentHeader]||'')?'Away':'Home');
       const status=resultHeader?(values[resultHeader]||''):'';
-      const completed=/^[WLT]\\s|Final/i.test(status);
+      const completed=/^[WLT]\s|Final/i.test(status);
       const canceled=/Canceled/i.test(status);
       if(opponent&&!/BYE/i.test(opponent)&&!canceled){
         const params=new URLSearchParams({
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
           status,
           completed:completed?'1':'0',
           teamPage:currentSchedule,
-          share:'2'
+          share:'3'
         });
         const gameHref='game.html?'+params.toString();
         row.classList.add('game-link');
