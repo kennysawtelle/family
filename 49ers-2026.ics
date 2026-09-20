@@ -55,164 +55,227 @@ DESCRIPTION:Preseason Week 3. Final: 49ers 18\, Raiders 12. Preseason record 2-1
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w1-20260910@family.kensawtelle.com
-DTSTAMP:20260912T151329Z
-LAST-MODIFIED:20260912T151329Z
-SEQUENCE:3
+DTSTAMP:20260920T002100Z
+LAST-MODIFIED:20260920T002100Z
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20260910T173500
 DTEND;TZID=America/Los_Angeles:20260910T210500
 SUMMARY:49ers at Los Angeles Rams (Melbourne)
 LOCATION:Melbourne Cricket Ground\, Brunton Ave\, Richmond VIC 3002\, Australia
-DESCRIPTION:NFL Week 1. Final: 49ers 27\, Rams 7. Regular-season record 1-0. TV: Netflix.
+DESCRIPTION:NFL Week 1. Final: 49ers 27\, Rams 7. Regular-season record 1-0. TV: Netflix.\nWatch: Netflix · NFL+ — https://www.netflix.com/
+URL:https://www.netflix.com/
+X-STREAM-PROVIDER:Netflix · NFL+
+X-STREAM-URL:https://www.netflix.com/
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w2-20260920@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260920T132500
 DTEND;TZID=America/Los_Angeles:20260920T165500
 SUMMARY:49ers vs. Miami Dolphins
 LOCATION:Levi's Stadium\, 4900 Marie P DeBartolo Way\, Santa Clara\, CA 95054
-DESCRIPTION:NFL Week 2. TV: FOX.
+DESCRIPTION:NFL Week 2. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w3-20260927@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20260927T130500
 DTEND;TZID=America/Los_Angeles:20260927T163500
 SUMMARY:49ers vs. Arizona Cardinals
 LOCATION:Levi's Stadium\, 4900 Marie P DeBartolo Way\, Santa Clara\, CA 95054
-DESCRIPTION:NFL Week 3. TV: FOX.
+DESCRIPTION:NFL Week 3. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w4-20261004@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261004T132500
 DTEND;TZID=America/Los_Angeles:20261004T165500
 SUMMARY:49ers vs. Denver Broncos
 LOCATION:Levi's Stadium\, 4900 Marie P DeBartolo Way\, Santa Clara\, CA 95054
-DESCRIPTION:NFL Week 4. TV: CBS.
+DESCRIPTION:NFL Week 4. TV: CBS.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
+URL:https://www.paramountplus.com/live-tv/
+X-STREAM-PROVIDER:Paramount+ · NFL+
+X-STREAM-URL:https://www.paramountplus.com/live-tv/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w5-20261011@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261011T132500
 DTEND;TZID=America/Los_Angeles:20261011T165500
 SUMMARY:49ers at Seattle Seahawks
 LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA 98134
-DESCRIPTION:NFL Week 5. TV: FOX.
+DESCRIPTION:NFL Week 5. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w6-20261019@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261019T171500
 DTEND;TZID=America/Los_Angeles:20261019T204500
 SUMMARY:49ers vs. Washington Commanders
 LOCATION:Levi's Stadium\, 4900 Marie P DeBartolo Way\, Santa Clara\, CA 95054
-DESCRIPTION:NFL Week 6. TV: ESPN / ABC.
+DESCRIPTION:NFL Week 6. TV: ESPN / ABC.\nWatch: ESPN · NFL+ — https://www.espn.com/watch/
+URL:https://www.espn.com/watch/
+X-STREAM-PROVIDER:ESPN · NFL+
+X-STREAM-URL:https://www.espn.com/watch/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w7-20261025@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261025T100000
 DTEND;TZID=America/Los_Angeles:20261025T133000
 SUMMARY:49ers at Atlanta Falcons
 LOCATION:Mercedes-Benz Stadium\, 1 AMB Dr NW\, Atlanta\, GA 30313
-DESCRIPTION:NFL Week 7. TV: FOX.
+DESCRIPTION:NFL Week 7. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w9-20261108@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261108T130500
 DTEND;TZID=America/Los_Angeles:20261108T163500
 SUMMARY:49ers vs. Las Vegas Raiders
 LOCATION:Levi's Stadium\, 4900 Marie P DeBartolo Way\, Santa Clara\, CA 95054
-DESCRIPTION:NFL Week 9. TV: CBS.
+DESCRIPTION:NFL Week 9. TV: CBS.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
+URL:https://www.paramountplus.com/live-tv/
+X-STREAM-PROVIDER:Paramount+ · NFL+
+X-STREAM-URL:https://www.paramountplus.com/live-tv/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w10-20261115@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261115T132500
 DTEND;TZID=America/Los_Angeles:20261115T165500
 SUMMARY:49ers at Dallas Cowboys
 LOCATION:AT&T Stadium\, 1 AT&T Way\, Arlington\, TX 76011
-DESCRIPTION:NFL Week 10. TV: FOX.
+DESCRIPTION:NFL Week 10. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w11-20261122@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261122T172000
 DTEND;TZID=America/Los_Angeles:20261122T205000
 SUMMARY:49ers vs. Minnesota Vikings (Mexico City)
 LOCATION:Estadio Banorte\, Calz. de Tlalpan 3465\, Santa Ursula Coapa\, Coyoacan\, 04650 Ciudad de Mexico\, Mexico
-DESCRIPTION:NFL Week 11. TV: NBC.
+DESCRIPTION:NFL Week 11. TV: NBC.\nWatch: Peacock · NFL+ — https://www.peacocktv.com/sports/nfl
+URL:https://www.peacocktv.com/sports/nfl
+X-STREAM-PROVIDER:Peacock · NFL+
+X-STREAM-URL:https://www.peacocktv.com/sports/nfl
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w12-20261129@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261129T132500
 DTEND;TZID=America/Los_Angeles:20261129T165500
 SUMMARY:49ers vs. Seattle Seahawks
 LOCATION:Levi's Stadium\, 4900 Marie P DeBartolo Way\, Santa Clara\, CA 95054
-DESCRIPTION:NFL Week 12. TV: FOX.
+DESCRIPTION:NFL Week 12. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w13-20261206@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261206T100000
 DTEND;TZID=America/Los_Angeles:20261206T133000
 SUMMARY:49ers at New York Giants
 LOCATION:MetLife Stadium\, 1 MetLife Stadium Dr\, East Rutherford\, NJ 07073
-DESCRIPTION:NFL Week 13. TV: FOX.
+DESCRIPTION:NFL Week 13. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w14-20261213@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261213T132500
 DTEND;TZID=America/Los_Angeles:20261213T165500
 SUMMARY:49ers vs. Los Angeles Rams
 LOCATION:Levi's Stadium\, 4900 Marie P DeBartolo Way\, Santa Clara\, CA 95054
-DESCRIPTION:NFL Week 14. TV: FOX.
+DESCRIPTION:NFL Week 14. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w15-20261217@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261217T171500
 DTEND;TZID=America/Los_Angeles:20261217T204500
 SUMMARY:49ers at Los Angeles Chargers
 LOCATION:SoFi Stadium\, 1001 S Stadium Dr\, Inglewood\, CA 90301
-DESCRIPTION:NFL Week 15. TV: Prime Video.
+DESCRIPTION:NFL Week 15. TV: Prime Video.\nWatch: Prime Video · NFL+ — https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
+URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
+X-STREAM-PROVIDER:Prime Video · NFL+
+X-STREAM-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w16-20261227@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20261227T132500
 DTEND;TZID=America/Los_Angeles:20261227T165500
 SUMMARY:49ers at Kansas City Chiefs
 LOCATION:GEHA Field at Arrowhead Stadium\, 1 Arrowhead Dr\, Kansas City\, MO 64129
-DESCRIPTION:NFL Week 16. TV: CBS.
+DESCRIPTION:NFL Week 16. TV: CBS.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
+URL:https://www.paramountplus.com/live-tv/
+X-STREAM-PROVIDER:Paramount+ · NFL+
+X-STREAM-URL:https://www.paramountplus.com/live-tv/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w17-20270103@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;TZID=America/Los_Angeles:20270103T172000
 DTEND;TZID=America/Los_Angeles:20270103T205000
 SUMMARY:49ers vs. Philadelphia Eagles
 LOCATION:Levi's Stadium\, 4900 Marie P DeBartolo Way\, Santa Clara\, CA 95054
-DESCRIPTION:NFL Week 17. TV: NBC.
+DESCRIPTION:NFL Week 17. TV: NBC.\nWatch: Peacock · NFL+ — https://www.peacocktv.com/sports/nfl
+URL:https://www.peacocktv.com/sports/nfl
+X-STREAM-PROVIDER:Peacock · NFL+
+X-STREAM-URL:https://www.peacocktv.com/sports/nfl
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:49ers-w18-tbd@family.kensawtelle.com
