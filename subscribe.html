@@ -36,7 +36,7 @@ document.title='Subscribe — '+c.name;
 document.getElementById('title').textContent='Subscribe — '+c.name;
 document.getElementById('apple').href=webcalUrl;
 document.getElementById('url').textContent=httpsUrl;
-const shareUrl='https://family.kensawtelle.com/subscribe.html?cal='+encodeURIComponent(key);
+const shareUrl='https://family.kensawtelle.com/subscribe.html?cal='+encodeURIComponent(key)+'&share=20260919';
 document.getElementById('share').onclick=async()=>{if(navigator.share){try{await navigator.share({title:'Subscribe — '+c.name,text:'Subscribe to the live '+c.name+' calendar.',url:shareUrl});return;}catch(e){if(e.name==='AbortError')return;}}try{await navigator.clipboard.writeText(shareUrl);document.getElementById('share').textContent='Branded link copied!';}catch(e){window.prompt('Copy this branded calendar link:',shareUrl);}};
 document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(httpsUrl);document.getElementById('copy').textContent='Copied!';}catch(e){window.prompt('Copy this calendar URL:',httpsUrl);}};
 </script>
