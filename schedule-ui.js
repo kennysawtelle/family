@@ -113,6 +113,13 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const haHeader=originalHeaders.includes('Home/Away')?'Home/Away':'';
   const timeHeader=originalHeaders.find(h=>/Pacific|Mountain|Central|Time/.test(h))||'';
   const teamRecord=record||'Record TBD';
+  const opponentRecords={
+    'Pajaro Valley':'2–1–0',
+    'West Georgia':'Record TBD',
+    'Davis Legacy':'Record TBD',
+    'Colony':'Record TBD',
+    'Hollister':'Record TBD'
+  };
 
   let ei=0;
   let sourceRowIndex=0;
@@ -179,7 +186,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
             venue:newValues.Location||'',
             stream:newValues.Stream||'TBD',
             record:teamRecord,
-            oppRecord:'Record TBD',
+            oppRecord:opponentRecords[opponent]||'Record TBD',
             sport,
             status,
             completed:completed?'1':'0'
