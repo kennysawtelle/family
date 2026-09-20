@@ -14,7 +14,7 @@ const awayLink=document.getElementById('awayLink'),homeLink=document.getElementB
 awayLink.textContent=away;homeLink.textContent=home;
 const primaryHome=ha!=='Away';
 const primaryLink=teamPage||'index.html';
-if(primaryHome){homeLink.href=primaryLink;awayLink.href='javascript:void(0)';awayLink.setAttribute('aria-disabled','true')}else{awayLink.href=primaryLink;homeLink.href='javascript:void(0)';homeLink.setAttribute('aria-disabled','true')}
+const opponentLink='team.html?'+new URLSearchParams({name:opp,record:oppRecord||'Record TBD',sport}).toString();if(primaryHome){homeLink.href=primaryLink;awayLink.href=opponentLink}else{awayLink.href=primaryLink;homeLink.href=opponentLink}
 
 document.getElementById('records').textContent=(ha==='Away'?record:oppRecord)+'  •  '+(ha==='Away'?oppRecord:record);
 document.getElementById('meta').textContent=[date,time,venue].filter(Boolean).join(' · ');
