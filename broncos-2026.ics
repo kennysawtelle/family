@@ -196,44 +196,44 @@ END:VEVENT
 BEGIN:VEVENT
 UID:broncos-w12-20261127@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Denver:20261127T130000
 DTEND;TZID=America/Denver:20261127T163000
 SUMMARY:Broncos at Pittsburgh Steelers
 LOCATION:Acrisure Stadium\, 100 Art Rooney Ave\, Pittsburgh\, PA 15212
-DESCRIPTION:NFL Week 12. TV: Prime Video.\nWatch: Prime Video · NFL+ — https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
-X-STREAM-PROVIDER:Prime Video · NFL+
-X-STREAM-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
+DESCRIPTION:NFL Week 12. TV: Prime Video.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.paramountplus.com/live-tv/
+X-STREAM-PROVIDER:Paramount+ · NFL+
+X-STREAM-URL:https://www.paramountplus.com/live-tv/
 END:VEVENT
 BEGIN:VEVENT
 UID:broncos-w13-20261206@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Denver:20261206T140500
 DTEND;TZID=America/Denver:20261206T173500
 SUMMARY:Broncos vs. Miami Dolphins
 LOCATION:Empower Field at Mile High\, 1701 Bryant St\, Denver\, CO 80204
-DESCRIPTION:NFL Week 13. TV: FOX.\nWatch: NFL+ — https://www.nfl.com/plus/
-URL:https://www.nfl.com/plus/
-X-STREAM-PROVIDER:NFL+
-X-STREAM-URL:https://www.nfl.com/plus/
+DESCRIPTION:NFL Week 13. TV: FOX.\nWatch: Prime Video · NFL+ — https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
+X-STREAM-PROVIDER:Prime Video · NFL+
+X-STREAM-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF
 END:VEVENT
 BEGIN:VEVENT
 UID:broncos-w14-20261213@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Denver:20261213T110000
 DTEND;TZID=America/Denver:20261213T143000
 SUMMARY:Broncos at New York Jets
 LOCATION:MetLife Stadium\, 1 MetLife Stadium Dr\, East Rutherford\, NJ 07073
-DESCRIPTION:NFL Week 14. TV: CBS.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
-URL:https://www.paramountplus.com/live-tv/
-X-STREAM-PROVIDER:Paramount+ · NFL+
-X-STREAM-URL:https://www.paramountplus.com/live-tv/
+DESCRIPTION:NFL Week 14. TV: CBS.\nWatch: NFL+ — https://www.nfl.com/plus/
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.nfl.com/plus/
+X-STREAM-PROVIDER:NFL+
+X-STREAM-URL:https://www.nfl.com/plus/
 END:VEVENT
 BEGIN:VEVENT
 UID:broncos-w15-20261220@family.kensawtelle.com
@@ -252,28 +252,32 @@ END:VEVENT
 BEGIN:VEVENT
 UID:broncos-w16-20261225@family.kensawtelle.com
 DTSTAMP:20260920T002100Z
-SEQUENCE:3
+SEQUENCE:4
 DTSTART;TZID=America/Denver:20261225T143000
 DTEND;TZID=America/Denver:20261225T180000
 SUMMARY:Broncos vs. Buffalo Bills
 LOCATION:Empower Field at Mile High\, 1701 Bryant St\, Denver\, CO 80204
-DESCRIPTION:NFL Week 16. TV: Netflix.\nWatch: Netflix · NFL+ — https://www.netflix.com/
-URL:https://www.netflix.com/
-X-STREAM-PROVIDER:Netflix · NFL+
-X-STREAM-URL:https://www.netflix.com/
+DESCRIPTION:NFL Week 16. TV: Netflix.\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/
 LAST-MODIFIED:20260920T002100Z
+URL:https://www.paramountplus.com/live-tv/
+X-STREAM-PROVIDER:Paramount+ · NFL+
+X-STREAM-URL:https://www.paramountplus.com/live-tv/
 END:VEVENT
 BEGIN:VEVENT
 UID:broncos-w17-tbd@family.kensawtelle.com
-DTSTAMP:20260910T001800Z
-SEQUENCE:2
+DTSTAMP:20260920T002100Z
+SEQUENCE:3
 DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270104
 SUMMARY:TENTATIVE: Broncos at Patriots — date/time TBD
 LOCATION:Gillette Stadium\, 1 Patriot Pl\, Foxborough\, MA 02035
 STATUS:TENTATIVE
 TRANSP:TRANSPARENT
-DESCRIPTION:NFL Week 17. Date and kickoff time TBD.
+DESCRIPTION:NFL Week 17. Date and kickoff time TBD.\nWatch: Netflix · NFL+ — https://www.netflix.com/
+URL:https://www.netflix.com/
+X-STREAM-PROVIDER:Netflix · NFL+
+X-STREAM-URL:https://www.netflix.com/
+LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:broncos-w18-tbd@family.kensawtelle.com
