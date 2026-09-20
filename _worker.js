@@ -16,6 +16,18 @@ const imageFor=(teamPage,origin)=>{
 export default {
   async fetch(request,env){
     const url=new URL(request.url);
+    const nflRedirects={
+      "/raiders.html":"https://nfl.kensawtelle.com/team/lv",
+      "/broncos.html":"https://nfl.kensawtelle.com/team/den",
+      "/49ers.html":"https://nfl.kensawtelle.com/team/sf",
+      "/chargers.html":"https://nfl.kensawtelle.com/team/lac"
+    };
+    if(nflRedirects[url.pathname])return Response.redirect(nflRedirects[url.pathname],301);
+    if(url.pathname==="/subscribe.html"){
+      const cal=url.searchParams.get("cal");
+      const map={raiders:"lv",broncos:"den","49ers":"sf",chargers:"lac"};
+      if(cal&&map[cal])return Response.redirect("https://nfl.kensawtelle.com/calendar?team="+map[cal],301);
+    }
     if(url.pathname==="/game.html"||url.pathname==="/game"){
       const team=url.searchParams.get("team")||"Family Team";
       const opponent=url.searchParams.get("opponent")||"Opponent";
