@@ -13,6 +13,17 @@ const imageFor=(teamPage,origin)=>{
   };
   return new URL(map[teamPage]||"/sawtelle-family-sports-preview.jpg",origin).href;
 };
+const calendarBrand=(key,origin)=>{
+  const calendars={
+    gracie:{name:"Gracie — UNA Soccer",image:"/Gracie.jpg"},
+    dane:{name:"Dane — Bonita Football",image:"/dane.WEBP"},
+    "eli-soccer":{name:"Eli — Los Gatos United Soccer",image:"/eli-card.webp"},
+    "eli-football":{name:"Eli — Santa Cruz High Football",image:"/sawtelle-family-sports-preview.jpg"},
+    jack:{name:"Jack Harn — Soquel JV Football",image:"/jack-card-new.jpg"}
+  };
+  const item=calendars[key];
+  return item&&{...item,image:new URL(item.image,origin).href};
+};
 export default {
   async fetch(request,env){
     const url=new URL(request.url);
@@ -27,6 +38,19 @@ export default {
       const cal=url.searchParams.get("cal");
       const map={raiders:"lv",broncos:"den","49ers":"sf",chargers:"lac"};
       if(cal&&map[cal])return Response.redirect("https://nfl.kensawtelle.com/calendar?team="+map[cal],301);
+    }
+    if(url.pathname==="/subscribe.html"){
+      const brand=calendarBrand(url.searchParams.get("cal")||"",url.origin);
+      if(brand){
+        const assetUrl=new URL("/subscribe.html",url.origin);
+        const assetResponse=await env.ASSETS.fetch(new Request(assetUrl,{headers:request.headers}));
+        let html=await assetResponse.text();
+        const title=`Subscribe — ${brand.name}`;
+        const description=`Subscribe to the live ${brand.name} calendar from Sawtelle Family Sports.`;
+        const meta=`\n<meta name="description" content="${esc(description)}">\n<link rel="canonical" href="${esc(url.href)}">\n<meta property="og:type" content="website">\n<meta property="og:site_name" content="Sawtelle Family Sports">\n<meta property="og:url" content="${esc(url.href)}">\n<meta property="og:title" content="${esc(title)}">\n<meta property="og:description" content="${esc(description)}">\n<meta property="og:image" content="${esc(brand.image)}">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="${esc(title)}">\n<meta name="twitter:description" content="${esc(description)}">\n<meta name="twitter:image" content="${esc(brand.image)}">`;
+        html=html.replace(/<title>[^<]*<\/title>/,`<title>${esc(title)}</title>${meta}`);
+        return new Response(html,{status:assetResponse.status,headers:{"Content-Type":"text/html; charset=UTF-8","Cache-Control":"public, max-age=0, s-maxage=300"}});
+      }
     }
     if(url.pathname==="/game.html"||url.pathname==="/game"){
       const team=url.searchParams.get("team")||"Family Team";

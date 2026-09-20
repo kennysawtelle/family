@@ -15,7 +15,9 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef3f8;color:#1
 <div class="note"><strong>Google currently requires the initial “From URL” subscription to be added in Google Calendar on the web, not inside the Android app.</strong> After you add it once to your Google account, it will sync into the Google Calendar app on your Android phone.</div>
 <ol><li>On a computer, open Google Calendar.</li><li>Next to <strong>Other calendars</strong>, click <strong>+</strong>.</li><li>Choose <strong>From URL</strong>.</li><li>Paste the calendar URL below and click <strong>Add calendar</strong>.</li></ol>
 <div id="url" class="url"></div>
-<button id="copy" class="btn copy">Copy Calendar URL</button>
+<button id="share" class="btn copy">Share this branded calendar page</button>
+<button id="copy" class="btn back">Copy subscription feed URL</button>
+<p><small>Send the branded page above to people. Use the feed URL only inside a calendar app.</small></p>
 <a class="btn back" href="index.html">Back to Sawtelle Family Sports</a>
 </div></div>
 <script>
@@ -34,6 +36,8 @@ document.title='Subscribe — '+c.name;
 document.getElementById('title').textContent='Subscribe — '+c.name;
 document.getElementById('apple').href=webcalUrl;
 document.getElementById('url').textContent=httpsUrl;
+const shareUrl='https://family.kensawtelle.com/subscribe.html?cal='+encodeURIComponent(key);
+document.getElementById('share').onclick=async()=>{if(navigator.share){try{await navigator.share({title:'Subscribe — '+c.name,text:'Subscribe to the live '+c.name+' calendar.',url:shareUrl});return;}catch(e){if(e.name==='AbortError')return;}}try{await navigator.clipboard.writeText(shareUrl);document.getElementById('share').textContent='Branded link copied!';}catch(e){window.prompt('Copy this branded calendar link:',shareUrl);}};
 document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(httpsUrl);document.getElementById('copy').textContent='Copied!';}catch(e){window.prompt('Copy this calendar URL:',httpsUrl);}};
 </script>
 </body></html>
