@@ -187,7 +187,8 @@ document.addEventListener('DOMContentLoaded',async()=>{
           sport,
           status,
           completed:completed?'1':'0',
-          teamPage:currentSchedule
+          teamPage:currentSchedule,
+          share:'2'
         });
         const gameHref='game.html?'+params.toString();
         row.classList.add('game-link');
