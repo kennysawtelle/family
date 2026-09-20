@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const wrap=table.closest('.table-wrap');
 
   const style=document.createElement('style');
-  style.textContent='.record-big{font-size:clamp(2.6rem,9vw,5rem);font-weight:900;line-height:1;margin:12px 0 6px}.record-asof{margin:0;font-size:.92rem;opacity:.9}.table-wrap{max-height:62vh;overflow:auto}.table-wrap thead th{position:sticky;top:0;z-index:3}.stream-link{font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}tbody tr.game-link{cursor:pointer}tbody tr.game-link:hover td{filter:brightness(.97)}';
+  style.textContent='.record-big{font-size:clamp(2.6rem,9vw,5rem);font-weight:900;line-height:1;margin:12px 0 6px}.record-asof{margin:0;font-size:.92rem;opacity:.9}.table-wrap{max-height:62vh;overflow:auto}.table-wrap thead th{position:sticky;top:0;z-index:3}.stream-link{font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}.team-text-link,.game-text-link{position:relative;z-index:2;font-weight:800;color:#0b5ea8;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}.team-text-link:hover,.game-text-link:hover{color:#073f72}.game-text-link:after{content:"  ›";text-decoration:none}tbody tr.game-link{cursor:pointer}tbody tr.game-link:hover td{filter:brightness(.97)}';
   document.head.appendChild(style);
 
   const originalHeaders=[...table.tHead.rows[0].cells].map(c=>c.textContent.trim());
@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const haHeader=originalHeaders.includes('Home/Away')?'Home/Away':'';
   const timeHeader=originalHeaders.find(h=>/Pacific|Mountain|Central|Time/.test(h))||'';
   const teamRecord=record||'Record TBD';
+  const currentSchedule=location.pathname.split('/').pop()||'';
   const opponentRecords={
     'Pajaro Valley':'2–1–0',
     'West Georgia':'Record TBD',
@@ -173,25 +174,40 @@ document.addEventListener('DOMContentLoaded',async()=>{
       const completed=/^[WLT]\\s|Final/i.test(status);
       const canceled=/Canceled/i.test(status);
       if(opponent&&!/BYE/i.test(opponent)&&!canceled){
+        const params=new URLSearchParams({
+          team:teamName||pageTitle,
+          opponent,
+          ha:ha==='Away'?'Away':'Home',
+          date:values.Date||ev.dateKey||'',
+          time:timeHeader?(values[timeHeader]||''):'',
+          venue:newValues.Location||'',
+          stream:newValues.Stream||'TBD',
+          record:teamRecord,
+          oppRecord:opponentRecords[opponent]||'Record TBD',
+          sport,
+          status,
+          completed:completed?'1':'0',
+          teamPage:currentSchedule
+        });
+        const gameHref='game.html?'+params.toString();
         row.classList.add('game-link');
         row.title='Open game details and analysis';
+
+        const oppIndex=headers.indexOf(opponentHeader);
+        if(oppIndex>=0&&row.cells[oppIndex]){
+          const cell=row.cells[oppIndex];
+          cell.textContent='';
+          const a=document.createElement('a');
+          a.className='game-text-link';
+          a.href=gameHref;
+          a.textContent=values[opponentHeader]||opponent;
+          a.setAttribute('aria-label','Open game details and analysis for '+opponent);
+          cell.appendChild(a);
+        }
+
         row.addEventListener('click',event=>{
           if(event.target.closest('a'))return;
-          const params=new URLSearchParams({
-            team:teamName||pageTitle,
-            opponent,
-            ha:ha==='Away'?'Away':'Home',
-            date:values.Date||ev.dateKey||'',
-            time:timeHeader?(values[timeHeader]||''):'',
-            venue:newValues.Location||'',
-            stream:newValues.Stream||'TBD',
-            record:teamRecord,
-            oppRecord:opponentRecords[opponent]||'Record TBD',
-            sport,
-            status,
-            completed:completed?'1':'0'
-          });
-          location.href='game.html?'+params.toString();
+          location.href=gameHref;
         });
       }
     }
