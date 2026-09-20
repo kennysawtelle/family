@@ -73,14 +73,14 @@ DTSTART;TZID=America/Los_Angeles:20260919T180000
 DTEND;TZID=America/Los_Angeles:20260919T210000
 SUMMARY:Eli — Santa Cruz Football vs Pajaro Valley
 LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
-DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 6:00 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
+DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 35\, Pajaro Valley 27. Record 3-1. Pajaro Valley record 2-2.\nWatch/Replay: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 STATUS:CONFIRMED
 URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
 X-STREAM-PROVIDER:NFHS Network
 X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity
-SEQUENCE:1
-DTSTAMP:20260920T002100Z
-LAST-MODIFIED:20260920T002100Z
+SEQUENCE:2
+DTSTAMP:20260920T152000Z
+LAST-MODIFIED:20260920T152000Z
 END:VEVENT
 BEGIN:VEVENT
 UID:eli-sch-football-20260925-seaside@family.kensawtelle.com
