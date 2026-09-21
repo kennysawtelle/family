@@ -4,7 +4,7 @@ const imageFor=(teamPage,origin)=>{
     "gracie.html":"/Gracie.jpg",
     "dane.html":"/dane.WEBP",
     "eli.html":"/eli-card.webp",
-    "eli-football.html":"/sawtelle-family-sports-preview.jpg",
+    "eli-football.html":"/eli-football-card.svg",
     "jack.html":"/jack-card-new.jpg",
     "raiders.html":"/raiders-card.jpg",
     "broncos.html":"/broncos-card.webp",
@@ -18,7 +18,7 @@ const calendarBrand=(key,origin)=>{
     gracie:{name:"Gracie — UNA Soccer",image:"/Gracie.jpg"},
     dane:{name:"Dane — Bonita Football",image:"/dane.WEBP"},
     "eli-soccer":{name:"Eli — Los Gatos United Soccer",image:"/eli-card.webp"},
-    "eli-football":{name:"Eli — Santa Cruz High Football",image:"/sawtelle-family-sports-preview.jpg"},
+    "eli-football":{name:"Eli — Santa Cruz High Football",image:"/eli-football-card.svg"},
     jack:{name:"Jack Harn — Soquel JV Football",image:"/jack-card-new.jpg"}
   };
   const item=calendars[key];
