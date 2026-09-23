@@ -149,16 +149,18 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-09-24-70089c819861@family.kensawtelle.com
-DTSTAMP:20260920T002100Z
-SEQUENCE:2
+DTSTAMP:20260923T155000Z
+SEQUENCE:3
 DTSTART;TZID=America/Chicago:20260924T170000
 DTEND;TZID=America/Chicago:20260924T190000
 SUMMARY:Gracie Soccer — West Georgia
 LOCATION:University Soccer Field\, 1601 Maple St\, Carrollton\, GA 30118
-DESCRIPTION:University of North Alabama Women's Soccer. Away. 5:00 PM Central / 3:00 PM Pacific.
+DESCRIPTION:University of North Alabama Women's Soccer. Away. 5:00 PM Central / 3:00 PM Pacific.\nWatch: ESPN+ — https://www.espn.com/watch/
 STATUS:CONFIRMED
-X-STREAM-PROVIDER:TBD
-LAST-MODIFIED:20260920T002100Z
+URL:https://www.espn.com/watch/
+X-STREAM-PROVIDER:ESPN+
+X-STREAM-URL:https://www.espn.com/watch/
+LAST-MODIFIED:20260923T155000Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-09-27-6929c8bc3ef5@family.kensawtelle.com
