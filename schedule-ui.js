@@ -119,7 +119,8 @@ document.addEventListener('DOMContentLoaded',async()=>{
     'Davis Legacy':'Record TBD',
     'Colony':'1–4–0',
     'Hollister':'4–0–0',
-    'Seaside':'2–2–0'
+    'Seaside':'2–2–0',
+    'Austin Peay':'1–7–1'
   };
 
   let ei=0;
@@ -188,7 +189,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
           status,
           completed:completed?'1':'0',
           teamPage:currentSchedule,
-          share:'3'
+          share:'4'
         });
         const gameHref='game.html?'+params.toString();
         row.classList.add('game-link');
