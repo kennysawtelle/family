@@ -1,0 +1,7 @@
+name = "family"
+compatibility_date = "2026-07-29"
+pages_build_output_dir = "."
+
+[[kv_namespaces]]
+binding = "FAMILY_CONFIG"
+id = "cc173839a50440e2b57448596f185b4a"

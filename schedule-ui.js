@@ -5,15 +5,6 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const table=document.querySelector('table[data-ics]');
   if(!table)return;
   const wrap=table.closest('.table-wrap');
-  const actions=document.querySelector('.actions');
-  if(actions&&!actions.querySelector('[data-family-schedule]')){
-    const allGames=document.createElement('a');
-    allGames.className='button back';
-    allGames.dataset.familySchedule='true';
-    allGames.href='family-schedule.html';
-    allGames.textContent='📋 All Family Games';
-    actions.insertBefore(allGames,actions.children[1]||null);
-  }
 
   const scheduleNotice=document.querySelector('.notice:not(.injury-page)');
   if(scheduleNotice){
@@ -34,14 +25,18 @@ document.addEventListener('DOMContentLoaded',async()=>{
     dialog.append(title,content,close);
     scheduleNotice.replaceWith(dialog);
     document.body.appendChild(dialog);
+
     const trigger=document.createElement('button');
     trigger.className='schedule-info-link';
     trigger.type='button';
     trigger.textContent='Time & schedule info';
     trigger.addEventListener('click',()=>dialog.showModal());
+    const actions=document.querySelector('.actions');
     if(actions)actions.insertAdjacentElement('afterend',trigger);
     else document.querySelector('main')?.prepend(trigger);
-    dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
+    dialog.addEventListener('click',event=>{
+      if(event.target===dialog)dialog.close();
+    });
   }
 
   const style=document.createElement('style');
@@ -62,26 +57,8 @@ document.addEventListener('DOMContentLoaded',async()=>{
     return;
   }
 
-  text=text.replace(/\r?\n[ \t]/g,'');
-  const events=[...text.matchAll(/BEGIN:VEVENT\r?\n([\s\S]*?)END:VEVENT/g)].map(m=>{
-    const lines=m[1].split(/\r?\n/);
-    const get=n=>{const l=lines.find(x=>x.startsWith(n+':')||x.startsWith(n+';'));return l?l.slice(l.indexOf(':')+1):''};
-    const raw=get('DTSTART');
-    const d=(raw.match(/(\d{8})/)||[])[1]||'';
-    let day='TBD',dateKey='';
-    if(d){
-      dateKey=`${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}`;
-      const dt=new Date(Date.UTC(+d.slice(0,4),+d.slice(4,6)-1,+d.slice(6,8)));
-      day=dt.toLocaleDateString('en-US',{weekday:'long',timeZone:'UTC'});
-    }
-    const clean=s=>s.replace(/\\,/g,',').replace(/\\;/g,';').replace(/\\n/g,' ').replace(/\\\\/g,'\\');
-    const loc=clean(get('LOCATION'));
-    const summary=clean(get('SUMMARY'));
-    const description=clean(get('DESCRIPTION'));
-    const status=(get('STATUS')||'').toUpperCase();
-    const home=/\bvs\.?\s/i.test(summary)||/\bHome(?:\.|\s|$)/i.test(description);
-    return{day,dateKey,status,home,location:loc?loc.split(',')[0].trim():'TBD'};
-  });
+  const events=ScheduleTime.parse(text).map(ev=>({...ev,home:/\bvs\.?\s/i.test(ev.summary)||/\bHome(?:\.|\s|$)/i.test(ev.description)}));
+  const byUid=new Map(events.map(ev=>[ev.uid,ev]));
 
   const explicitStreams=(table.dataset.streams||'').split('|').map(s=>s.trim());
   const streamDefault=(table.dataset.streamDefault||'').trim();
@@ -113,6 +90,8 @@ document.addEventListener('DOMContentLoaded',async()=>{
   };
 
   let headers=[...originalHeaders];
+  if(!headers.includes('Pacific')&&!headers.includes('Time (PT)'))headers.push('Pacific');
+  if(!headers.includes('Eastern'))headers.splice(headers.indexOf('Pacific')>=0?headers.indexOf('Pacific')+1:headers.indexOf('Time (PT)')+1,0,'Eastern');
   const dateIdx=headers.indexOf('Date');
   if(!headers.includes('Day')&&dateIdx>=0)headers.splice(dateIdx+1,0,'Day');
   if(!headers.includes('Location')){
@@ -141,10 +120,10 @@ document.addEventListener('DOMContentLoaded',async()=>{
     homeTint=`rgb(${r}, ${g}, ${b})`;
   }
 
-  const pageTitle=(document.querySelector('header h1')?.textContent||document.title).replace(/^\W+/,'').trim();
+  const pageTitle=(document.querySelector('header h1')?.textContent||document.title).replace(/^\\W+/,'').trim();
   const record=(document.querySelector('.record-big')?.textContent||'').trim();
   const sport=(document.querySelector('header p:not(.record-big):not(.record-asof)')?.textContent||pageTitle).trim();
-  const teamName=pageTitle.replace(/\s+[—-]\s+2026.*$/,'').replace(/\s+[—-]\s+.*Football.*$/,'').replace(/\s+[—-]\s+Los Gatos United.*$/,'').trim();
+  const teamName=pageTitle.replace(/\\s+[—-]\\s+2026.*$/,'').replace(/\\s+[—-]\\s+.*Football.*$/,'').replace(/\\s+[—-]\\s+Los Gatos United.*$/,'').trim();
   const resultHeader=originalHeaders.find(h=>/Result|Status/.test(h))||'';
   const opponentHeader=originalHeaders.find(h=>/Opponent/.test(h))||'Opponent';
   const haHeader=originalHeaders.includes('Home/Away')?'Home/Away':'';
@@ -152,13 +131,11 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const teamRecord=record||'Record TBD';
   const currentSchedule=location.pathname.split('/').pop()||'';
   const opponentRecords={
-    'Pajaro Valley':'2–2–0',
-    'West Georgia':'0–5–2',
+    'Pajaro Valley':'2–1–0',
+    'West Georgia':'Record TBD',
     'Davis Legacy':'Record TBD',
-    'Colony':'1–4–0',
-    'Hollister':'4–0–0',
-    'Seaside':'2–2–0',
-    'Austin Peay':'1–7–1'
+    'Colony':'Record TBD',
+    'Hollister':'Record TBD'
   };
 
   let ei=0;
@@ -167,8 +144,14 @@ document.addEventListener('DOMContentLoaded',async()=>{
   for(const item of originalRows){
     const {row,values}=item;
     const isBye=/\bBYE\b/i.test(row.textContent);
-    const ev=isBye?null:events[ei++];
+    const ev=isBye?null:row.dataset.eventUid?byUid.get(row.dataset.eventUid):events[ei++];
+    if(row.dataset.eventUid&&!ev){row.hidden=true;continue;}
     const newValues={...values};
+    if(ev){
+      newValues.Date=ev.dateKey||'TBD';
+      Object.assign(newValues,ev.times);
+      if(ev.status==='CANCELLED') { newValues[resultHeader]='Canceled'; row.classList.add('canceled'); }
+    }
     newValues.Day=isBye?'—':(ev?ev.day:'TBD');
     newValues.Location=isBye?'—':(ev?ev.location:(values.Location||'TBD'));
 
@@ -207,18 +190,19 @@ document.addEventListener('DOMContentLoaded',async()=>{
     }
     if(ev){
       rendered.push({row,ev});
-      const opponent=(values[opponentHeader]||'').replace(/^vs\.?\s+|^@\s*/i,'').trim();
+      const opponent=(values[opponentHeader]||'').replace(/^vs\\.?\\s+|^@\\s*/i,'').trim();
       const ha=haHeader?(values[haHeader]||''):(/^@/.test(values[opponentHeader]||'')?'Away':'Home');
       const status=resultHeader?(values[resultHeader]||''):'';
-      const completed=/^[WLT]\s|Final/i.test(status);
+      const completed=/^[WLT]\\s|Final/i.test(status);
       const canceled=/Canceled/i.test(status);
       if(opponent&&!/BYE/i.test(opponent)&&!canceled){
         const params=new URLSearchParams({
           team:teamName||pageTitle,
           opponent,
           ha:ha==='Away'?'Away':'Home',
-          date:values.Date||ev.dateKey||'',
-          time:timeHeader?(values[timeHeader]||''):'',
+          date:newValues.Date||ev.dateKey||'',
+          uid:ev.uid,calendar:table.dataset.ics,
+          time:ev.times?`${ev.times.Pacific} / ${ev.times.Eastern}`:(timeHeader?(values[timeHeader]||''):''),
           venue:newValues.Location||'',
           stream:newValues.Stream||'TBD',
           record:teamRecord,
@@ -227,7 +211,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
           status,
           completed:completed?'1':'0',
           teamPage:currentSchedule,
-          share:'4'
+          share:'2'
         });
         const gameHref='game.html?'+params.toString();
         row.classList.add('game-link');
@@ -255,7 +239,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
   if(!location.hash&&wrap){
     const now=new Date();
-    const today=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+    const today=ScheduleTime.parts(now,ScheduleTime.pacific).slice(0,10);
     const next=rendered.find(({ev})=>ev.dateKey&&ev.dateKey>=today&&ev.status!=='CANCELLED');
     if(next){
       requestAnimationFrame(()=>requestAnimationFrame(()=>{

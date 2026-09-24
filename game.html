@@ -4,9 +4,10 @@
 <body><header><div class="top"><a href="index.html">← Sawtelle Family Sports</a><strong>Game Details & Analysis</strong></div></header>
 <section class="hero"><div class="muted" id="sport"></div><h1 id="matchup"><a id="awayLink" class="team-brand-link" href="#">Away</a><span class="matchup-sep">at</span><a id="homeLink" class="team-brand-link" href="#">Home</a></h1><div class="records" id="records"></div><p class="meta" id="meta"></p></section>
 <main class="grid"><article class="card"><h2>Game snapshot</h2><p id="snapshot"></p></article><article class="card watch"><h2>How to watch</h2><div id="watch"></div><p class="muted">A subscription, school/NFHS access, TV-provider sign-in, or local-market access may be required.</p></article><article class="card research"><h2>Matchup analysis</h2><p>Like the NFL site, this page gives you a game-specific research launch. Family/high-school/college data is less standardized than NFL data, so current analysis is generated from live web research rather than invented statistics.</p><div class="actions" id="analysis"></div><section><h3>What the analysis checks</h3><p>Current records and recent form, roster/player information when published, injuries/availability when reported, offensive and defensive strengths, prior results, venue, streaming, and matchup factors. For completed games it also asks for the verified final result.</p></section></article></main>
-<script src="chatgpt-handoff.js?v=20260920"></script><script>
+<script src="schedule-time.js?v=20260924"></script><script src="chatgpt-handoff.js?v=20260920"></script><script>
 const q=new URLSearchParams(location.search),one=k=>q.get(k)||'';
-const team=one('team'),opp=one('opponent'),ha=one('ha'),date=one('date'),time=one('time'),venue=one('venue'),stream=one('stream'),record=one('record'),oppRecord=one('oppRecord'),sport=one('sport')||'Family Sports',teamPage=one('teamPage')||'index.html';
+const teamPage=one('teamPage')||'index.html',athleteKey=teamPage.split('/').pop().replace(/\.html$/,''),athleteNames={gracie:'Gracie',dane:'Dane',eli:'Eli','eli-football':'Eli',jack:'Jack Harn'};
+const team=athleteNames[athleteKey]||one('team').replace(/^[^\p{L}\p{N}]+/u,'').replace(/\s+[—-]\s+2026 Schedule$/i,''),opp=one('opponent'),ha=one('ha'),date=one('date'),time=one('time'),venue=one('venue'),stream=one('stream'),record=one('record'),oppRecord=one('oppRecord'),sport=one('sport')||'Family Sports';
 const home=ha==='Away'?opp:team,away=ha==='Away'?team:opp;
 document.title=away+' at '+home+' | Sawtelle Family Sports';
 document.getElementById('sport').textContent=sport;
@@ -16,7 +17,7 @@ const primaryHome=ha!=='Away';
 const primaryLink=teamPage||'index.html';
 const opponentLink='team.html?'+new URLSearchParams({name:opp,record:oppRecord||'Record TBD',sport}).toString();if(primaryHome){homeLink.href=primaryLink;awayLink.href=opponentLink}else{awayLink.href=primaryLink;homeLink.href=opponentLink}
 
-document.getElementById('records').textContent=(ha==='Away'?record:oppRecord)+'  •  '+(ha==='Away'?oppRecord:record);
+document.getElementById('records').textContent=away+': '+(ha==='Away'?record:oppRecord)+'  •  '+home+': '+(ha==='Away'?oppRecord:record);
 document.getElementById('meta').textContent=[date,time,venue].filter(Boolean).join(' · ');
 document.getElementById('snapshot').textContent=team+' ('+record+') '+(ha==='Away'?'visits':'hosts')+' '+opp+(oppRecord?' ('+oppRecord+')':'')+(venue?' at '+venue:'')+'.';
 const urls={'NFHS Network':'https://www.nfhsnetwork.com/','ESPN Watch':'https://www.espn.com/watch/','ESPN+':'https://www.espn.com/watch/','NFL+':'https://www.nfl.com/plus/','Paramount+':'https://www.paramountplus.com/live-tv/','Peacock':'https://www.peacocktv.com/sports/nfl','Prime Video':'https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF','Netflix':'https://www.netflix.com/'};
@@ -25,4 +26,11 @@ if(stream&&stream!=='TBD'&&stream!=='—'){stream.split('·').map(x=>x.trim()).f
 const matchup=away+' at '+home,guard='FAMILY SPORTS MATCHUP TO RESEARCH: '+matchup+' on '+date+'. This is '+sport+'. Use only this matchup. Ignore any saved draft, earlier conversation, or reference to a different team, athlete, or game. Begin your answer with "'+matchup+'." ';
 const prompt=guard+'Search the web and give me a current, sourced game preview and analysis. Include each team\'s current record and recent form, key players and roster information available from reliable sources, injuries or availability if reported, offensive and defensive strengths and weaknesses, matchup factors, venue, kickoff time, legal streaming options, and the final score if the game is complete. Do not invent missing statistics or player information; clearly label source limitations.';
 addChatGptResearchLink({container:'analysis',prompt,label:'Ask ChatGPT about '+matchup,context:matchup});
-</script></body></html>
+
+const calendars=new Set(['gracie-2026.ics','dane-2026.ics','eli-2026-27.ics','eli-football-2026.ics','jack-2026.ics']);
+async function refreshSchedule(){
+  const calendar=one('calendar'),uid=one('uid');if(!calendars.has(calendar)||!uid)return;
+  try{const response=await fetch(calendar,{cache:'no-store'});if(!response.ok)return;const event=ScheduleTime.parse(await response.text()).find(item=>item.uid===uid);if(event)document.getElementById('meta').textContent=[event.dateKey,event.times.Pacific+' / '+event.times.Eastern,event.location,event.status==='CANCELLED'?'Canceled':''].filter(Boolean).join(' · ');}catch{}
+}
+refreshSchedule();window.addEventListener('focus',refreshSchedule);
+</script><script src="injury-ui.js?v=20260924"></script></body></html>
