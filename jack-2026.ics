@@ -97,19 +97,15 @@ LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20261009-northsalinas@family.kensawtelle.com
-DTSTAMP:20260920T002100Z
-SEQUENCE:3
+DTSTAMP:20260924T152041Z
+LAST-MODIFIED:20260924T152041Z
+SEQUENCE:4
 DTSTART;VALUE=DATE:20261009
 DTEND;VALUE=DATE:20261010
-SUMMARY:Jack Harn — Soquel JV Football at North Salinas (Time TBA)
+SUMMARY:Jack Harn — Soquel JV Football at North Salinas (Canceled)
 LOCATION:North Salinas High School\, 55 Kip Dr\, Salinas\, CA 93906
-DESCRIPTION:Soquel Knights JV Football. Kickoff time not yet verified.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
-STATUS:TENTATIVE
-TRANSP:TRANSPARENT
-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
-X-STREAM-PROVIDER:NFHS Network
-X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
-LAST-MODIFIED:20260920T002100Z
+DESCRIPTION:Soquel Knights JV Football. This JV matchup is no longer listed on the current Soquel or North Salinas JV schedules and is treated as canceled/removed pending a later source correction.
+STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20261015-carmel@family.kensawtelle.com
