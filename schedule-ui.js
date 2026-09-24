@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
   const table=document.querySelector('table[data-ics]');
   if(!table)return;
+  const actions=document.querySelector('.actions');
+  const standingsKeys={'gracie-2026.ics':'gracie','dane-2026.ics':'dane','eli-2026-27.ics':'eli','eli-football-2026.ics':'eli-football','jack-2026.ics':'jack'};
+  if(actions&&standingsKeys[table.dataset.ics]&&!actions.querySelector('[data-standings]')){
+    const standings=document.createElement('a');standings.className='button back';standings.dataset.standings='true';standings.href='standings.html?team='+standingsKeys[table.dataset.ics];standings.textContent='📊 Division Standings';actions.append(standings);
+  }
   const profileNames={'eli-2026-27.ics':'Los Gatos United','eli-football-2026.ics':'Santa Cruz High','jack-2026.ics':'Soquel High JV','dane-2026.ics':'Bonita High','gracie-2026.ics':'North Alabama'};
   const profileName=profileNames[table.dataset.ics];
   const scheduleFile=(location.pathname.split('/').filter(Boolean).pop()||'').replace(/\.html$/,'')+'.html';
