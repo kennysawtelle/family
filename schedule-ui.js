@@ -5,9 +5,47 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const table=document.querySelector('table[data-ics]');
   if(!table)return;
   const wrap=table.closest('.table-wrap');
+  const actions=document.querySelector('.actions');
+  if(actions&&!actions.querySelector('[data-family-schedule]')){
+    const allGames=document.createElement('a');
+    allGames.className='button back';
+    allGames.dataset.familySchedule='true';
+    allGames.href='family-schedule.html';
+    allGames.textContent='📋 All Family Games';
+    actions.insertBefore(allGames,actions.children[1]||null);
+  }
+
+  const scheduleNotice=document.querySelector('.notice:not(.injury-page)');
+  if(scheduleNotice){
+    const dialog=document.createElement('dialog');
+    dialog.className='schedule-info-dialog';
+    dialog.setAttribute('aria-labelledby','schedule-info-title');
+    const title=document.createElement('h2');
+    title.id='schedule-info-title';
+    title.textContent='Time & schedule info';
+    const content=document.createElement('div');
+    content.className='schedule-info-content';
+    while(scheduleNotice.firstChild)content.appendChild(scheduleNotice.firstChild);
+    const close=document.createElement('button');
+    close.className='schedule-info-close';
+    close.type='button';
+    close.textContent='Close';
+    close.addEventListener('click',()=>dialog.close());
+    dialog.append(title,content,close);
+    scheduleNotice.replaceWith(dialog);
+    document.body.appendChild(dialog);
+    const trigger=document.createElement('button');
+    trigger.className='schedule-info-link';
+    trigger.type='button';
+    trigger.textContent='Time & schedule info';
+    trigger.addEventListener('click',()=>dialog.showModal());
+    if(actions)actions.insertAdjacentElement('afterend',trigger);
+    else document.querySelector('main')?.prepend(trigger);
+    dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
+  }
 
   const style=document.createElement('style');
-  style.textContent='.record-big{font-size:clamp(2.6rem,9vw,5rem);font-weight:900;line-height:1;margin:12px 0 6px}.record-asof{margin:0;font-size:.92rem;opacity:.9}.table-wrap{max-height:62vh;overflow:auto}.table-wrap thead th{position:sticky;top:0;z-index:3}.stream-link{font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}.team-text-link,.game-text-link{position:relative;z-index:2;display:inline-block;padding:4px 7px;color:#fff3ce;background:#174d31;border:1px solid #c69339;border-radius:4px;font-weight:900;line-height:1.15;text-decoration:none}.team-text-link:hover,.team-text-link:focus-visible,.game-text-link:hover,.game-text-link:focus-visible{color:#fff;background:#0a2f1d;outline:2px solid #c12622;outline-offset:1px}.game-text-link:after{content:"  ›";color:#f0bd50}tbody tr.game-link{cursor:pointer}tbody tr.game-link:hover td{filter:brightness(.97)}';
+  style.textContent='.record-big{font-size:clamp(2.6rem,9vw,5rem);font-weight:900;line-height:1;margin:12px 0 6px}.record-asof{margin:0;font-size:.92rem;opacity:.9}.schedule-info-link{display:block;margin:-6px 0 14px;padding:5px 2px;border:0;background:transparent;color:#315c8a;font:inherit;font-size:.9rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}.schedule-info-link:focus-visible{outline:2px solid currentColor;outline-offset:3px}.schedule-info-dialog{width:min(92vw,560px);max-height:80vh;padding:22px;border:0;border-radius:14px;color:#14233b;box-shadow:0 18px 60px rgba(0,0,0,.3)}.schedule-info-dialog::backdrop{background:rgba(12,24,40,.58)}.schedule-info-dialog h2{margin:0 0 12px;font-size:1.35rem}.schedule-info-content{font-size:1rem;line-height:1.5}.schedule-info-close{width:100%;margin-top:20px;padding:12px 16px;border:0;border-radius:9px;background:#174d31;color:#fff;font:inherit;font-weight:800;cursor:pointer}.table-wrap{max-height:62vh;overflow:auto}.table-wrap thead th{position:sticky;top:0;z-index:3}.stream-link{font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}.team-text-link,.game-text-link{position:relative;z-index:2;display:inline-block;padding:4px 7px;color:#fff3ce;background:#174d31;border:1px solid #c69339;border-radius:4px;font-weight:900;line-height:1.15;text-decoration:none}.team-text-link:hover,.team-text-link:focus-visible,.game-text-link:hover,.game-text-link:focus-visible{color:#fff;background:#0a2f1d;outline:2px solid #c12622;outline-offset:1px}.game-text-link:after{content:"  ›";color:#f0bd50}tbody tr.game-link{cursor:pointer}tbody tr.game-link:hover td{filter:brightness(.97)}';
   document.head.appendChild(style);
 
   const originalHeaders=[...table.tHead.rows[0].cells].map(c=>c.textContent.trim());
