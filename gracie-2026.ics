@@ -164,16 +164,18 @@ LAST-MODIFIED:20260923T155000Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-09-27-6929c8bc3ef5@family.kensawtelle.com
-DTSTAMP:20260920T002100Z
-SEQUENCE:2
+DTSTAMP:20260924T152041Z
+SEQUENCE:3
 DTSTART;TZID=America/Chicago:20260927T130000
 DTEND;TZID=America/Chicago:20260927T150000
 SUMMARY:Gracie Soccer — Austin Peay
 LOCATION:Morgan Brothers Soccer Field\, 601 College St\, Clarksville\, TN 37044
-DESCRIPTION:University of North Alabama Women's Soccer. Away. 1:00 PM Central / 11:00 AM Pacific.
+DESCRIPTION:University of North Alabama Women's Soccer. Away. 1:00 PM Central / 11:00 AM Pacific.\nWatch: ESPN+ — https://www.espn.com/watch/
 STATUS:CONFIRMED
-X-STREAM-PROVIDER:TBD
-LAST-MODIFIED:20260920T002100Z
+URL:https://www.espn.com/watch/
+X-STREAM-PROVIDER:ESPN+
+X-STREAM-URL:https://www.espn.com/watch/
+LAST-MODIFIED:20260924T152041Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-04-4368e58c6604@family.kensawtelle.com
