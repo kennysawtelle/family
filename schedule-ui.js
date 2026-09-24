@@ -4,6 +4,22 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
   const table=document.querySelector('table[data-ics]');
   if(!table)return;
+  const profileNames={'eli-2026-27.ics':'Los Gatos United','eli-football-2026.ics':'Santa Cruz High','jack-2026.ics':'Soquel High JV','dane-2026.ics':'Bonita High','gracie-2026.ics':'North Alabama'};
+  const profileName=profileNames[table.dataset.ics];
+  const scheduleFile=(location.pathname.split('/').filter(Boolean).pop()||'').replace(/\.html$/,'')+'.html';
+  // Build useful navigation from saved rows before any network dependency.
+  const initialHeaders=[...table.tHead.rows[0].cells].map(cell=>cell.textContent.trim());
+  const opponentColumn=initialHeaders.findIndex(name=>/Opponent/i.test(name));
+  for(const row of table.tBodies[0].rows){
+    const values=Object.fromEntries(initialHeaders.map((name,i)=>[name,row.cells[i]?.textContent.trim()||'']));
+    const opponent=row.cells[opponentColumn]?.textContent.trim();
+    if(!opponent||/\bBYE\b/i.test(opponent)||/Cancel[le]*d/i.test(row.textContent))continue;
+    const query=new URLSearchParams({team:profileName||document.title,opponent:opponent.replace(/^(?:vs\.?|@)\s*/i,''),ha:values['Home/Away']==='Away'||/^@/.test(opponent)?'Away':'Home',teamPage:scheduleFile,calendar:table.dataset.ics,uid:row.dataset.eventUid||'',date:values.Date||'',venue:values.Location||'',record:document.querySelector('.record-big')?.textContent.trim()||'',recordAsOf:document.querySelector('.record-asof')?.textContent.trim()||''});
+    row.dataset.gameHref='game.html?'+query;row.classList.add('game-link');
+    const anchor=document.createElement('a');anchor.className='game-text-link';anchor.href=row.dataset.gameHref;anchor.textContent=opponent;anchor.setAttribute('aria-label','Open game details for '+opponent);row.cells[opponentColumn].replaceChildren(anchor);
+  }
+  table.addEventListener('click',event=>{if(event.target.closest('a,button,input,select'))return;const row=event.target.closest('tr[data-game-href]');if(row)location.href=row.dataset.gameHref;});
+  if(!window.ScheduleTime){try{await new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='schedule-time.js?v=20260924';script.onload=resolve;script.onerror=reject;document.head.appendChild(script)});}catch{return;}}
   const wrap=table.closest('.table-wrap');
 
   const scheduleNotice=document.querySelector('.notice:not(.injury-page)');
@@ -197,7 +213,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
       const canceled=/Canceled/i.test(status);
       if(opponent&&!/BYE/i.test(opponent)&&!canceled){
         const params=new URLSearchParams({
-          team:teamName||pageTitle,
+          team:profileName||teamName||pageTitle,
           opponent,
           ha:ha==='Away'?'Away':'Home',
           date:newValues.Date||ev.dateKey||'',
@@ -210,7 +226,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
           sport,
           status,
           completed:completed?'1':'0',
-          teamPage:currentSchedule,
+          teamPage:scheduleFile,
           share:'2'
         });
         const gameHref='game.html?'+params.toString();
@@ -229,10 +245,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
           cell.appendChild(a);
         }
 
-        row.addEventListener('click',event=>{
-          if(event.target.closest('a'))return;
-          location.href=gameHref;
-        });
+        row.dataset.gameHref=gameHref;
       }
     }
   }
