@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const opponentRecords={
     'Pajaro Valley':'2–1–0',
     'West Georgia':'0–5–2',
+    'UC San Diego':'5–2–2',
     'Davis Legacy':'Record TBD',
     'Colony':'Record TBD',
     'Hollister':'Record TBD'

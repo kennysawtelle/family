@@ -1,3 +1,6 @@
+import { singleGameCalendar } from './single-game-calendar.mjs';
+import { teams as calendarProfiles, resolveTeamPage } from './game-teams.mjs';
+import { gameResearch } from './game-research.mjs';
 const esc=(s="")=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const imageFor=(teamPage,origin)=>{
   const map={
@@ -11,12 +14,7 @@ const imageFor=(teamPage,origin)=>{
     "49ers.html":"/sawtelle-family-sports-preview.jpg",
     "chargers.html":"/sawtelle-family-sports-preview.jpg"
   };
-  const normalized=(teamPage||"").split("/").pop();
-  return new URL(map[normalized]||map[normalized+".html"]||"/sawtelle-family-sports-preview.jpg",origin).href;
-};
-const athleteNameFor=(teamPage,fallback)=>{
-  const key=(teamPage||"").split("/").pop().replace(/\.html$/,"");
-  return {gracie:"Gracie",dane:"Dane",eli:"Eli","eli-football":"Eli",jack:"Jack Harn"}[key]||fallback;
+  return new URL(map[teamPage]||"/sawtelle-family-sports-preview.jpg",origin).href;
 };
 const calendarBrand=(key,origin)=>{
   const calendars={
@@ -29,112 +27,18 @@ const calendarBrand=(key,origin)=>{
   const item=calendars[key];
   return item&&{...item,image:new URL(item.image,origin).href};
 };
-
-const familyCalendars={
-  gracie:{file:"gracie-2026.ics",name:"Gracie"},
-  dane:{file:"dane-2026.ics",name:"Dane"},
-  "eli-soccer":{file:"eli-2026-27.ics",name:"Eli"},
-  "eli-football":{file:"eli-football-2026.ics",name:"Eli"},
-  jack:{file:"jack-2026.ics",name:"Jack Harn"}
-};
-const injuryKey="family-injuries-v1";
-const json=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"private, no-store"}});
-const unfold=(text)=>text.replace(/\r?\n[ \t]/g,"");
-const cleanCalendarText=(value)=>value.replace(/\\n/g," ").replace(/\\,/g,",").replace(/\\;/g,";").replace(/\\\\/g,"\\");
-const eventFacts=(text)=>[...unfold(text).matchAll(/BEGIN:VEVENT\r?\n([\s\S]*?)\r?\nEND:VEVENT/g)].map(match=>{
-  const body=match[1];
-  const get=(name)=>body.split(/\r?\n/).find(line=>line.startsWith(name+":")||line.startsWith(name+";"))||"";
-  const start=get("DTSTART");
-  const uid=get("UID").slice(4);
-  const raw=(start.match(/:(\d{8})/)||[])[1]||"";
-  return {uid,date:raw?`${raw.slice(0,4)}-${raw.slice(4,6)}-${raw.slice(6,8)}`:"",cancelled:/^STATUS:CANCELLED$/m.test(body),sequence:Number((get("SEQUENCE").match(/:(\d+)/)||[])[1]||0)};
-});
-const affectedEvents=(facts,injury)=>{
-  if(!injury?.injured||!injury.startDate)return [];
-  const eligible=facts.filter(event=>event.uid&&event.date>=injury.startDate&&!event.cancelled);
-  if(injury.durationType==="games")return eligible.slice(0,Math.max(1,Number(injury.durationValue)||1));
-  if(injury.durationType==="weeks"){
-    const end=new Date(`${injury.startDate}T12:00:00Z`);
-    end.setUTCDate(end.getUTCDate()+Math.max(1,Number(injury.durationValue)||1)*7);
-    const endDate=end.toISOString().slice(0,10);
-    return eligible.filter(event=>event.date<endDate);
-  }
-  return eligible;
-};
-const readState=async(env)=>env.FAMILY_CONFIG?await env.FAMILY_CONFIG.get(injuryKey,"json")||{injuries:{},revisions:{}}:{injuries:{},revisions:{}};
-const foldLine=(line)=>{
-  const encoder=new TextEncoder();
-  const parts=[];
-  let current="";
-  for(const character of line){
-    const candidate=current+character;
-    if(encoder.encode(candidate).length>(parts.length?74:75)){parts.push(current);current=character;}else current=candidate;
-  }
-  if(current||!parts.length)parts.push(current);
-  return parts.map((part,index)=>(index?" ":"")+part).join("\r\n");
-};
-const applyInjuryToCalendar=(text,calendar,state)=>{
-  const injury=state.injuries?.[calendar];
-  const affected=new Set(injury?.affectedUids||[]);
-  const revisions=state.revisions?.[calendar]||{};
-  const name=familyCalendars[calendar]?.name||"Player";
-  const marker=`(Not playing — ${name} is injured)`;
-  const source=unfold(text);
-  const updated=source.replace(/BEGIN:VEVENT\r?\n([\s\S]*?)\r?\nEND:VEVENT/g,(whole,body)=>{
-    const uid=(body.match(/^UID:(.*)$/m)||[])[1]||"";
-    const revision=revisions[uid];
-    const isAffected=affected.has(uid);
-    let lines=body.split(/\r?\n/).filter(line=>!line.startsWith("X-FAMILY-INJURY:"));
-    lines=lines.map(line=>line.replace(/ \(Not playing — [^)]+ is injured\)/g,"").replace(/^DESCRIPTION:\(Not playing — [^)]+ is injured\)\\n/,"DESCRIPTION:"));
-    if(isAffected){
-      lines=lines.map(line=>line.startsWith("SUMMARY:")?`${line} ${marker}`:line.startsWith("DESCRIPTION:")?`DESCRIPTION:${marker}\\n${line.slice(12)}`:line);
-      lines.push("X-FAMILY-INJURY:TRUE");
-    }
-    if(revision){
-      lines=lines.filter(line=>!line.startsWith("SEQUENCE:")&&!line.startsWith("DTSTAMP:")&&!line.startsWith("LAST-MODIFIED:"));
-      lines.push(`SEQUENCE:${revision.sequence}`,`DTSTAMP:${revision.updatedAt}`,`LAST-MODIFIED:${revision.updatedAt}`);
-    }
-    return `BEGIN:VEVENT\n${lines.join("\n")}\nEND:VEVENT`;
-  });
-  return updated.split(/\r?\n/).map(foldLine).join("\r\n")+"\r\n";
-};
-const adminAuthorized=(request,env)=>Boolean(env.FAMILY_ADMIN_PASSWORD)&&request.headers.get("X-Admin-Password")===env.FAMILY_ADMIN_PASSWORD;
 export default {
   async fetch(request,env){
     const url=new URL(request.url);
-    if(url.pathname==="/api/injuries"){
-      const state=await readState(env);
-      if(request.method==="GET")return json({injuries:state.injuries||{}});
-      if(request.method!=="POST")return json({error:"Method not allowed"},405);
-      if(!adminAuthorized(request,env))return json({error:"Incorrect administrator password"},401);
-      if(!env.FAMILY_CONFIG)return json({error:"Injury storage is not configured"},503);
-      let input;
-      try{input=await request.json();}catch{return json({error:"Invalid request"},400);}
-      const calendar=String(input.calendar||"");
-      const definition=familyCalendars[calendar];
-      if(!definition)return json({error:"Unknown family calendar"},400);
-      const oldInjury=state.injuries?.[calendar];
-      const assetResponse=await env.ASSETS.fetch(new Request(new URL("/"+definition.file,url.origin)));
-      const source=await assetResponse.text();
-      const facts=eventFacts(source);
-      const injury=input.injured?{injured:true,startDate:String(input.startDate||""),durationType:["games","weeks","season"].includes(input.durationType)?input.durationType:"season",durationValue:Math.max(1,Number(input.durationValue)||1)}:{injured:false};
-      if(injury.injured&&!/^\d{4}-\d{2}-\d{2}$/.test(injury.startDate))return json({error:"Choose the injury start date"},400);
-      const affected=affectedEvents(facts,injury);
-      injury.affectedUids=affected.map(event=>event.uid);
-      injury.throughDate=affected.at(-1)?.date||injury.startDate||null;
-      injury.updatedAt=new Date().toISOString();
-      const changed=new Set([...(oldInjury?.affectedUids||[]),...injury.affectedUids]);
-      state.injuries={...(state.injuries||{}),[calendar]:injury};
-      state.revisions={...(state.revisions||{}),[calendar]:{...(state.revisions?.[calendar]||{})}};
-      const stamp=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d{3}Z$/,"Z");
-      for(const uid of changed){
-        const fact=facts.find(event=>event.uid===uid);
-        const previous=state.revisions[calendar][uid]?.sequence||fact?.sequence||0;
-        state.revisions[calendar][uid]={sequence:previous+1,updatedAt:stamp};
-      }
-      await env.FAMILY_CONFIG.put(injuryKey,JSON.stringify(state));
-      return json({ok:true,injury});
+    if(url.pathname==='/api/game-calendar'){
+      if(request.method!=='GET')return new Response('Method not allowed',{status:405});
+      const profile=calendarProfiles[resolveTeamPage(url.searchParams)],uid=url.searchParams.get('uid');
+      if(!profile||!uid)return new Response('Choose a game from its schedule.',{status:400});
+      const source=await env.ASSETS.fetch(new Request(new URL('/'+profile.calendar,url.origin)));
+      const calendar=source.ok?singleGameCalendar(await source.text(),uid):null;
+      return calendar?new Response(calendar,{headers:{'Content-Type':'text/calendar; charset=utf-8','Content-Disposition':'attachment; filename="game.ics"','Cache-Control':'no-store'}}):new Response('Game not found',{status:404});
     }
+    if(url.pathname==="/api/game-research") { if(request.method!=="GET") return new Response("Method not allowed",{status:405}); return gameResearch(request); }
     if(url.pathname.endsWith(".ics")){
       const feeds=new Set(["/49ers-2026.ics","/broncos-2026.ics","/chargers-2026.ics","/dane-2026.ics","/eli-2026-27.ics","/eli-football-2026.ics","/gracie-2026.ics","/jack-2026.ics","/raiders-2026.ics"]);
       if(!feeds.has(url.pathname))return new Response("Calendar not found",{status:404});
@@ -143,11 +47,6 @@ export default {
       headers.set("Content-Type","text/calendar; charset=utf-8");
       headers.set("Content-Disposition",'inline; filename="'+url.pathname.slice(1)+'"');
       headers.set("Cache-Control","private, no-store");
-      const calendar=Object.entries(familyCalendars).find(([,item])=>"/"+item.file===url.pathname)?.[0];
-      if(calendar&&response.ok){
-        const state=await readState(env);
-        return new Response(applyInjuryToCalendar(await response.text(),calendar,state),{status:response.status,headers});
-      }
       return new Response(response.body,{status:response.status,headers});
     }
     const nflRedirects={
@@ -176,8 +75,7 @@ export default {
       }
     }
     if(url.pathname==="/game.html"||url.pathname==="/game"){
-      const teamPage=url.searchParams.get("teamPage")||"";
-      const team=athleteNameFor(teamPage,url.searchParams.get("team")||"Family Team");
+      const team=url.searchParams.get("team")||"Family Team";
       const opponent=url.searchParams.get("opponent")||"Opponent";
       const ha=url.searchParams.get("ha")||"Home";
       const date=url.searchParams.get("date")||"";
@@ -186,6 +84,7 @@ export default {
       const record=url.searchParams.get("record")||"";
       const oppRecord=url.searchParams.get("oppRecord")||"";
       const sport=url.searchParams.get("sport")||"Sawtelle Family Sports";
+      const teamPage=url.searchParams.get("teamPage")||"";
       const home=ha==="Away"?opponent:team;
       const away=ha==="Away"?team:opponent;
       const awayRecord=ha==="Away"?record:oppRecord;
