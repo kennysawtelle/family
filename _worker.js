@@ -1,6 +1,7 @@
 import { singleGameCalendar } from './single-game-calendar.mjs';
 import { teams as calendarProfiles, resolveTeamPage } from './game-teams.mjs';
 import { gameResearch } from './game-research.mjs';
+import { ncaaWomenStats } from './ncaa-wsoc.mjs';
 const esc=(s="")=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const imageFor=(teamPage,origin)=>{
   const map={
@@ -30,6 +31,10 @@ const calendarBrand=(key,origin)=>{
 export default {
   async fetch(request,env){
     const url=new URL(request.url);
+    if(url.pathname==='/api/ncaa-wsoc'){
+      if(request.method!=='GET')return new Response('Method not allowed',{status:405});
+      return ncaaWomenStats(request);
+    }
     if(url.pathname==='/api/game-calendar'){
       if(request.method!=='GET')return new Response('Method not allowed',{status:405});
       const profile=calendarProfiles[resolveTeamPage(url.searchParams)],uid=url.searchParams.get('uid');
