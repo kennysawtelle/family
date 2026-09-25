@@ -12,8 +12,8 @@ function render(){
 }
 function build(results){
   const records=results[0];
-  let tiedRank='';
-  const rankedRows=records.rows.map(row=>{if(row[0]!=='-'&&row[0]!=='—')tiedRank=row[0];return [row[0]==='-'||row[0]==='—'?tiedRank:row[0],...row.slice(1)]});
+  let denseRank=0;
+  const rankedRows=records.rows.map(row=>{if(row[0]!=='-'&&row[0]!=='—')denseRank+=1;return [String(denseRank),...row.slice(1)]});
   const recordRows=new Map(rankedRows.map(row=>[row[1],row]));
   const metricMaps=results.slice(1).map(result=>new Map(result.rows.map(row=>[row[1],row.at(-1)])));
   data={headers:[...records.headers,...categories.slice(1).map(([,name])=>name)],rows:[...recordRows.values()].map(row=>[...row,...metricMaps.map(map=>map.get(row[1])??'—')])};
