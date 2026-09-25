@@ -11,7 +11,10 @@ function render(){
   body.replaceChildren(...rows.map(row=>{const tr=document.createElement('tr'),familyTeam=row.some(isUna);if(familyTeam)tr.className='mine';row.forEach((value,index)=>{const td=document.createElement('td');td.textContent=value;if(familyTeam&&index===1){const badge=document.createElement('span');badge.className='family-team';badge.textContent='Family athlete team';td.append(badge)}tr.append(td)});return tr}));
 }
 function build(results){
-  const records=results[0],recordRows=new Map(records.rows.map(row=>[row[1],row]));
+  const records=results[0];
+  let tiedRank='';
+  const rankedRows=records.rows.map(row=>{if(row[0]!=='-'&&row[0]!=='—')tiedRank=row[0];return [row[0]==='-'||row[0]==='—'?tiedRank:row[0],...row.slice(1)]});
+  const recordRows=new Map(rankedRows.map(row=>[row[1],row]));
   const metricMaps=results.slice(1).map(result=>new Map(result.rows.map(row=>[row[1],row.at(-1)])));
   data={headers:[...records.headers,...categories.slice(1).map(([,name])=>name)],rows:[...recordRows.values()].map(row=>[...row,...metricMaps.map(map=>map.get(row[1])??'—')])};
   data.headers.forEach((label,index)=>{const th=document.createElement('th');th.dataset.label=label;th.tabIndex=0;th.setAttribute('role','button');th.setAttribute('aria-label','Sort by '+label);th.onclick=()=>{if(sortIndex===index)ascending=!ascending;else{sortIndex=index;ascending=index===0||/team/i.test(label)}render()};th.onkeydown=event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();th.click()}};head.append(th)});
