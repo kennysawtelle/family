@@ -10,13 +10,15 @@ function render(){
   const rows=[...data.rows].sort((a,b)=>{const left=number(a[sortIndex]),right=number(b[sortIndex]);let comparison;if(left===null&&right!==null)comparison=1;else if(left!==null&&right===null)comparison=-1;else comparison=left!==null?left-right:String(a[sortIndex]).localeCompare(String(b[sortIndex]),undefined,{numeric:true});return ascending?comparison:-comparison});
   body.replaceChildren(...rows.map(row=>{const tr=document.createElement('tr'),familyTeam=row.some(isUna);if(familyTeam)tr.className='mine';row.forEach((value,index)=>{const td=document.createElement('td');td.textContent=value;if(familyTeam&&index===1){const badge=document.createElement('span');badge.className='family-team';badge.textContent='Family athlete team';td.append(badge)}tr.append(td)});return tr}));
 }
-function build(results){
+const teamKey=value=>String(value||'').toLowerCase().replace(/\./g,'').replace(/^north alabama$/,'north ala').trim();
+function build(results,conferenceRows=[]){
   const records=results[0];
   let denseRank=0;
   const rankedRows=records.rows.map(row=>{if(row[0]!=='-'&&row[0]!=='—')denseRank+=1;return [String(denseRank),...row.slice(1)]});
   const recordRows=new Map(rankedRows.map(row=>[row[1],row]));
   const metricMaps=results.slice(1).map(result=>new Map(result.rows.map(row=>[row[1],row.at(-1)])));
-  data={headers:[...records.headers,...categories.slice(1).map(([,name])=>name)],rows:[...recordRows.values()].map(row=>[...row,...metricMaps.map(map=>map.get(row[1])??'—')])};
+  const conference=new Map(conferenceRows.map(row=>[teamKey(row.team),row]));
+  data={headers:['Rank','Team','Conf W','Conf L','Overall W','Overall L','Overall T','Overall Pct.',...categories.slice(1).map(([,name])=>name)],rows:[...recordRows.values()].map(row=>{const current=conference.get(teamKey(row[1])),conf=String(current?.conf||'—-—').split('-'),overall=String(current?.overall||'').split('-'),pct=current?.pct==null?row[5]:Number(current.pct).toFixed(3).replace(/^0/,'');return [row[0],row[1],conf[0],conf[1],overall[0]||row[2],overall[1]||row[3],overall[2]||row[4],pct,...metricMaps.map(map=>map.get(row[1])??'—')]})};
   data.headers.forEach((label,index)=>{const th=document.createElement('th');th.dataset.label=label;th.tabIndex=0;th.setAttribute('role','button');th.setAttribute('aria-label','Sort by '+label);th.onclick=()=>{if(sortIndex===index)ascending=!ascending;else{sortIndex=index;ascending=index===0||/team/i.test(label)}render()};th.onkeydown=event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();th.click()}};head.append(th)});
   render();
 }
@@ -29,11 +31,11 @@ async function fetchCategory(category,attempt=0){
 }
 async function load(){
   try{
-    const settled=await Promise.allSettled(categories.map(([category])=>fetchCategory(category)));
+    const [settled,conferenceData]=await Promise.all([Promise.allSettled(categories.map(([category])=>fetchCategory(category))),fetch('/api/family-standings?team=gracie',{cache:'no-store'}).then(response=>response.ok?response.json():null).catch(()=>null)]);
     if(settled[0].status!=='fulfilled')throw settled[0].reason;
     const missing=settled.flatMap((result,index)=>result.status==='rejected'?[categories[index][1]]:[]);
     const results=settled.map((result,index)=>result.status==='fulfilled'?result.value:{category:categories[index][0],name:categories[index][1],rows:[]});
-    build(results);statusLine.textContent=data.rows.length+' teams · '+categories.length+' NCAA statistic columns · Updated '+new Date(results[0].checkedAt).toLocaleString()+(missing.length?' · Temporarily unavailable: '+missing.join(', '):'');
+    build(results,conferenceData?.rows);statusLine.textContent=data.rows.length+' teams · Conference W/L shown for UAC Blue Division teams · '+categories.length+' NCAA statistic columns · Updated '+new Date(results[0].checkedAt).toLocaleString()+(missing.length?' · Temporarily unavailable: '+missing.join(', '):'');
   }catch(error){statusLine.className='error';statusLine.textContent=error.message}
 }
 load();
