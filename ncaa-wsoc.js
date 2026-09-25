@@ -2,15 +2,15 @@ const categories=[
   ['60','Won-lost-tied percentage'],['56','Scoring offense'],['58','Goals-against average'],['1263','Goal differential'],['59','Shutout percentage'],['424','Save percentage'],['94','Assists per game'],['1176','Corner kicks per game'],['547','Fouls per game'],['1208','Penalty kicks'],['95','Points per game'],['551','Red cards'],['93','Saves per game'],['1203','Shot accuracy'],['984','Shots per game'],['986','Shots on goal per game'],['910','Total assists'],['914','Total goals'],['915','Total points'],['549','Yellow cards']
 ];
 const head=document.getElementById('head'),body=document.getElementById('body'),statusLine=document.getElementById('status');
-let data,sortIndex=0,ascending=true;
+let data,sortIndex=2,ascending=false;
 const number=value=>{if(String(value).trim()==='—'||String(value).trim()==='-')return null;const parsed=Number(String(value).replace(/,/g,''));return Number.isFinite(parsed)?parsed:null};
 const isUna=value=>/^North (?:Alabama|Ala\.)$/i.test(value);
 function render(){
   [...head.children].forEach((th,index)=>th.textContent=th.dataset.label+(index===sortIndex?(ascending?' ▲':' ▼'):' ↕'));
-  const rows=[...data.rows].sort((a,b)=>{const left=number(a[sortIndex]),right=number(b[sortIndex]);let comparison;if(left===null&&right!==null)comparison=1;else if(left!==null&&right===null)comparison=-1;else comparison=left!==null?left-right:String(a[sortIndex]).localeCompare(String(b[sortIndex]),undefined,{numeric:true});return ascending?comparison:-comparison});
+  const rows=[...data.rows].sort((a,b)=>{const left=number(a[sortIndex]),right=number(b[sortIndex]);if(left===null&&right!==null)return 1;if(left!==null&&right===null)return -1;let comparison=left!==null?left-right:String(a[sortIndex]).localeCompare(String(b[sortIndex]),undefined,{numeric:true});if(comparison===0&&sortIndex===2){comparison=(number(b[3])??Infinity)-(number(a[3])??Infinity);if(comparison===0)comparison=(number(a[7])??-1)-(number(b[7])??-1)}if(comparison===0)comparison=String(a[1]).localeCompare(String(b[1]));return ascending?comparison:-comparison});
   body.replaceChildren(...rows.map(row=>{const tr=document.createElement('tr'),familyTeam=row.some(isUna);if(familyTeam)tr.className='mine';row.forEach((value,index)=>{const td=document.createElement('td');td.textContent=value;if(familyTeam&&index===1){const badge=document.createElement('span');badge.className='family-team';badge.textContent='Family athlete team';td.append(badge)}tr.append(td)});return tr}));
 }
-const teamKey=value=>String(value||'').toLowerCase().replace(/\./g,'').replace(/^north alabama$/,'north ala').trim();
+const teamKey=value=>String(value||'').toLowerCase().replace(/\./g,'').replace(/^north alabama$/,'north ala').replace(/^eastern kentucky$/,'eastern ky').replace(/^west georgia$/,'west ga').trim();
 function build(results,conferenceRows=[]){
   const records=results[0];
   let denseRank=0;
