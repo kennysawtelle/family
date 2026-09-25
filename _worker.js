@@ -29,9 +29,44 @@ const calendarBrand=(key,origin)=>{
   const item=calendars[key];
   return item&&{...item,image:new URL(item.image,origin).href};
 };
+const brandedPage=async({asset,title,description,image,canonical},request,env)=>{
+  const response=await env.ASSETS.fetch(new Request(new URL(asset,new URL(request.url).origin),{headers:request.headers}));
+  let html=await response.text();
+  const meta=`
+<meta name="description" content="${esc(description)}">
+<link rel="canonical" href="${esc(canonical)}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sawtelle Family Sports">
+<meta property="og:url" content="${esc(canonical)}">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(description)}">
+<meta property="og:image" content="${esc(image)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
+<meta name="twitter:image" content="${esc(image)}">`;
+  html=html.replace(/<title>[^<]*<\/title>/,`<title>${esc(title)}</title>${meta}`);
+  return new Response(html,{status:response.status,headers:{'Content-Type':'text/html; charset=UTF-8','Cache-Control':'public, max-age=0, s-maxage=300'}});
+};
 export default {
   async fetch(request,env){
     const url=new URL(request.url);
+    if(url.pathname==='/standings'||url.pathname==='/standings.html'){
+      const profiles={
+        gracie:{title:'Gracie — UAC Blue Division Standings',description:'North Alabama women’s soccer division standings, conference record, points and overall record.',image:'/Gracie.jpg'},
+        dane:{title:'Dane — Bonita Football Standings',description:'Bonita varsity football league placement, record and team statistics.',image:'/dane.WEBP'},
+        eli:{title:'Eli — Los Gatos United Standings',description:'Los Gatos United soccer record, points and team statistics.',image:'/eli-card.webp'},
+        'eli-football':{title:'Eli — Santa Cruz Football Standings',description:'Santa Cruz varsity football league placement, record and team statistics.',image:'/sawtelle-family-sports-preview.jpg'},
+        jack:{title:'Jack Harn — Soquel JV Football Standings',description:'Soquel JV football league placement, record and team statistics.',image:'/jack-card-new.jpg'}
+      };
+      const profile=profiles[url.searchParams.get('team')]||profiles.gracie;
+      return brandedPage({asset:'/standings.html',...profile,image:new URL(profile.image,url.origin).href,canonical:url.href},request,env);
+    }
+    if(url.pathname==='/ncaa-wsoc'||url.pathname==='/ncaa-wsoc.html')return brandedPage({asset:'/ncaa-wsoc.html',title:'NCAA Division I Women’s Soccer Statistics',description:'Sortable NCAA Division I women’s soccer team rankings and statistics with North Alabama highlighted.',image:new URL('/Gracie.jpg',url.origin).href,canonical:url.href},request,env);
+    if(url.pathname==='/team'||url.pathname==='/team.html'){
+      const name=url.searchParams.get('name')||'Team',sport=url.searchParams.get('sport')||'Family Sports',record=url.searchParams.get('record')||'Record TBD';
+      return brandedPage({asset:'/team.html',title:`${name} | Sawtelle Family Sports`,description:`${name} · ${sport} · ${record}. Team profile and current research links.`,image:new URL('/sawtelle-family-sports-preview.jpg',url.origin).href,canonical:url.href},request,env);
+    }
     if(url.pathname==='/api/family-standings'){
       if(request.method!=='GET')return new Response('Method not allowed',{status:405});
       return familyStandings(request);
