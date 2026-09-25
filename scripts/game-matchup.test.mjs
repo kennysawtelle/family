@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { matchupSides } from '../game-matchup.mjs';
+import { ncaaSoccerRecords, schoolKey } from '../game-records.mjs';
 test('legacy Eli link resolves to the team and keeps records with the right side', () => {
  const q = new URLSearchParams({ teamPage:'eli-football.html', team:'Eli', opponent:'Pajaro Valley', record:'3–1–0', oppRecord:'2–2–0' });
  const home=matchupSides(q); assert.equal(home.home.name,'Santa Cruz High'); assert.equal(home.home.record,'3–1–0'); assert.equal(home.away.record,'2–2–0');
@@ -23,4 +24,12 @@ test('extensionless, absolute and calendar-only shared links resolve real teams'
   const q=new URLSearchParams({teamPage,team:'Jack Harn',ha:'Away'});assert.equal(matchupSides(q).away.name,'Soquel High JV');
  }
  const q=new URLSearchParams({calendar:'jack-2026.ics',team:'Jack Harn'});assert.equal(matchupSides(q).home.name,'Soquel High JV');
+});
+
+test('all NCAA soccer rows become current opponent records with school aliases',()=>{
+ const records=ncaaSoccerRecords([['98','North Ala.','4','1','3','.688'],['200','Austin Peay','3','4','2','.444']]);
+ assert.equal(records.get(schoolKey('North Alabama')).record,'4–1–3');
+ assert.equal(records.get(schoolKey('Austin Peay')).record,'3–4–2');
+ assert.equal(schoolKey('Central Arkansas'),schoolKey('Central Ark.'));
+ assert.equal(schoolKey('Tarleton State'),schoolKey('Tarleton St.'));
 });

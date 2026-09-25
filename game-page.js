@@ -1,5 +1,6 @@
 import { teams, resolveTeamPage } from './game-teams.mjs';
 import { matchupSides } from './game-matchup.mjs';
+import { ncaaSoccerRecords, schoolKey } from './game-records.mjs?v=20260924';
 const q = new URLSearchParams(location.search);
 const teamPage = resolveTeamPage(q), profile = teams[teamPage];
 const opponent = q.get('opponent') || '', date = q.get('date') || '';
@@ -20,8 +21,22 @@ el('sport').textContent = profile?.sport || '';
 el('awayLink').textContent = away; el('homeLink').textContent = home;
 for (const side of ['away', 'home']) {
   const result = side === ownSide ? ownResult : opponentResult;
-  el(side + 'Record').textContent = sides[side].record || (result ? `Game: ${result}` : 'Record not published');
+  el(side + 'Record').textContent = sides[side].record || (result ? `Game: ${result}` : profile?.sport === "Women's soccer" ? 'Checking current record…' : 'Record not published');
   el(side + 'RecordDate').textContent = sides[side].record ? sides[side].asOf : result ? 'Final result' : '';
+}
+async function refreshRecords() {
+  if (profile?.sport !== "Women's soccer") return;
+  try {
+    const response = await fetch('/api/ncaa-wsoc?category=60', { cache: 'no-store' });
+    if (!response.ok) return;
+    const current = await response.json(), records = ncaaSoccerRecords(current.rows);
+    for (const side of ['away', 'home']) {
+      const found = records.get(schoolKey(sides[side].name));
+      if (!found) continue;
+      el(side + 'Record').textContent = found.record;
+      el(side + 'RecordDate').textContent = 'Current NCAA record · Updated ' + new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(current.checkedAt));
+    }
+  } catch { /* Keep the saved record or final result when NCAA is offline. */ }
 }
 const primaryLink = profile ? teamPage : 'index.html';
 const opponentLink = 'team.html?' + new URLSearchParams({ name: opponent, sport: profile?.sport || '' });
@@ -79,7 +94,9 @@ async function refresh() {
 }
 el('refresh').addEventListener('click', refresh);
 refresh();
+refreshRecords();
 window.addEventListener('focus', refresh);
+window.addEventListener('focus', refreshRecords);
 setInterval(() => { if (!document.hidden) refresh(); }, 300000);
 
 if(profile){
