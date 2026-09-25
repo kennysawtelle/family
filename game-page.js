@@ -21,7 +21,7 @@ el('sport').textContent = profile?.sport || '';
 el('awayLink').textContent = away; el('homeLink').textContent = home;
 for (const side of ['away', 'home']) {
   const result = side === ownSide ? ownResult : opponentResult;
-  el(side + 'Record').textContent = sides[side].record || (result ? `Game: ${result}` : profile?.sport === "Women's soccer" ? 'Checking current record…' : 'Record not published');
+  el(side + 'Record').textContent = sides[side].record || (result ? `Game: ${result}` : profile?.sport === "Women's soccer" || /football/i.test(profile?.sport || '') ? 'Checking current record…' : 'Official record unavailable');
   el(side + 'RecordDate').textContent = sides[side].record ? sides[side].asOf : result ? 'Final result' : '';
 }
 async function refreshRecords() {
@@ -77,6 +77,9 @@ async function refresh() {
       el('snapshot-source').replaceChildren(link(`Source: ${game.source}`, game.sourceUrl));
       if (game.watch) { el('watch-card').hidden = false; el('watch').replaceChildren(link('Watch this game on NFHS Network ↗', game.watch)); }
     }
+    const opponentSide=ownSide==='away'?'home':'away';
+    if(data.opponentRecord){el(opponentSide+'Record').textContent=data.opponentRecord.record;el(opponentSide+'RecordDate').textContent='Current record · MaxPreps';}
+    else if(!sides[opponentSide].record&&!opponentResult&&/football/i.test(profile?.sport || '')){el(opponentSide+'Record').textContent='Official record unavailable';el(opponentSide+'RecordDate').textContent='Checked team source';}
     for (const item of data.articles) {
       const section = document.createElement('section');
       section.append(link(item.title, item.url));

@@ -36,11 +36,17 @@ export function scheduleGame(html, profile, opponent, date) {
     const sourceUrl = safeUrl(event.url) || profile.source;
     const watch = (Array.isArray(event.offers) ? event.offers : [event.offers]).map(offer => safeUrl(offer?.url)).find(url => url && new URL(url).hostname === 'www.nfhsnetwork.com');
     const address = event.location?.address;
+    const opponentTeam=hasName(event.homeTeam?.name,profile.alias)?event.awayTeam:event.homeTeam;
     return [{ title: plain(event.name), detail: plain(event.description), kickoff: event.startDate,
       venue: [event.location?.name, address?.streetAddress, address?.addressLocality, address?.addressRegion].filter(Boolean).join(', '),
       sourceUrl, source: new URL(sourceUrl).hostname.replace(/^www\./, ''), watch: watch || null,
-      cancelled: /EventCancelled$/.test(event.eventStatus || '') }];
+      cancelled: /EventCancelled$/.test(event.eventStatus || ''), opponentUrl:safeUrl(opponentTeam?.url) }];
   })[0] || null;
+}
+
+export function teamRecord(html) {
+  const block=String(html).match(/TeamRecord__StyledTeamRecord[^>]*>[\s\S]{0,2500}?<div class="stat-label">Overall<\/div>\s*<div class="data">\s*([0-9]+\s*[-–]\s*[0-9]+(?:\s*[-–]\s*[0-9]+)?)/i);
+  return block?block[1].replace(/\s/g,'').replace(/-/g,'–'):null;
 }
 
 export function newsItems(xml, profile, opponent, date, now = Date.now()) {
@@ -69,7 +75,9 @@ export async function gameResearch(request, fetcher = fetch) {
   const results = await Promise.allSettled([read(profile.source, fetcher), ...feeds.map(url => read(url, fetcher))]);
   const game = results[0].status === 'fulfilled' ? scheduleGame(results[0].value, profile, opponent, date) : null;
   const articles = results.slice(1).flatMap(result => result.status === 'fulfilled' ? newsItems(result.value, profile, opponent, date) : []).filter((item, i, all) => all.findIndex(other => other.title === item.title) === i).slice(0, 4);
-  return Response.json({ team: profile.name, opponent, sport: profile.sport, date, game, articles,
+  let opponentRecord=null;
+  if(game?.opponentUrl&&new URL(game.opponentUrl).hostname.endsWith('maxpreps.com'))try{const page=await read(game.opponentUrl,fetcher),record=teamRecord(page);if(record)opponentRecord={record,sourceUrl:game.opponentUrl}}catch{/* The game details remain useful if the opponent profile is offline. */}
+  return Response.json({ team: profile.name, opponent, sport: profile.sport, date, game, opponentRecord, articles,
     sourceUrl: profile.source, checkedAt: new Date().toISOString(), unavailable: results.every(result => result.status === 'rejected') },
     { headers: { 'Cache-Control': 'public, max-age=60, s-maxage=300', 'X-Content-Type-Options': 'nosniff' } });
 }

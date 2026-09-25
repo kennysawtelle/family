@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { gameResearch, scheduleGame, newsItems, teams } from '../game-research.mjs';
+import { gameResearch, scheduleGame, teamRecord, newsItems, teams } from '../game-research.mjs';
 const profile=teams['eli-football.html'];
 const game={ '@type':'SportsEvent', name:'Pajaro Valley at Santa Cruz',description:'Santa Cruz varsity football won 35-27.',sport:'Football',startDate:'2026-09-20T00:30:00Z',url:'https://www.maxpreps.com/game/test/',homeTeam:{name:'Santa Cruz High School'},awayTeam:{name:'Pajaro Valley High School'},offers:[{url:'https://www.nfhsnetwork.com/events/test'}] };
 const html=event=>`<script type="application/ld+json">${JSON.stringify({mainEntity:{event:[event]}})}</script>`;
@@ -17,6 +17,10 @@ test('JV never inherits varsity results and invalid source data is ignored',()=>
  assert.equal(scheduleGame(html({...game,startDate:'invalid'}),profile,'Pajaro Valley','2026-09-19'),null);
  assert.equal(scheduleGame('<script type="application/ld+json">broken</script>',profile,'Pajaro Valley','2026-09-19'),null);
 });
+test('published MaxPreps overall records are parsed without inventing a value',()=>{
+ const page='<div class="TeamRecord__StyledTeamRecord-sc-x"><div class="record"><div class="block"><div class="stat-label">Overall</div><div class="data">1-4</div></div></div></div>';
+ assert.equal(teamRecord(page),'1–4');assert.equal(teamRecord('<p>No standings</p>'),null);
+});
 test('publisher name does not count as a matching team; old and unsafe stories are excluded',()=>{
  const xml=item('Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel')+item('Pajaro Valley vs Independence - Santa Cruz Sentinel')+item('Santa Cruz vs Pajaro Valley','Fri, 19 Sep 2025 08:00:00 GMT')+item('Santa Cruz vs Pajaro Valley',undefined,'javascript:alert(1)');
  const found=newsItems(xml,profile,'Pajaro Valley','2026-09-19',Date.parse('2026-09-24'));
@@ -24,9 +28,9 @@ test('publisher name does not count as a matching team; old and unsafe stories a
 });
 test('on-page endpoint returns a sourced game without an AI key, prompt handoff, or writes',async()=>{
  const calls=[];
- const fetcher=async(url,options)=>{calls.push(url);assert.equal(options.method,undefined);return new Response(url.includes('maxpreps')?html(game):item('Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel'));};
+ const fetcher=async(url,options)=>{calls.push(url);assert.equal(options.method,undefined);return new Response(url.includes('/pajaro-valley-grizzlies/')?'<div class="TeamRecord__StyledTeamRecord-x"><div class="stat-label">Overall</div><div class="data">2-3</div>':url.includes('maxpreps')?html({...game,awayTeam:{...game.awayTeam,url:'https://www.maxpreps.com/ca/watsonville/pajaro-valley-grizzlies/football/'}}):item('Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel'));};
  const r=await gameResearch(new Request('https://example.test/api/game-research?teamPage=eli-football.html&opponent=Pajaro%20Valley&date=2026-09-19'),fetcher);
- const data=await r.json();assert.equal(data.team,'Santa Cruz High');assert.equal(data.game.detail,game.description);assert.equal(data.articles.length,1);assert.equal(calls.length,3);assert.equal(data.game.watch,'https://www.nfhsnetwork.com/events/test');
+ const data=await r.json();assert.equal(data.team,'Santa Cruz High');assert.equal(data.game.detail,game.description);assert.equal(data.articles.length,1);assert.equal(calls.length,4);assert.equal(data.game.watch,'https://www.nfhsnetwork.com/events/test');assert.equal(data.opponentRecord.record,'2–3');
 });
 test('failed providers return an explicit unavailable state; invalid requests never reach providers',async()=>{
  const request=q=>new Request('https://example.test/api/game-research?'+q);
