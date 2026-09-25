@@ -8,7 +8,7 @@ const isUna=value=>/^North (?:Alabama|Ala\.)$/i.test(value);
 function render(){
   [...head.children].forEach((th,index)=>th.textContent=th.dataset.label+(index===sortIndex?(ascending?' ▲':' ▼'):' ↕'));
   const rows=[...data.rows].sort((a,b)=>{const left=number(a[sortIndex]),right=number(b[sortIndex]);let comparison;if(left===null&&right!==null)comparison=1;else if(left!==null&&right===null)comparison=-1;else comparison=left!==null?left-right:String(a[sortIndex]).localeCompare(String(b[sortIndex]),undefined,{numeric:true});return ascending?comparison:-comparison});
-  body.replaceChildren(...rows.map(row=>{const tr=document.createElement('tr');if(row.some(isUna))tr.className='mine';row.forEach(value=>{const td=document.createElement('td');td.textContent=value;tr.append(td)});return tr}));
+  body.replaceChildren(...rows.map(row=>{const tr=document.createElement('tr'),familyTeam=row.some(isUna);if(familyTeam)tr.className='mine';row.forEach((value,index)=>{const td=document.createElement('td');td.textContent=value;if(familyTeam&&index===1){const badge=document.createElement('span');badge.className='family-team';badge.textContent='Family athlete team';td.append(badge)}tr.append(td)});return tr}));
 }
 function build(results){
   const records=results[0],recordRows=new Map(records.rows.map(row=>[row[1],row]));
