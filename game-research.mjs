@@ -56,6 +56,11 @@ export function newsItems(xml, profile, opponent, date, now = Date.now()) {
     const title = tag(match[1], 'title'), published = tag(match[1], 'pubDate'), at = Date.parse(published);
     const publisher = tag(match[1], 'source');
     const headline = publisher && title.endsWith(' - ' + publisher) ? title.slice(0, -publisher.length - 3) : title;
+    const headlineDate = headline.match(/\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+(\d{1,2})(?:,\s*(20\d{2}))?/i);
+    if (headlineDate) {
+      const parsed = Date.parse(`${headlineDate[1]} ${headlineDate[2]}, ${headlineDate[3] || date.slice(0, 4)} 12:00:00 UTC`);
+      if (Number.isFinite(parsed) && Math.abs(parsed - target) > 86400000) return [];
+    }
     if (!hasName(headline, profile.alias) || !hasName(headline, opponent) || !Number.isFinite(at) || at > now + 3600000 || at < target - 30 * 86400000 || at > target + 7 * 86400000) return [];
     if (/JV/.test(profile.sport) && !/\b(jv|junior varsity)\b/i.test(title)) return [];
     if (/Youth/.test(profile.sport) && !/\b(youth|u\d\d|boys|girls)\b/i.test(title)) return [];

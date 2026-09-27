@@ -22,7 +22,7 @@ test('published MaxPreps overall records are parsed without inventing a value',(
  assert.equal(teamRecord(page),'1–4');assert.equal(teamRecord('<p>No standings</p>'),null);
 });
 test('publisher name does not count as a matching team; old and unsafe stories are excluded',()=>{
- const xml=item('Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel')+item('Pajaro Valley vs Independence - Santa Cruz Sentinel')+item('Santa Cruz vs Pajaro Valley','Fri, 19 Sep 2025 08:00:00 GMT')+item('Santa Cruz vs Pajaro Valley',undefined,'javascript:alert(1)');
+ const xml=item('Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel')+item('Pajaro Valley vs Independence - Santa Cruz Sentinel')+item('Santa Cruz vs Pajaro Valley — October 24, 2026')+item('Santa Cruz vs Pajaro Valley','Fri, 19 Sep 2025 08:00:00 GMT')+item('Santa Cruz vs Pajaro Valley',undefined,'javascript:alert(1)');
  const found=newsItems(xml,profile,'Pajaro Valley','2026-09-19',Date.parse('2026-09-24'));
  assert.equal(found.length,1);assert.match(found[0].title,/holds off/);
 });

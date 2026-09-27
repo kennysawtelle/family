@@ -42,7 +42,7 @@ const primaryLink = profile ? teamPage : 'index.html';
 const opponentLink = 'team.html?' + new URLSearchParams({ name: opponent, sport: profile?.sport || '' });
 el('awayLink').href = q.get('ha') === 'Away' ? primaryLink : opponentLink;
 el('homeLink').href = q.get('ha') === 'Away' ? opponentLink : primaryLink;
-el('snapshot').textContent = [matchup, date, gameStatus && `Final: ${gameStatus}`, q.get('venue')].filter(Boolean).join(' · ');
+el('snapshot').textContent = [matchup, date, gameStatus && (resultMatch ? `Final: ${gameStatus}` : gameStatus), q.get('venue')].filter(Boolean).join(' · ');
 el('research-status').textContent = `Checking ${matchup}…`;
 
 function link(label, url) {
@@ -50,6 +50,54 @@ function link(label, url) {
 }
 function timeText(instant) {
   return ['America/Los_Angeles', 'America/New_York'].map(timeZone => new Intl.DateTimeFormat('en-US', { timeZone, month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }).format(new Date(instant))).join(' / ');
+}
+const liveStatLabels = [['Shots', 'Shots'], ['OnGoal', 'Shots on goal'], ['Corners', 'Corners'], ['Saves', 'Saves'], ['Fouls', 'Fouls'], ['YellowCard', 'Yellow cards'], ['RedCard', 'Red cards']];
+function renderLiveGame(game) {
+  const card = el('live-card'); card.hidden = false; card.dataset.state = game.state;
+  el('live-badge').textContent = game.state === 'final' ? 'Final' : game.state === 'live' ? 'Live' : 'Upcoming';
+  el('live-away-name').textContent = game.away.name; el('live-home-name').textContent = game.home.name;
+  el('live-away-score').textContent = game.away.score ?? '—'; el('live-home-score').textContent = game.home.score ?? '—';
+  el('live-status').textContent = game.status;
+  const stats = el('live-stats'); stats.replaceChildren();
+  const availableStats = liveStatLabels.filter(([key]) => game.awayStats[key] != null || game.homeStats[key] != null);
+  if (availableStats.length) {
+    const table = document.createElement('table'); table.className = 'stats-table';
+    const headRow = document.createElement('tr');
+    for (const value of ['Team stats', game.away.name, game.home.name]) { const th = document.createElement('th'); th.textContent = value; headRow.append(th); }
+    const thead = document.createElement('thead'); thead.append(headRow); table.append(thead);
+    const tbody = document.createElement('tbody');
+    for (const [key, label] of availableStats) {
+      const row = document.createElement('tr');
+      for (const value of [label, game.awayStats[key] ?? '—', game.homeStats[key] ?? '—']) { const cell = document.createElement('td'); cell.textContent = value; row.append(cell); }
+      tbody.append(row);
+    }
+    table.append(tbody); stats.append(table);
+  }
+  const scoring = el('live-scoring'); scoring.replaceChildren();
+  if (game.scoring.length) {
+    const heading = document.createElement('h3'); heading.textContent = 'Scoring';
+    const list = document.createElement('ol'); list.className = 'scoring-list';
+    for (const play of game.scoring) { const item = document.createElement('li'); item.textContent = `${play.period === 1 ? '1st' : play.period === 2 ? '2nd' : `Period ${play.period}`} ${play.clock} — ${play.narrative}`; list.append(item); }
+    scoring.append(heading, list);
+  }
+  if (game.notes?.length) {
+    const heading = document.createElement('h3'); heading.textContent = 'What to know';
+    const list = document.createElement('ul'); list.className = 'detail-list';
+    for (const note of game.notes) { const item = document.createElement('li'); item.textContent = note; list.append(item); }
+    scoring.append(heading, list);
+    if (game.previewUrl) { const source = document.createElement('p'); source.append(link(`${game.previewTitle || 'Official match preview'} ↗`, game.previewUrl)); scoring.append(source); }
+  }
+  const details = el('verified-details'); details.replaceChildren();
+  for (const value of [game.attendance != null ? `Attendance: ${game.attendance.toLocaleString()}` : '', game.officials]) if (value) { const item = document.createElement('li'); item.textContent = value; details.append(item); }
+  el('live-source').replaceChildren(link(`${game.source} · Updated ${new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' }).format(new Date(game.checkedAt))} ↗`, game.sourceUrl));
+  if (game.state === 'final') el('snapshot').textContent = `${game.away.name} ${game.away.score} at ${game.home.name} ${game.home.score} · Final · ${game.venue}`;
+}
+async function refreshLiveGame() {
+  try {
+    const response = await fetch('/api/family-live-game?' + new URLSearchParams({ teamPage: teamPage.replace(/\.html$/, ''), opponent, date }), { cache: 'no-store', signal: AbortSignal.timeout(9000) });
+    if (!response.ok) return;
+    const game = await response.json(); if (game.available) renderLiveGame(game);
+  } catch { /* The saved game page remains available when live stats are offline. */ }
 }
 async function refreshSchedule() {
   if (!profile || !q.get('uid')) return;
@@ -98,9 +146,12 @@ async function refresh() {
 el('refresh').addEventListener('click', refresh);
 refresh();
 refreshRecords();
+refreshLiveGame();
 window.addEventListener('focus', refresh);
 window.addEventListener('focus', refreshRecords);
+window.addEventListener('focus', refreshLiveGame);
 setInterval(() => { if (!document.hidden) refresh(); }, 300000);
+setInterval(() => { if (!document.hidden) refreshLiveGame(); }, 30000);
 
 if(profile){
  const keys={'eli.html':'eli-soccer','eli-football.html':'eli-football','jack.html':'jack','dane.html':'dane','gracie.html':'gracie'};
