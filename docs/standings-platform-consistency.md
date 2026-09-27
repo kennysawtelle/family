@@ -17,6 +17,11 @@
 | Platform | Standings implementation | Result |
 | --- | --- | --- |
 | Family Sports | UAC division table and NCAA Division I women's soccer grid | UAC aliases and conference-first ordering checked for North Alabama, Eastern Kentucky, Austin Peay, and West Georgia. |
+
+When an exact official live feed marks a conference game final before the UAC
+table refreshes, Family Sports reconciles both teams' conference and overall
+records. The reconciliation only applies to the known pre-final records, so the
+result is not counted twice after the conference source catches up.
 | NFL | Eight division tables and the sortable 32-team table | Uses ESPN team abbreviations as stable IDs; all records are complete and the existing wins-first NFL ordering is unaffected. |
 | Events | No sports standings | Unaffected. |
 | Health Pilot | No sports standings | Unaffected. |
