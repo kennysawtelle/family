@@ -1,5 +1,6 @@
 const sources = new Map([
   ['gracie|2026-09-27|austin peay', {
+    type: 'sidearm', date: '2026-09-27', teams: ['Austin Peay', 'North Alabama'],
     feed: 'https://sidearmstats.com/apsu/wsoc/game.json?detail=full',
     page: 'https://letsgopeay.com/sidearmstats/wsoc/summary',
     provider: 'Austin Peay SIDEARM Live Stats',
@@ -11,6 +12,22 @@ const sources = new Map([
       'Austin Peay entered 1–6–3 in its previous 10 home matches.',
       'The match is being broadcast on ESPN+.',
     ],
+  }],
+  ['gracie|2026-10-04|eastern kentucky', {
+    type: 'link', date: '2026-10-04', teams: ['North Alabama', 'Eastern Kentucky'],
+    page: 'https://stats.statbroadcast.com/broadcast/?id=665443', provider: 'North Alabama StatBroadcast Live Stats',
+  }],
+  ['gracie|2026-10-08|abilene christian', {
+    type: 'link', date: '2026-10-08', teams: ['North Alabama', 'Abilene Christian'],
+    page: 'https://stats.statbroadcast.com/broadcast/?id=665442', provider: 'North Alabama StatBroadcast Live Stats',
+  }],
+  ['gracie|2026-10-11|tarleton state', {
+    type: 'link', date: '2026-10-11', teams: ['North Alabama', 'Tarleton State'],
+    page: 'https://stats.statbroadcast.com/broadcast/?id=665447', provider: 'North Alabama StatBroadcast Live Stats',
+  }],
+  ['gracie|2026-10-29|austin peay', {
+    type: 'link', date: '2026-10-29', teams: ['North Alabama', 'Austin Peay'],
+    page: 'https://stats.statbroadcast.com/broadcast/?id=665448', provider: 'North Alabama StatBroadcast Live Stats',
   }],
 ]);
 
@@ -31,6 +48,14 @@ const totals = team => {
 export function normalizeLiveGame(raw, source, now = new Date()) {
   const game = raw?.Game;
   if (!game?.HomeTeam || !game?.VisitingTeam) throw new Error('The official live score is unavailable.');
+  const parsedDate = text(game.Date) && new Date(`${text(game.Date)} 12:00:00`);
+  const isoDate = parsedDate && !Number.isNaN(parsedDate.valueOf())
+    ? `${parsedDate.getFullYear()}-${String(parsedDate.getMonth() + 1).padStart(2, '0')}-${String(parsedDate.getDate()).padStart(2, '0')}` : '';
+  const actualTeams = [game.HomeTeam.Name, game.VisitingTeam.Name].map(key).sort();
+  const expectedTeams = (source.teams || []).map(key).sort();
+  if (isoDate !== source.date || actualTeams.length !== expectedTeams.length || actualTeams.some((team, index) => team !== expectedTeams[index])) {
+    throw new Error('The official feed is currently showing a different game.');
+  }
   const state = game.IsComplete ? 'final' : game.HasStarted ? 'live' : 'pregame';
   const period = integer(game.Period);
   const status = state === 'final' ? 'Final' : state === 'live'
@@ -55,6 +80,10 @@ export async function familyLiveGame(request, fetcher = fetch) {
   const id = `${key(params.get('teamPage'))}|${params.get('date') || ''}|${key(params.get('opponent'))}`;
   const source = sources.get(id);
   if (!source) return Response.json({ available: false, checkedAt: new Date().toISOString() }, { headers: { 'Cache-Control': 'no-store' } });
+  if (source.type === 'link') return Response.json({
+    available: false, configured: true, source: source.provider, sourceUrl: source.page,
+    checkedAt: new Date().toISOString(),
+  }, { headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
   try {
     const response = await fetcher(source.feed, { signal: AbortSignal.timeout(7000), headers: { Accept: 'application/json' } });
     if (!response.ok) throw new Error('Source unavailable');

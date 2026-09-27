@@ -16,7 +16,7 @@
 
 | Platform | Live game implementation | Result |
 | --- | --- | --- |
-| Family Sports | Family game pages for NCAA soccer, high-school football and youth soccer | North Alabama at Austin Peay now uses the official Austin Peay SIDEARM feed and refreshes every 30 seconds while the page is visible. Other games keep sourced schedule and research information unless an exact official structured live feed is configured; no score is invented. |
+| Family Sports | Family game pages for NCAA soccer, high-school football and youth soccer | North Alabama at Austin Peay uses the official Austin Peay SIDEARM feed and refreshes every 30 seconds while the page is visible. Exact official StatBroadcast trackers are registered for the October 4, 8, 11 and 29 North Alabama home games; the page links directly to them because StatBroadcast does not offer the public viewer through an unauthenticated server-readable data endpoint. MaxPreps/NFHS and Los Gatos United do not publish a stable official structured feed for these schedules, so no score is invented. |
 | NFL | All NFL game pages | Already use the league-wide live data implementation and are unaffected. |
 | Events | Event and gallery pages | No sports games; unaffected. |
 | Health Pilot | No sports games | Unaffected. |
@@ -33,3 +33,8 @@
   390-by-844 phone viewport and at desktop width.
 - Existing add-game and team-subscription links remain present. Tests use a
   synthetic calendar UID and do not create a subscription or send a message.
+- Every readable feed response is checked against both scheduled teams and the
+  exact date before a score is returned. A provider's next/current game cannot
+  leak onto an older shared link.
+- The official North Alabama schedule was checked for every remaining game.
+  Games without an official live-stat link stay on the normal sourced game page.

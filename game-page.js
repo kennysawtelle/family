@@ -96,8 +96,21 @@ async function refreshLiveGame() {
   try {
     const response = await fetch('/api/family-live-game?' + new URLSearchParams({ teamPage: teamPage.replace(/\.html$/, ''), opponent, date }), { cache: 'no-store', signal: AbortSignal.timeout(9000) });
     if (!response.ok) return;
-    const game = await response.json(); if (game.available) renderLiveGame(game);
+    const game = await response.json();
+    if (game.available) renderLiveGame(game);
+    else if (game.configured && game.sourceUrl) renderOfficialLiveLink(game);
   } catch { /* The saved game page remains available when live stats are offline. */ }
+}
+function renderOfficialLiveLink(game) {
+  const card = el('live-card');
+  if (!card || !card.hidden) return;
+  card.hidden = false; card.dataset.state = 'upcoming';
+  el('live-badge').textContent = 'Official tracker';
+  el('live-away-name').textContent = away; el('live-home-name').textContent = home;
+  el('live-away-score').textContent = '—'; el('live-home-score').textContent = '—';
+  el('live-status').textContent = 'Live stats open on the official game tracker';
+  el('live-stats').replaceChildren(); el('live-scoring').replaceChildren(); el('verified-details').replaceChildren();
+  el('live-source').replaceChildren(link(`${game.source} ↗`, game.sourceUrl));
 }
 async function refreshSchedule() {
   if (!profile || !q.get('uid')) return;
