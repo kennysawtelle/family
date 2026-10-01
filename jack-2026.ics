@@ -82,18 +82,18 @@ X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Fo
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20260925-hollister@family.kensawtelle.com
-DTSTAMP:20260920T002100Z
-SEQUENCE:3
+DTSTAMP:20261001T161000Z
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20260925T170000
 DTEND;TZID=America/Los_Angeles:20260925T193000
 SUMMARY:Jack Harn — Soquel JV Football at Hollister
 LOCATION:Hollister High School\, 1220 Monterey St\, Hollister\, CA 95023
-DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
+DESCRIPTION:Soquel Knights JV Football. Final: Hollister 36-13 Soquel. Soquel record 2-2-0.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 STATUS:CONFIRMED
 URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
 X-STREAM-PROVIDER:NFHS Network
 X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football
-LAST-MODIFIED:20260920T002100Z
+LAST-MODIFIED:20261001T161000Z
 END:VEVENT
 BEGIN:VEVENT
 UID:jack-soquel-jv-20261009-northsalinas@family.kensawtelle.com
