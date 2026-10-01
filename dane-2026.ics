@@ -128,18 +128,16 @@ LAST-MODIFIED:20260920T002100Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-09-2ab0c7ba38b2@family.kensawtelle.com
-DTSTAMP:20260920T002100Z
-SEQUENCE:3
+DTSTAMP:20261001T161000Z
+SEQUENCE:4
 DTSTART;TZID=America/Los_Angeles:20261009T190000
 DTEND;TZID=America/Los_Angeles:20261009T220000
 SUMMARY:Dane Football — @ Northview
 LOCATION:Northview High School\, 1016 W Cypress Ave\, Covina\, CA 91722
-DESCRIPTION:Bonita Varsity Football league game.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca
+DESCRIPTION:Bonita Varsity Football league game.\nWatch: TBD
 STATUS:CONFIRMED
-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca
-X-STREAM-PROVIDER:NFHS Network
-X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca
-LAST-MODIFIED:20260920T002100Z
+X-STREAM-PROVIDER:TBD
+LAST-MODIFIED:20261001T161000Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-16-b49c0541ac82@family.kensawtelle.com
