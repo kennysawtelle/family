@@ -153,11 +153,15 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const currentSchedule=location.pathname.split('/').pop()||'';
   const opponentRecords={
     'Pajaro Valley':'2–1–0',
-    'West Georgia':'0–5–2',
+    'West Georgia':'0–6–2',
     'UC San Diego':'5–2–2',
     'Davis Legacy':'Record TBD',
-    'Colony':'Record TBD',
-    'Hollister':'Record TBD'
+    'Colony':'1–4–0',
+    'Hollister':'5–0–0',
+    'Austin Peay':'1–9–1',
+    'Eastern Kentucky':'6–4–1',
+    'Seaside':'3–2–0',
+    'Marina':'2–3–0'
   };
 
   let ei=0;
@@ -233,7 +237,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
           status,
           completed:completed?'1':'0',
           teamPage:scheduleFile,
-          share:'2'
+          share:'5'
         });
         const gameHref='game.html?'+params.toString();
         row.classList.add('game-link');
