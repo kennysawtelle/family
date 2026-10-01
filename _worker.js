@@ -24,7 +24,7 @@ const calendarBrand=(key,origin)=>{
     gracie:{name:"Gracie — UNA Soccer",image:"/Gracie.jpg"},
     dane:{name:"Dane — Bonita Football",image:"/dane.WEBP"},
     "eli-soccer":{name:"Eli — Los Gatos United Soccer",image:"/eli-card.webp"},
-    "eli-football":{name:"Eli — Santa Cruz High Football",image:"/sawtelle-family-sports-preview.jpg"},
+    "eli-football":{name:"Eli — Santa Cruz High Football",image:"/eli-football-card.svg"},
     jack:{name:"Jack Harn — Soquel JV Football",image:"/jack-card-new.jpg"}
   };
   const item=calendars[key];
@@ -57,7 +57,7 @@ export default {
         gracie:{title:'Gracie — UAC Blue Division Standings',description:'North Alabama women’s soccer division standings, conference record, points and overall record.',image:'/Gracie.jpg'},
         dane:{title:'Dane — Bonita Football Standings',description:'Bonita varsity football league placement, record and team statistics.',image:'/dane.WEBP'},
         eli:{title:'Eli — Los Gatos United Standings',description:'Los Gatos United soccer record, points and team statistics.',image:'/eli-card.webp'},
-        'eli-football':{title:'Eli — Santa Cruz Football Standings',description:'Santa Cruz varsity football league placement, record and team statistics.',image:'/sawtelle-family-sports-preview.jpg'},
+        'eli-football':{title:'Eli — Santa Cruz Football Standings',description:'Santa Cruz varsity football league placement, record and team statistics.',image:'/eli-football-card.svg'},
         jack:{title:'Jack Harn — Soquel JV Football Standings',description:'Soquel JV football league placement, record and team statistics.',image:'/jack-card-new.jpg'}
       };
       const profile=profiles[url.searchParams.get('team')]||profiles.gracie;
@@ -89,6 +89,8 @@ export default {
       return calendar?new Response(calendar,{headers:{'Content-Type':'text/calendar; charset=utf-8','Content-Disposition':'attachment; filename="game.ics"','Cache-Control':'no-store'}}):new Response('Game not found',{status:404});
     }
     if(url.pathname==="/api/game-research") { if(request.method!=="GET") return new Response("Method not allowed",{status:405}); return gameResearch(request); }
+    const nflCalendarRedirects={"/raiders-2026.ics":"https://nfl.kensawtelle.com/calendar?team=lv","/broncos-2026.ics":"https://nfl.kensawtelle.com/calendar?team=den","/49ers-2026.ics":"https://nfl.kensawtelle.com/calendar?team=sf","/chargers-2026.ics":"https://nfl.kensawtelle.com/calendar?team=lac"};
+    if(nflCalendarRedirects[url.pathname])return Response.redirect(nflCalendarRedirects[url.pathname],301);
     if(url.pathname.endsWith(".ics")){
       const feeds=new Set(["/49ers-2026.ics","/broncos-2026.ics","/chargers-2026.ics","/dane-2026.ics","/eli-2026-27.ics","/eli-football-2026.ics","/gracie-2026.ics","/jack-2026.ics","/raiders-2026.ics"]);
       if(!feeds.has(url.pathname))return new Response("Calendar not found",{status:404});
