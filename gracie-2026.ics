@@ -179,14 +179,14 @@ LAST-MODIFIED:20261001T161000Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-04-4368e58c6604@family.kensawtelle.com
-DTSTAMP:20261001T161000Z
-LAST-MODIFIED:20261001T161000Z
-SEQUENCE:4
+DTSTAMP:20261004T232705Z
+LAST-MODIFIED:20261004T232705Z
+SEQUENCE:5
 DTSTART;TZID=America/Chicago:20261004T130000
 DTEND;TZID=America/Chicago:20261004T150000
 SUMMARY:Gracie Soccer — Eastern Kentucky
 LOCATION:Bobby Wallace Field at Bank Independent Stadium\, 615 N Pine St\, Florence\, AL 35630
-DESCRIPTION:University of North Alabama Women's Soccer. Home. 1:00 PM Central / 11:00 AM Pacific.\nWatch: ESPN+ — https://www.espn.com/watch/
+DESCRIPTION:University of North Alabama Women's Soccer. Home. 1:00 PM Central / 11:00 AM Pacific. Final: Eastern Kentucky 3-2 UNA. Record 5-2-3.\nWatch: ESPN+ — https://www.espn.com/watch/
 STATUS:CONFIRMED
 URL:https://www.espn.com/watch/
 X-STREAM-PROVIDER:ESPN+
