@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
     'Colony':'1–4–0',
     'Hollister':'5–0–0',
     'Austin Peay':'1–9–1',
-    'Eastern Kentucky':'6–4–1',
+    'Eastern Kentucky':'7–4–1',
     'Seaside':'3–2–0',
     'Marina':'2–3–0'
   };
