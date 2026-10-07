@@ -1,0 +1,68 @@
+name: Daily Family Sports Refresh
+
+on:
+  schedule:
+    - cron: '15 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: family-sports-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate family sports data
+        run: node scripts/family-sports-refresh.mjs
+
+      - name: Run existing repository tests
+        shell: bash
+        run: |
+          set -e
+          for test in scripts/*.test.mjs; do
+            echo "Running $test"
+            node "$test"
+          done
+
+      - name: Commit verified updater changes
+        shell: bash
+        run: |
+          set -e
+          if git diff --quiet; then
+            echo "No verified schedule changes."
+            exit 0
+          fi
+
+          # Refuse to let the updater modify NFL schedule artifacts.
+          if git diff --name-only | grep -E '^(raiders|broncos|49ers|chargers)-2026\.ics$'; then
+            echo "ERROR: updater attempted to modify an NFL calendar."
+            exit 1
+          fi
+
+          git config user.name "Sawtelle Family Sports Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -- \
+            gracie.html gracie-2026.ics \
+            dane.html dane-2026.ics \
+            eli.html eli-2026-27.ics \
+            eli-football.html eli-football-2026.ics \
+            jack.html jack-2026.ics \
+            index.html family-schedule.html schedule-ui.js _worker.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Daily family sports refresh"
+          git push origin HEAD:main
