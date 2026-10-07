@@ -37,7 +37,7 @@ Rules:
 - Keep NFL schedules off the family homepage; preserve redirects to https://nfl.kensawtelle.com/.
 - Do not edit any Raiders/Broncos/49ers/Chargers ICS file.
 - If a source conflicts, do not choose a side unless one source is clearly more authoritative/current; otherwise preserve current data and note nothing by changing files.
-- Make the smallest safe edits.
+- Make the smallest safe edits.\n- You MUST modify only the existing repository files included below. Do not create, reference, rename, or propose any new file, helper, component, script, stylesheet, or architecture. In particular, solve record display changes inside the existing HTML/JS files supplied below.
 - Return ONLY a standard unified git diff beginning with "diff --git". If no verified file change is needed, return exactly NO_CHANGES.
 
 Current repository files:
