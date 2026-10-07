@@ -43,22 +43,39 @@ Rules:
 Current repository files:
 ${files.map(f=>`\n===== ${f.path} =====\n${f.content}`).join('')}`;
 
-const response=await fetch('https://api.openai.com/v1/responses',{
- method:'POST',
- headers:{'Authorization':`Bearer ${key}`,'Content-Type':'application/json'},
- body:JSON.stringify({
-   model:'gpt-5.6-terra',
-   reasoning:{effort:'medium'},
-   tools:[{type:'web_search',search_context_size:'high'}],
-   input:prompt,
-   max_output_tokens:30000
- })
-});
-if(!response.ok) throw new Error(`OpenAI API ${response.status}: ${await response.text()}`);
-const data=await response.json();
-const text=(data.output||[]).flatMap(i=>i.content||[]).filter(c=>c.type==='output_text').map(c=>c.text).join('\n').trim();
+const research=async()=>{
+ const response=await fetch('https://api.openai.com/v1/responses',{
+  method:'POST',
+  headers:{'Authorization':`Bearer ${key}`,'Content-Type':'application/json'},
+  body:JSON.stringify({
+    model:'gpt-5.6-terra',
+    reasoning:{effort:'medium'},
+    tools:[{type:'web_search',search_context_size:'high'}],
+    input:prompt,
+    max_output_tokens:30000
+  })
+ });
+ if(!response.ok)throw new Error(`OpenAI API ${response.status}: ${await response.text()}`);
+ const data=await response.json();
+ return (data.output||[]).flatMap(i=>i.content||[]).filter(c=>c.type==='output_text').map(c=>c.text).join('\n').trim();
+};
+let text='';
+for(let attempt=1;attempt<=2;attempt+=1){
+ try{text=await research()}catch(error){
+  if(attempt===2)throw error;
+  console.warn(`Research attempt ${attempt} failed; retrying once: ${error.message}`);
+  continue;
+ }
+ if(text==='NO_CHANGES'||text.includes('diff --git'))break;
+ console.warn(`Research attempt ${attempt} returned neither NO_CHANGES nor a unified diff${attempt===1?'; retrying once.':'.'}`);
+}
 if(text==='NO_CHANGES'){console.log('No verified changes found.');process.exit(0)}
-if(!text.startsWith('diff --git')) throw new Error('Research response did not return a unified diff.');
+const diffStart=text.indexOf('diff --git');
+if(diffStart<0){
+ console.warn('::warning::Research returned no applicable unified diff after two attempts. Continuing with validation and making no changes.');
+ process.exit(0);
+}
+text=text.slice(diffStart).replace(/\n```[\s\S]*$/,'').trimEnd()+'\n';
 
 await fs.writeFile('/tmp/family-sports.patch',text);
 const names=[...text.matchAll(/^diff --git a\/(.+?) b\/(.+)$/gm)].flatMap(m=>[m[1],m[2]]);
@@ -68,7 +85,10 @@ for(const forbidden of ['raiders-2026.ics','broncos-2026.ics','49ers-2026.ics','
  if(text.includes(forbidden)) throw new Error('Patch referenced forbidden NFL artifact: '+forbidden);
 
 const check=spawnSync('git',['apply','--check','/tmp/family-sports.patch'],{stdio:'inherit'});
-if(check.status!==0) throw new Error('Generated patch failed git apply --check.');
+if(check.status!==0){
+ console.warn('::warning::Verified-research patch did not apply cleanly. Continuing with validation and making no changes.');
+ process.exit(0);
+}
 const apply=spawnSync('git',['apply','/tmp/family-sports.patch'],{stdio:'inherit'});
 if(apply.status!==0) throw new Error('Generated patch failed to apply.');
 console.log('Applied verified research patch. Validation runs next.');

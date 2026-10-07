@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '15 15 * * *'
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/family-sports-refresh.yml'
+      - 'scripts/family-sports-ai-refresh.mjs'
+      - 'scripts/family-sports-ai-refresh.test.mjs'
+      - 'scripts/family-sports-refresh.mjs'
 
 permissions:
   contents: write

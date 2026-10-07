@@ -15,4 +15,8 @@ Add an Actions repository secret named `OPENAI_API_KEY`. The key is used only by
 7. Run all existing repository tests.
 8. Commit and push only when the working tree contains validated changes.
 
-The system fails closed: missing API secret, research failure, malformed patch, forbidden path, validation failure, or test failure prevents a commit.
+The system fails closed for missing credentials, forbidden paths, invalid family
+data, and test failures. Temporary research formatting or patch-context failures
+are retried once and then treated as “no verified changes”; validation and the
+test suite still run, avoiding a failed workflow merely because an optional
+research response could not be applied safely.
