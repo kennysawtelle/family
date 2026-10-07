@@ -1,17 +1,18 @@
 # Family Sports Automation
 
-The daily GitHub Actions workflow validates and publishes verified non-NFL family sports schedule changes.
+The repository now owns the unattended refresh. GitHub Actions runs daily and can commit directly with `contents: write`.
 
-## Managed schedules
-- Gracie — North Alabama women's soccer
-- Dane — Bonita varsity football
-- Eli — Los Gatos United soccer
-- Eli — Santa Cruz varsity football
-- Jack — Soquel JV football
+## One-time setup
+Add an Actions repository secret named `OPENAI_API_KEY`. The key is used only by the server-side GitHub runner to call the OpenAI Responses API with web search. Never put the key in a tracked file.
 
-NFL schedules are not managed here. Legacy NFL routes remain redirects to https://nfl.kensawtelle.com/.
+## Daily flow
+1. Check out `main`.
+2. Use the OpenAI Responses API + web search to compare the five family schedules with authoritative sources.
+3. Accept only a unified diff affecting the allowlisted family files.
+4. Refuse any patch that references Raiders/Broncos/49ers/Chargers calendar artifacts.
+5. Apply the patch only if `git apply --check` succeeds.
+6. Validate unique ICS UIDs and stream metadata.
+7. Run all existing repository tests.
+8. Commit and push only when the working tree contains validated changes.
 
-## Safety rules
-The workflow has repository contents write permission, preserves existing ICS subscription files, validates unique event UIDs, requires a URL when a verified stream provider is present, runs the repository test suite, and refuses to commit any change to Raiders/Broncos/49ers/Chargers ICS files.
-
-The workflow is intentionally fail-closed: if validation or tests fail, nothing is committed.
+The system fails closed: missing API secret, research failure, malformed patch, forbidden path, validation failure, or test failure prevents a commit.
