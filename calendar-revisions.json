@@ -1,0 +1,2451 @@
+{
+  "49ers-2026.ics": {
+    "49ers-pre1-20260813@family.kensawtelle.com": {
+      "hash": "636caa732e276d1aaebcb2ed0cdbe5a7025f749b2ea0c4b0d1f43d43fcb63de9",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-pre1-20260813@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260813T180000",
+        "DTEND;TZID=America/Los_Angeles:20260813T213000",
+        "SUMMARY:49ers vs. Tennessee Titans (Preseason)",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:Preseason Week 1. Final: 49ers 13\\, Titans 19."
+      ]
+    },
+    "49ers-pre2-20260820@family.kensawtelle.com": {
+      "hash": "9fa6ca568406f8b6239b615e8174aaddbdc97fbcf3109df605521a0d27b13d84",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-pre2-20260820@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260820T190000",
+        "DTEND;TZID=America/Los_Angeles:20260820T223000",
+        "SUMMARY:49ers at Los Angeles Chargers (Preseason)",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:Preseason Week 2. Final: 49ers 41\\, Chargers 17."
+      ]
+    },
+    "49ers-pre3-20260827@family.kensawtelle.com": {
+      "hash": "7e21765d46e46d05003f39642061cdc552f0771216d0d10da723b84d1bb3c037",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-pre3-20260827@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260827T170000",
+        "DTEND;TZID=America/Los_Angeles:20260827T203000",
+        "SUMMARY:49ers at Las Vegas Raiders (Preseason)",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:Preseason Week 3. Final: 49ers 18\\, Raiders 12. Preseason record 2-1."
+      ]
+    },
+    "49ers-w1-20260910@family.kensawtelle.com": {
+      "hash": "2d558aecabe03757f9d0736b76e451fd566624de6beb67fc890db06398f22366",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w1-20260910@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260910T173500",
+        "DTEND;TZID=America/Los_Angeles:20260910T210500",
+        "SUMMARY:49ers at Los Angeles Rams (Melbourne)",
+        "LOCATION:Melbourne Cricket Ground\\, Brunton Ave\\, Richmond VIC 3002\\, Australia",
+        "DESCRIPTION:NFL Week 1. Final: 49ers 27\\, Rams 7. Regular-season record 1-0. TV: Netflix.\\nWatch: Netflix · NFL+ — https://www.netflix.com/",
+        "URL:https://www.netflix.com/",
+        "X-STREAM-PROVIDER:Netflix · NFL+",
+        "X-STREAM-URL:https://www.netflix.com/"
+      ]
+    },
+    "49ers-w2-20260920@family.kensawtelle.com": {
+      "hash": "f62c82837f1802c69432de47519e6b2965b42ea0ff3fff172ead066ab85d59c8",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w2-20260920@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260920T132500",
+        "DTEND;TZID=America/Los_Angeles:20260920T165500",
+        "SUMMARY:49ers vs. Miami Dolphins",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:NFL Week 2. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "49ers-w3-20260927@family.kensawtelle.com": {
+      "hash": "c9fdc7c29447af5df580cc7cf5952bc3c4189ddb7171e684c91849ec506c21b4",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w3-20260927@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260927T130500",
+        "DTEND;TZID=America/Los_Angeles:20260927T163500",
+        "SUMMARY:49ers vs. Arizona Cardinals",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:NFL Week 3. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "49ers-w4-20261004@family.kensawtelle.com": {
+      "hash": "046514ba3286f97defe7971425dfcb8fb234378e93c7547b5a0dca71f62fc1d4",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w4-20261004@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261004T132500",
+        "DTEND;TZID=America/Los_Angeles:20261004T165500",
+        "SUMMARY:49ers vs. Denver Broncos",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:NFL Week 4. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "49ers-w5-20261011@family.kensawtelle.com": {
+      "hash": "1c7f01348a25ca879bc975aff19f3fec01a53bdd0224c43b5178046cbb6160ef",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w5-20261011@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261011T132500",
+        "DTEND;TZID=America/Los_Angeles:20261011T165500",
+        "SUMMARY:49ers at Seattle Seahawks",
+        "LOCATION:Lumen Field\\, 800 Occidental Ave S\\, Seattle\\, WA 98134",
+        "DESCRIPTION:NFL Week 5. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "49ers-w6-20261019@family.kensawtelle.com": {
+      "hash": "09f3dd512c90528a2964378bed9c1ef2ff361efb7cde19577f826a4b98a3efc1",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w6-20261019@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261019T171500",
+        "DTEND;TZID=America/Los_Angeles:20261019T204500",
+        "SUMMARY:49ers vs. Washington Commanders",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:NFL Week 6. TV: ESPN / ABC.\\nWatch: ESPN · NFL+ — https://www.espn.com/watch/",
+        "URL:https://www.espn.com/watch/",
+        "X-STREAM-PROVIDER:ESPN · NFL+",
+        "X-STREAM-URL:https://www.espn.com/watch/"
+      ]
+    },
+    "49ers-w7-20261025@family.kensawtelle.com": {
+      "hash": "f5dc508a19ff547070016225f42e92151ebf89a5b8f439e9b1b6824fe5948e5d",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w7-20261025@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261025T100000",
+        "DTEND;TZID=America/Los_Angeles:20261025T133000",
+        "SUMMARY:49ers at Atlanta Falcons",
+        "LOCATION:Mercedes-Benz Stadium\\, 1 AMB Dr NW\\, Atlanta\\, GA 30313",
+        "DESCRIPTION:NFL Week 7. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "49ers-w9-20261108@family.kensawtelle.com": {
+      "hash": "7a834267e8f9ee6c90ac80c0510b2ff7b71ca5f6824d10132205c79b5118a469",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w9-20261108@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261108T130500",
+        "DTEND;TZID=America/Los_Angeles:20261108T163500",
+        "SUMMARY:49ers vs. Las Vegas Raiders",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:NFL Week 9. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "49ers-w10-20261115@family.kensawtelle.com": {
+      "hash": "6285b182df962d5cd216948085c4a5e3f92574aa9b86fa24cba9252bfb011f98",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w10-20261115@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261115T132500",
+        "DTEND;TZID=America/Los_Angeles:20261115T165500",
+        "SUMMARY:49ers at Dallas Cowboys",
+        "LOCATION:AT&T Stadium\\, 1 AT&T Way\\, Arlington\\, TX 76011",
+        "DESCRIPTION:NFL Week 10. TV: FOX.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "49ers-w11-20261122@family.kensawtelle.com": {
+      "hash": "e51e2803f1d406c72b84005034a065b54a3f2df71323602e1514fbf5b777bb48",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w11-20261122@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261122T172000",
+        "DTEND;TZID=America/Los_Angeles:20261122T205000",
+        "SUMMARY:49ers vs. Minnesota Vikings (Mexico City)",
+        "LOCATION:Estadio Banorte\\, Calz. de Tlalpan 3465\\, Santa Ursula Coapa\\, Coyoacan\\, 04650 Ciudad de Mexico\\, Mexico",
+        "DESCRIPTION:NFL Week 11. TV: NBC.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "49ers-w12-20261129@family.kensawtelle.com": {
+      "hash": "8ba03845fbb034554785cfc9b3f58724150bbdbcddaa3eeb56a1665f7fd1b0d0",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w12-20261129@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261129T132500",
+        "DTEND;TZID=America/Los_Angeles:20261129T165500",
+        "SUMMARY:49ers vs. Seattle Seahawks",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:NFL Week 12. TV: FOX.\\nWatch: Peacock · NFL+ — https://www.peacocktv.com/sports/nfl",
+        "URL:https://www.peacocktv.com/sports/nfl",
+        "X-STREAM-PROVIDER:Peacock · NFL+",
+        "X-STREAM-URL:https://www.peacocktv.com/sports/nfl"
+      ]
+    },
+    "49ers-w13-20261206@family.kensawtelle.com": {
+      "hash": "b86b75b3107c7e76493f25ea213558a1f757244b10e322aa60e0fafcce5c8a10",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w13-20261206@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261206T100000",
+        "DTEND;TZID=America/Los_Angeles:20261206T133000",
+        "SUMMARY:49ers at New York Giants",
+        "LOCATION:MetLife Stadium\\, 1 MetLife Stadium Dr\\, East Rutherford\\, NJ 07073",
+        "DESCRIPTION:NFL Week 13. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "49ers-w14-20261213@family.kensawtelle.com": {
+      "hash": "e060b29d13441ed1c5584b79e8a92292b6fb2d2c8f868b7b25b7f17e91b1e6c0",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w14-20261213@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261213T132500",
+        "DTEND;TZID=America/Los_Angeles:20261213T165500",
+        "SUMMARY:49ers vs. Los Angeles Rams",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:NFL Week 14. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "49ers-w15-20261217@family.kensawtelle.com": {
+      "hash": "26fa50456774788d1b6c40c42ad4dacd65c01056c25cf295564a57a276f1d4e7",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w15-20261217@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261217T171500",
+        "DTEND;TZID=America/Los_Angeles:20261217T204500",
+        "SUMMARY:49ers at Los Angeles Chargers",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 15. TV: Prime Video.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "49ers-w16-20261227@family.kensawtelle.com": {
+      "hash": "2e95fe7328caf71047fd75e4fa566f7973c6b042c41a07dcd306de83744f9c01",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w16-20261227@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261227T132500",
+        "DTEND;TZID=America/Los_Angeles:20261227T165500",
+        "SUMMARY:49ers at Kansas City Chiefs",
+        "LOCATION:GEHA Field at Arrowhead Stadium\\, 1 Arrowhead Dr\\, Kansas City\\, MO 64129",
+        "DESCRIPTION:NFL Week 16. TV: CBS.\\nWatch: Prime Video · NFL+ — https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF",
+        "URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF",
+        "X-STREAM-PROVIDER:Prime Video · NFL+",
+        "X-STREAM-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF"
+      ]
+    },
+    "49ers-w17-20270103@family.kensawtelle.com": {
+      "hash": "01f77d72a81a0a3a4ca1414eb46cbe7c4aef4c66965e54e369fc13ef23271370",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w17-20270103@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20270103T172000",
+        "DTEND;TZID=America/Los_Angeles:20270103T205000",
+        "SUMMARY:49ers vs. Philadelphia Eagles",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:NFL Week 17. TV: NBC.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "49ers-w18-tbd@family.kensawtelle.com": {
+      "hash": "f8c8f33f5a78011155acb2f796e574d5e2c6f48a786850a03a93fa0900271588",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:49ers-w18-tbd@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20270109",
+        "DTEND;VALUE=DATE:20270111",
+        "SUMMARY:TENTATIVE: 49ers at Cardinals — date/time TBD",
+        "LOCATION:State Farm Stadium\\, 1 Cardinals Dr\\, Glendale\\, AZ 85305",
+        "STATUS:TENTATIVE",
+        "TRANSP:TRANSPARENT",
+        "DESCRIPTION:NFL Week 18. Date and kickoff time TBD.\\nWatch: Peacock · NFL+ — https://www.peacocktv.com/sports/nfl",
+        "URL:https://www.peacocktv.com/sports/nfl",
+        "X-STREAM-PROVIDER:Peacock · NFL+",
+        "X-STREAM-URL:https://www.peacocktv.com/sports/nfl"
+      ]
+    }
+  },
+  "broncos-2026.ics": {
+    "broncos-pre1-20260814@family.kensawtelle.com": {
+      "hash": "9e93aebe22f8ff5a70a83de2f1af2a763ffe7465be710dbd8f9f4d7d309024fa",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-pre1-20260814@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20260814T170000",
+        "DTEND;TZID=America/Denver:20260814T203000",
+        "SUMMARY:Broncos at Atlanta Falcons (Preseason)",
+        "LOCATION:Mercedes-Benz Stadium\\, 1 AMB Dr NW\\, Atlanta\\, GA 30313",
+        "DESCRIPTION:Preseason Week 1. Final: Broncos 27\\, Falcons 7."
+      ]
+    },
+    "broncos-pre2-20260821@family.kensawtelle.com": {
+      "hash": "d4af59c5f3a117f67a7802ba89f465ee26388e42fd76970979fda0dea011ea14",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-pre2-20260821@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20260821T190000",
+        "DTEND;TZID=America/Denver:20260821T223000",
+        "SUMMARY:Broncos vs. Green Bay Packers (Preseason)",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:Preseason Week 2. Final: Broncos 13\\, Packers 33."
+      ]
+    },
+    "broncos-pre3-20260828@family.kensawtelle.com": {
+      "hash": "521389d5aaef6d5c1db0192e4e6447eba04da8419c50b49f76b3a651d4442e4e",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-pre3-20260828@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20260828T190000",
+        "DTEND;TZID=America/Denver:20260828T223000",
+        "SUMMARY:Broncos vs. Minnesota Vikings (Preseason)",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:Preseason Week 3. Final: Broncos 34\\, Vikings 6. Preseason record 2-1."
+      ]
+    },
+    "broncos-w1-20260914@family.kensawtelle.com": {
+      "hash": "e9ef91c30098dc530c1974bda6552e61397f194a89e276922db6881e49868ddf",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w1-20260914@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20260914T181500",
+        "DTEND;TZID=America/Denver:20260914T214500",
+        "SUMMARY:Broncos at Kansas City Chiefs",
+        "LOCATION:GEHA Field at Arrowhead Stadium\\, 1 Arrowhead Dr\\, Kansas City\\, MO 64129",
+        "DESCRIPTION:NFL Week 1. Final: Broncos 10\\, Chiefs 31. TV: ESPN / ABC.\\nWatch: ESPN · NFL+ — https://www.espn.com/watch/",
+        "URL:https://www.espn.com/watch/",
+        "X-STREAM-PROVIDER:ESPN · NFL+",
+        "X-STREAM-URL:https://www.espn.com/watch/"
+      ]
+    },
+    "broncos-w2-20260920@family.kensawtelle.com": {
+      "hash": "af61326328fc92daa69e280388111e400a89e027325c59c66cdf3eb6d0716ffc",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w2-20260920@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20260920T140500",
+        "DTEND;TZID=America/Denver:20260920T173500",
+        "SUMMARY:Broncos vs. Jacksonville Jaguars",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:NFL Week 2. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "broncos-w3-20260927@family.kensawtelle.com": {
+      "hash": "060e2c27ce3c2e82e21da21744fdd21fd1224053446aa5fcb1798de5509b1060",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w3-20260927@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20260927T182000",
+        "DTEND;TZID=America/Denver:20260927T215000",
+        "SUMMARY:Broncos vs. Los Angeles Rams",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:NFL Week 3. TV: NBC.\\nWatch: Peacock · NFL+ — https://www.peacocktv.com/sports/nfl",
+        "URL:https://www.peacocktv.com/sports/nfl",
+        "X-STREAM-PROVIDER:Peacock · NFL+",
+        "X-STREAM-URL:https://www.peacocktv.com/sports/nfl"
+      ]
+    },
+    "broncos-w4-20261004@family.kensawtelle.com": {
+      "hash": "1b736369e8a47ae054aa0a7c26d7451f4c5505a8ecca8c4fc5e0683aa048182b",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w4-20261004@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261004T142500",
+        "DTEND;TZID=America/Denver:20261004T175500",
+        "SUMMARY:Broncos at San Francisco 49ers",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:NFL Week 4. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "broncos-w5-20261011@family.kensawtelle.com": {
+      "hash": "5af65b4662194d6666056d76d3175d2fbbc112f22418e467d9e599c5f48a17a3",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w5-20261011@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261011T140500",
+        "DTEND;TZID=America/Denver:20261011T173500",
+        "SUMMARY:Broncos at Los Angeles Chargers",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 5. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "broncos-w6-20261015@family.kensawtelle.com": {
+      "hash": "d8f38a7ddef98bf5e3f8ebdd9bc6df4a07251d4a3240b3000c9683620ae52a77",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w6-20261015@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261015T181500",
+        "DTEND;TZID=America/Denver:20261015T214500",
+        "SUMMARY:Broncos vs. Seattle Seahawks",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:NFL Week 6. TV: Prime Video.\\nWatch: Prime Video · NFL+ — https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF",
+        "URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF",
+        "X-STREAM-PROVIDER:Prime Video · NFL+",
+        "X-STREAM-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF"
+      ]
+    },
+    "broncos-w7-20261025@family.kensawtelle.com": {
+      "hash": "eeef1c01fcd459047bcc8492c392b33ef4b7dfb2d25d676c4d6c5c5de2a58398",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w7-20261025@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261025T140500",
+        "DTEND;TZID=America/Denver:20261025T173500",
+        "SUMMARY:Broncos at Arizona Cardinals",
+        "LOCATION:State Farm Stadium\\, 1 Cardinals Dr\\, Glendale\\, AZ 85305",
+        "DESCRIPTION:NFL Week 7. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "broncos-w8-20261101@family.kensawtelle.com": {
+      "hash": "33884edd2102f1d731fd64863998e5aa39275d9d39daa1b04d15ac1c4d085279",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w8-20261101@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261101T142500",
+        "DTEND;TZID=America/Denver:20261101T175500",
+        "SUMMARY:Broncos vs. Kansas City Chiefs",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:NFL Week 8. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "broncos-w9-20261108@family.kensawtelle.com": {
+      "hash": "0d906c1afe3539256150bbedb604354f5d06b737ffc77fa2c00458c9a76bc2f0",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w9-20261108@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261108T110000",
+        "DTEND;TZID=America/Denver:20261108T143000",
+        "SUMMARY:Broncos at Carolina Panthers",
+        "LOCATION:Bank of America Stadium\\, 800 S Mint St\\, Charlotte\\, NC 28202",
+        "DESCRIPTION:NFL Week 9. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "broncos-w11-20261122@family.kensawtelle.com": {
+      "hash": "b9591886aca6f7519f85ea08de51d5154211be0e9a993712626d21e9dd458b97",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w11-20261122@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261122T142500",
+        "DTEND;TZID=America/Denver:20261122T175500",
+        "SUMMARY:Broncos vs. Las Vegas Raiders",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:NFL Week 11. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "broncos-w12-20261127@family.kensawtelle.com": {
+      "hash": "946a64a06d00a702914e02553d6b2e1f48b2a5edf228cbd528af0cef5e5469cd",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w12-20261127@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261127T130000",
+        "DTEND;TZID=America/Denver:20261127T163000",
+        "SUMMARY:Broncos at Pittsburgh Steelers",
+        "LOCATION:Acrisure Stadium\\, 100 Art Rooney Ave\\, Pittsburgh\\, PA 15212",
+        "DESCRIPTION:NFL Week 12. TV: Prime Video.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "broncos-w13-20261206@family.kensawtelle.com": {
+      "hash": "4332d6caa49a983094c38920e803a9f8fa207cfe6e65b287362b3be6f236d4c1",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w13-20261206@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261206T140500",
+        "DTEND;TZID=America/Denver:20261206T173500",
+        "SUMMARY:Broncos vs. Miami Dolphins",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:NFL Week 13. TV: FOX.\\nWatch: Prime Video · NFL+ — https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF",
+        "URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF",
+        "X-STREAM-PROVIDER:Prime Video · NFL+",
+        "X-STREAM-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF"
+      ]
+    },
+    "broncos-w14-20261213@family.kensawtelle.com": {
+      "hash": "8fd210ef9abc664e520e31c206f7ff78d0229cedcab341343969708e21db59e2",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w14-20261213@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261213T110000",
+        "DTEND;TZID=America/Denver:20261213T143000",
+        "SUMMARY:Broncos at New York Jets",
+        "LOCATION:MetLife Stadium\\, 1 MetLife Stadium Dr\\, East Rutherford\\, NJ 07073",
+        "DESCRIPTION:NFL Week 14. TV: CBS.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "broncos-w15-20261220@family.kensawtelle.com": {
+      "hash": "0dc7628d187af15c8ed961bea7702ededa7b3319c91a3efbc812a300998efa39",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w15-20261220@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261220T142500",
+        "DTEND;TZID=America/Denver:20261220T175500",
+        "SUMMARY:Broncos at Las Vegas Raiders",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:NFL Week 15. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "broncos-w16-20261225@family.kensawtelle.com": {
+      "hash": "d6f52aecf847a2a242cc3c6cf68c25da0002cb2271f62047fec6e15d345f014b",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w16-20261225@family.kensawtelle.com",
+        "DTSTART;TZID=America/Denver:20261225T143000",
+        "DTEND;TZID=America/Denver:20261225T180000",
+        "SUMMARY:Broncos vs. Buffalo Bills",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:NFL Week 16. TV: Netflix.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "broncos-w17-tbd@family.kensawtelle.com": {
+      "hash": "a5dcd04a0f340d5149573d9547088281a9d16300d48dc6b70a910a7b92e94f05",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w17-tbd@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20270102",
+        "DTEND;VALUE=DATE:20270104",
+        "SUMMARY:TENTATIVE: Broncos at Patriots — date/time TBD",
+        "LOCATION:Gillette Stadium\\, 1 Patriot Pl\\, Foxborough\\, MA 02035",
+        "STATUS:TENTATIVE",
+        "TRANSP:TRANSPARENT",
+        "DESCRIPTION:NFL Week 17. Date and kickoff time TBD.\\nWatch: Netflix · NFL+ — https://www.netflix.com/",
+        "URL:https://www.netflix.com/",
+        "X-STREAM-PROVIDER:Netflix · NFL+",
+        "X-STREAM-URL:https://www.netflix.com/"
+      ]
+    },
+    "broncos-w18-tbd@family.kensawtelle.com": {
+      "hash": "2aeb437f3c2a675da5e0924ebc5b787cb4af727bcb023aa8da10575b0544ee86",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:broncos-w18-tbd@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20270109",
+        "DTEND;VALUE=DATE:20270111",
+        "SUMMARY:TENTATIVE: Broncos vs. Chargers — date/time TBD",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "STATUS:TENTATIVE",
+        "TRANSP:TRANSPARENT",
+        "DESCRIPTION:NFL Week 18. Date and kickoff time TBD."
+      ]
+    }
+  },
+  "chargers-2026.ics": {
+    "chargers-2026-08-13-pre1@family.kensawtelle.com": {
+      "hash": "9e128fb089842cb8bce63f851711534bc4ce64d27c401559656e9ea459242fe4",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-08-13-pre1@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260813T170000",
+        "DTEND;TZID=America/Los_Angeles:20260813T200000",
+        "SUMMARY:Chargers @ Houston Texans",
+        "LOCATION:NRG Stadium\\, 1 NRG Pkwy\\, Houston\\, TX 77054",
+        "DESCRIPTION:Preseason Week 1. Final: Chargers 27\\, Texans 7.",
+        "STATUS:CONFIRMED"
+      ]
+    },
+    "chargers-2026-08-20-pre2@family.kensawtelle.com": {
+      "hash": "01177ccfa56a8ffc2eeb32721ba0a1f0512eafabb27d7fbca1d57b64ecb28f9f",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-08-20-pre2@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260820T190000",
+        "DTEND;TZID=America/Los_Angeles:20260820T220000",
+        "SUMMARY:Chargers vs. San Francisco 49ers",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:Preseason Week 2. Final: Chargers 17\\, 49ers 41.",
+        "STATUS:CONFIRMED"
+      ]
+    },
+    "chargers-2026-08-27-pre3@family.kensawtelle.com": {
+      "hash": "9d8924ecbb770b74bb235362d16942841d16132cd49b90d3b9812fc31f6eec51",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-08-27-pre3@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260827T190000",
+        "DTEND;TZID=America/Los_Angeles:20260827T220000",
+        "SUMMARY:Chargers vs. Los Angeles Rams",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:Preseason Week 3. Final: Chargers 18\\, Rams 20. Preseason record 1-2.",
+        "STATUS:CONFIRMED"
+      ]
+    },
+    "chargers-2026-09-13-w1@family.kensawtelle.com": {
+      "hash": "c20028e2eb5002c235efc70964f998ff0cf651aef121c71eb43ab6f2dfa7b644",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-09-13-w1@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260913T132500",
+        "DTEND;TZID=America/Los_Angeles:20260913T162500",
+        "SUMMARY:Chargers vs. Arizona Cardinals",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 1. Home. Final: Chargers 14\\, Cardinals 26. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "chargers-2026-09-20-w2@family.kensawtelle.com": {
+      "hash": "8b988c77ae5adf8942cae78dcdc4b2d167113fe79f7bb597af640d25c414df0e",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-09-20-w2@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260920T130500",
+        "DTEND;TZID=America/Los_Angeles:20260920T160500",
+        "SUMMARY:Chargers vs. Las Vegas Raiders",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 2. Home. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "chargers-2026-09-27-w3@family.kensawtelle.com": {
+      "hash": "b6b42e79364912644958a2767d179c03227bc780770583c3578018605c70cc9d",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-09-27-w3@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260927T100000",
+        "DTEND;TZID=America/Los_Angeles:20260927T130000",
+        "SUMMARY:Chargers @ Buffalo Bills",
+        "LOCATION:Highmark Stadium\\, 1 Bills Dr\\, Orchard Park\\, NY 14127",
+        "DESCRIPTION:NFL Week 3. Away. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "chargers-2026-10-04-w4@family.kensawtelle.com": {
+      "hash": "839f8bab27af4356a45eef3a1407b29c71b9f48813fcef59b8906b06746d2409",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-10-04-w4@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261004T132500",
+        "DTEND;TZID=America/Los_Angeles:20261004T162500",
+        "SUMMARY:Chargers @ Seattle Seahawks",
+        "LOCATION:Lumen Field\\, 800 Occidental Ave S\\, Seattle\\, WA 98134",
+        "DESCRIPTION:NFL Week 4. Away. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "chargers-2026-10-11-w5@family.kensawtelle.com": {
+      "hash": "eb551ce9dd70adfc7e137b25dcf1ecdddf62fcee1ac4af9377539e969f72c76d",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-10-11-w5@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261011T130500",
+        "DTEND;TZID=America/Los_Angeles:20261011T160500",
+        "SUMMARY:Chargers vs. Denver Broncos",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 5. Home. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "chargers-2026-10-18-w6@family.kensawtelle.com": {
+      "hash": "ba57d9722f7acf832b32e7b06d28ee7b34190e5067b9fd6e54293821d06f58d2",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-10-18-w6@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261018T132500",
+        "DTEND;TZID=America/Los_Angeles:20261018T162500",
+        "SUMMARY:Chargers @ Kansas City Chiefs",
+        "LOCATION:GEHA Field at Arrowhead Stadium\\, 1 Arrowhead Dr\\, Kansas City\\, MO 64129",
+        "DESCRIPTION:NFL Week 6. Away. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "chargers-2026-11-01-w8@family.kensawtelle.com": {
+      "hash": "c39da1c6ecdd5adde23f7ba7a1a1eb84feac5537682c66f8bd7c108f14ac7e43",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-11-01-w8@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261101T130500",
+        "DTEND;TZID=America/Los_Angeles:20261101T160500",
+        "SUMMARY:Chargers @ Los Angeles Rams",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 8. Away. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "chargers-2026-11-08-w9@family.kensawtelle.com": {
+      "hash": "8634ea2d29f6eea7486fbf9fffbe342c1e3b5dc6017d873094cf06ce1738e25f",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-11-08-w9@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261108T130500",
+        "DTEND;TZID=America/Los_Angeles:20261108T160500",
+        "SUMMARY:Chargers vs. Houston Texans",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 9. Home. TV: CBS.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "chargers-2026-11-16-w10@family.kensawtelle.com": {
+      "hash": "a10ee30ba1d200afee45babf39031015d2449a55dc48526a5f06d3343df365be",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-11-16-w10@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261116T171500",
+        "DTEND;TZID=America/Los_Angeles:20261116T201500",
+        "SUMMARY:Chargers @ Baltimore Ravens",
+        "LOCATION:M&T Bank Stadium\\, 1101 Russell St\\, Baltimore\\, MD 21230",
+        "DESCRIPTION:NFL Week 10. Away. TV: ESPN.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "chargers-2026-11-22-w11@family.kensawtelle.com": {
+      "hash": "f5821b20b06bf41e412cacb62ba6c087a203972fe418577982e4366fc9b44928",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-11-22-w11@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261122T130500",
+        "DTEND;TZID=America/Los_Angeles:20261122T160500",
+        "SUMMARY:Chargers vs. New York Jets",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 11. Home. TV: FOX.\\nWatch: ESPN · NFL+ — https://www.espn.com/watch/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.espn.com/watch/",
+        "X-STREAM-PROVIDER:ESPN · NFL+",
+        "X-STREAM-URL:https://www.espn.com/watch/"
+      ]
+    },
+    "chargers-2026-11-29-w12@family.kensawtelle.com": {
+      "hash": "2f8ef2cef1e910d25f0cd3e56470f6967bd0c440004c014b73cb92c4d1d4f9eb",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-11-29-w12@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261129T172000",
+        "DTEND;TZID=America/Los_Angeles:20261129T202000",
+        "SUMMARY:Chargers vs. New England Patriots",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 12. Home. TV: NBC.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "chargers-2026-12-06-w13@family.kensawtelle.com": {
+      "hash": "b4b7ad1022e1f9e43706cdc3eb239a44d9e343521001566dd9e52c7c4d5ba7d2",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-12-06-w13@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261206T100000",
+        "DTEND;TZID=America/Los_Angeles:20261206T130000",
+        "SUMMARY:Chargers @ Tampa Bay Buccaneers",
+        "LOCATION:Raymond James Stadium\\, 4201 N Dale Mabry Hwy\\, Tampa\\, FL 33607",
+        "DESCRIPTION:NFL Week 13. Away. TV: CBS.\\nWatch: Peacock · NFL+ — https://www.peacocktv.com/sports/nfl",
+        "STATUS:CONFIRMED",
+        "URL:https://www.peacocktv.com/sports/nfl",
+        "X-STREAM-PROVIDER:Peacock · NFL+",
+        "X-STREAM-URL:https://www.peacocktv.com/sports/nfl"
+      ]
+    },
+    "chargers-2026-12-13-w14@family.kensawtelle.com": {
+      "hash": "14457e04c93a52915f1c77a8f33a5ec9ff9d3f5c49cd96cf03f02866a9914501",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-12-13-w14@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261213T130500",
+        "DTEND;TZID=America/Los_Angeles:20261213T160500",
+        "SUMMARY:Chargers @ Las Vegas Raiders",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:NFL Week 14. Away. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "chargers-2026-12-17-w15@family.kensawtelle.com": {
+      "hash": "6b468c83ba90b8ce2fcc6fde9af1ce9bc300b9de55e098c51a65875cbf2a56f2",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-12-17-w15@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261217T171500",
+        "DTEND;TZID=America/Los_Angeles:20261217T201500",
+        "SUMMARY:Chargers vs. San Francisco 49ers",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 15. Home. TV: Prime Video.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "chargers-2026-12-27-w16@family.kensawtelle.com": {
+      "hash": "b598eea4c9e23cc18923bffb01f147e3646aef625578d33509e36a41b20f7807",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-12-27-w16@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261227T100000",
+        "DTEND;TZID=America/Los_Angeles:20261227T130000",
+        "SUMMARY:Chargers @ Miami Dolphins",
+        "LOCATION:Hard Rock Stadium\\, 347 Don Shula Dr\\, Miami Gardens\\, FL 33056",
+        "DESCRIPTION:NFL Week 16. Away. TV: FOX.\\nWatch: Prime Video · NFL+ — https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF",
+        "STATUS:CONFIRMED",
+        "URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF",
+        "X-STREAM-PROVIDER:Prime Video · NFL+",
+        "X-STREAM-URL:https://www.amazon.com/gp/video/storefront?contentType=merch&contentId=TNF"
+      ]
+    },
+    "chargers-2026-w17-tbd@family.kensawtelle.com": {
+      "hash": "2dcd11a8ee645c75575a00cf78beb35dcd792b1db40a750c9c1611c5200267d9",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-w17-tbd@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20270102",
+        "DTEND;VALUE=DATE:20270104",
+        "SUMMARY:TENTATIVE: Chargers vs. Chiefs — date/time TBD",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 17. Exact date and kickoff time TBD.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "STATUS:TENTATIVE",
+        "TRANSP:TRANSPARENT",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "chargers-2026-w18-tbd@family.kensawtelle.com": {
+      "hash": "6122ec614ed970113d234ff8523f3b670c7a03d088bf2ef412b2327d04206714",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:chargers-2026-w18-tbd@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20270109",
+        "DTEND;VALUE=DATE:20270111",
+        "SUMMARY:TENTATIVE: Chargers at Broncos — date/time TBD",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:NFL Week 18. Exact date and kickoff time TBD.",
+        "STATUS:TENTATIVE",
+        "TRANSP:TRANSPARENT"
+      ]
+    }
+  },
+  "dane-2026.ics": {
+    "2026-08-13-179fc43b29dc@family.kensawtelle.com": {
+      "hash": "6057fdbaec1fa67bb6e5550af33f99e17c7964221fbaeb80ab0b1ded86665166",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-08-13-179fc43b29dc@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260813T170000",
+        "DTEND;TZID=America/Los_Angeles:20260813T200000",
+        "SUMMARY:Dane Football — Valley View Scrimmage",
+        "LOCATION:Valley View High School\\, 13135 Nason St\\, Moreno Valley\\, CA 92555",
+        "DESCRIPTION:Bonita Varsity Football scrimmage.",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "2026-08-21-9555ed9afe5c@family.kensawtelle.com": {
+      "hash": "9ea628ee1703b9666dfa1d38c008af2cc237a490f16752d5a9d8bb9d20d4d778",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-08-21-9555ed9afe5c@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260821T190000",
+        "DTEND;TZID=America/Los_Angeles:20260821T220000",
+        "SUMMARY:Dane Football — vs. Muir",
+        "LOCATION:Glenn Davis Stadium at Bonita High School\\, 3102 D St\\, La Verne\\, CA 91750",
+        "DESCRIPTION:Bonita Varsity Football. Final: Bonita 20\\, Muir 6.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca"
+      ]
+    },
+    "2026-08-28-c693129ac8f4@family.kensawtelle.com": {
+      "hash": "4a77cfd1978817e113522c35ad36ac442fa9631e97b847486e30c0cedac6aade",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-08-28-c693129ac8f4@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260828T190000",
+        "DTEND;TZID=America/Los_Angeles:20260828T220000",
+        "SUMMARY:Dane Football — @ Diamond Ranch",
+        "LOCATION:Diamond Ranch High School\\, 100 Diamond Ranch Dr\\, Pomona\\, CA 91766",
+        "DESCRIPTION:Bonita Varsity Football. Final: Bonita 48\\, Diamond Ranch 0.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca"
+      ]
+    },
+    "2026-09-04-e521a62eb7f6@family.kensawtelle.com": {
+      "hash": "a507d38ab4a8f3178a72c17488b9099daac38dc2712330536d31843144bd9f91",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-09-04-e521a62eb7f6@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260904T190000",
+        "DTEND;TZID=America/Los_Angeles:20260904T220000",
+        "SUMMARY:Dane Football — @ Western",
+        "LOCATION:Western High School\\, 501 S Western Ave\\, Anaheim\\, CA 92804",
+        "DESCRIPTION:Bonita Varsity Football. Final: Bonita 41\\, Western 7. Record 3-0.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca"
+      ]
+    },
+    "2026-09-11-eedb3409386b@family.kensawtelle.com": {
+      "hash": "38ccfebc9032476ba21f4b3584e7d1170feb8da88340ab705c935cff5c49d456",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-09-11-eedb3409386b@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260911T190000",
+        "DTEND;TZID=America/Los_Angeles:20260911T220000",
+        "SUMMARY:Dane Football — San Dimas (Smudge Pot at Mt. SAC)",
+        "LOCATION:Hilmer Lodge Stadium at Mt. San Antonio College\\, 1100 N Grand Ave\\, Walnut\\, CA 91789",
+        "DESCRIPTION:Bonita Varsity Football. Neutral-site Smudge Pot rivalry game; San Dimas was the designated home team. Final: Bonita 28\\, San Dimas 16. Record 4-0.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca"
+      ]
+    },
+    "2026-09-18-fd0bc8984be1@family.kensawtelle.com": {
+      "hash": "e116374435231f938e1b3557cb4ec3e681353ebf5b36a274864d290db70bd65b",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-09-18-fd0bc8984be1@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260918T190000",
+        "DTEND;TZID=America/Los_Angeles:20260918T220000",
+        "SUMMARY:Dane Football — vs. Schurr",
+        "LOCATION:Glenn Davis Stadium at Bonita High School\\, 3102 D St\\, La Verne\\, CA 91750",
+        "DESCRIPTION:Bonita Varsity Football. Final: Bonita 35\\, Schurr 6. Record 5-0.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca"
+      ]
+    },
+    "2026-10-01-ec2445837a93@family.kensawtelle.com": {
+      "hash": "57f8d5f04c3c0274827b5c1effd7e63a4ab3c060925e8f3438f8b9c9a313f271",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-10-01-ec2445837a93@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261001T190000",
+        "DTEND;TZID=America/Los_Angeles:20261001T220000",
+        "SUMMARY:Dane Football — vs. Colony",
+        "LOCATION:Glenn Davis Stadium at Bonita High School\\, 3102 D St\\, La Verne\\, CA 91750",
+        "DESCRIPTION:Bonita Varsity Football league game.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca"
+      ]
+    },
+    "2026-10-09-2ab0c7ba38b2@family.kensawtelle.com": {
+      "hash": "4d9c27044cbd14aa8ff80726acd426f74f27af25ae125f39f614970dd6b05fe5",
+      "sequence": 5,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:2026-10-09-2ab0c7ba38b2@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261009T190000",
+        "DTEND;TZID=America/Los_Angeles:20261009T220000",
+        "SUMMARY:Dane Football — @ Northview",
+        "LOCATION:Northview High School\\, 1016 W Cypress Ave\\, Covina\\, CA 91722",
+        "DESCRIPTION:Bonita Varsity Football league game.\\nWatch: TBD",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "2026-10-16-b49c0541ac82@family.kensawtelle.com": {
+      "hash": "eb1c95976e6bea289c9f18ce0c2cca5286e4cd003e4afca078d074e52c2926d8",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-10-16-b49c0541ac82@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261016T190000",
+        "DTEND;TZID=America/Los_Angeles:20261016T220000",
+        "SUMMARY:Dane Football — vs. Ayala",
+        "LOCATION:Glenn Davis Stadium at Bonita High School\\, 3102 D St\\, La Verne\\, CA 91750",
+        "DESCRIPTION:Bonita Varsity Football league game.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca"
+      ]
+    },
+    "2026-10-23-10da0d3d9fe8@family.kensawtelle.com": {
+      "hash": "9518a3309ce0e0bda6df98eef43d425225ebdef81d1dbdc9990ac79a3d889d72",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-10-23-10da0d3d9fe8@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261023T190000",
+        "DTEND;TZID=America/Los_Angeles:20261023T220000",
+        "SUMMARY:Dane Football — @ Charter Oak",
+        "LOCATION:Charter Oak High School\\, 1430 E Covina Blvd\\, Covina\\, CA 91724",
+        "DESCRIPTION:Bonita Varsity Football league game.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca"
+      ]
+    },
+    "2026-10-29-f3b180f97d43@family.kensawtelle.com": {
+      "hash": "444c43367b83104a497a18ce7be2c7e89c8d04b04d705bca73fb6e6a3bf238b9",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-10-29-f3b180f97d43@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261029T190000",
+        "DTEND;TZID=America/Los_Angeles:20261029T220000",
+        "SUMMARY:Dane Football — vs. Glendora",
+        "LOCATION:Glenn Davis Stadium at Bonita High School\\, 3102 D St\\, La Verne\\, CA 91750",
+        "DESCRIPTION:Bonita Varsity Football league game.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca"
+      ]
+    }
+  },
+  "eli-2026-27.ics": {
+    "eli-2026-08-23-1099265@family.kensawtelle.com": {
+      "hash": "90ab01092e9774ec3b5aa8ae663a5a176cbf4daf006e4d6c79148ce1989b45fd",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2026-08-23-1099265@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260823T150000",
+        "DTEND;TZID=America/Los_Angeles:20260823T170000",
+        "SUMMARY:Eli Soccer — vs. MVLA ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Home. Final: Los Gatos United 1\\, MVLA 1. Match #1099265.",
+        "LOCATION:Branham High School Stadium\\, 1570 Branham Ln\\, San Jose\\, CA 95118",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2026-08-30-1099313@family.kensawtelle.com": {
+      "hash": "a1d761e16d1c1edde72fd0bfa2d2b795306904907f98447aefbb828563d020a3",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2026-08-30-1099313@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260830T170000",
+        "DTEND;TZID=America/Los_Angeles:20260830T190000",
+        "SUMMARY:Eli Soccer — @ Marin FC ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Away. Final: Marin FC 1\\, Los Gatos United 0. Match #1099313.",
+        "LOCATION:Redwood High School Stadium\\, 395 Doherty Dr\\, Larkspur\\, CA 94939",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2026-09-13-1099361@family.kensawtelle.com": {
+      "hash": "cf1103b9f6eef7c373d63cef7919d42800feaab77d661541af6002d19a6c8ea3",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2026-09-13-1099361@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260913T140000",
+        "DTEND;TZID=America/Los_Angeles:20260913T160000",
+        "SUMMARY:Eli Soccer — vs. Folsom Lake Surf ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Home. Final: Los Gatos United 2\\, Folsom Lake Surf 1. Match #1099361. Record 1-1-1.",
+        "LOCATION:Leigh High School Stadium\\, 5210 Leigh Ave\\, San Jose\\, CA 95124",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2026-09-20-1099397@family.kensawtelle.com": {
+      "hash": "e6a53f8c25cbc510759f1cd3be0bf1bffb685d9032f1172265335f0ce2be5551",
+      "sequence": 3,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:eli-2026-09-20-1099397@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260920T140000",
+        "DTEND;TZID=America/Los_Angeles:20260920T160000",
+        "SUMMARY:Eli Soccer — @ Davis Legacy ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Away. Final: Davis Legacy 4\\, Los Gatos United 1. Match #1099397. Record 1-2-1.",
+        "LOCATION:Davis Legacy Soccer Complex Field 14\\, 26375 County Rd 105D\\, Davis\\, CA 95618",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2026-09-27-1099451@family.kensawtelle.com": {
+      "hash": "4696cb398d90117eb26c1bcd80b442ff77bf140e3356ec26067228ab84f7a0e7",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2026-09-27-1099451@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260927T140000",
+        "DTEND;TZID=America/Los_Angeles:20260927T160000",
+        "SUMMARY:Eli Soccer — vs. Association FC ECNL B08/09",
+        "DESCRIPTION:Los Gatos United club soccer. Home. Match #1099451.",
+        "LOCATION:Monta Vista High School Stadium\\, 21840 McClellan Rd\\, Cupertino\\, CA 95014",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2026-10-04-1099511@family.kensawtelle.com": {
+      "hash": "9793ce1a6385ec839e8001117c628e3897db984a2458d1f50e6faee45ff9f7f1",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2026-10-04-1099511@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261004T143000",
+        "DTEND;TZID=America/Los_Angeles:20261004T163000",
+        "SUMMARY:Eli Soccer — @ San Francisco Elite Academy ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Away. Match #1099511.",
+        "LOCATION:Negoesco Stadium\\, University of San Francisco\\, 222 Stanyan St\\, San Francisco\\, CA 94117",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2026-10-18-1099547@family.kensawtelle.com": {
+      "hash": "c5425f7775205764e40e5ad17c1ff7354e6334ce295eda2418e9c3f410653327",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2026-10-18-1099547@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261018T143000",
+        "DTEND;TZID=America/Los_Angeles:20261018T163000",
+        "SUMMARY:Eli Soccer — vs. Santa Rosa United ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Home. Match #1099547.",
+        "LOCATION:Monta Vista High School Stadium\\, 21840 McClellan Rd\\, Cupertino\\, CA 95014",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2026-10-24-1099583@family.kensawtelle.com": {
+      "hash": "4c68b83493f3d6e4f06d87482e94b1e217a44ab6160762fdd3b7d2c4a92b23b2",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2026-10-24-1099583@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261024T090000",
+        "DTEND;TZID=America/Los_Angeles:20261024T110000",
+        "SUMMARY:Eli Soccer — @ Napa United ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Away. Match #1099583.",
+        "LOCATION:Silverado Middle School Football Field\\, 1133 Coombsville Rd\\, Napa\\, CA 94558",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2026-11-01-1099637@family.kensawtelle.com": {
+      "hash": "47ec2408487e7ebaba8d640585fa5133a59859e93ec5b26f619f86ab07755b5f",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2026-11-01-1099637@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261101T140000",
+        "DTEND;TZID=America/Los_Angeles:20261101T160000",
+        "SUMMARY:Eli Soccer — vs. Mustang Soccer ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Home. Match #1099637.",
+        "LOCATION:Monta Vista High School Stadium\\, 21840 McClellan Rd\\, Cupertino\\, CA 95014",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2026-11-08-1099703@family.kensawtelle.com": {
+      "hash": "d0fce05386aa14a0692ca5bc5075c8f48b2622985f4020bbcfe69c5f364fb89a",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2026-11-08-1099703@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261108T140000",
+        "DTEND;TZID=America/Los_Angeles:20261108T160000",
+        "SUMMARY:Eli Soccer — vs. 1974 Newark FC ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Home. Match #1099703.",
+        "LOCATION:Monta Vista High School Stadium\\, 21840 McClellan Rd\\, Cupertino\\, CA 95014",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2026-11-15-1099727@family.kensawtelle.com": {
+      "hash": "acece8829229fb0e0999ff730c14c130123bb56652703a6a580852c21e74f077",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2026-11-15-1099727@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261115T100000",
+        "DTEND;TZID=America/Los_Angeles:20261115T120000",
+        "SUMMARY:Eli Soccer — @ El Camino FC Salinas ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Away. Match #1099727.",
+        "LOCATION:Salinas Regional Soccer Complex Turf 1\\, 1440 Constitution Blvd\\, Salinas\\, CA 93905",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2027-03-21-1099799@family.kensawtelle.com": {
+      "hash": "798f4329b7742e427fb149288ea7b25f1926e538603ce024ad003996ec8366b2",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2027-03-21-1099799@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20270321",
+        "DTEND;VALUE=DATE:20270322",
+        "SUMMARY:Eli Soccer — vs. COSC ECNL B2008/09 (Time TBD)",
+        "DESCRIPTION:Los Gatos United club soccer. Home. Match #1099799. Start time TBD.",
+        "STATUS:TENTATIVE",
+        "TRANSP:TRANSPARENT",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2027-04-18-1099907@family.kensawtelle.com": {
+      "hash": "8400099c90f63469cce3a635b5130dac02dab975c8a8c8c616ecd587036d64a3",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2027-04-18-1099907@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20270418T090000",
+        "DTEND;TZID=America/Los_Angeles:20270418T110000",
+        "SUMMARY:Eli Soccer — @ Santa Clara Sporting ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Away. Match #1099907.",
+        "LOCATION:Santa Clara Youth Soccer Park Field 1\\, 5020 Stars & Stripes Dr\\, Santa Clara\\, CA 95054",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2027-04-25-1099955@family.kensawtelle.com": {
+      "hash": "c9605bed6475eab2944f03f2e789a2d9997643c320c4958724f8fe48379777bd",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2027-04-25-1099955@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20270425",
+        "DTEND;VALUE=DATE:20270426",
+        "SUMMARY:Eli Soccer — @ San Juan SC ECNL B08/09 (Time TBD)",
+        "DESCRIPTION:Los Gatos United club soccer. Away. Match #1099955. Start time TBD.",
+        "STATUS:TENTATIVE",
+        "TRANSP:TRANSPARENT",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2027-05-02-1100009@family.kensawtelle.com": {
+      "hash": "2234019949b3cb9464ae55c8afc1be65b225b452a59df7b1c7cb860cf4a91b91",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2027-05-02-1100009@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20270502T140000",
+        "DTEND;TZID=America/Los_Angeles:20270502T160000",
+        "SUMMARY:Eli Soccer — @ Placer United ECNL B2008/09",
+        "DESCRIPTION:Los Gatos United club soccer. Away. Match #1100009.",
+        "LOCATION:Placer Valley Soccer Complex Field 6\\, 2600 Westbrook Blvd\\, Roseville\\, CA 95747",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-2027-05-08-1100021@family.kensawtelle.com": {
+      "hash": "8699c17d3b23f2a09438733e2dddd49d1df61f278eb809fb2d3e145f45d73c13",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-2027-05-08-1100021@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20270508",
+        "DTEND;VALUE=DATE:20270509",
+        "SUMMARY:Eli Soccer — vs. River Islands Surf ECNL B2008/09 (Time TBD)",
+        "DESCRIPTION:Los Gatos United club soccer. Home. Match #1100021. Start time TBD.",
+        "STATUS:TENTATIVE",
+        "TRANSP:TRANSPARENT",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    }
+  },
+  "eli-football-2026.ics": {
+    "eli-sch-football-20260828-watsonville@family.kensawtelle.com": {
+      "hash": "cba7ebdd301b2f765d9849537dfb6eac2909352b2bc4e5f6cba8a52dcb486ce6",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-sch-football-20260828-watsonville@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260828T193000",
+        "DTEND;TZID=America/Los_Angeles:20260828T223000",
+        "SUMMARY:Eli — Santa Cruz Football at Watsonville",
+        "LOCATION:Watsonville High School\\, 250 E Beach St\\, Watsonville\\, CA 95076",
+        "DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 23\\, Watsonville 7.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity"
+      ]
+    },
+    "eli-sch-football-20260904-scottsvalley@family.kensawtelle.com": {
+      "hash": "70ab9d3cacb85993873f53f3bb4c6a074ab7ad4a3bdc7893614c053766d4e4c8",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-sch-football-20260904-scottsvalley@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260904T193000",
+        "DTEND;TZID=America/Los_Angeles:20260904T223000",
+        "SUMMARY:Eli — Santa Cruz Football vs Scotts Valley",
+        "LOCATION:Santa Cruz High School\\, 415 Walnut Ave\\, Santa Cruz\\, CA 95060",
+        "DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 27\\, Scotts Valley 26.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity"
+      ]
+    },
+    "eli-sch-football-20260911-santaclara@family.kensawtelle.com": {
+      "hash": "44a3fb92f0f51d93041e0842a716e51195175f7acbd3649ef6f1fe824a029783",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-sch-football-20260911-santaclara@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260912T153000",
+        "DTEND;TZID=America/Los_Angeles:20260912T183000",
+        "SUMMARY:Eli — Santa Cruz Football vs Santa Clara",
+        "LOCATION:Santa Cruz High School\\, 415 Walnut Ave\\, Santa Cruz\\, CA 95060",
+        "DESCRIPTION:Santa Cruz Cardinals Varsity Football. Rescheduled from Sept. 11 to Sept. 12 at 3:30 PM Pacific. Final: Santa Cruz 25\\, Santa Clara 28.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity"
+      ]
+    },
+    "eli-sch-football-20260919-pajarovalley@family.kensawtelle.com": {
+      "hash": "8265e42de63cc05218b3d47f411ed3465fa3e33008a4aa69ac11f3788a12c780",
+      "sequence": 3,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:eli-sch-football-20260919-pajarovalley@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260919T180000",
+        "DTEND;TZID=America/Los_Angeles:20260919T210000",
+        "SUMMARY:Eli — Santa Cruz Football vs Pajaro Valley",
+        "LOCATION:Santa Cruz High School\\, 415 Walnut Ave\\, Santa Cruz\\, CA 95060",
+        "DESCRIPTION:Santa Cruz Cardinals Varsity Football. Final: Santa Cruz 35\\, Pajaro Valley 27. Record 3-1. Pajaro Valley record 2-2.\\nWatch/Replay: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity"
+      ]
+    },
+    "eli-sch-football-20260925-seaside@family.kensawtelle.com": {
+      "hash": "3527572125593583172070e15c3953ce4250f4149e2c2e6ad44be5d5c6c238b5",
+      "sequence": 5,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:eli-sch-football-20260925-seaside@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260925T193000",
+        "DTEND;TZID=America/Los_Angeles:20260925T223000",
+        "SUMMARY:Eli — Santa Cruz Football at Seaside",
+        "LOCATION:Seaside High School\\, 2200 Noche Buena St\\, Seaside\\, CA 93955",
+        "DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Final: Seaside 62-51 Santa Cruz. Santa Cruz record 3-2-0.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity"
+      ]
+    },
+    "eli-sch-football-20261002-marina@family.kensawtelle.com": {
+      "hash": "abcb7f3964d7acb718e2b272fff5948aa1a564d8ef085c4ec7eebd30acb17da8",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-sch-football-20261002-marina@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261002T193000",
+        "DTEND;TZID=America/Los_Angeles:20261002T223000",
+        "SUMMARY:Eli — Santa Cruz Football vs Marina",
+        "LOCATION:Santa Cruz High School\\, 415 Walnut Ave\\, Santa Cruz\\, CA 95060",
+        "DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity"
+      ]
+    },
+    "eli-sch-football-20261008-ranchosanjuan@family.kensawtelle.com": {
+      "hash": "45898dcc26ab884f6ce5a212889345a3a55fdefbed62b0e3e544ed36c3b0307f",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-sch-football-20261008-ranchosanjuan@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261008T193000",
+        "DTEND;TZID=America/Los_Angeles:20261008T223000",
+        "SUMMARY:Eli — Santa Cruz Football at Rancho San Juan",
+        "LOCATION:Rancho San Juan High School\\, 1100 Rogge Rd\\, Salinas\\, CA 93906",
+        "DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity"
+      ]
+    },
+    "eli-sch-football-20261016-harbor@family.kensawtelle.com": {
+      "hash": "ec5d65e65fec2913d57e41b166fb8b9137f46d78d6ac140dc3b41fb04ffb4a22",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:eli-sch-football-20261016-harbor@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261016T190000",
+        "DTEND;TZID=America/Los_Angeles:20261016T220000",
+        "SUMMARY:Eli — Santa Cruz Football at Harbor",
+        "LOCATION:Harbor High School\\, 300 La Fonda Ave\\, Santa Cruz\\, CA 95062",
+        "DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:00 PM Pacific.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity"
+      ]
+    },
+    "eli-sch-football-20261030-greenfield@family.kensawtelle.com": {
+      "hash": "f287cf5601782db029bbbaa322502e8c9f020e15f609529d3c7cc8c30ea4ddd9",
+      "sequence": 3,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:eli-sch-football-20261030-greenfield@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261030T193000",
+        "DTEND;TZID=America/Los_Angeles:20261030T223000",
+        "SUMMARY:Eli — Santa Cruz Football at Greenfield",
+        "LOCATION:Greenfield High School\\, 225 S El Camino Real\\, Greenfield\\, CA 93927",
+        "DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.\\nWatch: TBD",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "eli-sch-football-20261106-gonzales@family.kensawtelle.com": {
+      "hash": "7e4e2afe85943af3a69cf5b05879f7ca8d2e7103fefed22abe0aefe7d3083ff4",
+      "sequence": 3,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:eli-sch-football-20261106-gonzales@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261106T193000",
+        "DTEND;TZID=America/Los_Angeles:20261106T223000",
+        "SUMMARY:Eli — Santa Cruz Football vs Gonzales",
+        "LOCATION:Santa Cruz High School\\, 415 Walnut Ave\\, Santa Cruz\\, CA 95060",
+        "DESCRIPTION:Santa Cruz Cardinals Varsity Football league game. Kickoff 7:30 PM Pacific.\\nWatch: TBD",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    }
+  },
+  "eli-santa-cruz-soccer-2026-27.ics": {
+    "eli-schoolsoccer-2026-11-30-sequoia@family.kensawtelle.com": {
+      "hash": "90c89f93b68566adcfdf799f1ed398f5ea438ccf04e0fb4be70ddb5c37d5b7c8",
+      "sequence": 2,
+      "modified": "20261008T172459Z",
+      "lines": [
+        "UID:eli-schoolsoccer-2026-11-30-sequoia@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261130T163000",
+        "DTEND;TZID=America/Los_Angeles:20261130T183000",
+        "SUMMARY:Eli Santa Cruz Soccer — @ Sequoia",
+        "DESCRIPTION:Santa Cruz High School varsity boys soccer. Away non-league match. Source: MaxPreps.",
+        "LOCATION:Sequoia High School\\, 1201 Brewster Ave\\, Redwood City\\, CA 94062",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE"
+      ]
+    },
+    "eli-schoolsoccer-2026-12-09-silver-creek@family.kensawtelle.com": {
+      "hash": "41d1b5cf0adc5edb7bbc614fb5d6dcdc912c0b9d9990368419a006d9e10623bd",
+      "sequence": 2,
+      "modified": "20261008T172459Z",
+      "lines": [
+        "UID:eli-schoolsoccer-2026-12-09-silver-creek@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261209T180000",
+        "DTEND;TZID=America/Los_Angeles:20261209T200000",
+        "SUMMARY:Eli Santa Cruz Soccer — @ Silver Creek",
+        "DESCRIPTION:Santa Cruz High School varsity boys soccer. Away match. Source: MaxPreps.",
+        "LOCATION:Silver Creek High School\\, 3434 Silver Creek Rd\\, San Jose\\, CA 95121",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE"
+      ]
+    },
+    "eli-schoolsoccer-2026-12-11-salinas@family.kensawtelle.com": {
+      "hash": "65fdfd8337d3ee828f025b11620508a0e853a69d8d3f8cf317572ae6e8164265",
+      "sequence": 2,
+      "modified": "20261008T172459Z",
+      "lines": [
+        "UID:eli-schoolsoccer-2026-12-11-salinas@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261211T174500",
+        "DTEND;TZID=America/Los_Angeles:20261211T194500",
+        "SUMMARY:Eli Santa Cruz Soccer — vs. Salinas",
+        "DESCRIPTION:Santa Cruz High School varsity boys soccer. Home match. Source: MaxPreps.",
+        "LOCATION:Santa Cruz High School\\, 415 Walnut Ave\\, Santa Cruz\\, CA 95060",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE"
+      ]
+    },
+    "eli-schoolsoccer-2026-12-15-palma@family.kensawtelle.com": {
+      "hash": "7789d1e226a3b7f0bffb8404408b64dadd7c570759f32ff6199249740eb94300",
+      "sequence": 2,
+      "modified": "20261008T172459Z",
+      "lines": [
+        "UID:eli-schoolsoccer-2026-12-15-palma@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261215T153000",
+        "DTEND;TZID=America/Los_Angeles:20261215T173000",
+        "SUMMARY:Eli Santa Cruz Soccer — @ Palma",
+        "DESCRIPTION:Santa Cruz High School varsity boys soccer. Away match. Source: MaxPreps.",
+        "LOCATION:Palma School\\, 919 Iverson St\\, Salinas\\, CA 93901",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE"
+      ]
+    },
+    "eli-schoolsoccer-2026-12-17-wilcox@family.kensawtelle.com": {
+      "hash": "ff8525c857dd7bf20afcbcb3a0313874f9cb1c962a210c11dc18cd9d2c4ef719",
+      "sequence": 2,
+      "modified": "20261008T172459Z",
+      "lines": [
+        "UID:eli-schoolsoccer-2026-12-17-wilcox@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261217T180000",
+        "DTEND;TZID=America/Los_Angeles:20261217T200000",
+        "SUMMARY:Eli Santa Cruz Soccer — @ Wilcox",
+        "DESCRIPTION:Santa Cruz High School varsity boys soccer. Away match. Source: MaxPreps.",
+        "LOCATION:Wilcox High School\\, 3250 Monroe St\\, Santa Clara\\, CA 95051",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE"
+      ]
+    },
+    "eli-schoolsoccer-2027-01-05-half-moon-bay@family.kensawtelle.com": {
+      "hash": "0979f372e013bb54b751bbf50d54635ca1c41d3ac4961e4484bf7bd15dcbcd99",
+      "sequence": 2,
+      "modified": "20261008T172459Z",
+      "lines": [
+        "UID:eli-schoolsoccer-2027-01-05-half-moon-bay@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20270105",
+        "DTEND;VALUE=DATE:20270106",
+        "SUMMARY:Eli Santa Cruz Soccer — @ Half Moon Bay (Time TBD)",
+        "DESCRIPTION:Santa Cruz High School varsity boys soccer. Away match. Start time TBD. Source: MaxPreps.",
+        "LOCATION:Half Moon Bay High School\\, 1 Lewis Foster Dr\\, Half Moon Bay\\, CA 94019",
+        "STATUS:TENTATIVE",
+        "TRANSP:TRANSPARENT"
+      ]
+    }
+  },
+  "gracie-2026.ics": {
+    "2026-08-05-dccd26673407@family.kensawtelle.com": {
+      "hash": "9c031c422a61d341226816bcde4cd130614c4b5b55ff985a9b4fb639c67564e5",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-08-05-dccd26673407@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260805T180000",
+        "DTEND;TZID=America/Chicago:20260805T200000",
+        "SUMMARY:Gracie Soccer — Holmes Community College (Ex)",
+        "LOCATION:Cox Creek Sports Complex\\, 2500 Chisholm Rd\\, Florence\\, AL 35630",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home exhibition. 6:00 PM Central / 4:00 PM Pacific.",
+        "STATUS:CONFIRMED"
+      ]
+    },
+    "2026-08-08-9a4d25196887@family.kensawtelle.com": {
+      "hash": "df235b6e215d291037dc002ec29010ca37a1ce47d7e0be1c8dd74ac3f8765828",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-08-08-9a4d25196887@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260808T180000",
+        "DTEND;TZID=America/Chicago:20260808T200000",
+        "SUMMARY:Gracie Soccer — Belmont (Ex)",
+        "LOCATION:E.S. Rose Park\\, 1000 Edgehill Ave\\, Nashville\\, TN 37203",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Away exhibition. 6:00 PM Central / 4:00 PM Pacific.",
+        "STATUS:CONFIRMED"
+      ]
+    },
+    "2026-08-12-287da2e54bf8@family.kensawtelle.com": {
+      "hash": "37b372a132e020567d6f6a0b379820a7aa53547cb90caf88361ead4222dd9191",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-08-12-287da2e54bf8@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260812T170000",
+        "DTEND;TZID=America/Chicago:20260812T190000",
+        "SUMMARY:Gracie Soccer — ETSU (Canceled)",
+        "LOCATION:Summers-Taylor Stadium\\, 1276 Gilbreath Dr\\, Johnson City\\, TN 37614",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Away game. Canceled.",
+        "STATUS:CANCELLED"
+      ]
+    },
+    "2026-08-15-616351ef1d83@family.kensawtelle.com": {
+      "hash": "1039f751b689917fec579a600136df5fb4ba27967d08a2e71f7c0c0c69a01b1b",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-08-15-616351ef1d83@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260815T130000",
+        "DTEND;TZID=America/Chicago:20260815T150000",
+        "SUMMARY:Gracie Soccer — UNC Asheville",
+        "LOCATION:Greenwood Soccer Field\\, 200 Field Dr\\, Asheville\\, NC 28804",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Away. 1:00 PM Central / 11:00 AM Pacific. Final: 3-3 tie.",
+        "STATUS:CONFIRMED"
+      ]
+    },
+    "2026-08-19-45d2d7353b56@family.kensawtelle.com": {
+      "hash": "66bb4d663fca892128ef5d994bb04d2438e869e5cfee068419fe8b386b7e6727",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-08-19-45d2d7353b56@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260819T190000",
+        "DTEND;TZID=America/Chicago:20260819T210000",
+        "SUMMARY:Gracie Soccer — Union (Tenn.)",
+        "LOCATION:Cox Creek Sports Complex\\, 2500 Chisholm Rd\\, Florence\\, AL 35630",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home. 7:00 PM Central / 5:00 PM Pacific. Final: UNA 6-1.\\nWatch: ESPN Watch — https://www.espn.com/watch/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.espn.com/watch/",
+        "X-STREAM-PROVIDER:ESPN Watch",
+        "X-STREAM-URL:https://www.espn.com/watch/"
+      ]
+    },
+    "2026-08-23-5c5c9500d97e@family.kensawtelle.com": {
+      "hash": "f5c14603572520feda3180edaebcb0cc4d2993130c642c5519563e1ed6fb5d31",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-08-23-5c5c9500d97e@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260823T180000",
+        "DTEND;TZID=America/Chicago:20260823T200000",
+        "SUMMARY:Gracie Soccer — Tennessee Tech",
+        "LOCATION:Cox Creek Sports Complex\\, 2500 Chisholm Rd\\, Florence\\, AL 35630",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home. 6:00 PM Central / 4:00 PM Pacific. Final: UNA 2-0.\\nWatch: ESPN Watch — https://www.espn.com/watch/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.espn.com/watch/",
+        "X-STREAM-PROVIDER:ESPN Watch",
+        "X-STREAM-URL:https://www.espn.com/watch/"
+      ]
+    },
+    "2026-08-30-cc30edd3cacf@family.kensawtelle.com": {
+      "hash": "7e21fe102e3058e345b0258b47f7d42f044854bda92f58b1c944d4ffa99f9bd8",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-08-30-cc30edd3cacf@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260830T130000",
+        "DTEND;TZID=America/Chicago:20260830T150000",
+        "SUMMARY:Gracie Soccer — Southeast Missouri",
+        "LOCATION:Cox Creek Sports Complex\\, 2500 Chisholm Rd\\, Florence\\, AL 35630",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home. 1:00 PM Central / 11:00 AM Pacific. Final: UNA 2-1.\\nWatch: ESPN Watch — https://www.espn.com/watch/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.espn.com/watch/",
+        "X-STREAM-PROVIDER:ESPN Watch",
+        "X-STREAM-URL:https://www.espn.com/watch/"
+      ]
+    },
+    "2026-09-03-f30528c1409c@family.kensawtelle.com": {
+      "hash": "14e2b56d31ea945cd420810e4937b556419ed41868bf9481230f0ed455d0e7bb",
+      "sequence": 2,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-09-03-f30528c1409c@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260903T210000",
+        "DTEND;TZID=America/Chicago:20260903T230000",
+        "SUMMARY:Gracie Soccer — California Baptist",
+        "LOCATION:CBU Soccer Stadium\\, 8432 Magnolia Ave\\, Riverside\\, CA 92504",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Away. 9:00 PM Central / 7:00 PM Pacific. Final: UNA 0-3.",
+        "STATUS:CONFIRMED"
+      ]
+    },
+    "2026-09-06-f463b015fec9@family.kensawtelle.com": {
+      "hash": "37ebb69ee47d0c753b03251070f634637b15443af9476767a90ead33d35dbcec",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-09-06-f463b015fec9@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260906T140000",
+        "DTEND;TZID=America/Chicago:20260906T160000",
+        "SUMMARY:Gracie Soccer — UC San Diego",
+        "LOCATION:Triton Soccer Stadium\\, 9730 Hopkins Dr\\, La Jolla\\, CA 92093",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Away. 2:00 PM Central / 12:00 PM Pacific. Final: 0-0 tie.",
+        "STATUS:CONFIRMED"
+      ]
+    },
+    "2026-09-10-97078865fc3b@family.kensawtelle.com": {
+      "hash": "52bd6b28da52818854c48a8c76fd9f45f9bede151836b54d845d67ee9f5532f9",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-09-10-97078865fc3b@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260910T180000",
+        "DTEND;TZID=America/Chicago:20260910T200000",
+        "SUMMARY:Gracie Soccer — Chattanooga",
+        "LOCATION:Cox Creek Sports Complex\\, 2500 Chisholm Rd\\, Florence\\, AL 35630",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home. 6:00 PM Central / 4:00 PM Pacific. Final: 1-1 tie. Record 3-1-3.",
+        "STATUS:CONFIRMED"
+      ]
+    },
+    "2026-09-24-70089c819861@family.kensawtelle.com": {
+      "hash": "5f0eb87ed7da50b06218b997f7567ce5b98a95074d467a7a0f212ad3c87a498e",
+      "sequence": 5,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:2026-09-24-70089c819861@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260924T170000",
+        "DTEND;TZID=America/Chicago:20260924T190000",
+        "SUMMARY:Gracie Soccer — West Georgia",
+        "LOCATION:University Soccer Field\\, 1601 Maple St\\, Carrollton\\, GA 30118",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Away. 5:00 PM Central / 3:00 PM Pacific. Final: UNA 1-0. Record 4-1-3.\\nWatch: ESPN+ — https://www.espn.com/watch/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.espn.com/watch/",
+        "X-STREAM-PROVIDER:ESPN+",
+        "X-STREAM-URL:https://www.espn.com/watch/"
+      ]
+    },
+    "2026-09-27-6929c8bc3ef5@family.kensawtelle.com": {
+      "hash": "57e97a327facb31444f8bde4cd30647a7043d7acdbbe019a672a02bf1ac5b88a",
+      "sequence": 5,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:2026-09-27-6929c8bc3ef5@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20260927T130000",
+        "DTEND;TZID=America/Chicago:20260927T150000",
+        "SUMMARY:Gracie Soccer — Austin Peay",
+        "LOCATION:Morgan Brothers Soccer Field\\, 601 College St\\, Clarksville\\, TN 37044",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Away. 1:00 PM Central / 11:00 AM Pacific. Final: UNA 2-1. Record 5-1-3.\\nWatch: ESPN+ — https://www.espn.com/watch/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.espn.com/watch/",
+        "X-STREAM-PROVIDER:ESPN+",
+        "X-STREAM-URL:https://www.espn.com/watch/"
+      ]
+    },
+    "2026-10-04-4368e58c6604@family.kensawtelle.com": {
+      "hash": "8957a720b6cd80fad3b51bbfd8188b77e0182961fbc93059445fb537b069712b",
+      "sequence": 6,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:2026-10-04-4368e58c6604@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20261004T130000",
+        "DTEND;TZID=America/Chicago:20261004T150000",
+        "SUMMARY:Gracie Soccer — Eastern Kentucky",
+        "LOCATION:Bobby Wallace Field at Bank Independent Stadium\\, 615 N Pine St\\, Florence\\, AL 35630",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home. 1:00 PM Central / 11:00 AM Pacific. Final: Eastern Kentucky 3-2 UNA. Record 5-2-3.\\nWatch: ESPN+ — https://www.espn.com/watch/",
+        "STATUS:CONFIRMED",
+        "URL:https://www.espn.com/watch/",
+        "X-STREAM-PROVIDER:ESPN+",
+        "X-STREAM-URL:https://www.espn.com/watch/"
+      ]
+    },
+    "2026-10-08-11965a63e114@family.kensawtelle.com": {
+      "hash": "34efd5e7416050c1ee46333cc93315641097a313d13ea5fa57a8e56ec869fcb5",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-10-08-11965a63e114@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20261008T190000",
+        "DTEND;TZID=America/Chicago:20261008T210000",
+        "SUMMARY:Gracie Soccer — Abilene Christian",
+        "LOCATION:Bobby Wallace Field at Bank Independent Stadium\\, 615 N Pine St\\, Florence\\, AL 35630",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home. 7:00 PM Central / 5:00 PM Pacific.",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "2026-10-11-cd1833c1d8be@family.kensawtelle.com": {
+      "hash": "7746b7cd86e4f00b0b53eb9890f95cf565587c03e320dc1f44b48da68c57e609",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-10-11-cd1833c1d8be@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20261011T130000",
+        "DTEND;TZID=America/Chicago:20261011T150000",
+        "SUMMARY:Gracie Soccer — Tarleton State",
+        "LOCATION:Bobby Wallace Field at Bank Independent Stadium\\, 615 N Pine St\\, Florence\\, AL 35630",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home. 1:00 PM Central / 11:00 AM Pacific.",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "2026-10-15-4fa747a7ac68@family.kensawtelle.com": {
+      "hash": "e0294badb4f58316b2c6b72ca5eedd8cbebd465d8cc7baae62354e35bef93684",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-10-15-4fa747a7ac68@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20261015T180000",
+        "DTEND;TZID=America/Chicago:20261015T200000",
+        "SUMMARY:Gracie Soccer — Little Rock",
+        "LOCATION:Coleman Sports Complex\\, Asher Ave & S University Ave\\, Little Rock\\, AR 72204",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Away. 6:00 PM Central / 4:00 PM Pacific.",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "2026-10-18-807fc52ac5e4@family.kensawtelle.com": {
+      "hash": "07b5a72e82e933024792e89184b29e8edc12f98f6af5ecace0b4693291fdd162",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-10-18-807fc52ac5e4@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20261018T130000",
+        "DTEND;TZID=America/Chicago:20261018T150000",
+        "SUMMARY:Gracie Soccer — Central Arkansas",
+        "LOCATION:Bill Stephens Track & Soccer Complex\\, 2210 Dave Ward Dr\\, Conway\\, AR 72034",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Away. 1:00 PM Central / 11:00 AM Pacific.",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "2026-10-25-86ed380c3bee@family.kensawtelle.com": {
+      "hash": "7fcb06a0d0907094e58889c8ddb2e034f0b5f25531b3d9c968495b6342fa933f",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-10-25-86ed380c3bee@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20261025T130000",
+        "DTEND;TZID=America/Chicago:20261025T150000",
+        "SUMMARY:Gracie Soccer — Eastern Kentucky",
+        "LOCATION:EKU Soccer Field\\, 521 Lancaster Ave\\, Richmond\\, KY 40475",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Away. 1:00 PM Central / 11:00 AM Pacific.",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "2026-10-29-544355e8589d@family.kensawtelle.com": {
+      "hash": "b36b80ccc0d2b1ccabcfa20ebced88a765b75ba9e192eb903dc2a35c169689ea",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-10-29-544355e8589d@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20261029T190000",
+        "DTEND;TZID=America/Chicago:20261029T210000",
+        "SUMMARY:Gracie Soccer — Austin Peay",
+        "LOCATION:Bobby Wallace Field at Bank Independent Stadium\\, 615 N Pine St\\, Florence\\, AL 35630",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home. 7:00 PM Central / 5:00 PM Pacific.",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    },
+    "2026-11-01-cc9510c9792a@family.kensawtelle.com": {
+      "hash": "0a27207d643e7079037494cc05b7efb27b147c41a66ac8f6dc82480a22a80d42",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:2026-11-01-cc9510c9792a@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20261031T130000",
+        "DTEND;TZID=America/Chicago:20261031T150000",
+        "SUMMARY:Gracie Soccer — West Georgia",
+        "LOCATION:Bobby Wallace Field at Bank Independent Stadium\\, 615 N Pine St\\, Florence\\, AL 35630",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home. Corrected date: Oct. 31. 1:00 PM Central / 11:00 AM Pacific.",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:TBD"
+      ]
+    }
+  },
+  "jack-2026.ics": {
+    "jack-soquel-jv-20260828-losgatos@family.kensawtelle.com": {
+      "hash": "ca6c6f2ebd40da11a3554f8a1fb56a00699a323a49e8b552d2f5b49392d8ce1c",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:jack-soquel-jv-20260828-losgatos@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260828T170000",
+        "DTEND;TZID=America/Los_Angeles:20260828T193000",
+        "SUMMARY:Jack Harn — Soquel JV Football vs Los Gatos",
+        "LOCATION:Soquel High School\\, 401 Old San Jose Rd\\, Soquel\\, CA 95073",
+        "DESCRIPTION:Soquel Knights JV Football. Final: Soquel 14\\, Los Gatos 21.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football"
+      ]
+    },
+    "jack-soquel-jv-20260904-aptos@family.kensawtelle.com": {
+      "hash": "b3534147f345bf627a9ab3dd9c2bd169943bca4096d0539eacd489309220b2b5",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:jack-soquel-jv-20260904-aptos@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260904T170000",
+        "DTEND;TZID=America/Los_Angeles:20260904T193000",
+        "SUMMARY:Jack Harn — Soquel JV Football vs Aptos",
+        "LOCATION:Soquel High School\\, 401 Old San Jose Rd\\, Soquel\\, CA 95073",
+        "DESCRIPTION:Soquel Knights JV Football. Final: Soquel 27\\, Aptos 0. Record 1-1.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football"
+      ]
+    },
+    "jack-soquel-jv-20260911-oaklandtech@family.kensawtelle.com": {
+      "hash": "7821e5174372282b4894ab28ee07ff866d21c988539351a7d6734c6505e351bf",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:jack-soquel-jv-20260911-oaklandtech@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260911T171500",
+        "DTEND;TZID=America/Los_Angeles:20260911T194500",
+        "SUMMARY:Jack Harn — Soquel JV Football at Oakland Tech (Canceled)",
+        "LOCATION:Oakland Technical High School\\, 4351 Broadway\\, Oakland\\, CA 94611",
+        "DESCRIPTION:Soquel Knights JV Football. This JV matchup was removed from the current Soquel and Oakland Tech JV schedules with no result published; treated as canceled/removed pending a later source correction.",
+        "STATUS:CANCELLED"
+      ]
+    },
+    "jack-soquel-jv-20260917-salinas@family.kensawtelle.com": {
+      "hash": "a68b1002ef4b4325bef9746f83859d15c8b315c5bc04b1f65130a0df6b913471",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:jack-soquel-jv-20260917-salinas@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260917T170000",
+        "DTEND;TZID=America/Los_Angeles:20260917T193000",
+        "SUMMARY:Jack Harn — Soquel JV Football at Salinas",
+        "LOCATION:Salinas High School\\, 726 S Main St\\, Salinas\\, CA 93901",
+        "DESCRIPTION:Soquel Knights JV Football. Final: Soquel 24\\, Salinas 7. Record 2-1.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football"
+      ]
+    },
+    "jack-soquel-jv-20260925-hollister@family.kensawtelle.com": {
+      "hash": "113714a7cc8b0f020e60660239eb9d27dac7254376506e5f40eb65ca549bc867",
+      "sequence": 5,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:jack-soquel-jv-20260925-hollister@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260925T170000",
+        "DTEND;TZID=America/Los_Angeles:20260925T193000",
+        "SUMMARY:Jack Harn — Soquel JV Football at Hollister",
+        "LOCATION:Hollister High School\\, 1220 Monterey St\\, Hollister\\, CA 95023",
+        "DESCRIPTION:Soquel Knights JV Football. Final: Hollister 36-13 Soquel. Soquel record 2-2-0.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football"
+      ]
+    },
+    "jack-soquel-jv-20261009-northsalinas@family.kensawtelle.com": {
+      "hash": "3f3e2dcce7dfabf1daf56fcc6c3ea0ba983bc0c643ffa99096b13993c3a20a37",
+      "sequence": 5,
+      "modified": "20261008T172946Z",
+      "lines": [
+        "UID:jack-soquel-jv-20261009-northsalinas@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20261009",
+        "DTEND;VALUE=DATE:20261010",
+        "SUMMARY:Jack Harn — Soquel JV Football at North Salinas (Canceled)",
+        "LOCATION:North Salinas High School\\, 55 Kip Dr\\, Salinas\\, CA 93906",
+        "DESCRIPTION:Soquel Knights JV Football. This JV matchup is no longer listed on the current Soquel or North Salinas JV schedules and is treated as canceled/removed pending a later source correction.",
+        "STATUS:CANCELLED"
+      ]
+    },
+    "jack-soquel-jv-20261015-carmel@family.kensawtelle.com": {
+      "hash": "072419f631ce9e1fd2ce9431244e08014555d5bc5df6e4e487bb7648f8183d2e",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:jack-soquel-jv-20261015-carmel@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261015T170000",
+        "DTEND;TZID=America/Los_Angeles:20261015T193000",
+        "SUMMARY:Jack Harn — Soquel JV Football vs Carmel",
+        "LOCATION:Soquel High School\\, 401 Old San Jose Rd\\, Soquel\\, CA 95073",
+        "DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football"
+      ]
+    },
+    "jack-soquel-jv-20261023-monterey@family.kensawtelle.com": {
+      "hash": "41b3ebf849889d6d8ebea698985df469626f7f2251aa613f15a633e15eeef84e",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:jack-soquel-jv-20261023-monterey@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261023T170000",
+        "DTEND;TZID=America/Los_Angeles:20261023T193000",
+        "SUMMARY:Jack Harn — Soquel JV Football at Monterey",
+        "LOCATION:Monterey High School\\, 101 Herrmann Dr\\, Monterey\\, CA 93940",
+        "DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football"
+      ]
+    },
+    "jack-soquel-jv-20261030-alisal@family.kensawtelle.com": {
+      "hash": "3793520ee094fd6ec9ffa2ad5f6818d9ece41d0b98c0d43a9c2439254605cb74",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:jack-soquel-jv-20261030-alisal@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261030T170000",
+        "DTEND;TZID=America/Los_Angeles:20261030T193000",
+        "SUMMARY:Jack Harn — Soquel JV Football vs Alisal",
+        "LOCATION:Soquel High School\\, 401 Old San Jose Rd\\, Soquel\\, CA 95073",
+        "DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football"
+      ]
+    },
+    "jack-soquel-jv-20261106-palma@family.kensawtelle.com": {
+      "hash": "ffcc573bccac64bc462a532afcc4de2853be687e82bb51da5c72d1f79d005532",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:jack-soquel-jv-20261106-palma@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261106T170000",
+        "DTEND;TZID=America/Los_Angeles:20261106T193000",
+        "SUMMARY:Jack Harn — Soquel JV Football vs Palma",
+        "LOCATION:Soquel High School\\, 401 Old San Jose Rd\\, Soquel\\, CA 95073",
+        "DESCRIPTION:Soquel Knights JV Football. Kickoff 5:00 PM Pacific.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "STATUS:CONFIRMED",
+        "URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football",
+        "X-STREAM-PROVIDER:NFHS Network",
+        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/Football"
+      ]
+    }
+  },
+  "raiders-2026.ics": {
+    "raiders-pre1-20260813@family.kensawtelle.com": {
+      "hash": "f1687514920d63641bb0d728a8794b0968b828a8d3ce68d15cb59a1d78a7f35a",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-pre1-20260813@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260813T170000",
+        "DTEND;TZID=America/Los_Angeles:20260813T203000",
+        "SUMMARY:Raiders vs. Arizona Cardinals (Preseason)",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:Preseason Week 1. Final: Raiders 14\\, Cardinals 27."
+      ]
+    },
+    "raiders-pre2-20260820@family.kensawtelle.com": {
+      "hash": "f382349b1ccfdd283567123f3d64c6fbd7b822491bcffa556978d672b5f30e61",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-pre2-20260820@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260820T170000",
+        "DTEND;TZID=America/Los_Angeles:20260820T203000",
+        "SUMMARY:Raiders at Houston Texans (Preseason)",
+        "LOCATION:NRG Stadium\\, 1 NRG Pkwy\\, Houston\\, TX 77054",
+        "DESCRIPTION:Preseason Week 2. Final: Raiders 22\\, Texans 20."
+      ]
+    },
+    "raiders-pre3-20260827@family.kensawtelle.com": {
+      "hash": "141d9c88d582e3d9ae521a3ba3f25820215c272bb865dc871d0c7de6dfb215b0",
+      "sequence": 3,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-pre3-20260827@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260827T170000",
+        "DTEND;TZID=America/Los_Angeles:20260827T203000",
+        "SUMMARY:Raiders vs. San Francisco 49ers (Preseason)",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:Preseason Week 3. Final: Raiders 12\\, 49ers 18. Preseason record 1-2."
+      ]
+    },
+    "raiders-w1-20260913@family.kensawtelle.com": {
+      "hash": "b0c0af18552325b67a84b175a246d8955ba2755a3b37f70a42d3cc616422de47",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w1-20260913@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260913T132500",
+        "DTEND;TZID=America/Los_Angeles:20260913T165500",
+        "SUMMARY:Raiders vs. Miami Dolphins",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:NFL Week 1. Final: Raiders 27\\, Dolphins 13. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "raiders-w2-20260920@family.kensawtelle.com": {
+      "hash": "4d3e493b7dcefcf3e02e30af4b700ae656466574fb2357342cc9d7b2a106bf60",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w2-20260920@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260920T130500",
+        "DTEND;TZID=America/Los_Angeles:20260920T163500",
+        "SUMMARY:Raiders at Los Angeles Chargers",
+        "LOCATION:SoFi Stadium\\, 1001 S Stadium Dr\\, Inglewood\\, CA 90301",
+        "DESCRIPTION:NFL Week 2. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w3-20260927@family.kensawtelle.com": {
+      "hash": "efde4b128e669236696495f8f468c6f9366d5ab7d1c0366b7206ccc78adcf751",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w3-20260927@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20260927T132500",
+        "DTEND;TZID=America/Los_Angeles:20260927T165500",
+        "SUMMARY:Raiders at New Orleans Saints",
+        "LOCATION:Caesars Superdome\\, 1500 Sugar Bowl Dr\\, New Orleans\\, LA 70112",
+        "DESCRIPTION:NFL Week 3. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w4-20261004@family.kensawtelle.com": {
+      "hash": "34cbbd6e379d91d441494ea0b5ad87622a1b6c7c15ad62ec9a58cd235663e9be",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w4-20261004@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261004T132500",
+        "DTEND;TZID=America/Los_Angeles:20261004T165500",
+        "SUMMARY:Raiders vs. Kansas City Chiefs",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:NFL Week 4. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w5-20261011@family.kensawtelle.com": {
+      "hash": "8f80002649a5330d5581d4212539ee55341cceee7807ced835c124c134bd35b2",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w5-20261011@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261011T100000",
+        "DTEND;TZID=America/Los_Angeles:20261011T133000",
+        "SUMMARY:Raiders at New England Patriots",
+        "LOCATION:Gillette Stadium\\, 1 Patriot Pl\\, Foxborough\\, MA 02035",
+        "DESCRIPTION:NFL Week 5. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w6-20261018@family.kensawtelle.com": {
+      "hash": "11339f4cfae1e1d74689805aa7aab9da17172a9e3b33687c08108a7275672666",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w6-20261018@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261018T132500",
+        "DTEND;TZID=America/Los_Angeles:20261018T165500",
+        "SUMMARY:Raiders vs. Buffalo Bills",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:NFL Week 6. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w7-20261025@family.kensawtelle.com": {
+      "hash": "2ca8f27d516fa306b01e0d6fbc45835c48f6468cf90f93bb33e5ca93ff0aea7e",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w7-20261025@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261025T132500",
+        "DTEND;TZID=America/Los_Angeles:20261025T165500",
+        "SUMMARY:Raiders vs. Los Angeles Rams",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:NFL Week 7. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "raiders-w8-20261101@family.kensawtelle.com": {
+      "hash": "9d4b05daa9ee500653450969ac62fa22582a936ddb6e9388e09293c6f032de66",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w8-20261101@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261101T100000",
+        "DTEND;TZID=America/Los_Angeles:20261101T133000",
+        "SUMMARY:Raiders at New York Jets",
+        "LOCATION:MetLife Stadium\\, 1 MetLife Stadium Dr\\, East Rutherford\\, NJ 07073",
+        "DESCRIPTION:NFL Week 8. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "raiders-w9-20261108@family.kensawtelle.com": {
+      "hash": "ffacf4b9fe24c1c63ff7c895a8af10d69f23f4c3f02e8323cd3b26cb4261c6f9",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w9-20261108@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261108T130500",
+        "DTEND;TZID=America/Los_Angeles:20261108T163500",
+        "SUMMARY:Raiders at San Francisco 49ers",
+        "LOCATION:Levi's Stadium\\, 4900 Marie P DeBartolo Way\\, Santa Clara\\, CA 95054",
+        "DESCRIPTION:NFL Week 9. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w10-20261115@family.kensawtelle.com": {
+      "hash": "aeddf3015c55d4b51b512a491942c6755505e9ecd3a8d7e54e825aef9b3e3f96",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w10-20261115@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261115T130500",
+        "DTEND;TZID=America/Los_Angeles:20261115T163500",
+        "SUMMARY:Raiders vs. Seattle Seahawks",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:NFL Week 10. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w11-20261122@family.kensawtelle.com": {
+      "hash": "900197ab495f57d63e1ef86cc5adf0de4fd0c12b7035bdd1290071f481f25622",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w11-20261122@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261122T132500",
+        "DTEND;TZID=America/Los_Angeles:20261122T165500",
+        "SUMMARY:Raiders at Denver Broncos",
+        "LOCATION:Empower Field at Mile High\\, 1701 Bryant St\\, Denver\\, CO 80204",
+        "DESCRIPTION:NFL Week 11. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w12-20261129@family.kensawtelle.com": {
+      "hash": "97778ecd1d7850db4f052f673f1891a881566a513793e4d62a5a63d168f89c3b",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w12-20261129@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261129T100000",
+        "DTEND;TZID=America/Los_Angeles:20261129T133000",
+        "SUMMARY:Raiders at Cleveland Browns",
+        "LOCATION:Huntington Bank Field\\, 100 Alfred Lerner Way\\, Cleveland\\, OH 44114",
+        "DESCRIPTION:NFL Week 12. TV: FOX.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "raiders-w14-20261213@family.kensawtelle.com": {
+      "hash": "75c9f87db10632626f9dbb46c3c01399f537e194557e60ca4b5da0903d74c2c6",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w14-20261213@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261213T130500",
+        "DTEND;TZID=America/Los_Angeles:20261213T163500",
+        "SUMMARY:Raiders vs. Los Angeles Chargers",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:NFL Week 14. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w15-20261220@family.kensawtelle.com": {
+      "hash": "7b61d0ebfe2f54781c186ba5aeb8abf18035994132d177bc5a303075b48bb48b",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w15-20261220@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261220T132500",
+        "DTEND;TZID=America/Los_Angeles:20261220T165500",
+        "SUMMARY:Raiders vs. Denver Broncos",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:NFL Week 15. TV: CBS.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w16-20261227@family.kensawtelle.com": {
+      "hash": "8de83657ee8067555ab6dd2fada931f09aeebcde3e2c65415d27ff96969368e9",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w16-20261227@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20261227T130500",
+        "DTEND;TZID=America/Los_Angeles:20261227T163500",
+        "SUMMARY:Raiders vs. Tennessee Titans",
+        "LOCATION:Allegiant Stadium\\, 3333 Al Davis Way\\, Las Vegas\\, NV 89118",
+        "DESCRIPTION:NFL Week 16. TV: FOX.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    },
+    "raiders-w17-20270103@family.kensawtelle.com": {
+      "hash": "ec3d78b8e44acdaf568ca4247c1544da9f1d4c8a41f11113cce8d352e2994e9d",
+      "sequence": 5,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w17-20270103@family.kensawtelle.com",
+        "DTSTART;TZID=America/Los_Angeles:20270103T130500",
+        "DTEND;TZID=America/Los_Angeles:20270103T163500",
+        "SUMMARY:Raiders at Arizona Cardinals",
+        "LOCATION:State Farm Stadium\\, 1 Cardinals Dr\\, Glendale\\, AZ 85305",
+        "DESCRIPTION:NFL Week 17. TV: CBS.\\nWatch: NFL+ — https://www.nfl.com/plus/",
+        "URL:https://www.nfl.com/plus/",
+        "X-STREAM-PROVIDER:NFL+",
+        "X-STREAM-URL:https://www.nfl.com/plus/"
+      ]
+    },
+    "raiders-w18-tbd@family.kensawtelle.com": {
+      "hash": "2e761f49618ff80a558c8a618c80ee873f64f34aa01c47863f038337c2ecbbed",
+      "sequence": 4,
+      "modified": "20260924T122245Z",
+      "lines": [
+        "UID:raiders-w18-tbd@family.kensawtelle.com",
+        "DTSTART;VALUE=DATE:20270109",
+        "DTEND;VALUE=DATE:20270111",
+        "SUMMARY:TENTATIVE: Raiders at Chiefs — date/time TBD",
+        "LOCATION:GEHA Field at Arrowhead Stadium\\, 1 Arrowhead Dr\\, Kansas City\\, MO 64129",
+        "STATUS:TENTATIVE",
+        "TRANSP:TRANSPARENT",
+        "DESCRIPTION:NFL Week 18. Date and kickoff time TBD.\\nWatch: Paramount+ · NFL+ — https://www.paramountplus.com/live-tv/",
+        "URL:https://www.paramountplus.com/live-tv/",
+        "X-STREAM-PROVIDER:Paramount+ · NFL+",
+        "X-STREAM-URL:https://www.paramountplus.com/live-tv/"
+      ]
+    }
+  }
+}

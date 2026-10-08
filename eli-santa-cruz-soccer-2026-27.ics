@@ -1,0 +1,114 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sawtelle Family Sports//Eli Santa Cruz High Soccer 2026-27//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Eli — Santa Cruz High Soccer 2026-27
+X-WR-TIMEZONE:America/Los_Angeles
+REFRESH-INTERVAL;VALUE=DURATION:PT15M
+X-PUBLISHED-TTL:PT15M
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+X-LIC-LOCATION:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:eli-schoolsoccer-2026-11-30-sequoia@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261130T163000
+DTEND;TZID=America/Los_Angeles:20261130T183000
+SUMMARY:Eli Santa Cruz Soccer — @ Sequoia
+DESCRIPTION:Santa Cruz High School varsity boys soccer. Away non-league mat
+ ch. Source: MaxPreps.
+LOCATION:Sequoia High School\, 1201 Brewster Ave\, Redwood City\, CA 94062
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:2
+DTSTAMP:20261008T172459Z
+LAST-MODIFIED:20261008T172459Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-schoolsoccer-2026-12-09-silver-creek@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261209T180000
+DTEND;TZID=America/Los_Angeles:20261209T200000
+SUMMARY:Eli Santa Cruz Soccer — @ Silver Creek
+DESCRIPTION:Santa Cruz High School varsity boys soccer. Away match. Source:
+  MaxPreps.
+LOCATION:Silver Creek High School\, 3434 Silver Creek Rd\, San Jose\, CA 95
+ 121
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:2
+DTSTAMP:20261008T172459Z
+LAST-MODIFIED:20261008T172459Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-schoolsoccer-2026-12-11-salinas@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261211T174500
+DTEND;TZID=America/Los_Angeles:20261211T194500
+SUMMARY:Eli Santa Cruz Soccer — vs. Salinas
+DESCRIPTION:Santa Cruz High School varsity boys soccer. Home match. Source:
+  MaxPreps.
+LOCATION:Santa Cruz High School\, 415 Walnut Ave\, Santa Cruz\, CA 95060
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:2
+DTSTAMP:20261008T172459Z
+LAST-MODIFIED:20261008T172459Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-schoolsoccer-2026-12-15-palma@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261215T153000
+DTEND;TZID=America/Los_Angeles:20261215T173000
+SUMMARY:Eli Santa Cruz Soccer — @ Palma
+DESCRIPTION:Santa Cruz High School varsity boys soccer. Away match. Source:
+  MaxPreps.
+LOCATION:Palma School\, 919 Iverson St\, Salinas\, CA 93901
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:2
+DTSTAMP:20261008T172459Z
+LAST-MODIFIED:20261008T172459Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-schoolsoccer-2026-12-17-wilcox@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261217T180000
+DTEND;TZID=America/Los_Angeles:20261217T200000
+SUMMARY:Eli Santa Cruz Soccer — @ Wilcox
+DESCRIPTION:Santa Cruz High School varsity boys soccer. Away match. Source:
+  MaxPreps.
+LOCATION:Wilcox High School\, 3250 Monroe St\, Santa Clara\, CA 95051
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:2
+DTSTAMP:20261008T172459Z
+LAST-MODIFIED:20261008T172459Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eli-schoolsoccer-2027-01-05-half-moon-bay@family.kensawtelle.com
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270106
+SUMMARY:Eli Santa Cruz Soccer — @ Half Moon Bay (Time TBD)
+DESCRIPTION:Santa Cruz High School varsity boys soccer. Away match. Start t
+ ime TBD. Source: MaxPreps.
+LOCATION:Half Moon Bay High School\, 1 Lewis Foster Dr\, Half Moon Bay\, CA
+  94019
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+SEQUENCE:2
+DTSTAMP:20261008T172459Z
+LAST-MODIFIED:20261008T172459Z
+END:VEVENT
+END:VCALENDAR

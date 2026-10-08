@@ -4,6 +4,7 @@ export const teams = {
   'jack.html': { name: 'Soquel High JV', alias: 'Soquel', sport: 'JV football', calendar: 'jack-2026.ics', source: 'https://www.maxpreps.com/ca/soquel/soquel-knights/football/jv/schedule/' },
   'gracie.html': { name: 'North Alabama', alias: 'North Alabama', sport: "Women's soccer", calendar: 'gracie-2026.ics', source: 'https://roarlions.com/sports/womens-soccer/schedule' },
   'eli.html': { name: 'Los Gatos United', alias: 'Los Gatos United', sport: 'Youth soccer', calendar: 'eli-2026-27.ics', source: 'https://www.losgatosunited.com/' },
+  'eli-santa-cruz-soccer.html': { name: 'Santa Cruz High', alias: 'Santa Cruz', sport: 'Varsity boys soccer', calendar: 'eli-santa-cruz-soccer-2026-27.ics', source: 'https://www.maxpreps.com/ca/santa-cruz/santa-cruz-cardinals/soccer/winter/schedule/' },
 };
 
 export function resolveTeamPage(params) {

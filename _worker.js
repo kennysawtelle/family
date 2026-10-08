@@ -10,6 +10,7 @@ const imageFor=(teamPage,origin)=>{
     "gracie.html":"/Gracie.jpg",
     "dane.html":"/dane.WEBP",
     "eli.html":"/eli-card.webp",
+    "eli-santa-cruz-soccer.html":"/eli-card.webp",
     "eli-football.html":"/sawtelle-family-sports-preview.jpg",
     "jack.html":"/jack-card-new.jpg",
     "raiders.html":"/raiders-card.jpg",
@@ -24,6 +25,7 @@ const calendarBrand=(key,origin)=>{
     gracie:{name:"Gracie — UNA Soccer",image:"/Gracie.jpg"},
     dane:{name:"Dane — Bonita Football",image:"/dane.WEBP"},
     "eli-soccer":{name:"Eli — Los Gatos United Soccer",image:"/eli-card.webp"},
+    "eli-school-soccer":{name:"Eli — Santa Cruz High Soccer",image:"/eli-card.webp"},
     "eli-football":{name:"Eli — Santa Cruz High Football",image:"/eli-football-card.svg"},
     jack:{name:"Jack Harn — Soquel JV Football",image:"/jack-card-new.jpg"}
   };
@@ -92,7 +94,7 @@ export default {
     const nflCalendarRedirects={"/raiders-2026.ics":"https://nfl.kensawtelle.com/calendar?team=lv","/broncos-2026.ics":"https://nfl.kensawtelle.com/calendar?team=den","/49ers-2026.ics":"https://nfl.kensawtelle.com/calendar?team=sf","/chargers-2026.ics":"https://nfl.kensawtelle.com/calendar?team=lac"};
     if(nflCalendarRedirects[url.pathname])return Response.redirect(nflCalendarRedirects[url.pathname],301);
     if(url.pathname.endsWith(".ics")){
-      const feeds=new Set(["/49ers-2026.ics","/broncos-2026.ics","/chargers-2026.ics","/dane-2026.ics","/eli-2026-27.ics","/eli-football-2026.ics","/gracie-2026.ics","/jack-2026.ics","/raiders-2026.ics"]);
+      const feeds=new Set(["/49ers-2026.ics","/broncos-2026.ics","/chargers-2026.ics","/dane-2026.ics","/eli-2026-27.ics","/eli-santa-cruz-soccer-2026-27.ics","/eli-football-2026.ics","/gracie-2026.ics","/jack-2026.ics","/raiders-2026.ics"]);
       if(!feeds.has(url.pathname))return new Response("Calendar not found",{status:404});
       const response=await env.ASSETS.fetch(request);
       const headers=new Headers(response.headers);

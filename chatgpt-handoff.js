@@ -16,12 +16,12 @@
     link.target='_blank';link.rel='noopener noreferrer';
     const note=document.createElement('p');
     note.className='chatgpt-handoff-note';
-    note.textContent='This sends the '+options.context+' prompt to ChatGPT and copies the same prompt as a backup.';
+    note.hidden=true;
     link.addEventListener('click',function(){
       copyText(options.prompt).then(function(){
-        note.textContent='The '+options.context+' prompt was sent and copied as a backup.';
+        note.hidden=false; note.textContent=options.context+' prompt copied.';
       }).catch(function(){
-        note.textContent='The prompt was sent to ChatGPT. If the box is blank, return here and try again.';
+        note.hidden=false; note.textContent='Could not copy the '+options.context+' prompt.';
       });
     });
     container.appendChild(link);container.appendChild(note);
