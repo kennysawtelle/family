@@ -15,3 +15,9 @@ test('patch extraction accepts a fenced response while retaining path guards',()
  assert.match(source,/Patch attempted forbidden path/);
  assert.match(source,/Generated patch failed to apply/);
 });
+
+test('daily research includes Eli Santa Cruz High soccer as its own schedule',()=>{
+ assert.match(source,/eli-santa-cruz-soccer\.html/);
+ assert.match(source,/eli-santa-cruz-soccer-2026-27\.ics/);
+ assert.ok(source.includes('santa-cruz-cardinals/soccer/winter/schedule/')); 
+});

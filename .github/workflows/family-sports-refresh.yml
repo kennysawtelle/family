@@ -54,7 +54,7 @@ jobs:
         shell: bash
         run: |
           set -e
-          bad="$(git diff --name-only | grep -Ev '^(gracie\.html|gracie-2026\.ics|dane\.html|dane-2026\.ics|eli\.html|eli-2026-27\.ics|eli-football\.html|eli-football-2026\.ics|jack\.html|jack-2026\.ics|index\.html|family-schedule\.html|schedule-ui\.js|_worker\.js)$' || true)"
+          bad="$(git diff --name-only | grep -Ev '^(gracie\.html|gracie-2026\.ics|dane\.html|dane-2026\.ics|eli\.html|eli-2026-27\.ics|eli-santa-cruz-soccer\.html|eli-santa-cruz-soccer-2026-27\.ics|eli-football\.html|eli-football-2026\.ics|jack\.html|jack-2026\.ics|index\.html|family-schedule\.html|schedule-ui\.js|_worker\.js)$' || true)"
           if [ -n "$bad" ]; then
             echo "ERROR: updater changed forbidden paths:"
             echo "$bad"
@@ -71,7 +71,7 @@ jobs:
           fi
           git config user.name "Sawtelle Family Sports Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add -- gracie.html gracie-2026.ics dane.html dane-2026.ics eli.html eli-2026-27.ics eli-football.html eli-football-2026.ics jack.html jack-2026.ics index.html family-schedule.html schedule-ui.js _worker.js
+          git add -- gracie.html gracie-2026.ics dane.html dane-2026.ics eli.html eli-2026-27.ics eli-santa-cruz-soccer.html eli-santa-cruz-soccer-2026-27.ics eli-football.html eli-football-2026.ics jack.html jack-2026.ics index.html family-schedule.html schedule-ui.js _worker.js
           git diff --cached --quiet && exit 0
           git commit -m "Daily family sports refresh"
           git push origin HEAD:main

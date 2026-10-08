@@ -6,13 +6,15 @@ if(!key) throw new Error('OPENAI_API_KEY repository secret is required.');
 
 const managed=[
  'gracie.html','gracie-2026.ics','dane.html','dane-2026.ics',
- 'eli.html','eli-2026-27.ics','eli-football.html','eli-football-2026.ics',
+ 'eli.html','eli-2026-27.ics','eli-santa-cruz-soccer.html','eli-santa-cruz-soccer-2026-27.ics',
+ 'eli-football.html','eli-football-2026.ics',
  'jack.html','jack-2026.ics','index.html','family-schedule.html','schedule-ui.js','_worker.js'
 ];
 const sources={
  gracie:['https://roarlions.com/sports/womens-soccer/schedule/2026'],
  dane:['https://www.maxpreps.com/ca/la-verne/bonita-bearcats/football/'],
  eliSoccer:['https://losgatosunited.com/'],
+ eliSchoolSoccer:['https://www.maxpreps.com/ca/santa-cruz/santa-cruz-cardinals/soccer/winter/schedule/'],
  eliFootball:['https://www.maxpreps.com/ca/santa-cruz/santa-cruz-cardinals/football/','https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football'],
  jack:['https://www.maxpreps.com/ca/soquel/soquel-knights/football/jv/','https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/football']
 };
@@ -22,7 +24,7 @@ for(const path of managed) files.push({path,content:await fs.readFile(path,'utf8
 const prompt=`You maintain Sawtelle Family Sports. Today is ${new Date().toISOString().slice(0,10)}.
 Research the current authoritative/public sources on the web and update ONLY verified non-NFL family sports facts.
 
-Schedules: Gracie/North Alabama women's soccer; Dane/Bonita varsity football; Eli/Los Gatos United soccer; Eli/Santa Cruz varsity football; Jack/Soquel JV football.
+Schedules: Gracie/North Alabama women's soccer; Dane/Bonita varsity football; Eli/Los Gatos United club soccer; Eli/Santa Cruz High varsity boys soccer; Eli/Santa Cruz varsity football; Jack/Soquel JV football.
 
 Authoritative starting URLs:
 ${JSON.stringify(sources,null,2)}

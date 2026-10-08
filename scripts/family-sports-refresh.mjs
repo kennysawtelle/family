@@ -4,12 +4,13 @@ const FAMILY_FILES=[
   'gracie.html','gracie-2026.ics',
   'dane.html','dane-2026.ics',
   'eli.html','eli-2026-27.ics',
+  'eli-santa-cruz-soccer.html','eli-santa-cruz-soccer-2026-27.ics',
   'eli-football.html','eli-football-2026.ics',
   'jack.html','jack-2026.ics',
   'index.html','family-schedule.html','schedule-ui.js','_worker.js'
 ];
 const NFL_FILES=['raiders-2026.ics','broncos-2026.ics','49ers-2026.ics','chargers-2026.ics'];
-const REQUIRED_ICS=['gracie-2026.ics','dane-2026.ics','eli-2026-27.ics','eli-football-2026.ics','jack-2026.ics'];
+const REQUIRED_ICS=['gracie-2026.ics','dane-2026.ics','eli-2026-27.ics','eli-santa-cruz-soccer-2026-27.ics','eli-football-2026.ics','jack-2026.ics'];
 
 const read=p=>fs.readFile(p,'utf8');
 const assert=(ok,msg)=>{if(!ok)throw new Error(msg)};
@@ -23,7 +24,7 @@ function field(block,name){
 }
 async function validate(){
   const index=await read('index.html');
-  for(const href of ['gracie.html','dane.html','eli.html','eli-football.html','jack.html']) assert(index.includes(href),'Homepage missing '+href);
+  for(const href of ['gracie.html','dane.html','eli.html','eli-santa-cruz-soccer.html','eli-football.html','jack.html']) assert(index.includes(href),'Homepage missing '+href);
   assert(index.includes('https://nfl.kensawtelle.com/'),'Homepage missing dedicated NFL link');
 
   const worker=await read('_worker.js');
