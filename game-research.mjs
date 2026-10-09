@@ -97,5 +97,5 @@ export async function gameResearch(request, fetcher = fetch) {
   if(game?.opponentUrl&&new URL(game.opponentUrl).hostname.endsWith('maxpreps.com'))try{const page=await read(game.opponentUrl,fetcher),record=teamRecord(page);if(record)opponentRecord={record,sourceUrl:game.opponentUrl}}catch{/* The game details remain useful if the opponent profile is offline. */}
   return Response.json({ team: profile.name, opponent, sport: profile.sport, date, game, opponentRecord, articles,
     sourceUrl: profile.source, checkedAt: new Date().toISOString(), unavailable: results.every(result => result.status === 'rejected') },
-    { headers: { 'Cache-Control': 'public, max-age=60, s-maxage=300', 'X-Content-Type-Options': 'nosniff' } });
+    { headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
 }

@@ -52,4 +52,5 @@ test('game page uses automatic results and specific team profiles without old pr
  const page=readFileSync(new URL('../game.html',import.meta.url),'utf8');
  assert.doesNotMatch(page,/Like the NFL|research launch|What the analysis checks|Ask ChatGPT/);
  assert.match(page,/game-page.js/);assert.equal(teams['jack.html'].sport,'JV football');assert.equal(teams['gracie.html'].sport,"Women's soccer");
+ const script=readFileSync(new URL('../game-page.js',import.meta.url),'utf8');assert.match(script,/fresh:\s*Date\.now\(\)/);
 });

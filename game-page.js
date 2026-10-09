@@ -157,7 +157,7 @@ async function refresh() {
   busy = true; el('refresh').disabled = true;
   try {
     await refreshSchedule();
-    const response = await fetch('/api/game-research?' + new URLSearchParams({ teamPage, opponent, date: researchDate }), { signal: AbortSignal.timeout(10000), cache: 'no-store' });
+    const response = await fetch('/api/game-research?' + new URLSearchParams({ teamPage, opponent, date: researchDate, fresh: Date.now() }), { signal: AbortSignal.timeout(10000), cache: 'no-store' });
     if (!response.ok) throw new Error();
     const data = await response.json();
     const content = el('research-results'); content.replaceChildren();
