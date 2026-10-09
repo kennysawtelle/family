@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { familyLiveGame, normalizeLiveGame } from '../family-live-game.mjs';
+import { familyLiveGame, normalizeLiveGame, normalizeNcaaGame } from '../family-live-game.mjs';
 
 const source = { page: 'https://example.com/live', provider: 'Official live stats' };
 const fixture = {
@@ -33,12 +33,20 @@ test('rejects a provider response for a different game or date', () => {
   assert.throws(() => normalizeLiveGame({ ...fixture, Game: { ...fixture.Game, HomeTeam: { Name: 'Wrong Team', Score: 0 } } }, expected), /different game/);
 });
 
-test('returns an exact official tracker when its provider has no public data API', async () => {
-  const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=gracie&date=2026-10-04&opponent=Eastern%20Kentucky'));
+test('uses the NCAA scoreboard when StatBroadcast has no server-readable API', async () => {
+  const scoreboard={games:[{game:{away:{score:'3',names:{short:'Eastern Ky.'}},home:{score:'2',names:{short:'North Ala.'}},gameState:'final',startDate:'10/04/2026',currentPeriod:'FINAL',contestClock:'0:00',url:'/game/6607574'}}]};
+  const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=gracie&date=2026-10-04&opponent=Eastern%20Kentucky'),async()=>Response.json(scoreboard));
   const data = await response.json();
-  assert.equal(data.available, false);
-  assert.equal(data.configured, true);
-  assert.match(data.sourceUrl, /id=665443/);
+  assert.equal(data.available, true);
+  assert.equal(data.state, 'final');
+  assert.equal(data.away.score,3);
+  assert.match(data.sourceUrl, /6607574/);
+});
+test('normalizes the exact NCAA live scoreboard game and rejects a different matchup',()=>{
+ const source={date:'2026-10-08',teams:['North Alabama','Abilene Christian']};
+ const raw={games:[{game:{gameID:'6607309',away:{score:'1',names:{short:'Abilene Christian'}},home:{score:'0',names:{short:'North Ala.'}},gameState:'live',startDate:'10/08/2026',currentPeriod:'1ST HALF',contestClock:'25:19',url:'/game/6607309'}}]};
+ const game=normalizeNcaaGame(raw,source);assert.equal(game.away.score,1);assert.equal(game.home.score,0);assert.equal(game.state,'live');assert.match(game.sourceUrl,/6607309/);
+ assert.throws(()=>normalizeNcaaGame(raw,{...source,teams:['North Alabama','Tarleton State']}));
 });
 
 test('only the exact scheduled game can use its configured official feed', async () => {

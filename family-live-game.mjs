@@ -14,24 +14,31 @@ const sources = new Map([
     ],
   }],
   ['gracie|2026-10-04|eastern kentucky', {
-    type: 'link', date: '2026-10-04', teams: ['North Alabama', 'Eastern Kentucky'],
+    type: 'ncaa', date: '2026-10-04', teams: ['North Alabama', 'Eastern Kentucky'],
+    feed: 'https://ncaa-api.henrygd.me/scoreboard/soccer-women/d1/2026/10/04',
     page: 'https://stats.statbroadcast.com/broadcast/?id=665443', provider: 'North Alabama StatBroadcast Live Stats',
   }],
   ['gracie|2026-10-08|abilene christian', {
-    type: 'link', date: '2026-10-08', teams: ['North Alabama', 'Abilene Christian'],
+    type: 'ncaa', date: '2026-10-08', teams: ['North Alabama', 'Abilene Christian'],
+    feed: 'https://ncaa-api.henrygd.me/scoreboard/soccer-women/d1/2026/10/08',
     page: 'https://stats.statbroadcast.com/broadcast/?id=665442', provider: 'North Alabama StatBroadcast Live Stats',
   }],
   ['gracie|2026-10-11|tarleton state', {
-    type: 'link', date: '2026-10-11', teams: ['North Alabama', 'Tarleton State'],
+    type: 'ncaa', date: '2026-10-11', teams: ['North Alabama', 'Tarleton State'],
+    feed: 'https://ncaa-api.henrygd.me/scoreboard/soccer-women/d1/2026/10/11',
     page: 'https://stats.statbroadcast.com/broadcast/?id=665447', provider: 'North Alabama StatBroadcast Live Stats',
   }],
   ['gracie|2026-10-29|austin peay', {
-    type: 'link', date: '2026-10-29', teams: ['North Alabama', 'Austin Peay'],
+    type: 'ncaa', date: '2026-10-29', teams: ['North Alabama', 'Austin Peay'],
+    feed: 'https://ncaa-api.henrygd.me/scoreboard/soccer-women/d1/2026/10/29',
     page: 'https://stats.statbroadcast.com/broadcast/?id=665448', provider: 'North Alabama StatBroadcast Live Stats',
   }],
 ]);
 
 const key = value => String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+const scoreboardKey=value=>({
+  'north alabama':'north ala','eastern kentucky':'eastern ky','tarleton state':'tarleton st'
+})[key(value)]||key(value);
 const integer = value => Number.isFinite(Number(value)) ? Number(value) : null;
 const text = value => typeof value === 'string' ? value.trim() : '';
 const clock = seconds => {
@@ -75,6 +82,24 @@ export function normalizeLiveGame(raw, source, now = new Date()) {
   };
 }
 
+export function normalizeNcaaGame(raw, source, now = new Date()) {
+  const expected=(source.teams||[]).map(scoreboardKey).sort();
+  const games=(raw?.games||[]).map(item=>item?.game).filter(Boolean);
+  const game=games.find(item=>{
+    const actual=[item.away?.names?.short,item.home?.names?.short].map(scoreboardKey).sort();
+    return actual.length===expected.length&&actual.every((name,index)=>name===expected[index]);
+  });
+  if(!game)throw new Error('The NCAA scoreboard does not list this exact game.');
+  const isoDate=String(game.startDate||'').replace(/^(\d\d)\/(\d\d)\/(\d{4})$/,'$3-$1-$2');
+  if(isoDate!==source.date)throw new Error('The NCAA scoreboard returned a different date.');
+  const state=game.gameState==='live'?'live':game.gameState==='final'?'final':'pregame';
+  const side=team=>({name:text(team?.names?.short),score:integer(team?.score),logo:null});
+  return {state,status:state==='final'?'Final':[text(game.currentPeriod),text(game.contestClock)].filter(Boolean).join(' · ')||'Live',
+    home:side(game.home),away:side(game.away),homeStats:{},awayStats:{},scoring:[],venue:'Bobby Wallace Field at Bank Independent Stadium',
+    attendance:null,officials:'',notes:[],previewUrl:null,previewTitle:null,
+    sourceUrl:`https://www.ncaa.com${game.url||''}`,source:'NCAA live scoreboard',checkedAt:now.toISOString()};
+}
+
 export async function familyLiveGame(request, fetcher = fetch) {
   const params = new URL(request.url).searchParams;
   const id = `${key(params.get('teamPage'))}|${params.get('date') || ''}|${key(params.get('opponent'))}`;
@@ -87,7 +112,8 @@ export async function familyLiveGame(request, fetcher = fetch) {
   try {
     const response = await fetcher(source.feed, { signal: AbortSignal.timeout(7000), headers: { Accept: 'application/json' } });
     if (!response.ok) throw new Error('Source unavailable');
-    return Response.json({ available: true, ...normalizeLiveGame(await response.json(), source) }, { headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
+    const raw=await response.json();
+    return Response.json({ available: true, ...(source.type==='ncaa'?normalizeNcaaGame(raw,source):normalizeLiveGame(raw, source)) }, { headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
   } catch {
     return Response.json({ available: false, sourceUrl: source.page, checkedAt: new Date().toISOString() }, { status: 502, headers: { 'Cache-Control': 'no-store' } });
   }
