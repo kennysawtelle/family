@@ -175,9 +175,10 @@ async function refresh() {
     if(/football/i.test(profile?.sport||''))refreshTeamComparison();
     for (const item of data.articles) {
       const section = document.createElement('section');
-      section.append(link(item.title, item.url));
+      const heading = document.createElement('h3'); heading.textContent = item.title; section.append(heading);
+      if (item.summary) { const summary = document.createElement('p'); summary.className = 'report-summary'; summary.textContent = item.summary; section.append(summary); }
       const meta = document.createElement('p'); meta.className = 'muted';
-      meta.textContent = `${item.source} · ${new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(new Date(item.published))}`;
+      meta.append('Source: ', link(item.source, item.url), ` · ${new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(new Date(item.published))}`);
       section.append(meta); content.append(section);
     }
     el('research-status').textContent = data.articles.length ? '' : data.unavailable

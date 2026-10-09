@@ -8,7 +8,7 @@ const hasTeamName = (text, profile) => (profile.newsAliases || [profile.alias]).
 const safeUrl = value => { try { const url = new URL(value); return url.protocol === 'https:' && !url.username && !url.password ? url.href : null; } catch { return null; } };
 const pacificDate = value => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(value));
 const verifiedReports=new Map([
-  ['gracie.html|2026-10-08|abilene christian',{title:'Soccer to welcome Abilene Christian for Thursday night matchup',url:'https://roarlions.com/news/2026/10/7/womens-soccer-soccer-to-welcome-abilene-christian-for-thursday-night-matchup.aspx',source:'University of North Alabama Athletics',published:'2026-10-07T16:00:00.000Z'}]
+  ['gracie.html|2026-10-08|abilene christian',{title:'North Alabama hosts Abilene Christian in UAC crossover match',summary:'North Alabama enters the conference crossover match at 2–1 in UAC play after a 3–2 loss to Eastern Kentucky. Abilene Christian is 4–2–5 overall and 1–0–2 in conference play, led by Addison Briscoe with five goals and three assists. UNA is seeking its first win in the series after losing the teams’ first two meetings.',url:'https://roarlions.com/news/2026/10/7/womens-soccer-soccer-to-welcome-abilene-christian-for-thursday-night-matchup.aspx',source:'University of North Alabama Athletics',published:'2026-10-07T16:00:00.000Z'}]
 ]);
 async function read(url, fetcher) {
   const response = await fetcher(url, { signal: AbortSignal.timeout(6500), headers: { Accept: 'text/html,application/rss+xml' } });

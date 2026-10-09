@@ -50,7 +50,7 @@ test('failed providers return an explicit unavailable state; invalid requests ne
 });
 test('a verified official report remains available when news feeds fail',async()=>{
  const response=await gameResearch(new Request('https://family.test/api/game-research?teamPage=gracie.html&opponent=Abilene%20Christian&date=2026-10-08'),async()=>{throw new Error('offline')});
- const data=await response.json();assert.equal(data.articles.length,1);assert.equal(data.articles[0].source,'University of North Alabama Athletics');assert.match(data.articles[0].url,/roarlions\.com/);
+ const data=await response.json();assert.equal(data.articles.length,1);assert.equal(data.articles[0].source,'University of North Alabama Athletics');assert.match(data.articles[0].summary,/2–1 in UAC play/);assert.match(data.articles[0].url,/roarlions\.com/);
 });
 test('game page uses automatic results and specific team profiles without old promotional filler',()=>{
  const page=readFileSync(new URL('../game.html',import.meta.url),'utf8');
