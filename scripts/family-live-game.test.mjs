@@ -56,6 +56,13 @@ test('adds NCAA goal details and major team statistics',async()=>{
  await enrichNcaaGame(game,fetcher);assert.match(game.scoring[0].narrative,/Addison Briscoe/);assert.equal(game.homeStats.Shots,6);assert.equal(game.awayStats.Saves,3);
 });
 
+test('a completed 90-minute box score overrides a lagging live scoreboard',async()=>{
+ const game={gameId:'6607309',state:'live',status:'2ND HALF · 90:00',home:{},away:{},homeStats:{},awayStats:{},scoring:[]};
+ const box={status:'I',minutes:90,teams:[],teamBoxscore:[{playerStats:[{goalie:{wins:'1',losses:'0',ties:'0'}}]}]};
+ const updated=await enrichNcaaGame(game,async url=>Response.json(url.endsWith('/boxscore')?box:{periods:[],teams:[]}));
+ assert.equal(updated.state,'final');assert.equal(updated.status,'Final');
+});
+
 test('only the exact scheduled game can use its configured official feed', async () => {
   let requests = 0;
   const fetcher = async () => { requests += 1; return Response.json(fixture); };

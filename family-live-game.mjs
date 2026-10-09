@@ -120,6 +120,10 @@ export async function enrichNcaaGame(game,fetcher=fetch){
     homeScore:integer(item.homeScore),awayScore:integer(item.visitScore)
   })));
   const box=boxResult.status==='fulfilled'?boxResult.value:null;
+  const finalGoalieResult=(box?.teamBoxscore||[]).some(item=>(item.playerStats||[]).some(player=>{
+    const goalie=player.goalie;return goalie&&[goalie.wins,goalie.losses,goalie.ties].some(value=>Number(value)>0);
+  }));
+  if(game.state==='live'&&(String(box?.status||'').toUpperCase()==='F'||(Number(box?.minutes)>=90&&finalGoalieResult))){game.state='final';game.status='Final';}
   const teamBox=new Map((box?.teamBoxscore||[]).map(item=>[String(item.teamId),item]));
   const homeId=(box?.teams||[]).find(team=>team.isHome)?.teamId,awayId=(box?.teams||[]).find(team=>!team.isHome)?.teamId;
   if(homeId!=null)game.homeStats=ncaaTeamStats(teamBox.get(String(homeId)));
