@@ -52,6 +52,37 @@ function timeText(instant) {
   return ['America/Los_Angeles', 'America/New_York'].map(timeZone => new Intl.DateTimeFormat('en-US', { timeZone, month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }).format(new Date(instant))).join(' / ');
 }
 const liveStatLabels = [['Shots', 'Shots'], ['OnGoal', 'Shots on goal'], ['Corners', 'Corners'], ['Saves', 'Saves'], ['Fouls', 'Fouls'], ['YellowCard', 'Yellow cards'], ['RedCard', 'Red cards']];
+const comparisonCategories = [['60', 'Record'], ['56', 'Goals per game'], ['58', 'Goals allowed per game'], ['984', 'Shots per game'], ['986', 'Shots on goal per game']];
+function comparisonTable(rows) {
+  const table=document.createElement('table');table.className='stats-table';
+  const header=document.createElement('tr');
+  for(const value of ['Season stats',away,home]){const th=document.createElement('th');th.textContent=value;header.append(th)}
+  const thead=document.createElement('thead');thead.append(header);table.append(thead);
+  const body=document.createElement('tbody');
+  for(const row of rows){const tr=document.createElement('tr');for(const value of row){const td=document.createElement('td');td.textContent=value;tr.append(td)}body.append(tr)}
+  table.append(body);return table;
+}
+async function refreshTeamComparison(){
+  const status=el('comparison-status'),content=el('team-comparison'),source=el('comparison-source');
+  const recordRow=['Record',el('awayRecord').textContent||'Checking…',el('homeRecord').textContent||'Checking…'];
+  if(profile?.sport!=="Women's soccer"){
+    status.textContent='';content.replaceChildren(comparisonTable([recordRow]));
+    source.textContent='Additional comparable team statistics are not published by the checked team sources.';return;
+  }
+  try{
+    const sets=await Promise.all(comparisonCategories.map(([category])=>fetch('/api/ncaa-wsoc?category='+category,{cache:'no-store',signal:AbortSignal.timeout(12000)}).then(r=>r.ok?r.json():null)));
+    const rows=[];
+    for(let i=0;i<sets.length;i++){
+      const data=sets[i];if(!data)continue;
+      const find=name=>data.rows.find(row=>schoolKey(row[1])===schoolKey(name));
+      const a=find(away),h=find(home);if(!a&&!h)continue;
+      const value=row=>!row?'Not published':comparisonCategories[i][0]==='60'?`${row[2]}–${row[3]}–${row[4]}`:row[row.length-1];
+      rows.push([comparisonCategories[i][1],value(a),value(h)]);
+    }
+    content.replaceChildren(comparisonTable(rows.length?rows:[recordRow]));status.textContent='';
+    const checked=sets.find(Boolean)?.checkedAt;source.replaceChildren(link(`NCAA Division I team statistics${checked?' · Updated '+new Intl.DateTimeFormat('en-US',{dateStyle:'medium'}).format(new Date(checked)):''} ↗`,'https://www.ncaa.com/stats/soccer-women/d1'));
+  }catch{status.textContent='Current comparable team statistics could not be verified.';content.replaceChildren(comparisonTable([recordRow]));source.textContent='';}
+}
 function renderLiveGame(game) {
   const card = el('live-card'); card.hidden = false; card.dataset.state = game.state;
   el('live-badge').textContent = game.state === 'final' ? 'Final' : game.state === 'live' ? 'Live' : 'Upcoming';
@@ -141,6 +172,7 @@ async function refresh() {
     const opponentSide=ownSide==='away'?'home':'away';
     if(data.opponentRecord){el(opponentSide+'Record').textContent=data.opponentRecord.record;el(opponentSide+'RecordDate').textContent='Current record · MaxPreps';}
     else if(!sides[opponentSide].record&&!opponentResult&&/football/i.test(profile?.sport || '')){el(opponentSide+'Record').textContent='Official record unavailable';el(opponentSide+'RecordDate').textContent='Checked team source';}
+    if(/football/i.test(profile?.sport||''))refreshTeamComparison();
     for (const item of data.articles) {
       const section = document.createElement('section');
       section.append(link(item.title, item.url));
@@ -160,6 +192,7 @@ el('refresh').addEventListener('click', refresh);
 refresh();
 refreshRecords();
 refreshLiveGame();
+refreshTeamComparison();
 window.addEventListener('focus', refresh);
 window.addEventListener('focus', refreshRecords);
 window.addEventListener('focus', refreshLiveGame);
@@ -167,7 +200,7 @@ setInterval(() => { if (!document.hidden) refresh(); }, 300000);
 setInterval(() => { if (!document.hidden) refreshLiveGame(); }, 30000);
 
 if(profile){
- const keys={'eli.html':'eli-soccer','eli-football.html':'eli-football','jack.html':'jack','dane.html':'dane','gracie.html':'gracie'};
+ const keys={'eli.html':'eli-soccer','eli-santa-cruz-soccer.html':'eli-school-soccer','eli-football.html':'eli-football','jack.html':'jack','dane.html':'dane','gracie.html':'gracie'};
  el('game-calendar').hidden=false;
  el('subscribe-team').href='subscribe.html?cal='+keys[teamPage];
  el('subscribe-team').textContent='Subscribe to '+profile.name;

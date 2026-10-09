@@ -4,12 +4,34 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
   const table=document.querySelector('table[data-ics]');
   if(!table)return;
+  const athleteProfiles={
+    'dane-2026.ics':{name:'Dane Gosserand',summary:'2026 varsity statistics published by the team',stats:[['Games recorded','1'],['Receptions','4'],['Receiving yards','44'],['Yards per catch','11.0'],['Total tackles','5'],['Interceptions','1']],updated:'October 3, 2026',source:'https://www.maxpreps.com/ca/la-verne/bonita-bearcats/athletes/dane-gosserand/football/stats/?careerid=6r9nl301cefo8'},
+    'gracie-2026.ics':{name:'Gracie Tyrrell',summary:'Latest complete UNA season (2025); UNA has not published a 2026 individual stat table yet',stats:[['Games / starts','19 / 19'],['Minutes','1,637'],['Shots','16'],['Shots on goal','6'],['Goals','1'],['Assists','1']],updated:'official profile checked October 8, 2026',source:'https://roarlions.com/sports/womens-soccer/roster/gracie-tyrrell/4528'},
+    'jack-2026.ics':{name:'Jack Harn',unavailable:'Soquel JV does not publish a verified individual player stat line on its checked public team source.',source:'https://www.maxpreps.com/ca/soquel/soquel-knights/football/jv/'},
+    'eli-football-2026.ics':{name:'Eli',unavailable:'Santa Cruz does not publish a verified individual stat line that can be matched to Eli on its checked public team source.',source:'https://www.maxpreps.com/ca/santa-cruz/santa-cruz-cardinals/football/'},
+    'eli-santa-cruz-soccer-2026-27.ics':{name:'Eli',unavailable:'Santa Cruz has not published a verified 2026–27 individual player stat line on its checked public soccer source.',source:'https://www.maxpreps.com/ca/santa-cruz/santa-cruz-cardinals/soccer/winter/'},
+    'eli-2026-27.ics':{name:'Eli',unavailable:'Los Gatos United does not publish verified individual player statistics on its checked public schedule source.',source:'https://www.losgatosunited.com/'}
+  };
+  const athlete=athleteProfiles[table.dataset.ics];
+  if(athlete){
+    const section=document.createElement('section');section.className='athlete-stats';section.setAttribute('aria-labelledby','athlete-stats-title');
+    Object.assign(section.style,{background:'#fff',border:'1px solid #d7dee7',borderRadius:'12px',padding:'16px',margin:'0 0 18px'});
+    const heading=document.createElement('h2');heading.id='athlete-stats-title';heading.textContent=athlete.name+' — athlete stats';heading.style.margin='0 0 8px';section.append(heading);
+    const summary=document.createElement('p');summary.textContent=athlete.unavailable||athlete.summary;summary.style.margin='0 0 12px';section.append(summary);
+    if(athlete.stats){
+      const grid=document.createElement('dl');Object.assign(grid.style,{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(125px,1fr))',gap:'10px',margin:'0 0 12px'});
+      for(const [label,value] of athlete.stats){const item=document.createElement('div');Object.assign(item.style,{background:'#f3f6f9',padding:'10px',borderRadius:'8px'});const dt=document.createElement('dt');dt.textContent=label;dt.style.fontSize='.85rem';const dd=document.createElement('dd');dd.textContent=value;Object.assign(dd.style,{margin:'3px 0 0',fontSize:'1.35rem',fontWeight:'700'});item.append(dt,dd);grid.append(item)}
+      section.append(grid);
+    }
+    const source=document.createElement('a');source.href=athlete.source;source.target='_blank';source.rel='noopener noreferrer';source.textContent=`Official player/team source${athlete.updated?' · '+athlete.updated:''} ↗`;section.append(source);
+    table.closest('.table-wrap').before(section);
+  }
   const actions=document.querySelector('.actions');
   const standingsKeys={'gracie-2026.ics':'gracie','dane-2026.ics':'dane','eli-2026-27.ics':'eli','eli-football-2026.ics':'eli-football','jack-2026.ics':'jack'};
   if(actions&&standingsKeys[table.dataset.ics]&&!actions.querySelector('[data-standings]')){
     const standings=document.createElement('a');standings.className='button back';standings.dataset.standings='true';standings.href='standings.html?team='+standingsKeys[table.dataset.ics];standings.textContent='📊 Division Standings';actions.append(standings);
   }
-  const profileNames={'eli-2026-27.ics':'Los Gatos United','eli-football-2026.ics':'Santa Cruz High','jack-2026.ics':'Soquel High JV','dane-2026.ics':'Bonita High','gracie-2026.ics':'North Alabama'};
+  const profileNames={'eli-2026-27.ics':'Los Gatos United','eli-santa-cruz-soccer-2026-27.ics':'Santa Cruz High','eli-football-2026.ics':'Santa Cruz High','jack-2026.ics':'Soquel High JV','dane-2026.ics':'Bonita High','gracie-2026.ics':'North Alabama'};
   const profileName=profileNames[table.dataset.ics];
   const scheduleFile=(location.pathname.split('/').filter(Boolean).pop()||'').replace(/\.html$/,'')+'.html';
   // Build useful navigation from saved rows before any network dependency.
