@@ -26,11 +26,16 @@ test('publisher name does not count as a matching team; old and unsafe stories a
  const found=newsItems(xml,profile,'Pajaro Valley','2026-09-19',Date.parse('2026-09-24'));
  assert.equal(found.length,1);assert.match(found[0].title,/holds off/);
 });
+test('team nicknames and an opponent athletics publisher can identify a matchup report',()=>{
+ const xml=item('Lions earn a conference road victory','Sun, 27 Sep 2026 22:00:00 GMT','https://roarlions.com/news/recap').replace('Santa Cruz Sentinel','Austin Peay Athletics');
+ const found=newsItems(xml,teams['gracie.html'],'Austin Peay','2026-09-27',Date.parse('2026-09-29'));
+ assert.equal(found.length,1);assert.match(found[0].title,/Lions/);
+});
 test('on-page endpoint returns a sourced game without an AI key, prompt handoff, or writes',async()=>{
  const calls=[];
  const fetcher=async(url,options)=>{calls.push(url);assert.equal(options.method,undefined);return new Response(url.includes('/pajaro-valley-grizzlies/')?'<div class="TeamRecord__StyledTeamRecord-x"><div class="stat-label">Overall</div><div class="data">2-3</div>':url.includes('maxpreps')?html({...game,awayTeam:{...game.awayTeam,url:'https://www.maxpreps.com/ca/watsonville/pajaro-valley-grizzlies/football/'}}):item('Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel'));};
  const r=await gameResearch(new Request('https://example.test/api/game-research?teamPage=eli-football.html&opponent=Pajaro%20Valley&date=2026-09-19'),fetcher);
- const data=await r.json();assert.equal(data.team,'Santa Cruz High');assert.equal(data.game.detail,game.description);assert.equal(data.articles.length,1);assert.equal(calls.length,4);assert.equal(data.game.watch,'https://www.nfhsnetwork.com/events/test');assert.equal(data.opponentRecord.record,'2–3');
+ const data=await r.json();assert.equal(data.team,'Santa Cruz High');assert.equal(data.game.detail,game.description);assert.equal(data.articles.length,1);assert.equal(calls.length,8);assert.equal(data.game.watch,'https://www.nfhsnetwork.com/events/test');assert.equal(data.opponentRecord.record,'2–3');
 });
 test('failed providers return an explicit unavailable state; invalid requests never reach providers',async()=>{
  const request=q=>new Request('https://example.test/api/game-research?'+q);

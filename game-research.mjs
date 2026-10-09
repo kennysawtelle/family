@@ -4,6 +4,7 @@ export { teams };
 const plain = value => String(value ?? '').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/\s+/g, ' ').trim();
 const normalized = value => plain(value).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const hasName = (text, name) => (` ${normalized(text)} `).includes(` ${normalized(name)} `);
+const hasTeamName = (text, profile) => (profile.newsAliases || [profile.alias]).some(name => hasName(text, name));
 const safeUrl = value => { try { const url = new URL(value); return url.protocol === 'https:' && !url.username && !url.password ? url.href : null; } catch { return null; } };
 const pacificDate = value => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(value));
 async function read(url, fetcher) {
@@ -61,7 +62,8 @@ export function newsItems(xml, profile, opponent, date, now = Date.now()) {
       const parsed = Date.parse(`${headlineDate[1]} ${headlineDate[2]}, ${headlineDate[3] || date.slice(0, 4)} 12:00:00 UTC`);
       if (Number.isFinite(parsed) && Math.abs(parsed - target) > 86400000) return [];
     }
-    if (!hasName(headline, profile.alias) || !hasName(headline, opponent) || !Number.isFinite(at) || at > now + 3600000 || at < target - 30 * 86400000 || at > target + 7 * 86400000) return [];
+    const opponentMentioned=hasName(headline,opponent)||hasName(publisher,opponent);
+    if (!hasTeamName(headline, profile) || !opponentMentioned || !Number.isFinite(at) || at > now + 3600000 || at < target - 30 * 86400000 || at > target + 7 * 86400000) return [];
     if (/JV/.test(profile.sport) && !/\b(jv|junior varsity)\b/i.test(title)) return [];
     if (/Youth/.test(profile.sport) && !/\b(youth|u\d\d|boys|girls)\b/i.test(title)) return [];
     if (/soccer/i.test(profile.sport) && /\bfootball\b/i.test(title)) return [];
@@ -75,8 +77,16 @@ export async function gameResearch(request, fetcher = fetch) {
   const profile = teams[params.get('teamPage')];
   const opponent = (params.get('opponent') || '').trim(), date = params.get('date') || '';
   if (!profile || opponent.length < 2 || opponent.length > 100 || !/^[\p{L}\p{N} .&'’()/-]+$/u.test(opponent) || !/^20\d\d-\d\d-\d\d$/.test(date) || !Number.isFinite(Date.parse(date))) return Response.json({ error: 'Choose a game from a family schedule.' }, { status: 400 });
-  const query = `"${profile.alias}" "${opponent}" ${profile.sport} ${date.slice(0, 4)}`;
-  const feeds = [`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`, `https://www.bing.com/news/search?q=${encodeURIComponent(query)}&format=rss`];
+  const gameDate=new Date(date+'T12:00:00Z');
+  const monthDay=new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',timeZone:'UTC'}).format(gameDate);
+  const aliases=profile.newsAliases||[profile.alias];
+  const aliasQuery=aliases.length>1?'('+aliases.map(name=>`"${name}"`).join(' OR ')+')':`"${aliases[0]}"`;
+  const queries=[
+    `${aliasQuery} "${opponent}" ${profile.sport}`,
+    `${aliasQuery} "${opponent}" (preview OR recap OR roundup OR score)`,
+    `${aliasQuery} "${opponent}" "${monthDay}" ${date.slice(0,4)}`
+  ];
+  const feeds=queries.flatMap(query=>[`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`,`https://www.bing.com/news/search?q=${encodeURIComponent(query)}&format=rss`]);
   const results = await Promise.allSettled([read(profile.source, fetcher), ...feeds.map(url => read(url, fetcher))]);
   const game = results[0].status === 'fulfilled' ? scheduleGame(results[0].value, profile, opponent, date) : null;
   const articles = results.slice(1).flatMap(result => result.status === 'fulfilled' ? newsItems(result.value, profile, opponent, date) : []).filter((item, i, all) => all.findIndex(other => other.title === item.title) === i).slice(0, 4);
