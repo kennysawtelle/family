@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { familyLiveGame, normalizeLiveGame, normalizeNcaaGame } from '../family-live-game.mjs';
+import { familyLiveGame, normalizeLiveGame, normalizeNcaaGame, enrichNcaaGame } from '../family-live-game.mjs';
 
 const source = { page: 'https://example.com/live', provider: 'Official live stats' };
 const fixture = {
@@ -47,6 +47,13 @@ test('normalizes the exact NCAA live scoreboard game and rejects a different mat
  const raw={games:[{game:{gameID:'6607309',away:{score:'1',names:{short:'Abilene Christian'}},home:{score:'0',names:{short:'North Ala.'}},gameState:'live',startDate:'10/08/2026',currentPeriod:'1ST HALF',contestClock:'25:19',url:'/game/6607309'}}]};
  const game=normalizeNcaaGame(raw,source);assert.equal(game.away.score,1);assert.equal(game.home.score,0);assert.equal(game.state,'live');assert.match(game.sourceUrl,/6607309/);
  assert.throws(()=>normalizeNcaaGame(raw,{...source,teams:['North Alabama','Tarleton State']}));
+});
+test('adds NCAA goal details and major team statistics',async()=>{
+ const game={gameId:'6607309',home:{name:'North Ala.',score:0},away:{name:'Abilene Christian',score:1},homeStats:{},awayStats:{},scoring:[]};
+ const scoring={teams:[{teamId:'1',nameShort:'North Ala.'},{teamId:'2',nameShort:'Abilene Christian'}],periods:[{title:'1st Half',summary:[{teamId:'2',time:'19:54',scoreType:'GOAL',scoreText:'Addison Briscoe (unassisted)',visitScore:'1',homeScore:'0'}]}]};
+ const box={teams:[{teamId:'1',isHome:true},{teamId:'2',isHome:false}],teamBoxscore:[{teamId:'1',teamStats:{shots:'6',shotsOnGoal:'3',corners:'2',goalie:{saves:'1'},penalties:{fouls:'4',yellowCards:'0',redCards:'0'}}},{teamId:'2',teamStats:{shots:'2',shotsOnGoal:'2',corners:'2',goalie:{saves:'3'},penalties:{fouls:'1',yellowCards:'0',redCards:'0'}}}]};
+ const fetcher=async url=>Response.json(url.endsWith('scoring-summary')?scoring:box);
+ await enrichNcaaGame(game,fetcher);assert.match(game.scoring[0].narrative,/Addison Briscoe/);assert.equal(game.homeStats.Shots,6);assert.equal(game.awayStats.Saves,3);
 });
 
 test('only the exact scheduled game can use its configured official feed', async () => {
