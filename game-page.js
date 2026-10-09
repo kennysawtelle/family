@@ -40,6 +40,9 @@ async function refreshRecords() {
 }
 const primaryLink = profile ? teamPage : 'index.html';
 const opponentLink = 'team.html?' + new URLSearchParams({ name: opponent, sport: profile?.sport || '' });
+el('backTeam').href = primaryLink;
+el('backTeam').textContent = profile ? `← ${profile.name}` : '← Family Sports';
+el('backTeam').setAttribute('aria-label', profile ? `Return to ${profile.name} team page` : 'Return to Family Sports');
 el('awayLink').href = q.get('ha') === 'Away' ? primaryLink : opponentLink;
 el('homeLink').href = q.get('ha') === 'Away' ? opponentLink : primaryLink;
 el('snapshot').textContent = [matchup, date, gameStatus && (resultMatch ? `Final: ${gameStatus}` : gameStatus), q.get('venue')].filter(Boolean).join(' · ');

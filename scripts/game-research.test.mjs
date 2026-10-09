@@ -64,8 +64,8 @@ test('a verified official report remains available when news feeds fail',async()
 test('game page uses automatic results and specific team profiles without old promotional filler',()=>{
  const page=readFileSync(new URL('../game.html',import.meta.url),'utf8');
  assert.doesNotMatch(page,/Like the NFL|research launch|What the analysis checks|Ask ChatGPT/);
- assert.match(page,/game-page.js/);assert.equal(teams['jack.html'].sport,'JV football');assert.equal(teams['gracie.html'].sport,"Women's soccer");
- const script=readFileSync(new URL('../game-page.js',import.meta.url),'utf8');assert.match(script,/fresh:\s*Date\.now\(\)/);
+ assert.match(page,/game-page.js/);assert.match(page,/id="backTeam"/);assert.equal(teams['jack.html'].sport,'JV football');assert.equal(teams['gracie.html'].sport,"Women's soccer");
+ const script=readFileSync(new URL('../game-page.js',import.meta.url),'utf8');assert.match(script,/fresh:\s*Date\.now\(\)/);assert.match(script,/Return to \$\{profile\.name\} team page/);
 });
 test('every configured college, high-school and club team uses the shared sourced game page',()=>{
  for(const [page,team] of Object.entries(teams)){
