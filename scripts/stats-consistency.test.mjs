@@ -12,6 +12,7 @@ test('all athlete calendars have a sourced athlete-stat state',async()=>{
   }
   assert.match(ui,/athlete stats/);
   assert.match(ui,/Official player\/team source/);
+  for(const name of ['Gracie Tyrrell','Dane Gosserand','Elijah \\(Eli\\) Landig','Jack Harn'])assert.match(ui,new RegExp(name));
 });
 
 test('game pages include sourced sport-specific team comparison',async()=>{

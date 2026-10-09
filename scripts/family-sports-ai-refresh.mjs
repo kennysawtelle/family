@@ -24,7 +24,9 @@ for(const path of managed) files.push({path,content:await fs.readFile(path,'utf8
 const prompt=`You maintain Sawtelle Family Sports. Today is ${new Date().toISOString().slice(0,10)}.
 Research the current authoritative/public sources on the web and update ONLY verified non-NFL family sports facts.
 
-Schedules: Gracie/North Alabama women's soccer; Dane/Bonita varsity football; Eli/Los Gatos United club soccer; Eli/Santa Cruz High varsity boys soccer; Eli/Santa Cruz varsity football; Jack/Soquel JV football.
+Athlete identities: Gracie Tyrrell; Dane Gosserand; Elijah Landig (also listed as Eli Landig); Jack Harn. Use full names when checking individual statistics so similarly named athletes are never matched.
+
+Schedules: Gracie Tyrrell/North Alabama women's soccer; Dane Gosserand/Bonita varsity football; Elijah (Eli) Landig/Los Gatos United club soccer; Elijah (Eli) Landig/Santa Cruz High varsity boys soccer; Elijah (Eli) Landig/Santa Cruz varsity football; Jack Harn/Soquel JV football.
 
 Authoritative starting URLs:
 ${JSON.stringify(sources,null,2)}

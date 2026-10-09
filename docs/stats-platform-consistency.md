@@ -30,6 +30,9 @@ Checked October 8, 2026.
 - MaxPreps currently publishes a partial 2026 line for Dane. The card identifies
   the number of games recorded so that the partial total is not mistaken for a
   full-season total.
-- No verified individual public line was found for Jack or any of Eli's teams. Their
-  cards retain the direct checked source and do not infer statistics from team
-  results.
+- Santa Cruz High publishes Elijah Landig's completed 2025–26 soccer line: 17
+  games, one goal, four assists, and six points. The 2026–27 line is not published
+  yet, so the card labels the season instead of presenting it as current data.
+- No verified individual public line was found for Jack, Eli's club soccer team,
+  or Eli's football team. Their cards retain the direct checked source and do not
+  infer statistics from team results.
