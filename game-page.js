@@ -128,7 +128,7 @@ function renderLiveGame(game) {
 }
 async function refreshLiveGame() {
   try {
-    const response = await fetch('/api/family-live-game?' + new URLSearchParams({ teamPage: teamPage.replace(/\.html$/, ''), opponent, date }), { cache: 'no-store', signal: AbortSignal.timeout(9000) });
+    const response = await fetch('/api/family-live-game?' + new URLSearchParams({ teamPage: teamPage.replace(/\.html$/, ''), opponent, date, fresh: Date.now() }), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' }, signal: AbortSignal.timeout(9000) });
     if (!response.ok) return;
     const game = await response.json();
     if (game.available) renderLiveGame(game);
@@ -200,8 +200,9 @@ refreshTeamComparison();
 window.addEventListener('focus', refresh);
 window.addEventListener('focus', refreshRecords);
 window.addEventListener('focus', refreshLiveGame);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshLiveGame(); });
 setInterval(() => { if (!document.hidden) refresh(); }, 300000);
-setInterval(() => { if (!document.hidden) refreshLiveGame(); }, 30000);
+setInterval(() => { if (!document.hidden) refreshLiveGame(); }, 15000);
 
 if(profile){
  const keys={'eli.html':'eli-soccer','eli-santa-cruz-soccer.html':'eli-school-soccer','eli-football.html':'eli-football','jack.html':'jack','dane.html':'dane','gracie.html':'gracie'};
