@@ -36,6 +36,15 @@ test('an official team athletics publisher can supply the team name missing from
  const found=newsItems(xml,teams['gracie.html'],'Abilene Christian','2026-10-08',Date.parse('2026-10-08T23:00:00Z'));
  assert.equal(found.length,1);assert.match(found[0].title,/Abilene Christian/);
 });
+test('complete publisher summaries are shown, while clipped or link-filled excerpts stay at the source',()=>{
+ const complete=item('Football: Santa Cruz holds off Pajaro Valley').replace('</item>','<description>Santa Cruz built an early lead before Pajaro Valley rallied in the second half. The Cardinals stopped the final drive to preserve the conference victory.</description></item>');
+ const clipped=item('Football: Santa Cruz holds off Pajaro Valley').replace('</item>','<description>Santa Cruz built an early lead before Pajaro Valley rallied...</description></item>');
+ const linked=item('Football: Santa Cruz holds off Pajaro Valley').replace('</item>','<description><![CDATA[<a href="https://example.com">Santa Cruz recap</a> and more coverage from the game between the Cardinals and Pajaro Valley.]]></description></item>');
+ const options=[profile,'Pajaro Valley','2026-09-19',Date.parse('2026-09-24')];
+ assert.match(newsItems(complete,...options)[0].summary,/final drive/);
+ assert.equal(newsItems(clipped,...options)[0].summary,undefined);
+ assert.equal(newsItems(linked,...options)[0].summary,undefined);
+});
 test('on-page endpoint returns a sourced game without an AI key, prompt handoff, or writes',async()=>{
  const calls=[];
  const fetcher=async(url,options)=>{calls.push(url);assert.equal(options.method,undefined);return new Response(url.includes('/pajaro-valley-grizzlies/')?'<div class="TeamRecord__StyledTeamRecord-x"><div class="stat-label">Overall</div><div class="data">2-3</div>':url.includes('maxpreps')?html({...game,awayTeam:{...game.awayTeam,url:'https://www.maxpreps.com/ca/watsonville/pajaro-valley-grizzlies/football/'}}):item('Football: Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel'));};
@@ -57,4 +66,11 @@ test('game page uses automatic results and specific team profiles without old pr
  assert.doesNotMatch(page,/Like the NFL|research launch|What the analysis checks|Ask ChatGPT/);
  assert.match(page,/game-page.js/);assert.equal(teams['jack.html'].sport,'JV football');assert.equal(teams['gracie.html'].sport,"Women's soccer");
  const script=readFileSync(new URL('../game-page.js',import.meta.url),'utf8');assert.match(script,/fresh:\s*Date\.now\(\)/);
+});
+test('every configured college, high-school and club team uses the shared sourced game page',()=>{
+ for(const [page,team] of Object.entries(teams)){
+  const schedule=readFileSync(new URL('../'+page,import.meta.url),'utf8');
+  assert.match(schedule,/schedule-ui\.js/,`${page} must use shared game navigation`);
+  assert.ok(team.source.startsWith('https://'),`${page} must have a verified source`);
+ }
 });

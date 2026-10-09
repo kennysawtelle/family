@@ -14,8 +14,13 @@ Checked October 8, 2026.
 - Keep sport and level guards: soccer cannot inherit football coverage, youth
   reports require a youth marker, and JV reports must explicitly identify JV or
   junior varsity.
-- Keep each result as a direct sourced link with its publication date. Do not
-  synthesize or truncate article text.
+- Show a concise on-page report summary when a verified entry or publisher feed
+  supplies complete text, followed by the direct source and publication date.
+  Reject clipped excerpts and link-filled feed descriptions instead of implying
+  that incomplete text is the full report.
+- The shared game page applies this behavior to North Alabama college soccer,
+  Santa Cruz and Bonita varsity teams, Soquel JV, and Los Gatos United youth
+  soccer. Sport and level guards remain mandatory.
 
 ## Equivalent platforms checked
 

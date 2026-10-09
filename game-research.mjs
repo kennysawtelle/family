@@ -54,7 +54,8 @@ export function teamRecord(html) {
 }
 
 export function newsItems(xml, profile, opponent, date, now = Date.now()) {
-  const tag = (xml, name) => plain(xml.match(new RegExp(`<${name}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${name}>`))?.[1]);
+  const rawTag = (xml, name) => xml.match(new RegExp(`<${name}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${name}>`))?.[1] || '';
+  const tag = (xml, name) => plain(rawTag(xml, name));
   const target = Date.parse(date + 'T12:00:00Z');
   return [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].flatMap(match => {
     const title = tag(match[1], 'title'), published = tag(match[1], 'pubDate'), at = Date.parse(published);
@@ -74,7 +75,10 @@ export function newsItems(xml, profile, opponent, date, now = Date.now()) {
     if (/soccer/i.test(profile.sport) && !/\b(soccer|wsoc)\b/i.test(title)) return [];
     if (/football/i.test(profile.sport) && !/\bfootball\b/i.test(title)) return [];
     const url = safeUrl(tag(match[1], 'link'));
-    return url ? [{ title, url, source: tag(match[1], 'source') || new URL(url).hostname, published: new Date(at).toISOString() }] : [];
+    const rawDescription=rawTag(match[1],'description');
+    const description=plain(rawDescription);
+    const summary=!/<a\b|href\s*=|\.\.\.|…/i.test(rawDescription)&&description.length>=80&&description.length<=900&&normalized(description)!==normalized(title)?description:null;
+    return url ? [{ title, ...(summary?{summary}:{}), url, source: tag(match[1], 'source') || new URL(url).hostname, published: new Date(at).toISOString() }] : [];
   }).filter((item, index, all) => all.findIndex(other => other.title === item.title) === index).slice(0, 4);
 }
 
