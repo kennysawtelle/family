@@ -169,7 +169,7 @@ export default {
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${esc(image)}">`;
       html=html.replace(/<title>[^<]*<\/title>/,`<title>${esc(title)}</title>${meta}`);
-      return new Response(html,{status:assetResponse.status,headers:{"Content-Type":"text/html; charset=UTF-8","Cache-Control":"public, max-age=0, s-maxage=300"}});
+      return new Response(html,{status:assetResponse.status,headers:{"Content-Type":"text/html; charset=UTF-8","Cache-Control":"no-store"}});
     }
     return env.ASSETS.fetch(request);
   }

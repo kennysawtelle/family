@@ -7,6 +7,9 @@ const hasName = (text, name) => (` ${normalized(text)} `).includes(` ${normalize
 const hasTeamName = (text, profile) => (profile.newsAliases || [profile.alias]).some(name => hasName(text, name));
 const safeUrl = value => { try { const url = new URL(value); return url.protocol === 'https:' && !url.username && !url.password ? url.href : null; } catch { return null; } };
 const pacificDate = value => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(value));
+const verifiedReports=new Map([
+  ['gracie.html|2026-10-08|abilene christian',{title:'Soccer to welcome Abilene Christian for Thursday night matchup',url:'https://roarlions.com/news/2026/10/7/womens-soccer-soccer-to-welcome-abilene-christian-for-thursday-night-matchup.aspx',source:'University of North Alabama Athletics',published:'2026-10-07T16:00:00.000Z'}]
+]);
 async function read(url, fetcher) {
   const response = await fetcher(url, { signal: AbortSignal.timeout(6500), headers: { Accept: 'text/html,application/rss+xml' } });
   if (!response.ok) throw new Error('Source unavailable');
@@ -92,7 +95,8 @@ export async function gameResearch(request, fetcher = fetch) {
   const feeds=queries.flatMap(query=>[`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`,`https://www.bing.com/news/search?q=${encodeURIComponent(query)}&format=rss`]);
   const results = await Promise.allSettled([read(profile.source, fetcher), ...feeds.map(url => read(url, fetcher))]);
   const game = results[0].status === 'fulfilled' ? scheduleGame(results[0].value, profile, opponent, date) : null;
-  const articles = results.slice(1).flatMap(result => result.status === 'fulfilled' ? newsItems(result.value, profile, opponent, date) : []).filter((item, i, all) => all.findIndex(other => other.title === item.title) === i).slice(0, 4);
+  const pinned=verifiedReports.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`);
+  const articles = [pinned,...results.slice(1).flatMap(result => result.status === 'fulfilled' ? newsItems(result.value, profile, opponent, date) : [])].filter(Boolean).filter((item, i, all) => all.findIndex(other => other.url === item.url || other.title === item.title) === i).slice(0, 4);
   let opponentRecord=null;
   if(game?.opponentUrl&&new URL(game.opponentUrl).hostname.endsWith('maxpreps.com'))try{const page=await read(game.opponentUrl,fetcher),record=teamRecord(page);if(record)opponentRecord={record,sourceUrl:game.opponentUrl}}catch{/* The game details remain useful if the opponent profile is offline. */}
   return Response.json({ team: profile.name, opponent, sport: profile.sport, date, game, opponentRecord, articles,
