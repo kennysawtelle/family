@@ -62,11 +62,14 @@ export function newsItems(xml, profile, opponent, date, now = Date.now()) {
       const parsed = Date.parse(`${headlineDate[1]} ${headlineDate[2]}, ${headlineDate[3] || date.slice(0, 4)} 12:00:00 UTC`);
       if (Number.isFinite(parsed) && Math.abs(parsed - target) > 86400000) return [];
     }
-    const opponentMentioned=hasName(headline,opponent)||hasName(publisher,opponent);
-    if (!hasTeamName(headline, profile) || !opponentMentioned || !Number.isFinite(at) || at > now + 3600000 || at < target - 30 * 86400000 || at > target + 7 * 86400000) return [];
+    const officialPublisher=/\b(athletics|university|college|high school|conference)\b/i.test(publisher);
+    const teamMentioned=hasTeamName(headline,profile)||(officialPublisher&&hasTeamName(publisher,profile));
+    const opponentMentioned=hasName(headline,opponent)||(officialPublisher&&hasName(publisher,opponent));
+    if (!teamMentioned || !opponentMentioned || !Number.isFinite(at) || at > now + 3600000 || at < target - 30 * 86400000 || at > target + 7 * 86400000) return [];
     if (/JV/.test(profile.sport) && !/\b(jv|junior varsity)\b/i.test(title)) return [];
     if (/Youth/.test(profile.sport) && !/\b(youth|u\d\d|boys|girls)\b/i.test(title)) return [];
-    if (/soccer/i.test(profile.sport) && /\bfootball\b/i.test(title)) return [];
+    if (/soccer/i.test(profile.sport) && !/\b(soccer|wsoc)\b/i.test(title)) return [];
+    if (/football/i.test(profile.sport) && !/\bfootball\b/i.test(title)) return [];
     const url = safeUrl(tag(match[1], 'link'));
     return url ? [{ title, url, source: tag(match[1], 'source') || new URL(url).hostname, published: new Date(at).toISOString() }] : [];
   }).filter((item, index, all) => all.findIndex(other => other.title === item.title) === index).slice(0, 4);

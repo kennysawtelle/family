@@ -22,18 +22,23 @@ test('published MaxPreps overall records are parsed without inventing a value',(
  assert.equal(teamRecord(page),'1–4');assert.equal(teamRecord('<p>No standings</p>'),null);
 });
 test('publisher name does not count as a matching team; old and unsafe stories are excluded',()=>{
- const xml=item('Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel')+item('Pajaro Valley vs Independence - Santa Cruz Sentinel')+item('Santa Cruz vs Pajaro Valley — October 24, 2026')+item('Santa Cruz vs Pajaro Valley','Fri, 19 Sep 2025 08:00:00 GMT')+item('Santa Cruz vs Pajaro Valley',undefined,'javascript:alert(1)');
+ const xml=item('Football: Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel')+item('Pajaro Valley vs Independence - Santa Cruz Sentinel')+item('Santa Cruz vs Pajaro Valley — October 24, 2026')+item('Santa Cruz vs Pajaro Valley','Fri, 19 Sep 2025 08:00:00 GMT')+item('Santa Cruz vs Pajaro Valley',undefined,'javascript:alert(1)');
  const found=newsItems(xml,profile,'Pajaro Valley','2026-09-19',Date.parse('2026-09-24'));
  assert.equal(found.length,1);assert.match(found[0].title,/holds off/);
 });
 test('team nicknames and an opponent athletics publisher can identify a matchup report',()=>{
- const xml=item('Lions earn a conference road victory','Sun, 27 Sep 2026 22:00:00 GMT','https://roarlions.com/news/recap').replace('Santa Cruz Sentinel','Austin Peay Athletics');
+ const xml=item('Soccer: Lions earn a conference road victory','Sun, 27 Sep 2026 22:00:00 GMT','https://roarlions.com/news/recap').replace('Santa Cruz Sentinel','Austin Peay Athletics');
  const found=newsItems(xml,teams['gracie.html'],'Austin Peay','2026-09-27',Date.parse('2026-09-29'));
  assert.equal(found.length,1);assert.match(found[0].title,/Lions/);
 });
+test('an official team athletics publisher can supply the team name missing from a preview headline',()=>{
+ const xml=item('Soccer to welcome Abilene Christian for Thursday night matchup','Wed, 07 Oct 2026 14:00:00 GMT','https://roarlions.com/news/preview').replace('Santa Cruz Sentinel','University of North Alabama Athletics');
+ const found=newsItems(xml,teams['gracie.html'],'Abilene Christian','2026-10-08',Date.parse('2026-10-08T23:00:00Z'));
+ assert.equal(found.length,1);assert.match(found[0].title,/Abilene Christian/);
+});
 test('on-page endpoint returns a sourced game without an AI key, prompt handoff, or writes',async()=>{
  const calls=[];
- const fetcher=async(url,options)=>{calls.push(url);assert.equal(options.method,undefined);return new Response(url.includes('/pajaro-valley-grizzlies/')?'<div class="TeamRecord__StyledTeamRecord-x"><div class="stat-label">Overall</div><div class="data">2-3</div>':url.includes('maxpreps')?html({...game,awayTeam:{...game.awayTeam,url:'https://www.maxpreps.com/ca/watsonville/pajaro-valley-grizzlies/football/'}}):item('Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel'));};
+ const fetcher=async(url,options)=>{calls.push(url);assert.equal(options.method,undefined);return new Response(url.includes('/pajaro-valley-grizzlies/')?'<div class="TeamRecord__StyledTeamRecord-x"><div class="stat-label">Overall</div><div class="data">2-3</div>':url.includes('maxpreps')?html({...game,awayTeam:{...game.awayTeam,url:'https://www.maxpreps.com/ca/watsonville/pajaro-valley-grizzlies/football/'}}):item('Football: Santa Cruz holds off Pajaro Valley - Santa Cruz Sentinel'));};
  const r=await gameResearch(new Request('https://example.test/api/game-research?teamPage=eli-football.html&opponent=Pajaro%20Valley&date=2026-09-19'),fetcher);
  const data=await r.json();assert.equal(data.team,'Santa Cruz High');assert.equal(data.game.detail,game.description);assert.equal(data.articles.length,1);assert.equal(calls.length,8);assert.equal(data.game.watch,'https://www.nfhsnetwork.com/events/test');assert.equal(data.opponentRecord.record,'2–3');
 });
