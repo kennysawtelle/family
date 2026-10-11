@@ -1,4 +1,10 @@
 const sources = new Map([
+  ['eli football|2026-10-08|rancho san juan', {
+    type: 'link', date: '2026-10-08', teams: ['Santa Cruz', 'Rancho San Juan'],
+    page: 'https://www.nfhsnetwork.com/events/rancho-san-juan-high-school-salinas-ca/gamcbb5b26d8d',
+    provider: 'NFHS Network official live broadcast',
+    status: 'Watch the official live broadcast. Live scores and statistics appear only when the event scorekeeper publishes them.',
+  }],
   ['gracie|2026-09-27|austin peay', {
     type: 'sidearm', date: '2026-09-27', teams: ['Austin Peay', 'North Alabama'],
     feed: 'https://sidearmstats.com/apsu/wsoc/game.json?detail=full',
@@ -32,6 +38,37 @@ const sources = new Map([
     type: 'ncaa', date: '2026-10-29', teams: ['North Alabama', 'Austin Peay'],
     feed: 'https://ncaa-api.henrygd.me/scoreboard/soccer-women/d1/2026/10/29',
     page: 'https://stats.statbroadcast.com/broadcast/?id=665448', provider: 'North Alabama StatBroadcast Live Stats',
+  }],
+]);
+
+const teamFallbacks = new Map([
+  ['eli football', {
+    type: 'link', page: 'https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca/football/boys/varsity',
+    provider: 'Santa Cruz High on NFHS Network',
+    status: 'Check the official Santa Cruz High event page for a live broadcast. Live scores and statistics appear only when the event scorekeeper publishes them.',
+  }],
+  ['dane', {
+    type: 'link', page: 'https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca',
+    provider: 'Bonita High on NFHS Network',
+    status: 'Check the official Bonita High event page for a live broadcast. Live scores and statistics appear only when the event scorekeeper publishes them.',
+  }],
+  ['jack', {
+    type: 'link', page: 'https://www.nfhsnetwork.com/schools/soquel-high-school-soquel-ca/football',
+    provider: 'Soquel High on NFHS Network',
+    status: 'Check the official Soquel High event page for a live broadcast. Live scores and statistics appear only when the event scorekeeper publishes them.',
+  }],
+  ['eli santa cruz soccer', {
+    type: 'link', page: 'https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca',
+    provider: 'Santa Cruz High on NFHS Network',
+    status: 'Check the official Santa Cruz High event page for a live broadcast. Live scores and statistics appear only when the event scorekeeper publishes them.',
+  }],
+  ['eli', {
+    type: 'unavailable', provider: 'Los Gatos United / ECNL',
+    status: 'No verified live broadcast or live-stat feed has been published for this club match.',
+  }],
+  ['gracie', {
+    type: 'unavailable', provider: 'North Alabama Athletics',
+    status: 'No verified live broadcast or live-stat feed has been published for this match yet.',
   }],
 ]);
 
@@ -133,11 +170,13 @@ export async function enrichNcaaGame(game,fetcher=fetch){
 
 export async function familyLiveGame(request, fetcher = fetch) {
   const params = new URL(request.url).searchParams;
-  const id = `${key(params.get('teamPage'))}|${params.get('date') || ''}|${key(params.get('opponent'))}`;
-  const source = sources.get(id);
+  const teamKey = key(params.get('teamPage'));
+  const id = `${teamKey}|${params.get('date') || ''}|${key(params.get('opponent'))}`;
+  const source = sources.get(id) || teamFallbacks.get(teamKey);
   if (!source) return Response.json({ available: false, checkedAt: new Date().toISOString() }, { headers: { 'Cache-Control': 'no-store' } });
-  if (source.type === 'link') return Response.json({
-    available: false, configured: true, source: source.provider, sourceUrl: source.page,
+  if (source.type === 'link' || source.type === 'unavailable') return Response.json({
+    available: false, configured: true, source: source.provider, sourceUrl: source.page || null,
+    status: source.status || 'Open the official live event.',
     checkedAt: new Date().toISOString(),
   }, { headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
   try {

@@ -57,13 +57,23 @@ function timeText(instant) {
 const liveStatLabels = [['Shots', 'Shots'], ['OnGoal', 'Shots on goal'], ['Corners', 'Corners'], ['Saves', 'Saves'], ['Fouls', 'Fouls'], ['YellowCard', 'Yellow cards'], ['RedCard', 'Red cards']];
 const comparisonCategories = [['60', 'Record'], ['56', 'Goals per game'], ['58', 'Goals allowed per game'], ['984', 'Shots per game'], ['986', 'Shots on goal per game']];
 function comparisonTable(rows) {
-  const table=document.createElement('table');table.className='stats-table';
-  const header=document.createElement('tr');
-  for(const value of ['Season stats',away,home]){const th=document.createElement('th');th.textContent=value;header.append(th)}
-  const thead=document.createElement('thead');thead.append(header);table.append(thead);
-  const body=document.createElement('tbody');
-  for(const row of rows){const tr=document.createElement('tr');for(const value of row){const td=document.createElement('td');td.textContent=value;tr.append(td)}body.append(tr)}
-  table.append(body);return table;
+  const panel=document.createElement('div');panel.className='family-pro-comparison';
+  const teams=document.createElement('div');teams.className='comparison-teams';
+  for(const name of [away,home]){const strong=document.createElement('strong');strong.textContent=name;teams.append(strong)}
+  panel.append(teams);
+  const recordValue=value=>{const parts=String(value).match(/(\d+)[–-](\d+)(?:[–-](\d+))?/);if(!parts)return NaN;const wins=+parts[1],losses=+parts[2],ties=+(parts[3]||0),games=wins+losses+ties;return games?(wins+ties/2)/games:0};
+  for(const [label,awayText,homeText] of rows){
+    const row=document.createElement('div');row.className='comparison-stat';
+    const values=document.createElement('div');values.className='comparison-values';
+    const a=document.createElement('strong'),name=document.createElement('span'),h=document.createElement('strong');a.textContent=awayText;name.textContent=label;h.textContent=homeText;values.append(a,name,h);
+    const av=label==='Record'?recordValue(awayText):Number.parseFloat(String(awayText).replace(/[^\d.-]/g,''));
+    const hv=label==='Record'?recordValue(homeText):Number.parseFloat(String(homeText).replace(/[^\d.-]/g,''));
+    let split=50;if(Number.isFinite(av)&&Number.isFinite(hv)&&av+hv>0)split=Math.max(12,Math.min(88,av/(av+hv)*100));
+    const track=document.createElement('div');track.className='comparison-track';track.setAttribute('aria-label',`${away}: ${awayText}; ${home}: ${homeText}`);
+    const left=document.createElement('span'),right=document.createElement('span');left.className='comparison-away';right.className='comparison-home';left.style.width=`${split}%`;right.style.width=`${100-split}%`;track.append(left,right);
+    row.append(values,track);panel.append(row);
+  }
+  return panel;
 }
 async function refreshTeamComparison(){
   const status=el('comparison-status'),content=el('team-comparison'),source=el('comparison-source');
@@ -95,17 +105,7 @@ function renderLiveGame(game) {
   const stats = el('live-stats'); stats.replaceChildren();
   const availableStats = liveStatLabels.filter(([key]) => game.awayStats[key] != null || game.homeStats[key] != null);
   if (availableStats.length) {
-    const table = document.createElement('table'); table.className = 'stats-table';
-    const headRow = document.createElement('tr');
-    for (const value of ['Team stats', game.away.name, game.home.name]) { const th = document.createElement('th'); th.textContent = value; headRow.append(th); }
-    const thead = document.createElement('thead'); thead.append(headRow); table.append(thead);
-    const tbody = document.createElement('tbody');
-    for (const [key, label] of availableStats) {
-      const row = document.createElement('tr');
-      for (const value of [label, game.awayStats[key] ?? '—', game.homeStats[key] ?? '—']) { const cell = document.createElement('td'); cell.textContent = value; row.append(cell); }
-      tbody.append(row);
-    }
-    table.append(tbody); stats.append(table);
+    stats.append(comparisonTable(availableStats.map(([key,label])=>[label,game.awayStats[key]??'—',game.homeStats[key]??'—'])));
   }
   const scoring = el('live-scoring'); scoring.replaceChildren();
   if (game.scoring.length) {
@@ -132,19 +132,21 @@ async function refreshLiveGame() {
     if (!response.ok) return;
     const game = await response.json();
     if (game.available) renderLiveGame(game);
-    else if (game.configured && game.sourceUrl) renderOfficialLiveLink(game);
+    else if (game.configured) renderOfficialLiveLink(game);
   } catch { /* The saved game page remains available when live stats are offline. */ }
 }
 function renderOfficialLiveLink(game) {
   const card = el('live-card');
   if (!card || !card.hidden) return;
   card.hidden = false; card.dataset.state = 'upcoming';
-  el('live-badge').textContent = 'Official tracker';
+  el('live-badge').textContent = 'Official live event';
   el('live-away-name').textContent = away; el('live-home-name').textContent = home;
   el('live-away-score').textContent = '—'; el('live-home-score').textContent = '—';
-  el('live-status').textContent = 'Live stats open on the official game tracker';
+  el('live-status').textContent = game.status || 'Open the official live event';
   el('live-stats').replaceChildren(); el('live-scoring').replaceChildren(); el('verified-details').replaceChildren();
-  el('live-source').replaceChildren(link(`${game.source} ↗`, game.sourceUrl));
+  const source = el('live-source'); source.replaceChildren();
+  if (game.sourceUrl) source.append(link(`${game.source} ↗`, game.sourceUrl));
+  else source.textContent = game.source || '';
 }
 async function refreshSchedule() {
   if (!profile || !q.get('uid')) return;

@@ -72,3 +72,41 @@ test('only the exact scheduled game can use its configured official feed', async
   assert.equal((await unavailable.json()).available, false);
   assert.equal(requests, 1);
 });
+
+test('links Eli’s exact Santa Cruz game to the official NFHS live event without claiming unverified stats', async () => {
+  let requests = 0;
+  const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=eli-football&date=2026-10-08&opponent=Rancho%20San%20Juan'), async () => {
+    requests += 1;
+    throw new Error('A link-only source must not be fetched by the API.');
+  });
+  const data = await response.json();
+  assert.equal(data.available, false);
+  assert.equal(data.configured, true);
+  assert.match(data.sourceUrl, /nfhsnetwork\.com\/events\/rancho-san-juan-high-school-salinas-ca\/gamcbb5b26d8d/);
+  assert.match(data.status, /scorekeeper publishes them/);
+  assert.equal(requests, 0);
+});
+
+test('applies official school live-event hubs to every high-school and JV game', async () => {
+  const cases = [
+    ['dane', 'Northview', /bonita-high-school/],
+    ['jack', 'Carmel', /soquel-high-school/],
+    ['eli-santa-cruz-soccer', 'Sequoia', /santa-cruz-high-school/],
+    ['eli-football', 'Harbor', /santa-cruz-high-school/],
+  ];
+  for (const [teamPage, opponent, expected] of cases) {
+    const response = await familyLiveGame(new Request(`https://family.test/api/family-live-game?teamPage=${teamPage}&date=2026-10-16&opponent=${opponent}`));
+    const data = await response.json();
+    assert.equal(data.configured, true);
+    assert.match(data.sourceUrl, expected);
+    assert.match(data.status, /scorekeeper publishes them/);
+  }
+});
+
+test('shows a specific verified-unavailable state for club games without a published feed', async () => {
+  const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=eli&date=2026-10-18&opponent=Santa%20Rosa%20United'));
+  const data = await response.json();
+  assert.equal(data.configured, true);
+  assert.equal(data.sourceUrl, null);
+  assert.match(data.status, /No verified live broadcast/);
+});
