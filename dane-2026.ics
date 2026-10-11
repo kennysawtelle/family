@@ -141,16 +141,17 @@ DTEND;TZID=America/Los_Angeles:20261001T220000
 SUMMARY:Dane Football — vs. Colony
 LOCATION:Glenn Davis Stadium at Bonita High School\, 3102 D St\, La Verne\,
   CA 91750
-DESCRIPTION:Bonita Varsity Football league game.\nWatch: NFHS Network — h
- ttps://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca
+DESCRIPTION:Bonita varsity football. Final: Bonita 35\, Colony 0. Record 6-
+ 0 overall and 1-0 in league play.\nWatch: NFHS Network — https://www.nfh
+ snetwork.com/schools/bonita-high-school-la-verne-ca
 STATUS:CONFIRMED
 URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca
 X-STREAM-PROVIDER:NFHS Network
 X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-vern
  e-ca
-SEQUENCE:4
-DTSTAMP:20260924T122245Z
-LAST-MODIFIED:20260924T122245Z
+SEQUENCE:7
+DTSTAMP:20261011T224316Z
+LAST-MODIFIED:20261011T224316Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-09-2ab0c7ba38b2@family.kensawtelle.com
@@ -158,12 +159,13 @@ DTSTART;TZID=America/Los_Angeles:20261009T190000
 DTEND;TZID=America/Los_Angeles:20261009T220000
 SUMMARY:Dane Football — @ Northview
 LOCATION:Northview High School\, 1016 W Cypress Ave\, Covina\, CA 91722
-DESCRIPTION:Bonita Varsity Football league game.\nWatch: TBD
+DESCRIPTION:Bonita Varsity Football league game. Final: Bonita 45\, Northvi
+ ew 16. Record 7-0 overall and 2-0 in league play.\nWatch: TBD
 STATUS:CONFIRMED
 X-STREAM-PROVIDER:TBD
-SEQUENCE:5
-DTSTAMP:20261008T172946Z
-LAST-MODIFIED:20261008T172946Z
+SEQUENCE:7
+DTSTAMP:20261011T224218Z
+LAST-MODIFIED:20261011T224218Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-16-b49c0541ac82@family.kensawtelle.com

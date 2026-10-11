@@ -1062,16 +1062,16 @@
       ]
     },
     "2026-10-01-ec2445837a93@family.kensawtelle.com": {
-      "hash": "57f8d5f04c3c0274827b5c1effd7e63a4ab3c060925e8f3438f8b9c9a313f271",
-      "sequence": 4,
-      "modified": "20260924T122245Z",
+      "hash": "7ec8b2359ad999e111d705a516c59bdd50f810b5da246404981498855216b4ca",
+      "sequence": 7,
+      "modified": "20261011T224316Z",
       "lines": [
         "UID:2026-10-01-ec2445837a93@family.kensawtelle.com",
         "DTSTART;TZID=America/Los_Angeles:20261001T190000",
         "DTEND;TZID=America/Los_Angeles:20261001T220000",
         "SUMMARY:Dane Football — vs. Colony",
         "LOCATION:Glenn Davis Stadium at Bonita High School\\, 3102 D St\\, La Verne\\, CA 91750",
-        "DESCRIPTION:Bonita Varsity Football league game.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "DESCRIPTION:Bonita varsity football. Final: Bonita 35\\, Colony 0. Record 6-0 overall and 1-0 in league play.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
         "STATUS:CONFIRMED",
         "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
         "X-STREAM-PROVIDER:NFHS Network",
@@ -1079,16 +1079,16 @@
       ]
     },
     "2026-10-09-2ab0c7ba38b2@family.kensawtelle.com": {
-      "hash": "4d9c27044cbd14aa8ff80726acd426f74f27af25ae125f39f614970dd6b05fe5",
-      "sequence": 5,
-      "modified": "20261008T172946Z",
+      "hash": "eb7e537560d14ad8eebf03123b6f8e220f18e4218a9e65d41f242781b641711d",
+      "sequence": 7,
+      "modified": "20261011T224218Z",
       "lines": [
         "UID:2026-10-09-2ab0c7ba38b2@family.kensawtelle.com",
         "DTSTART;TZID=America/Los_Angeles:20261009T190000",
         "DTEND;TZID=America/Los_Angeles:20261009T220000",
         "SUMMARY:Dane Football — @ Northview",
         "LOCATION:Northview High School\\, 1016 W Cypress Ave\\, Covina\\, CA 91722",
-        "DESCRIPTION:Bonita Varsity Football league game.\\nWatch: TBD",
+        "DESCRIPTION:Bonita Varsity Football league game. Final: Bonita 45\\, Northview 16. Record 7-0 overall and 2-0 in league play.\\nWatch: TBD",
         "STATUS:CONFIRMED",
         "X-STREAM-PROVIDER:TBD"
       ]
