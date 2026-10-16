@@ -68,7 +68,7 @@ export default {
     if(url.pathname==='/ncaa-wsoc'||url.pathname==='/ncaa-wsoc.html')return brandedPage({asset:'/ncaa-wsoc.html',title:'NCAA Division I Women’s Soccer Statistics',description:'Sortable NCAA Division I women’s soccer team rankings and statistics with North Alabama highlighted.',image:new URL('/Gracie.jpg',url.origin).href,canonical:url.href},request,env);
     if(url.pathname==='/team'||url.pathname==='/team.html'){
       const name=url.searchParams.get('name')||'Team',sport=url.searchParams.get('sport')||'Family Sports',record=url.searchParams.get('record')||'Record TBD';
-      return brandedPage({asset:'/team.html',title:`${name} | Sawtelle Family Sports`,description:`${name} · ${sport} · ${record}. Team profile and current research links.`,image:new URL('/sawtelle-family-sports-preview.jpg',url.origin).href,canonical:url.href},request,env);
+      return brandedPage({asset:'/team.html',title:`${name} (${record}) | Sawtelle Family Sports`,description:`${name} · ${sport} · Current record ${record}. Team profile and current research links.`,image:new URL('/sawtelle-family-sports-preview.jpg',url.origin).href,canonical:url.href},request,env);
     }
     if(url.pathname==='/api/family-standings'){
       if(request.method!=='GET')return new Response('Method not allowed',{status:405});
@@ -143,7 +143,7 @@ export default {
       const away=ha==="Away"?team:opponent;
       const awayRecord=ha==="Away"?record:oppRecord;
       const homeRecord=ha==="Away"?oppRecord:record;
-      const title=`${away} at ${home} | Sawtelle Family Sports`;
+      const title=`${away} (${awayRecord||"Record TBD"}) at ${home} (${homeRecord||"Record TBD"}) | Sawtelle Family Sports`;
       const details=[date,time,venue].filter(Boolean).join(" · ");
       const records=(awayRecord||homeRecord)?`${away} ${awayRecord||"Record TBD"} · ${home} ${homeRecord||"Record TBD"}`:"";
       const description=[sport,records,details,"Game details, streaming and matchup analysis."].filter(Boolean).join(" · ");

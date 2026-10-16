@@ -46,3 +46,16 @@
 - Family Sports was updated. NFL already has its own league-wide live data and
   is unaffected. Events, Health Pilot, Good Old Ken's Polling, Vouch, and Tiki
   Console do not implement this college-soccer live-game path and are unaffected.
+
+## October 15, 2026 shared-link preview check
+
+- Family Sports game and team links now put current records in the preview title
+  and description so text-message cards expose them without opening the page.
+- NFL game links now put both current records in the preview title, description,
+  and generated share image. NFL team links use the current record in both their
+  metadata and generated share image instead of a prebuilt image.
+- Existing game and team URLs, query parameters, canonical links, and navigation
+  remain unchanged.
+- Events, Health Pilot, Good Old Ken's Polling, Vouch, and Tiki Console were
+  checked and do not implement sports game or team share links; they are
+  unaffected.
