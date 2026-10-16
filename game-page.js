@@ -98,6 +98,7 @@ async function refreshTeamComparison(){
 }
 function renderLiveGame(game) {
   const card = el('live-card'); card.hidden = false; card.dataset.state = game.state;
+  card.querySelector('.live-score').hidden = false;
   el('live-badge').textContent = game.state === 'final' ? 'Final' : game.state === 'live' ? 'Live' : 'Upcoming';
   el('live-away-name').textContent = game.away.name; el('live-home-name').textContent = game.home.name;
   el('live-away-score').textContent = game.away.score ?? '—'; el('live-home-score').textContent = game.home.score ?? '—';
@@ -139,13 +140,14 @@ function renderOfficialLiveLink(game) {
   const card = el('live-card');
   if (!card || !card.hidden) return;
   card.hidden = false; card.dataset.state = 'upcoming';
-  el('live-badge').textContent = 'Official live event';
+  el('live-badge').textContent = 'Official live stats';
+  card.querySelector('.live-score').hidden = true;
   el('live-away-name').textContent = away; el('live-home-name').textContent = home;
   el('live-away-score').textContent = '—'; el('live-home-score').textContent = '—';
   el('live-status').textContent = game.status || 'Open the official live event';
   el('live-stats').replaceChildren(); el('live-scoring').replaceChildren(); el('verified-details').replaceChildren();
   const source = el('live-source'); source.replaceChildren();
-  if (game.sourceUrl) source.append(link(`${game.source} ↗`, game.sourceUrl));
+  if (game.sourceUrl) source.append(link('Open official live stats ↗', game.sourceUrl));
   else source.textContent = game.source || '';
 }
 async function refreshSchedule() {

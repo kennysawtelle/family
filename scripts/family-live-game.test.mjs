@@ -87,6 +87,21 @@ test('links Eli’s exact Santa Cruz game to the official NFHS live event withou
   assert.equal(requests, 0);
 });
 
+test('links the exact North Alabama at Little Rock match to its official live stats', async () => {
+  let requests = 0;
+  const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=gracie&date=2026-10-15&opponent=Little%20Rock'), async () => {
+    requests += 1;
+    throw new Error('A link-only StatBroadcast source must not be fetched by the API.');
+  });
+  const data = await response.json();
+  assert.equal(data.available, false);
+  assert.equal(data.configured, true);
+  assert.equal(data.source, 'Little Rock StatBroadcast Live Stats');
+  assert.equal(data.sourceUrl, 'https://stats.statbroadcast.com/broadcast/?id=663837');
+  assert.match(data.status, /North Alabama at Little Rock/);
+  assert.equal(requests, 0);
+});
+
 test('applies official school live-event hubs to every high-school and JV game', async () => {
   const cases = [
     ['dane', 'Northview', /bonita-high-school/],

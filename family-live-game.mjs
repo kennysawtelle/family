@@ -34,6 +34,12 @@ const sources = new Map([
     feed: 'https://ncaa-api.henrygd.me/scoreboard/soccer-women/d1/2026/10/11',
     page: 'https://stats.statbroadcast.com/broadcast/?id=665447', provider: 'North Alabama StatBroadcast Live Stats',
   }],
+  ['gracie|2026-10-15|little rock', {
+    type: 'link', date: '2026-10-15', teams: ['North Alabama', 'Little Rock'],
+    page: 'https://stats.statbroadcast.com/broadcast/?id=663837',
+    provider: 'Little Rock StatBroadcast Live Stats',
+    status: 'Open the official live stats for North Alabama at Little Rock.',
+  }],
   ['gracie|2026-10-29|austin peay', {
     type: 'ncaa', date: '2026-10-29', teams: ['North Alabama', 'Austin Peay'],
     feed: 'https://ncaa-api.henrygd.me/scoreboard/soccer-women/d1/2026/10/29',

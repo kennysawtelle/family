@@ -38,3 +38,11 @@
   leak onto an older shared link.
 - The official North Alabama schedule was checked for every remaining game.
   Games without an official live-stat link stay on the normal sourced game page.
+
+## October 15, 2026 check
+
+- Added the exact official StatBroadcast tracker for North Alabama at Little
+  Rock after North Alabama published event `663837` on its schedule.
+- Family Sports was updated. NFL already has its own league-wide live data and
+  is unaffected. Events, Health Pilot, Good Old Ken's Polling, Vouch, and Tiki
+  Console do not implement this college-soccer live-game path and are unaffected.
