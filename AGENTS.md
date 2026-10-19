@@ -31,3 +31,7 @@ sibling projects when fixing a repeated pattern; preserve each platform's design
 ## Specific content only
 
 Do not put implementation explanations, cross-site comparisons (such as "Like the NFL site"), or generic promises about what a page will do on user-facing pages. Show concise information about the actual event, game, team, or organization. Fetch current game information on the page automatically where supported; show sources and freshness, and use a short matchup-specific unavailable state when verification fails. Never substitute a research-launch link for the requested on-page results.
+
+## Mandatory sports release gate
+
+Use `node scripts/release-pages.mjs` for Family releases and `--check` for validation only. Never bypass the shared schedule and calendar gates with a direct Wrangler upload. Keep the policy, contract tests, verifier, and release helper synchronized from NFL through `scripts/sync-schedule-order.mjs`. The hosted build and daily refresh must run the verifier. Commit all intended deployed source changes before publishing so Git-triggered builds preserve existing live fixes.
