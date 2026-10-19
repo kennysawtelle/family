@@ -61,6 +61,9 @@ jobs:
             exit 1
           fi
 
+      - name: Enforce schedule ordering before publishing
+        run: node scripts/release-pages.mjs --check
+
       - name: Commit verified changes
         shell: bash
         run: |

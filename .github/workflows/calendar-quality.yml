@@ -12,3 +12,5 @@ jobs:
           node-version: 24
       - name: Verify published calendar revisions match the schedule
         run: node scripts/prepare-calendars.mjs --check
+      - name: Enforce shared next-game-first schedule contract
+        run: node scripts/verify-schedule-release.mjs

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded',async()=>{
+  const {orderSchedule,schedulePhase}=await import('./platform/schedule-order.mjs?v=20261018');
   if('scrollRestoration' in history) history.scrollRestoration='manual';
   window.scrollTo(0,0);
 
@@ -237,7 +238,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
       [...row.cells].forEach(td=>td.style.backgroundColor=homeTint);
     }
     if(ev){
-      rendered.push({row,ev});
+      rendered.push({row,ev,completed:/^(?:W|L|T)\s+\d|Final/i.test(values[resultHeader]||'')});
       const opponent=(values[opponentHeader]||'').replace(/^vs\\.?\\s+|^@\\s*/i,'').trim();
       const ha=haHeader?(values[haHeader]||''):(/^@/.test(values[opponentHeader]||'')?'Away':'Home');
       const status=resultHeader?(values[resultHeader]||''):'';
@@ -282,17 +283,13 @@ document.addEventListener('DOMContentLoaded',async()=>{
     }
   }
 
-  if(!location.hash&&wrap){
-    const now=new Date();
-    const today=ScheduleTime.parts(now,ScheduleTime.pacific).slice(0,10);
-    const next=rendered.find(({ev})=>ev.dateKey&&ev.dateKey>=today&&ev.status!=='CANCELLED');
-    if(next){
-      requestAnimationFrame(()=>requestAnimationFrame(()=>{
-        const rowTop=next.row.getBoundingClientRect().top-table.getBoundingClientRect().top+wrap.scrollTop;
-        const headerH=table.tHead.getBoundingClientRect().height;
-        wrap.scrollTop=Math.max(0,rowTop-headerH);
-        window.scrollTo(0,0);
-      }));
-    }
-  }
+  const describe=item=>({...item.ev,completed:item.completed});
+  const reorder=()=>{
+    for(const item of orderSchedule(rendered,describe))table.tBodies[0].appendChild(item.row);
+    // Unmatched entries such as byes follow real games rather than hiding the next game.
+    for(const {row} of originalRows)if(!rendered.some(item=>item.row===row))table.tBodies[0].appendChild(row);
+    if(wrap)wrap.scrollTop=0;
+  };
+  reorder();
+  setInterval(reorder,60000);
 });
