@@ -1,0 +1,6 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {athleteStats,parseDaneStats} from '../athlete-stats.mjs';
+const page='<h2>Top Stats</h2><div>Solo 3 Tot 5 Tckl/G 5.0 Int 1 Int/G 1.0 Yds 44</div><h2>Receiving</h2><div>Sr. Var 26-27 1 4 44 11.0 44.0 14 0</div><p>Stats last updated on Oct 3, 2026 @ 12:24pm (GMT)</p>';
+test('parses Dane’s publisher totals and labels their partial game coverage',()=>{const data=parseDaneStats(page);assert.equal(data.reportedGames,1);assert.deepEqual(data.stats[0],['Games with player stats','1 of 8']);assert.deepEqual(data.stats[4],['Total tackles','5']);assert.equal(data.publishedAt,'Oct 3, 2026');});
+test('page-load endpoint rechecks the official source and preserves verified fallback',async()=>{const live=await athleteStats(new Request('https://family.test/api/athlete-stats?teamPage=dane'),async()=>new Response(page));const data=await live.json();assert.match(data.summary,/1 of Bonita’s 8/);assert.equal(data.sourceReached,true);const offline=await athleteStats(new Request('https://family.test/api/athlete-stats?teamPage=dane'),async()=>{throw new Error('offline')});const saved=await offline.json();assert.equal(saved.stats[0][1],'1 of 8');assert.equal(saved.sourceReached,false);});

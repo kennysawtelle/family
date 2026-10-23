@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const table=document.querySelector('table[data-ics]');
   if(!table)return;
   const athleteProfiles={
-    'dane-2026.ics':{name:'Dane Gosserand',summary:'2026 varsity statistics published by the team',stats:[['Games recorded','1'],['Receptions','4'],['Receiving yards','44'],['Yards per catch','11.0'],['Total tackles','5'],['Interceptions','1']],updated:'October 3, 2026',source:'https://www.maxpreps.com/ca/la-verne/bonita-bearcats/athletes/dane-gosserand/football/stats/?careerid=6r9nl301cefo8'},
+    'dane-2026.ics':{name:'Dane Gosserand',summary:'MaxPreps currently includes Dane’s individual statistics for 1 of Bonita’s 8 completed games. These are partial coach-entered totals, not a full-season line.',stats:[['Games with player stats','1 of 8'],['Receptions','4'],['Receiving yards','44'],['Yards per catch','11.0'],['Total tackles','5'],['Interceptions','1']],updated:'publisher updated October 3, 2026',source:'https://www.maxpreps.com/ca/la-verne/bonita-bearcats/athletes/dane-gosserand/football/stats/?careerid=6r9nl301cefo8'},
     'gracie-2026.ics':{name:'Gracie Tyrrell',summary:'Latest complete UNA season (2025); UNA has not published a 2026 individual stat table yet',stats:[['Games / starts','19 / 19'],['Minutes','1,637'],['Shots','16'],['Shots on goal','6'],['Goals','1'],['Assists','1']],updated:'official profile checked October 8, 2026',source:'https://roarlions.com/sports/womens-soccer/roster/gracie-tyrrell/4528'},
     'jack-2026.ics':{name:'Jack Harn',unavailable:'Soquel JV does not publish a verified individual player stat line on its checked public team source.',source:'https://www.maxpreps.com/ca/soquel/soquel-knights/football/jv/'},
     'eli-football-2026.ics':{name:'Elijah (Eli) Landig',unavailable:'Santa Cruz does not publish a verified football stat line for Elijah Landig on its checked public team source.',source:'https://www.maxpreps.com/ca/santa-cruz/santa-cruz-cardinals/football/'},
@@ -21,8 +21,10 @@ document.addEventListener('DOMContentLoaded',async()=>{
     const summary=document.createElement('p');summary.textContent=athlete.unavailable||athlete.summary;summary.style.margin='0 0 12px';section.append(summary);
     if(athlete.stats){
       const grid=document.createElement('dl');Object.assign(grid.style,{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(125px,1fr))',gap:'10px',margin:'0 0 12px'});
-      for(const [label,value] of athlete.stats){const item=document.createElement('div');Object.assign(item.style,{background:'#f3f6f9',padding:'10px',borderRadius:'8px'});const dt=document.createElement('dt');dt.textContent=label;dt.style.fontSize='.85rem';const dd=document.createElement('dd');dd.textContent=value;Object.assign(dd.style,{margin:'3px 0 0',fontSize:'1.35rem',fontWeight:'700'});item.append(dt,dd);grid.append(item)}
+      const fillStats=stats=>{grid.replaceChildren();for(const [label,value] of stats){const item=document.createElement('div');Object.assign(item.style,{background:'#f3f6f9',padding:'10px',borderRadius:'8px'});const dt=document.createElement('dt');dt.textContent=label;dt.style.fontSize='.85rem';const dd=document.createElement('dd');dd.textContent=value;Object.assign(dd.style,{margin:'3px 0 0',fontSize:'1.35rem',fontWeight:'700'});item.append(dt,dd);grid.append(item)}};
+      fillStats(athlete.stats);
       section.append(grid);
+      if(table.dataset.ics==='dane-2026.ics')fetch('/api/athlete-stats?teamPage=dane',{cache:'no-store'}).then(response=>response.ok?response.json():null).then(data=>{if(!data)return;summary.textContent=data.summary;fillStats(data.stats);source.textContent=`Official player source · Publisher updated ${data.publishedAt} · Checked ${new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric'}).format(new Date(data.checkedAt))} ↗`;}).catch(()=>{});
     }
     const source=document.createElement('a');source.href=athlete.source;source.target='_blank';source.rel='noopener noreferrer';source.textContent=`Official player/team source${athlete.updated?' · '+athlete.updated:''} ↗`;section.append(source);
     table.closest('.table-wrap').before(section);

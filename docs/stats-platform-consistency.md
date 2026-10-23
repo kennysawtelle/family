@@ -42,8 +42,10 @@ Checked October 8, 2026.
   statistics are available, so Gracie's card labels and shows the latest complete
   official season instead of presenting it as 2026 data.
 - MaxPreps currently publishes a partial 2026 line for Dane. The card identifies
-  the number of games recorded so that the partial total is not mistaken for a
-  full-season total.
+  that the player line covers 1 of Bonita’s 8 completed games so the partial
+  total is not mistaken for a full-season total. Dane’s official player source
+  is rechecked when the page loads, with an hourly server cache and the last
+  verified values retained when the publisher is unreachable.
 - Santa Cruz High publishes Elijah Landig's completed 2025–26 soccer line: 17
   games, one goal, four assists, and six points. The 2026–27 line is not published
   yet, so the card labels the season instead of presenting it as current data.

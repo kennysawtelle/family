@@ -4,6 +4,7 @@ import { gameResearch } from './game-research.mjs';
 import { ncaaWomenStats } from './ncaa-wsoc.mjs';
 import { familyStandings } from './family-standings.mjs';
 import { familyLiveGame } from './family-live-game.mjs';
+import { athleteStats } from './athlete-stats.mjs';
 const esc=(s="")=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const imageFor=(teamPage,origin)=>{
   const map={
@@ -77,6 +78,10 @@ export default {
     if(url.pathname==='/api/family-live-game'){
       if(request.method!=='GET')return new Response('Method not allowed',{status:405});
       return familyLiveGame(request);
+    }
+    if(url.pathname==='/api/athlete-stats'){
+      if(request.method!=='GET')return new Response('Method not allowed',{status:405});
+      return athleteStats(request);
     }
     if(url.pathname==='/api/ncaa-wsoc'){
       if(request.method!=='GET')return new Response('Method not allowed',{status:405});
