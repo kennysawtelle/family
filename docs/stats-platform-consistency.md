@@ -28,6 +28,9 @@ Checked October 8, 2026.
   exact official NFHS broadcast for Bonita at Charter Oak.
 - The existing shared game URL, schedule navigation, calendar UID, add-game
   action, and team subscription remain unchanged.
+- The exact game identity overrides stale or missing record parameters before
+  background refresh, so older shared links open with both verified 8–0 records
+  and never show a "Checking current" record placeholder.
 - NFL was checked and already provides its league-wide comparison and live-game
   pipeline. Events, Health Pilot, Good Old Ken's Polling, Vouch, and Tiki
   Console do not implement sports matchup statistics and are unaffected.

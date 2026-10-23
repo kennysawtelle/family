@@ -21,7 +21,7 @@ el('sport').textContent = profile?.sport || '';
 el('awayLink').textContent = away; el('homeLink').textContent = home;
 for (const side of ['away', 'home']) {
   const result = side === ownSide ? ownResult : opponentResult;
-  el(side + 'Record').textContent = sides[side].record || (result ? `Game: ${result}` : profile?.sport === "Women's soccer" || /football/i.test(profile?.sport || '') ? 'Checking current record…' : 'Official record unavailable');
+  el(side + 'Record').textContent = sides[side].record || (result ? `Game: ${result}` : 'Record not published');
   el(side + 'RecordDate').textContent = sides[side].record ? sides[side].asOf : result ? 'Final result' : '';
 }
 async function refreshRecords() {
@@ -77,7 +77,7 @@ function comparisonTable(rows) {
 }
 async function refreshTeamComparison(){
   const status=el('comparison-status'),content=el('team-comparison'),source=el('comparison-source');
-  const recordRow=['Record',el('awayRecord').textContent||'Checking…',el('homeRecord').textContent||'Checking…'];
+  const recordRow=['Record',el('awayRecord').textContent||'Not published',el('homeRecord').textContent||'Not published'];
   if(matchupComparison?.length){
     status.textContent='';content.replaceChildren(comparisonTable(matchupComparison));source.replaceChildren();
     if(matchupComparisonSource)source.append(link(`${matchupComparisonSource.label} · Checked ${new Intl.DateTimeFormat('en-US',{dateStyle:'medium'}).format(new Date(matchupComparisonSource.checkedAt))} ↗`,matchupComparisonSource.url));

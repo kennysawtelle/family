@@ -19,6 +19,15 @@ test('verified opponent records replace stale unavailable link values', () => {
  assert.equal(sides.away.asOf,'As of September 23, 2026');
 });
 
+test('Bonita at Charter Oak opens with verified records despite a stale shared link', () => {
+ const q=new URLSearchParams({teamPage:'dane.html',date:'2026-10-23',opponent:'Charter Oak',ha:'Away',record:'7-0-0'});
+ const sides=matchupSides(q);
+ assert.equal(sides.away.record,'8–0');
+ assert.equal(sides.home.record,'8–0');
+ assert.equal(sides.away.asOf,'Current record · MaxPreps');
+ assert.equal(sides.home.asOf,'Current record · MaxPreps');
+});
+
 test('extensionless, absolute and calendar-only shared links resolve real teams',()=>{
  for(const teamPage of ['jack','/jack','/jack/','jack.html','https://family.kensawtelle.com/jack']) {
   const q=new URLSearchParams({teamPage,team:'Jack Harn',ha:'Away'});assert.equal(matchupSides(q).away.name,'Soquel High JV');
