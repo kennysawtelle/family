@@ -21,7 +21,8 @@ el('sport').textContent = profile?.sport || '';
 el('awayLink').textContent = away; el('homeLink').textContent = home;
 for (const side of ['away', 'home']) {
   const result = side === ownSide ? ownResult : opponentResult;
-  el(side + 'Record').textContent = sides[side].record || (result ? `Game: ${result}` : 'Record not published');
+  el(side + 'Record').textContent = sides[side].record || (result ? `Game: ${result}` : '');
+  el(side + 'Record').hidden = !el(side + 'Record').textContent;
   el(side + 'RecordDate').textContent = sides[side].record ? sides[side].asOf : result ? 'Final result' : '';
 }
 async function refreshRecords() {
@@ -84,6 +85,7 @@ async function refreshTeamComparison(){
     return;
   }
   if(profile?.sport!=="Women's soccer"){
+    if(!sides.away.record||!sides.home.record){document.querySelector('.comparison-card').hidden=true;return;}
     status.textContent='';content.replaceChildren(comparisonTable([recordRow]));
     source.textContent='Additional comparable team statistics are not published by the checked team sources.';return;
   }
@@ -145,14 +147,15 @@ function renderOfficialLiveLink(game) {
   const card = el('live-card');
   if (!card || !card.hidden) return;
   card.hidden = false; card.dataset.state = 'upcoming';
-  el('live-badge').textContent = 'Official live stats';
+  card.querySelector('h2').textContent = game.heading || 'Live game';
+  el('live-badge').textContent = game.badge || 'Official live stats';
   card.querySelector('.live-score').hidden = true;
   el('live-away-name').textContent = away; el('live-home-name').textContent = home;
   el('live-away-score').textContent = '—'; el('live-home-score').textContent = '—';
   el('live-status').textContent = game.status || 'Open the official live event';
   el('live-stats').replaceChildren(); el('live-scoring').replaceChildren(); el('verified-details').replaceChildren();
   const source = el('live-source'); source.replaceChildren();
-  if (game.sourceUrl) source.append(link('Open official live stats ↗', game.sourceUrl));
+  if (game.sourceUrl) source.append(link(game.linkLabel || 'Open official live stats ↗', game.sourceUrl));
   else source.textContent = game.source || '';
 }
 async function refreshSchedule() {
@@ -186,7 +189,7 @@ async function refresh() {
     if(data.opponentRecord){el(opponentSide+'Record').textContent=data.opponentRecord.record;el(opponentSide+'RecordDate').textContent=[data.opponentRecord.league,'Current record · MaxPreps'].filter(Boolean).join(' · ');}
     else if(!sides[opponentSide].record&&!opponentResult&&/football/i.test(profile?.sport || '')){el(opponentSide+'Record').textContent='Official record unavailable';el(opponentSide+'RecordDate').textContent='Checked team source';}
     matchupComparison=data.comparison;matchupComparisonSource=data.comparisonSource;
-    if(/football/i.test(profile?.sport||''))refreshTeamComparison();
+    if(matchupComparison?.length){document.querySelector('.comparison-card').hidden=false;refreshTeamComparison();}
     if(data.insights?.length){
       const section=document.createElement('section'),heading=document.createElement('h3'),list=document.createElement('ul');heading.textContent='What to know tonight';list.className='detail-list';
       for(const insight of data.insights){const item=document.createElement('li');item.textContent=insight;list.append(item)}

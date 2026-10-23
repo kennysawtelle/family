@@ -65,6 +65,10 @@ test('tonight’s Bonita matchup retains verified records, comparison stats, and
  const response=await gameResearch(new Request('https://family.test/api/game-research?teamPage=dane.html&opponent=Charter%20Oak&date=2026-10-23'),async()=>{throw new Error('offline')});
  const data=await response.json();assert.equal(data.teamRecord.record,'8–0');assert.equal(data.opponentRecord.record,'8–0');assert.equal(data.teamRecord.league,'3–0 league');assert.equal(data.comparison.length,7);assert.match(data.game.watch,/nfhsnetwork\.com\/events\/charter-oak/);assert.match(data.insights[0],/undefeated/);assert.match(data.comparisonSource.url,/maxpreps\.com/);
 });
+test('tomorrow’s Napa match stays useful without inventing an opponent record or live feed',async()=>{
+ const response=await gameResearch(new Request('https://family.test/api/game-research?teamPage=eli.html&opponent=Napa%20United&date=2026-10-24'),async()=>{throw new Error('offline')});
+ const data=await response.json();assert.equal(data.teamRecord.record,'1–2–1');assert.equal(data.opponentRecord,null);assert.equal(data.comparison.length,3);assert.match(data.game.venue,/Silverado Middle School/);assert.match(data.insights.join(' '),/1099583/);assert.match(data.insights.join(' '),/does not guess/);
+});
 test('game page uses automatic results and specific team profiles without old promotional filler',()=>{
  const page=readFileSync(new URL('../game.html',import.meta.url),'utf8');
  assert.doesNotMatch(page,/Like the NFL|research launch|What the analysis checks|Ask ChatGPT/);

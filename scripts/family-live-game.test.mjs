@@ -128,10 +128,12 @@ test('applies official school live-event hubs to every high-school and JV game',
   }
 });
 
-test('shows a specific verified-unavailable state for club games without a published feed', async () => {
-  const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=eli&date=2026-10-18&opponent=Santa%20Rosa%20United'));
+test('shows useful pregame details for the exact Napa club match', async () => {
+  const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=eli&date=2026-10-24&opponent=Napa%20United'));
   const data = await response.json();
   assert.equal(data.configured, true);
-  assert.equal(data.sourceUrl, null);
-  assert.match(data.status, /No verified live broadcast/);
+  assert.match(data.sourceUrl, /napaunited\.org\/ecnl-boys/);
+  assert.equal(data.heading, 'Tomorrow’s match');
+  assert.match(data.status, /9:00 AM PDT/);
+  assert.match(data.status, /1099583/);
 });

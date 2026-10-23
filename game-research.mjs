@@ -11,6 +11,18 @@ const verifiedReports=new Map([
   ['gracie.html|2026-10-08|abilene christian',{title:'North Alabama hosts Abilene Christian in UAC crossover match',summary:'North Alabama enters the conference crossover match at 2–1 in UAC play after a 3–2 loss to Eastern Kentucky. Abilene Christian is 4–2–5 overall and 1–0–2 in conference play, led by Addison Briscoe with five goals and three assists. UNA is seeking its first win in the series after losing the teams’ first two meetings.',url:'https://roarlions.com/news/2026/10/7/womens-soccer-soccer-to-welcome-abilene-christian-for-thursday-night-matchup.aspx',source:'University of North Alabama Athletics',published:'2026-10-07T16:00:00.000Z'}]
 ]);
 const verifiedMatchups=new Map([
+  ['eli.html|2026-10-24|napa united',{
+    source:'Napa United ECNL Boys',sourceUrl:'https://napaunited.org/ecnl-boys',
+    kickoff:'2026-10-24T16:00:00Z',venue:'Silverado Middle School Football Field, 1133 Coombsville Rd, Napa, CA 94558',
+    teamRecord:{record:'1–2–1',league:'4 verified results through Sep 20'},
+    comparison:[['Competition','ECNL Boys','ECNL Boys'],['Conference','Northern California','Northern California'],['Age group','B2008/09','B2008/09']],
+    insights:[
+      'Kickoff is tomorrow at 9:00 AM PDT at Silverado Middle School Football Field in Napa.',
+      'This is ECNL B2008/09 match #1099583 in the 2026–27 season.',
+      'Napa United joined the ECNL Boys Northern California Conference for the 2026–27 season.',
+      'Los Gatos United’s displayed 1–2–1 record covers the four results that could be verified through September 20; later club results are not publicly posted, so the page does not guess an updated record.'
+    ],checkedAt:'2026-10-23T14:00:00-07:00'
+  }],
   ['dane.html|2026-10-23|charter oak',{
     source:'MaxPreps official matchup',
     sourceUrl:'https://www.maxpreps.com/ca/football/game/bonita-la-verne-vs-charter-oak-covina/10-23-2026/?c=6425630f-d219-4149-8a00-6e5b1d15b582',
@@ -117,7 +129,7 @@ export async function gameResearch(request, fetcher = fetch) {
   const results = await Promise.allSettled([read(profile.source, fetcher), ...feeds.map(url => read(url, fetcher))]);
   const verified=verifiedMatchups.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`);
   const sourcedGame = results[0].status === 'fulfilled' ? scheduleGame(results[0].value, profile, opponent, date) : null;
-  const game = verified ? {...(sourcedGame||{}),title:`${profile.name} at ${opponent}`,detail:`${profile.name} at ${opponent} · Undefeated Sierra League matchup`,kickoff:verified.kickoff,venue:verified.venue,sourceUrl:verified.sourceUrl,source:verified.source,watch:verified.watch,cancelled:false} : sourcedGame;
+  const game = verified ? {...(sourcedGame||{}),title:`${profile.name} at ${opponent}`,detail:verified.detail || `${profile.name} at ${opponent} · ${profile.sport}`,kickoff:verified.kickoff,venue:verified.venue,sourceUrl:verified.sourceUrl,source:verified.source,watch:verified.watch,cancelled:false} : sourcedGame;
   const pinned=verifiedReports.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`);
   const articles = [pinned,...results.slice(1).flatMap(result => result.status === 'fulfilled' ? newsItems(result.value, profile, opponent, date) : [])].filter(Boolean).filter((item, i, all) => all.findIndex(other => other.url === item.url || other.title === item.title) === i).slice(0, 4);
   let opponentRecord=verified?.opponentRecord?{...verified.opponentRecord,sourceUrl:verified.sourceUrl}:null;

@@ -7,6 +7,9 @@ const verifiedMatchupRecords = {
   'dane.html|2026-10-23|charter oak': {
     own: { record: '8–0', asOf: 'Current record · MaxPreps' },
     opponent: { record: '8–0', asOf: 'Current record · MaxPreps' }
+  },
+  'eli.html|2026-10-24|napa united': {
+    own: { record: '1–2–1', asOf: '4 verified results through Sep 20' }
   }
 };
 export function matchupSides(params) {
@@ -18,6 +21,6 @@ export function matchupSides(params) {
   const matchup = verifiedMatchupRecords[matchupKey];
   const own = { name: profile?.name || params.get('team') || 'Team', record: matchup?.own.record || cleanRecord(params.get('record')), asOf: matchup?.own.asOf || params.get('recordAsOf') || 'From shared link' };
   const verified = verifiedOpponentRecords[opponentName];
-  const opponent = { name: opponentName, record: matchup?.opponent.record || cleanRecord(params.get('oppRecord')) || verified?.record || '', asOf: matchup?.opponent.asOf || verified?.asOf || 'From shared link' };
+  const opponent = { name: opponentName, record: matchup?.opponent?.record || cleanRecord(params.get('oppRecord')) || verified?.record || '', asOf: matchup?.opponent?.asOf || verified?.asOf || 'From shared link' };
   return params.get('ha') === 'Away' ? { away: own, home: opponent } : { away: opponent, home: own };
 }

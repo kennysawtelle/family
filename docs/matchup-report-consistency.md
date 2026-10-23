@@ -21,6 +21,10 @@ Checked October 8, 2026.
 - The shared game page applies this behavior to North Alabama college soccer,
   Santa Cruz and Bonita varsity teams, Soquel JV, and Los Gatos United youth
   soccer. Sport and level guards remain mandatory.
+- For the October 24 Los Gatos United–Napa United match, the page uses the
+  verified ECNL match number, kickoff, venue, competition, and official Napa
+  ECNL program source. Missing record and live-feed fields are hidden instead
+  of repeated as unavailable messages, and no unpublished record is inferred.
 
 ## Equivalent platforms checked
 

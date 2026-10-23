@@ -1,4 +1,11 @@
 const sources = new Map([
+  ['eli|2026-10-24|napa united', {
+    type: 'link', date: '2026-10-24', teams: ['Los Gatos United', 'Napa United'],
+    page: 'https://napaunited.org/ecnl-boys',
+    provider: 'Napa United ECNL Boys',
+    heading: 'Tomorrow’s match', badge: 'ECNL Boys', linkLabel: 'About Napa United ECNL Boys ↗',
+    status: 'Los Gatos United visits Napa United tomorrow at 9:00 AM PDT at Silverado Middle School Football Field. ECNL B2008/09 match #1099583.',
+  }],
   ['dane|2026-10-23|charter oak', {
     type: 'link', date: '2026-10-23', teams: ['Bonita', 'Charter Oak'],
     page: 'https://www.nfhsnetwork.com/events/charter-oak-high-school-covina-ca/gam7173ae9630',
@@ -73,10 +80,6 @@ const teamFallbacks = new Map([
     type: 'link', page: 'https://www.nfhsnetwork.com/schools/santa-cruz-high-school-santa-cruz-ca',
     provider: 'Santa Cruz High on NFHS Network',
     status: 'Check the official Santa Cruz High event page for a live broadcast. Live scores and statistics appear only when the event scorekeeper publishes them.',
-  }],
-  ['eli', {
-    type: 'unavailable', provider: 'Los Gatos United / ECNL',
-    status: 'No verified live broadcast or live-stat feed has been published for this club match.',
   }],
   ['gracie', {
     type: 'unavailable', provider: 'North Alabama Athletics',
@@ -188,7 +191,8 @@ export async function familyLiveGame(request, fetcher = fetch) {
   if (!source) return Response.json({ available: false, checkedAt: new Date().toISOString() }, { headers: { 'Cache-Control': 'no-store' } });
   if (source.type === 'link' || source.type === 'unavailable') return Response.json({
     available: false, configured: true, source: source.provider, sourceUrl: source.page || null,
-    status: source.status || 'Open the official live event.',
+    status: source.status || 'Open the official live event.', heading: source.heading || null,
+    badge: source.badge || null, linkLabel: source.linkLabel || null,
     checkedAt: new Date().toISOString(),
   }, { headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
   try {
