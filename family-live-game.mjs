@@ -1,4 +1,10 @@
 const sources = new Map([
+  ['dane|2026-10-23|charter oak', {
+    type: 'link', date: '2026-10-23', teams: ['Bonita', 'Charter Oak'],
+    page: 'https://www.nfhsnetwork.com/events/charter-oak-high-school-covina-ca/gam7173ae9630',
+    provider: 'NFHS Network official broadcast',
+    status: 'The official Bonita at Charter Oak broadcast is scheduled for 7:00 PM PDT. Live video, score, and game updates appear when the event scorekeeper publishes them.',
+  }],
   ['eli football|2026-10-08|rancho san juan', {
     type: 'link', date: '2026-10-08', teams: ['Santa Cruz', 'Rancho San Juan'],
     page: 'https://www.nfhsnetwork.com/events/rancho-san-juan-high-school-salinas-ca/gamcbb5b26d8d',

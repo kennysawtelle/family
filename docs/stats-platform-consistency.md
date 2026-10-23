@@ -20,6 +20,17 @@ Checked October 8, 2026.
 | Platform | Equivalent behavior | Result |
 | --- | --- | --- |
 | NFL | League game pages already provide team records, matchup data, and live/game statistics from the NFL data pipeline. | Checked; unaffected because its league-wide sources and UI are separate. |
+
+## October 23, 2026 Bonita–Charter Oak check
+
+- Family Sports now shows both current 8–0 overall and 3–0 Sierra League
+  records, seven side-by-side matchup measures, rankings, key players, and the
+  exact official NFHS broadcast for Bonita at Charter Oak.
+- The existing shared game URL, schedule navigation, calendar UID, add-game
+  action, and team subscription remain unchanged.
+- NFL was checked and already provides its league-wide comparison and live-game
+  pipeline. Events, Health Pilot, Good Old Ken's Polling, Vouch, and Tiki
+  Console do not implement sports matchup statistics and are unaffected.
 | Tiki Events | Event pages and galleries do not represent sports teams or athletes. | Checked; no equivalent feature to add. |
 
 ## Source limitations

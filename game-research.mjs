@@ -10,6 +10,23 @@ const pacificDate = value => new Intl.DateTimeFormat('en-CA', { timeZone: 'Ameri
 const verifiedReports=new Map([
   ['gracie.html|2026-10-08|abilene christian',{title:'North Alabama hosts Abilene Christian in UAC crossover match',summary:'North Alabama enters the conference crossover match at 2–1 in UAC play after a 3–2 loss to Eastern Kentucky. Abilene Christian is 4–2–5 overall and 1–0–2 in conference play, led by Addison Briscoe with five goals and three assists. UNA is seeking its first win in the series after losing the teams’ first two meetings.',url:'https://roarlions.com/news/2026/10/7/womens-soccer-soccer-to-welcome-abilene-christian-for-thursday-night-matchup.aspx',source:'University of North Alabama Athletics',published:'2026-10-07T16:00:00.000Z'}]
 ]);
+const verifiedMatchups=new Map([
+  ['dane.html|2026-10-23|charter oak',{
+    source:'MaxPreps official matchup',
+    sourceUrl:'https://www.maxpreps.com/ca/football/game/bonita-la-verne-vs-charter-oak-covina/10-23-2026/?c=6425630f-d219-4149-8a00-6e5b1d15b582',
+    watch:'https://www.nfhsnetwork.com/events/charter-oak-high-school-covina-ca/gam7173ae9630',
+    kickoff:'2026-10-24T02:00:00Z',venue:'Charter Oak High School, 1430 E Covina Blvd, Covina, CA 91724',
+    teamRecord:{record:'8–0',league:'3–0 league'},opponentRecord:{record:'8–0',league:'3–0 league'},
+    comparison:[['Record','8–0','8–0'],['League','3–0','3–0'],['Points per game','37.6','37.0'],['Total yards per game','357.8','357.7'],['Passing yards per game','203.1','199.0'],['Rushing yards per game','154.6','158.7'],['Sacks per game','2.6','3.7']],
+    insights:[
+      'Both teams enter undefeated at 8–0 overall and 3–0 in Sierra League play.',
+      'The matchup is almost even in total offense: Bonita averages 357.8 yards per game and Charter Oak averages 357.7.',
+      'Bonita averages 37.6 points per game; Charter Oak averages 37.0.',
+      'Bonita is ranked No. 132 in California and No. 15 in Southern Section Division 3. Charter Oak is No. 154 in California and No. 10 in Division 4.',
+      'Players highlighted by the matchup source include Bonita running back Joseph Lara and receiver Dane Gosserand, plus Charter Oak quarterback Dutch Burbidge and receiver Chase Martin.'
+    ],checkedAt:'2026-10-23T20:40:00-07:00'
+  }]
+]);
 async function read(url, fetcher) {
   const response = await fetcher(url, { signal: AbortSignal.timeout(6500), headers: { Accept: 'text/html,application/rss+xml' } });
   if (!response.ok) throw new Error('Source unavailable');
@@ -98,12 +115,16 @@ export async function gameResearch(request, fetcher = fetch) {
   ];
   const feeds=queries.flatMap(query=>[`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`,`https://www.bing.com/news/search?q=${encodeURIComponent(query)}&format=rss`]);
   const results = await Promise.allSettled([read(profile.source, fetcher), ...feeds.map(url => read(url, fetcher))]);
-  const game = results[0].status === 'fulfilled' ? scheduleGame(results[0].value, profile, opponent, date) : null;
+  const verified=verifiedMatchups.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`);
+  const sourcedGame = results[0].status === 'fulfilled' ? scheduleGame(results[0].value, profile, opponent, date) : null;
+  const game = verified ? {...(sourcedGame||{}),title:`${profile.name} at ${opponent}`,detail:`${profile.name} at ${opponent} · Undefeated Sierra League matchup`,kickoff:verified.kickoff,venue:verified.venue,sourceUrl:verified.sourceUrl,source:verified.source,watch:verified.watch,cancelled:false} : sourcedGame;
   const pinned=verifiedReports.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`);
   const articles = [pinned,...results.slice(1).flatMap(result => result.status === 'fulfilled' ? newsItems(result.value, profile, opponent, date) : [])].filter(Boolean).filter((item, i, all) => all.findIndex(other => other.url === item.url || other.title === item.title) === i).slice(0, 4);
-  let opponentRecord=null;
-  if(game?.opponentUrl&&new URL(game.opponentUrl).hostname.endsWith('maxpreps.com'))try{const page=await read(game.opponentUrl,fetcher),record=teamRecord(page);if(record)opponentRecord={record,sourceUrl:game.opponentUrl}}catch{/* The game details remain useful if the opponent profile is offline. */}
-  return Response.json({ team: profile.name, opponent, sport: profile.sport, date, game, opponentRecord, articles,
+  let opponentRecord=verified?.opponentRecord?{...verified.opponentRecord,sourceUrl:verified.sourceUrl}:null;
+  if(!opponentRecord&&game?.opponentUrl&&new URL(game.opponentUrl).hostname.endsWith('maxpreps.com'))try{const page=await read(game.opponentUrl,fetcher),record=teamRecord(page);if(record)opponentRecord={record,sourceUrl:game.opponentUrl}}catch{/* The game details remain useful if the opponent profile is offline. */}
+  return Response.json({ team: profile.name, opponent, sport: profile.sport, date, game, opponentRecord,
+    teamRecord:verified?.teamRecord?{...verified.teamRecord,sourceUrl:verified.sourceUrl}:null,
+    comparison:verified?.comparison||null,insights:verified?.insights||[],comparisonSource:verified?{label:verified.source,url:verified.sourceUrl,checkedAt:verified.checkedAt}:null,articles,
     sourceUrl: profile.source, checkedAt: new Date().toISOString(), unavailable: results.every(result => result.status === 'rejected') },
     { headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
 }

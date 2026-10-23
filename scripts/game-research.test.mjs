@@ -61,6 +61,10 @@ test('a verified official report remains available when news feeds fail',async()
  const response=await gameResearch(new Request('https://family.test/api/game-research?teamPage=gracie.html&opponent=Abilene%20Christian&date=2026-10-08'),async()=>{throw new Error('offline')});
  const data=await response.json();assert.equal(data.articles.length,1);assert.equal(data.articles[0].source,'University of North Alabama Athletics');assert.match(data.articles[0].summary,/2–1 in UAC play/);assert.match(data.articles[0].url,/roarlions\.com/);
 });
+test('tonight’s Bonita matchup retains verified records, comparison stats, and exact broadcast when feeds fail',async()=>{
+ const response=await gameResearch(new Request('https://family.test/api/game-research?teamPage=dane.html&opponent=Charter%20Oak&date=2026-10-23'),async()=>{throw new Error('offline')});
+ const data=await response.json();assert.equal(data.teamRecord.record,'8–0');assert.equal(data.opponentRecord.record,'8–0');assert.equal(data.teamRecord.league,'3–0 league');assert.equal(data.comparison.length,7);assert.match(data.game.watch,/nfhsnetwork\.com\/events\/charter-oak/);assert.match(data.insights[0],/undefeated/);assert.match(data.comparisonSource.url,/maxpreps\.com/);
+});
 test('game page uses automatic results and specific team profiles without old promotional filler',()=>{
  const page=readFileSync(new URL('../game.html',import.meta.url),'utf8');
  assert.doesNotMatch(page,/Like the NFL|research launch|What the analysis checks|Ask ChatGPT/);

@@ -87,6 +87,16 @@ test('links Eli’s exact Santa Cruz game to the official NFHS live event withou
   assert.equal(requests, 0);
 });
 
+test('links tonight’s Bonita at Charter Oak game to its exact official broadcast', async () => {
+  const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=dane&date=2026-10-23&opponent=Charter%20Oak'));
+  const data = await response.json();
+  assert.equal(data.available, false);
+  assert.equal(data.configured, true);
+  assert.equal(data.source, 'NFHS Network official broadcast');
+  assert.match(data.sourceUrl, /charter-oak-high-school-covina-ca\/gam7173ae9630/);
+  assert.match(data.status, /7:00 PM PDT/);
+});
+
 test('links the exact North Alabama at Little Rock match to its official live stats', async () => {
   let requests = 0;
   const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=gracie&date=2026-10-15&opponent=Little%20Rock'), async () => {

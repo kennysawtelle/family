@@ -8,7 +8,7 @@ const sides = matchupSides(q);
 const team = profile?.name || q.get('team') || '', away = sides.away.name, home = sides.home.name;
 const matchup = `${away} at ${home}`;
 const el = id => document.getElementById(id);
-let freshGame = false, busy = false, researchDate = date;
+let freshGame = false, busy = false, researchDate = date, matchupComparison = null, matchupComparisonSource = null;
 const gameStatus = (q.get('status') || '').trim();
 const resultMatch = /^([WLT])\s*(.*)$/i.exec(gameStatus);
 const ownResult = resultMatch ? `${resultMatch[1].toUpperCase()}${resultMatch[2] ? ` ${resultMatch[2]}` : ''}` : '';
@@ -78,6 +78,11 @@ function comparisonTable(rows) {
 async function refreshTeamComparison(){
   const status=el('comparison-status'),content=el('team-comparison'),source=el('comparison-source');
   const recordRow=['Record',el('awayRecord').textContent||'Checking…',el('homeRecord').textContent||'Checking…'];
+  if(matchupComparison?.length){
+    status.textContent='';content.replaceChildren(comparisonTable(matchupComparison));source.replaceChildren();
+    if(matchupComparisonSource)source.append(link(`${matchupComparisonSource.label} · Checked ${new Intl.DateTimeFormat('en-US',{dateStyle:'medium'}).format(new Date(matchupComparisonSource.checkedAt))} ↗`,matchupComparisonSource.url));
+    return;
+  }
   if(profile?.sport!=="Women's soccer"){
     status.textContent='';content.replaceChildren(comparisonTable([recordRow]));
     source.textContent='Additional comparable team statistics are not published by the checked team sources.';return;
@@ -177,9 +182,16 @@ async function refresh() {
       if (game.watch) { el('watch-card').hidden = false; el('watch').replaceChildren(link('Watch this game on NFHS Network ↗', game.watch)); }
     }
     const opponentSide=ownSide==='away'?'home':'away';
-    if(data.opponentRecord){el(opponentSide+'Record').textContent=data.opponentRecord.record;el(opponentSide+'RecordDate').textContent='Current record · MaxPreps';}
+    if(data.teamRecord){el(ownSide+'Record').textContent=data.teamRecord.record;el(ownSide+'RecordDate').textContent=[data.teamRecord.league,'Current record · MaxPreps'].filter(Boolean).join(' · ');}
+    if(data.opponentRecord){el(opponentSide+'Record').textContent=data.opponentRecord.record;el(opponentSide+'RecordDate').textContent=[data.opponentRecord.league,'Current record · MaxPreps'].filter(Boolean).join(' · ');}
     else if(!sides[opponentSide].record&&!opponentResult&&/football/i.test(profile?.sport || '')){el(opponentSide+'Record').textContent='Official record unavailable';el(opponentSide+'RecordDate').textContent='Checked team source';}
+    matchupComparison=data.comparison;matchupComparisonSource=data.comparisonSource;
     if(/football/i.test(profile?.sport||''))refreshTeamComparison();
+    if(data.insights?.length){
+      const section=document.createElement('section'),heading=document.createElement('h3'),list=document.createElement('ul');heading.textContent='What to know tonight';list.className='detail-list';
+      for(const insight of data.insights){const item=document.createElement('li');item.textContent=insight;list.append(item)}
+      section.append(heading,list);if(data.comparisonSource)section.append(link('Full official matchup and player stats ↗',data.comparisonSource.url));content.append(section);
+    }
     for (const item of data.articles) {
       const section = document.createElement('section');
       const heading = document.createElement('h3'); heading.textContent = item.title; section.append(heading);
@@ -188,7 +200,7 @@ async function refresh() {
       meta.append('Source: ', link(item.source, item.url), ` · ${new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(new Date(item.published))}`);
       section.append(meta); content.append(section);
     }
-    el('research-status').textContent = data.articles.length ? '' : data.unavailable
+    el('research-status').textContent = data.articles.length || data.insights?.length ? '' : data.unavailable
       ? `Couldn’t check ${matchup}. Try again.` : `No additional verified reports for ${matchup} on ${researchDate}.`;
     if (!data.game) el('snapshot-source').replaceChildren(link(`${team} schedule ↗`, data.sourceUrl));
     el('checked').textContent = 'Checked ' + new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }).format(new Date(data.checkedAt));
