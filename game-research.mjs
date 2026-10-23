@@ -14,7 +14,7 @@ const verifiedMatchups=new Map([
   ['eli.html|2026-10-24|napa united',{
     source:'Napa United ECNL Boys',sourceUrl:'https://napaunited.org/ecnl-boys',
     kickoff:'2026-10-24T16:00:00Z',venue:'Silverado Middle School Football Field, 1133 Coombsville Rd, Napa, CA 94558',
-    teamRecord:{record:'1–2–1',league:'4 verified results through Sep 20'},
+    teamRecord:{record:'1–2–1',league:'4 verified results through Sep 20',asOf:'Verified club schedule results'},
     comparison:[['Competition','ECNL Boys','ECNL Boys'],['Conference','Northern California','Northern California'],['Age group','B2008/09','B2008/09']],
     insights:[
       'Kickoff is tomorrow at 9:00 AM PDT at Silverado Middle School Football Field in Napa.',

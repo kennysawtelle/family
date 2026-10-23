@@ -185,7 +185,7 @@ async function refresh() {
       if (game.watch) { el('watch-card').hidden = false; el('watch').replaceChildren(link('Watch this game on NFHS Network ↗', game.watch)); }
     }
     const opponentSide=ownSide==='away'?'home':'away';
-    if(data.teamRecord){el(ownSide+'Record').textContent=data.teamRecord.record;el(ownSide+'RecordDate').textContent=[data.teamRecord.league,'Current record · MaxPreps'].filter(Boolean).join(' · ');}
+    if(data.teamRecord){el(ownSide+'Record').textContent=data.teamRecord.record;el(ownSide+'RecordDate').textContent=[data.teamRecord.league,data.teamRecord.asOf||'Current record · MaxPreps'].filter(Boolean).join(' · ');}
     if(data.opponentRecord){el(opponentSide+'Record').textContent=data.opponentRecord.record;el(opponentSide+'RecordDate').textContent=[data.opponentRecord.league,'Current record · MaxPreps'].filter(Boolean).join(' · ');}
     else if(!sides[opponentSide].record&&!opponentResult&&/football/i.test(profile?.sport || '')){el(opponentSide+'Record').textContent='Official record unavailable';el(opponentSide+'RecordDate').textContent='Checked team source';}
     matchupComparison=data.comparison;matchupComparisonSource=data.comparisonSource;

@@ -67,7 +67,7 @@ test('tonight’s Bonita matchup retains verified records, comparison stats, and
 });
 test('tomorrow’s Napa match stays useful without inventing an opponent record or live feed',async()=>{
  const response=await gameResearch(new Request('https://family.test/api/game-research?teamPage=eli.html&opponent=Napa%20United&date=2026-10-24'),async()=>{throw new Error('offline')});
- const data=await response.json();assert.equal(data.teamRecord.record,'1–2–1');assert.equal(data.opponentRecord,null);assert.equal(data.comparison.length,3);assert.match(data.game.venue,/Silverado Middle School/);assert.match(data.insights.join(' '),/1099583/);assert.match(data.insights.join(' '),/does not guess/);
+ const data=await response.json();assert.equal(data.teamRecord.record,'1–2–1');assert.equal(data.teamRecord.asOf,'Verified club schedule results');assert.equal(data.opponentRecord,null);assert.equal(data.comparison.length,3);assert.match(data.game.venue,/Silverado Middle School/);assert.match(data.insights.join(' '),/1099583/);assert.match(data.insights.join(' '),/does not guess/);
 });
 test('game page uses automatic results and specific team profiles without old promotional filler',()=>{
  const page=readFileSync(new URL('../game.html',import.meta.url),'utf8');
