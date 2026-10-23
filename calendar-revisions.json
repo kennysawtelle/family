@@ -1094,16 +1094,16 @@
       ]
     },
     "2026-10-16-b49c0541ac82@family.kensawtelle.com": {
-      "hash": "eb1c95976e6bea289c9f18ce0c2cca5286e4cd003e4afca078d074e52c2926d8",
-      "sequence": 4,
-      "modified": "20260924T122245Z",
+      "hash": "0983e60a639e246fc62f722810bdee56fbe2e6cd45146113212f037eda3734f4",
+      "sequence": 5,
+      "modified": "20261023T205026Z",
       "lines": [
         "UID:2026-10-16-b49c0541ac82@family.kensawtelle.com",
         "DTSTART;TZID=America/Los_Angeles:20261016T190000",
         "DTEND;TZID=America/Los_Angeles:20261016T220000",
         "SUMMARY:Dane Football — vs. Ayala",
         "LOCATION:Glenn Davis Stadium at Bonita High School\\, 3102 D St\\, La Verne\\, CA 91750",
-        "DESCRIPTION:Bonita Varsity Football league game.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "DESCRIPTION:Bonita defeated Ayala 49-14. Record 8-0 overall and 3-0 in league play.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
         "STATUS:CONFIRMED",
         "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
         "X-STREAM-PROVIDER:NFHS Network",
@@ -1111,20 +1111,20 @@
       ]
     },
     "2026-10-23-10da0d3d9fe8@family.kensawtelle.com": {
-      "hash": "9518a3309ce0e0bda6df98eef43d425225ebdef81d1dbdc9990ac79a3d889d72",
-      "sequence": 4,
-      "modified": "20260924T122245Z",
+      "hash": "c69d8465c8e69b586b54752ef0b0e1ded95c4db47ff693c8cb8f50779ac96264",
+      "sequence": 5,
+      "modified": "20261023T205026Z",
       "lines": [
         "UID:2026-10-23-10da0d3d9fe8@family.kensawtelle.com",
         "DTSTART;TZID=America/Los_Angeles:20261023T190000",
         "DTEND;TZID=America/Los_Angeles:20261023T220000",
         "SUMMARY:Dane Football — @ Charter Oak",
         "LOCATION:Charter Oak High School\\, 1430 E Covina Blvd\\, Covina\\, CA 91724",
-        "DESCRIPTION:Bonita Varsity Football league game.\\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "DESCRIPTION:Undefeated Sierra League matchup: Bonita 8-0 (3-0 league) at Charter Oak 8-0 (3-0 league).\\nWatch: NFHS Network — https://www.nfhsnetwork.com/events/charter-oak-high-school-covina-ca/gam7173ae9630",
         "STATUS:CONFIRMED",
-        "URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca",
+        "URL:https://www.nfhsnetwork.com/events/charter-oak-high-school-covina-ca/gam7173ae9630",
         "X-STREAM-PROVIDER:NFHS Network",
-        "X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca"
+        "X-STREAM-URL:https://www.nfhsnetwork.com/events/charter-oak-high-school-covina-ca/gam7173ae9630"
       ]
     },
     "2026-10-29-f3b180f97d43@family.kensawtelle.com": {

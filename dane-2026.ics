@@ -175,16 +175,16 @@ SUMMARY:Dane Football — vs. Ayala
 LOCATION:Glenn Davis Stadium at Bonita High School\, 3102 D St\, La Verne\,
   CA 91750
 DESCRIPTION:Bonita defeated Ayala 49-14. Record 8-0 overall and 3-0 in leag
- ue play.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/bonit
- a-high-school-la-verne-ca
+ ue play.\nWatch: NFHS Network — https://www.nfhsnetwork.com/schools/boni
+ ta-high-school-la-verne-ca
 STATUS:CONFIRMED
 URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-verne-ca
 X-STREAM-PROVIDER:NFHS Network
 X-STREAM-URL:https://www.nfhsnetwork.com/schools/bonita-high-school-la-vern
  e-ca
-SEQUENCE:4
-DTSTAMP:20260924T122245Z
-LAST-MODIFIED:20260924T122245Z
+SEQUENCE:5
+DTSTAMP:20261023T205026Z
+LAST-MODIFIED:20261023T205026Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-23-10da0d3d9fe8@family.kensawtelle.com
@@ -192,18 +192,18 @@ DTSTART;TZID=America/Los_Angeles:20261023T190000
 DTEND;TZID=America/Los_Angeles:20261023T220000
 SUMMARY:Dane Football — @ Charter Oak
 LOCATION:Charter Oak High School\, 1430 E Covina Blvd\, Covina\, CA 91724
-DESCRIPTION:Undefeated Sierra League matchup: Bonita 8-0 (3-0 league) at C
- harter Oak 8-0 (3-0 league).\nWatch: NFHS Network — https://www.nfhsnetwo
+DESCRIPTION:Undefeated Sierra League matchup: Bonita 8-0 (3-0 league) at Ch
+ arter Oak 8-0 (3-0 league).\nWatch: NFHS Network — https://www.nfhsnetwo
  rk.com/events/charter-oak-high-school-covina-ca/gam7173ae9630
 STATUS:CONFIRMED
-URL:https://www.nfhsnetwork.com/events/charter-oak-high-school-covina-ca/g
- am7173ae9630
+URL:https://www.nfhsnetwork.com/events/charter-oak-high-school-covina-ca/ga
+ m7173ae9630
 X-STREAM-PROVIDER:NFHS Network
-X-STREAM-URL:https://www.nfhsnetwork.com/events/charter-oak-high-school-co
- vina-ca/gam7173ae9630
-SEQUENCE:4
-DTSTAMP:20260924T122245Z
-LAST-MODIFIED:20260924T122245Z
+X-STREAM-URL:https://www.nfhsnetwork.com/events/charter-oak-high-school-cov
+ ina-ca/gam7173ae9630
+SEQUENCE:5
+DTSTAMP:20261023T205026Z
+LAST-MODIFIED:20261023T205026Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-29-f3b180f97d43@family.kensawtelle.com
