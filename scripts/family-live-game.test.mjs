@@ -100,6 +100,10 @@ test('links the October 29 Austin Peay match to its exact ESPN+ stream',async()=
  const response=await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=gracie&date=2026-10-29&opponent=Austin%20Peay'),async()=>Response.json({games:[{game:{gameID:'x',startDate:'10/29/2026',gameState:'pre',away:{names:{short:'Austin Peay'},score:0},home:{names:{short:'North Ala.'},score:0},url:'/game/x'}}]}));
  const data=await response.json();assert.match(data.watchUrl,/eventCalendarId\/401901499/);assert.equal(data.watchLabel,'Watch on ESPN+');
 });
+test('keeps the exact ESPN+ stream available when the NCAA score service is down',async()=>{
+ const response=await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=gracie&date=2026-10-29&opponent=Austin%20Peay'),async()=>{throw new Error('offline')});
+ const data=await response.json();assert.equal(response.status,200);assert.equal(data.configured,true);assert.match(data.sourceUrl,/eventCalendarId\/401901499/);assert.equal(data.linkLabel,'Watch on ESPN+');
+});
 
 test('links the exact North Alabama at Little Rock match to its official live stats', async () => {
   let requests = 0;

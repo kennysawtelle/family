@@ -204,6 +204,12 @@ export async function familyLiveGame(request, fetcher = fetch) {
     const game=source.type==='ncaa'?await enrichNcaaGame(normalizeNcaaGame(raw,source),fetcher):normalizeLiveGame(raw, source);
     return Response.json({ available: true, ...game }, { headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
   } catch {
-    return Response.json({ available: false, sourceUrl: source.page, checkedAt: new Date().toISOString() }, { status: 502, headers: { 'Cache-Control': 'no-store' } });
+    return Response.json({
+      available: false, configured: Boolean(source.watchUrl || source.page),
+      source: source.provider, sourceUrl: source.watchUrl || source.page || null,
+      linkLabel: source.watchLabel || null,
+      status: source.watchUrl ? 'The official stream is available. Live statistics will appear when the score service responds.' : 'The official live source is temporarily unavailable.',
+      checkedAt: new Date().toISOString(),
+    }, { status: source.watchUrl ? 200 : 502, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
   }
 }
