@@ -57,6 +57,8 @@ const sources = new Map([
     type: 'ncaa', date: '2026-10-29', teams: ['North Alabama', 'Austin Peay'],
     feed: 'https://ncaa-api.henrygd.me/scoreboard/soccer-women/d1/2026/10/29',
     page: 'https://stats.statbroadcast.com/broadcast/?id=665448', provider: 'North Alabama StatBroadcast Live Stats',
+    watchUrl: 'https://www.espn.com/watch/player/_/eventCalendarId/401901499?gameId=401901499',
+    watchLabel: 'Watch on ESPN+',
   }],
 ]);
 
@@ -149,7 +151,7 @@ export function normalizeNcaaGame(raw, source, now = new Date()) {
   return {gameId:text(game.gameID),state,status:state==='final'?'Final':[text(game.currentPeriod),text(game.contestClock)].filter(Boolean).join(' · ')||'Live',
     home:side(game.home),away:side(game.away),homeStats:{},awayStats:{},scoring:[],venue:'Bobby Wallace Field at Bank Independent Stadium',
     attendance:null,officials:'',notes:[],previewUrl:null,previewTitle:null,
-    sourceUrl:`https://www.ncaa.com${game.url||''}`,source:'NCAA live scoreboard',checkedAt:now.toISOString()};
+    sourceUrl:`https://www.ncaa.com${game.url||''}`,source:'NCAA live scoreboard',watchUrl:source.watchUrl||null,watchLabel:source.watchLabel||null,checkedAt:now.toISOString()};
 }
 
 const ncaaTeamStats=stats=>{

@@ -1937,18 +1937,20 @@
       ]
     },
     "2026-10-29-544355e8589d@family.kensawtelle.com": {
-      "hash": "b36b80ccc0d2b1ccabcfa20ebced88a765b75ba9e192eb903dc2a35c169689ea",
-      "sequence": 4,
-      "modified": "20260924T122245Z",
+      "hash": "329528b2e7a50ccffa0f0f2d90a77f53bc9d37530d72bd44334d6027c9f16549",
+      "sequence": 5,
+      "modified": "20261029T232526Z",
       "lines": [
         "UID:2026-10-29-544355e8589d@family.kensawtelle.com",
         "DTSTART;TZID=America/Chicago:20261029T190000",
         "DTEND;TZID=America/Chicago:20261029T210000",
         "SUMMARY:Gracie Soccer — Austin Peay",
         "LOCATION:Bobby Wallace Field at Bank Independent Stadium\\, 615 N Pine St\\, Florence\\, AL 35630",
-        "DESCRIPTION:University of North Alabama Women's Soccer. Home. 7:00 PM Central / 5:00 PM Pacific.",
+        "DESCRIPTION:University of North Alabama Women's Soccer. Home. 7:00 PM Central / 5:00 PM Pacific.\\nWatch on ESPN+: https://www.espn.com/watch/player/_/eventCalendarId/401901499?gameId=401901499\\nLive stats: https://stats.statbroadcast.com/broadcast/?id=665448",
+        "URL:https://www.espn.com/watch/player/_/eventCalendarId/401901499?gameId=401901499",
         "STATUS:CONFIRMED",
-        "X-STREAM-PROVIDER:TBD"
+        "X-STREAM-PROVIDER:ESPN+",
+        "X-STREAM-URL:https://www.espn.com/watch/player/_/eventCalendarId/401901499?gameId=401901499"
       ]
     },
     "2026-11-01-cc9510c9792a@family.kensawtelle.com": {

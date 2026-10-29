@@ -96,6 +96,10 @@ test('links tonight’s Bonita at Charter Oak game to its exact official broadca
   assert.match(data.sourceUrl, /charter-oak-high-school-covina-ca\/gam7173ae9630/);
   assert.match(data.status, /7:00 PM PDT/);
 });
+test('links the October 29 Austin Peay match to its exact ESPN+ stream',async()=>{
+ const response=await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=gracie&date=2026-10-29&opponent=Austin%20Peay'),async()=>Response.json({games:[{game:{gameID:'x',startDate:'10/29/2026',gameState:'pre',away:{names:{short:'Austin Peay'},score:0},home:{names:{short:'North Ala.'},score:0},url:'/game/x'}}]}));
+ const data=await response.json();assert.match(data.watchUrl,/eventCalendarId\/401901499/);assert.equal(data.watchLabel,'Watch on ESPN+');
+});
 
 test('links the exact North Alabama at Little Rock match to its official live stats', async () => {
   let requests = 0;

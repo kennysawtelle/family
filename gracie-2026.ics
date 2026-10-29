@@ -303,12 +303,18 @@ SUMMARY:Gracie Soccer — Austin Peay
 LOCATION:Bobby Wallace Field at Bank Independent Stadium\, 615 N Pine St\, 
  Florence\, AL 35630
 DESCRIPTION:University of North Alabama Women's Soccer. Home. 7:00 PM Centr
- al / 5:00 PM Pacific.
+ al / 5:00 PM Pacific.\nWatch on ESPN+: https://www.espn.com/watch/player/_
+ /eventCalendarId/401901499?gameId=401901499\nLive stats: https://stats.sta
+ tbroadcast.com/broadcast/?id=665448
+URL:https://www.espn.com/watch/player/_/eventCalendarId/401901499?gameId=40
+ 1901499
 STATUS:CONFIRMED
-X-STREAM-PROVIDER:TBD
-SEQUENCE:4
-DTSTAMP:20260924T122245Z
-LAST-MODIFIED:20260924T122245Z
+X-STREAM-PROVIDER:ESPN+
+X-STREAM-URL:https://www.espn.com/watch/player/_/eventCalendarId/401901499?
+ gameId=401901499
+SEQUENCE:5
+DTSTAMP:20261029T232526Z
+LAST-MODIFIED:20261029T232526Z
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-01-cc9510c9792a@family.kensawtelle.com

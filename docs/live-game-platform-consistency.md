@@ -17,6 +17,10 @@
 | Platform | Live game implementation | Result |
 | --- | --- | --- |
 | Family Sports | Family game pages for NCAA soccer, high-school football and youth soccer | North Alabama at Austin Peay uses the official Austin Peay SIDEARM feed and refreshes every 30 seconds while the page is visible. Exact official StatBroadcast trackers are registered for the October 4, 8, 11 and 29 North Alabama home games; the page links directly to them because StatBroadcast does not offer the public viewer through an unauthenticated server-readable data endpoint. MaxPreps/NFHS and Los Gatos United do not publish a stable official structured feed for these schedules, so no score is invented. |
+
+- The October 29 North Alabama–Austin Peay calendar event and game page include
+  the exact ESPN+ event 401901499 for video and StatBroadcast 665448 for live
+  statistics. The existing calendar UID is preserved and its revision advances.
 | NFL | All NFL game pages | Already use the league-wide live data implementation and are unaffected. |
 | Events | Event and gallery pages | No sports games; unaffected. |
 | Health Pilot | No sports games | Unaffected. |

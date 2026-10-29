@@ -131,7 +131,9 @@ function renderLiveGame(game) {
   }
   const details = el('verified-details'); details.replaceChildren();
   for (const value of [game.attendance != null ? `Attendance: ${game.attendance.toLocaleString()}` : '', game.officials]) if (value) { const item = document.createElement('li'); item.textContent = value; details.append(item); }
-  el('live-source').replaceChildren(link(`${game.source} · Updated ${new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' }).format(new Date(game.checkedAt))} ↗`, game.sourceUrl));
+  const liveSource=el('live-source');liveSource.replaceChildren();
+  if(game.watchUrl)liveSource.append(link(`${game.watchLabel||'Watch live'} ↗`,game.watchUrl),' · ');
+  liveSource.append(link(`${game.source} · Updated ${new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' }).format(new Date(game.checkedAt))} ↗`, game.sourceUrl));
   if (game.state === 'final') el('snapshot').textContent = `${game.away.name} ${game.away.score} at ${game.home.name} ${game.home.score} · Final · ${game.venue}`;
 }
 async function refreshLiveGame() {
