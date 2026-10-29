@@ -28,6 +28,13 @@ Checked October 8, 2026.
 
 ## Equivalent platforms checked
 
+- Every Family game page now includes a head-to-head history section. North
+  Alabama–Austin Peay shows the verified all-time series, scoring, modern
+  home/road split, and five recent meetings. Other matchups keep a short,
+  matchup-specific state when their official source does not publish history.
+- NFL game pages use the same information contract with league schedule data:
+  series record, venue splits, combined scoring, and recent results.
+
 | Platform | Result |
 | --- | --- |
 | NFL | Uses its own league-wide game data and editorial feeds. Checked and unaffected. |

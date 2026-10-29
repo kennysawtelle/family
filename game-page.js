@@ -177,6 +177,7 @@ async function refresh() {
     const response = await fetch('/api/game-research?' + new URLSearchParams({ teamPage, opponent, date: researchDate, fresh: Date.now() }), { signal: AbortSignal.timeout(10000), cache: 'no-store' });
     if (!response.ok) throw new Error();
     const data = await response.json();
+    renderHeadToHead(data.headToHead);
     const content = el('research-results'); content.replaceChildren();
     if (data.game) {
       freshGame = true;
@@ -212,6 +213,19 @@ async function refresh() {
   } catch {
     el('research-status').textContent = `Couldn’t refresh ${matchup}. Try again.`;
   } finally { busy = false; el('refresh').disabled = false; }
+}
+function renderHeadToHead(history){
+  const status=el('series-status'),content=el('series-content'),source=el('series-source');content.replaceChildren();source.replaceChildren();
+  if(!history){status.textContent=`No verified head-to-head history is published for ${away} and ${home}.`;return;}
+  status.textContent=history.label;
+  const summary=document.createElement('div');summary.className='series-summary';
+  const cells=[[history.opponent.name,`${history.opponent.wins} wins`],[`${history.meetings} meetings`,`${history.ties} ties`],[history.team.name,`${history.team.wins} wins`]];
+  for(const [title,value] of cells){const cell=document.createElement('div'),strong=document.createElement('strong'),span=document.createElement('span');strong.textContent=value;span.textContent=title;cell.append(strong,span);summary.append(cell)}
+  const scoring=document.createElement('p');scoring.className='series-scoring';scoring.textContent=`Combined scoring: ${history.opponent.name} ${history.opponent.points}, ${history.team.name} ${history.team.points}.`;
+  const splits=document.createElement('ul');splits.className='detail-list';for(const text of history.splits||[]){const item=document.createElement('li');item.textContent=text;splits.append(item)}
+  const heading=document.createElement('h3');heading.textContent='Recent meetings';const list=document.createElement('div');list.className='series-games';
+  for(const game of history.recent||[]){const row=document.createElement('div'),when=document.createElement('span'),score=document.createElement('strong'),site=document.createElement('small');when.textContent=game.date;score.textContent=game.score;site.textContent=game.site;row.append(when,score,site);list.append(row)}
+  content.append(summary,scoring,splits,heading,list);source.append(link(`${history.sourceLabel} · Checked ${new Intl.DateTimeFormat('en-US',{dateStyle:'medium'}).format(new Date(history.checkedAt))} ↗`,history.sourceUrl));
 }
 el('refresh').addEventListener('click', refresh);
 refresh();
