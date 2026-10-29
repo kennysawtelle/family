@@ -10,23 +10,22 @@ const pacificDate = value => new Intl.DateTimeFormat('en-CA', { timeZone: 'Ameri
 const verifiedReports=new Map([
   ['gracie.html|2026-10-08|abilene christian',{title:'North Alabama hosts Abilene Christian in UAC crossover match',summary:'North Alabama enters the conference crossover match at 2–1 in UAC play after a 3–2 loss to Eastern Kentucky. Abilene Christian is 4–2–5 overall and 1–0–2 in conference play, led by Addison Briscoe with five goals and three assists. UNA is seeking its first win in the series after losing the teams’ first two meetings.',url:'https://roarlions.com/news/2026/10/7/womens-soccer-soccer-to-welcome-abilene-christian-for-thursday-night-matchup.aspx',source:'University of North Alabama Athletics',published:'2026-10-07T16:00:00.000Z'}]
 ]);
-const verifiedMatchups=new Map([
+const verifiedHistories=new Map([
   ['gracie.html|2026-10-29|austin peay',{
-    source:'North Alabama Athletics opponent history',sourceUrl:'https://roarlions.com/sports/womens-soccer/opponent-history',
-    headToHead:{
-      label:'All meetings before October 29, 2026',meetings:8,ties:0,
-      team:{name:'North Alabama',wins:3,points:8},opponent:{name:'Austin Peay',wins:5,points:13},
-      splits:['Since 2021, North Alabama is 1–1 at home and 2–3 on the road against Austin Peay.','North Alabama has won the last three meetings, each by a 2–1 score.'],
-      recent:[
-        {date:'Sep. 27, 2026',site:'at Austin Peay',score:'North Alabama 2–1'},
-        {date:'Oct. 12, 2025',site:'at Austin Peay',score:'North Alabama 2–1'},
-        {date:'Oct. 2, 2025',site:'vs. Austin Peay',score:'North Alabama 2–1'},
-        {date:'Sep. 26, 2024',site:'at Austin Peay',score:'Austin Peay 2–0'},
-        {date:'Oct. 1, 2023',site:'at Austin Peay',score:'Austin Peay 1–0'}
-      ],
-      sourceLabel:'North Alabama Athletics',sourceUrl:'https://roarlions.com/sports/womens-soccer/opponent-history',checkedAt:'2026-10-29T16:30:00-07:00'
-    }
-  }],
+    label:'All meetings before October 29, 2026',meetings:8,ties:0,
+    team:{name:'North Alabama',wins:3,points:8},opponent:{name:'Austin Peay',wins:5,points:13},
+    splits:['Since 2021, North Alabama is 1–1 at home and 2–3 on the road against Austin Peay.','North Alabama has won the last three meetings, each by a 2–1 score.'],
+    recent:[
+      {date:'Sep. 27, 2026',site:'at Austin Peay',score:'North Alabama 2–1'},
+      {date:'Oct. 12, 2025',site:'at Austin Peay',score:'North Alabama 2–1'},
+      {date:'Oct. 2, 2025',site:'vs. Austin Peay',score:'North Alabama 2–1'},
+      {date:'Sep. 26, 2024',site:'at Austin Peay',score:'Austin Peay 2–0'},
+      {date:'Oct. 1, 2023',site:'at Austin Peay',score:'Austin Peay 1–0'}
+    ],
+    sourceLabel:'North Alabama Athletics',sourceUrl:'https://roarlions.com/sports/womens-soccer/opponent-history',checkedAt:'2026-10-29T16:30:00-07:00'
+  }]
+]);
+const verifiedMatchups=new Map([
   ['eli.html|2026-10-24|napa united',{
     source:'Napa United ECNL Boys',sourceUrl:'https://napaunited.org/ecnl-boys',
     kickoff:'2026-10-24T16:00:00Z',venue:'Silverado Middle School Football Field, 1133 Coombsville Rd, Napa, CA 94558',
@@ -152,7 +151,7 @@ export async function gameResearch(request, fetcher = fetch) {
   if(!opponentRecord&&game?.opponentUrl&&new URL(game.opponentUrl).hostname.endsWith('maxpreps.com'))try{const page=await read(game.opponentUrl,fetcher),record=teamRecord(page);if(record)opponentRecord={record,sourceUrl:game.opponentUrl}}catch{/* The game details remain useful if the opponent profile is offline. */}
   return Response.json({ team: profile.name, opponent, sport: profile.sport, date, game, opponentRecord,
     teamRecord:verified?.teamRecord?{...verified.teamRecord,sourceUrl:verified.sourceUrl}:null,
-    comparison:verified?.comparison||null,insights:verified?.insights||[],headToHead:verified?.headToHead||null,comparisonSource:verified?{label:verified.source,url:verified.sourceUrl,checkedAt:verified.checkedAt}:null,articles,
+    comparison:verified?.comparison||null,insights:verified?.insights||[],headToHead:verifiedHistories.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`)||null,comparisonSource:verified?{label:verified.source,url:verified.sourceUrl,checkedAt:verified.checkedAt}:null,articles,
     sourceUrl: profile.source, checkedAt: new Date().toISOString(), unavailable: results.every(result => result.status === 'rejected') },
     { headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
 }

@@ -67,7 +67,7 @@ test('tonight’s Bonita matchup retains verified records, comparison stats, and
 });
 test('Grace’s Austin Peay page includes the verified series, venue splits, scoring and recent results',async()=>{
  const response=await gameResearch(new Request('https://family.test/api/game-research?teamPage=gracie.html&opponent=Austin%20Peay&date=2026-10-29'),async()=>{throw new Error('offline')});
- const data=await response.json();const history=data.headToHead;assert.equal(history.meetings,8);assert.equal(history.team.wins,3);assert.equal(history.opponent.wins,5);assert.equal(history.team.points,8);assert.equal(history.opponent.points,13);assert.match(history.splits.join(' '),/1–1 at home.*2–3 on the road/);assert.equal(history.recent.length,5);assert.match(history.sourceUrl,/roarlions\.com/);
+ const data=await response.json();assert.equal(data.game,null);const history=data.headToHead;assert.equal(history.meetings,8);assert.equal(history.team.wins,3);assert.equal(history.opponent.wins,5);assert.equal(history.team.points,8);assert.equal(history.opponent.points,13);assert.match(history.splits.join(' '),/1–1 at home.*2–3 on the road/);assert.equal(history.recent.length,5);assert.match(history.sourceUrl,/roarlions\.com/);
 });
 test('tomorrow’s Napa match stays useful without inventing an opponent record or live feed',async()=>{
  const response=await gameResearch(new Request('https://family.test/api/game-research?teamPage=eli.html&opponent=Napa%20United&date=2026-10-24'),async()=>{throw new Error('offline')});
