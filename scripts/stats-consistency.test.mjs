@@ -14,6 +14,11 @@ test('all athlete calendars have a sourced athlete-stat state',async()=>{
   assert.match(ui,/Official player\/team source/);
   for(const name of ['Gracie Tyrrell','Dane Gosserand','Elijah \\(Eli\\) Landig','Jack Harn'])assert.match(ui,new RegExp(name));
 });
+test('MaxPreps team leaders appear on applicable team and shared game pages',async()=>{
+ const [ui,game,worker]=await Promise.all([read('schedule-ui.js'),read('game-page.js'),read('_worker.js')]);
+ for(const page of ['dane.html','eli-football.html','jack.html','eli-santa-cruz-soccer.html'])assert.match(ui,new RegExp(page.replace('.','\\.')));
+ assert.match(ui,/\/api\/team-stats/);assert.match(game,/refreshTeamLeaders/);assert.match(game,/MaxPreps team statistics/);assert.match(worker,/teamStats\(request\)/);
+});
 
 test('game pages include sourced sport-specific team comparison',async()=>{
   const [html,page]=await Promise.all([read('game.html'),read('game-page.js')]);

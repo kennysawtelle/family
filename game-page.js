@@ -227,11 +227,22 @@ function renderHeadToHead(history){
   for(const game of history.recent||[]){const row=document.createElement('div'),when=document.createElement('span'),score=document.createElement('strong'),site=document.createElement('small');when.textContent=game.date;score.textContent=game.score;site.textContent=game.site;row.append(when,score,site);list.append(row)}
   content.append(summary,scoring,splits,heading,list);source.append(link(`${history.sourceLabel} · Checked ${new Intl.DateTimeFormat('en-US',{dateStyle:'medium'}).format(new Date(history.checkedAt))} ↗`,history.sourceUrl));
 }
+async function refreshTeamLeaders(){
+  if(!['dane.html','eli-football.html','jack.html','eli-santa-cruz-soccer.html'].includes(teamPage))return;
+  let card=document.querySelector('.game-team-leaders');if(!card){card=document.createElement('article');card.className='card game-team-leaders';card.style.gridColumn='1/-1';const series=document.querySelector('.series-card');(series||document.querySelector('#matchup-report')).before(card)}
+  card.innerHTML='<h2>Team leaders</h2><p role="status">Checking current MaxPreps leaders…</p><div></div><p class="muted"></p>';
+  try{const response=await fetch('/api/team-stats?'+new URLSearchParams({teamPage}),{cache:'no-store',signal:AbortSignal.timeout(10000)});if(!response.ok)return;const data=await response.json(),status=card.querySelector('[role=status]'),grid=card.querySelector('div'),source=card.querySelector('.muted');
+    const athleteRows=data.athlete?.rankings||[];if(athleteRows.length){const primary=athleteRows[0],peers=(data.rankings||[]).filter(row=>row.category===primary.category).slice(0,3);card.querySelector('h2').textContent=`${data.athlete.name} — current team standing`;const feature=document.createElement('section');Object.assign(feature.style,{gridColumn:'1/-1',padding:'14px',background:'#e8f3ec',borderLeft:'5px solid #087334',borderRadius:'9px'});const title=document.createElement('strong');title.textContent=`No. ${primary.rank} in ${primary.category} · ${primary.value} ${primary.unit}`;const compare=document.createElement('p');compare.textContent=peers.map(row=>`${row.rank}. ${row.name} ${row.value}`).join(' · ');feature.append(title,compare);grid.append(feature)}if(!data.leaders?.length){status.textContent=`MaxPreps does not currently publish team leaders for ${data.team}.`;source.append(link('Checked MaxPreps team statistics ↗',data.sourceUrl));return}status.textContent=data.updated?`Publisher updated ${data.updated}`:'Current coach-entered MaxPreps statistics';Object.assign(grid.style,{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(225px,1fr))',gap:'8px'});
+    for(const leader of data.leaders){const item=document.createElement('a');item.href=leader.href||data.sourceUrl;item.target='_blank';item.rel='noopener noreferrer';Object.assign(item.style,{display:'grid',gridTemplateColumns:'1fr auto',gap:'10px',padding:'12px',color:'inherit',background:'#f3f6f9',borderRadius:'9px',textDecoration:'none'});const copy=document.createElement('span'),category=document.createElement('small'),name=document.createElement('strong'),detail=document.createElement('small'),value=document.createElement('b');category.textContent=leader.category;name.textContent=leader.name;detail.textContent=leader.detail;value.textContent=[leader.value,leader.unit].filter(Boolean).join(' ');for(const node of [category,name,detail])node.style.display='block';copy.append(category,name,detail);value.style.textAlign='right';item.append(copy,value);grid.append(item)}
+    source.append(link('MaxPreps team statistics ↗',data.sourceUrl),` · Checked ${new Intl.DateTimeFormat('en-US',{dateStyle:'medium'}).format(new Date(data.checkedAt))}`);
+  }catch{card.querySelector('[role=status]').textContent='Team leaders could not be refreshed.'}
+}
 el('refresh').addEventListener('click', refresh);
 refresh();
 refreshRecords();
 refreshLiveGame();
 refreshTeamComparison();
+refreshTeamLeaders();
 window.addEventListener('focus', refresh);
 window.addEventListener('focus', refreshRecords);
 window.addEventListener('focus', refreshLiveGame);

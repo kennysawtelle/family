@@ -4,6 +4,19 @@ Checked October 8, 2026.
 
 ## Family Sports
 
+- MaxPreps-backed high-school team pages now load the publisher's current team
+  leaders on page view. The same leaders appear on every game page for that
+  family team. Categories, players, values, source link, and freshness are
+  preserved; missing publisher data is never shown as zero.
+- Bonita currently includes receiving, rushing, touchdowns, tackles, sacks,
+  interceptions, and other categories published by MaxPreps. Santa Cruz
+  football, Soquel JV football, and Santa Cruz boys soccer use the same importer
+  when their MaxPreps pages publish leader data.
+- The family athlete remains the first statistics story on the team page and
+  every game page. When MaxPreps publishes a team ranking, the athlete card
+  states the athlete's rank and value and shows the nearest teammates for
+  context before the broader team-leader list.
+
 - Every family athlete schedule has an athlete-stat section. It displays only
   statistics tied to a verified public athlete profile. When a source does not
   publish an identifiable player line, the section says so and links to the
