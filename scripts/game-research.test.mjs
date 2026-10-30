@@ -67,7 +67,7 @@ test('tonight’s Bonita matchup retains verified records, comparison stats, and
 });
 test('Grace’s Austin Peay page includes the verified series, venue splits, scoring and recent results',async()=>{
  const response=await gameResearch(new Request('https://family.test/api/game-research?teamPage=gracie.html&opponent=Austin%20Peay&date=2026-10-29'),async()=>{throw new Error('offline')});
- const data=await response.json();assert.equal(data.game,null);const history=data.headToHead;assert.equal(history.meetings,8);assert.equal(history.team.wins,3);assert.equal(history.opponent.wins,5);assert.equal(history.team.points,8);assert.equal(history.opponent.points,13);assert.match(history.splits.join(' '),/1–1 at home.*2–3 on the road/);assert.equal(history.recent.length,5);assert.match(history.sourceUrl,/roarlions\.com/);
+ const data=await response.json();assert.equal(data.game,null);const history=data.headToHead;assert.equal(history.meetings,8);assert.equal(history.team.wins,3);assert.equal(history.opponent.wins,5);assert.equal(history.team.points,8);assert.equal(history.opponent.points,13);assert.match(history.splits.join(' '),/1–1 at home.*2–3 on the road/);assert.equal(history.recent.length,5);assert.match(history.sourceUrl,/roarlions\.com/);assert.equal(data.context.length,6);assert.match(data.context.map(item=>`${item.label}: ${item.value}`).join(' '),/6–4–5 overall.*postseason.*112/i);
 });
 test('tomorrow’s Napa match stays useful without inventing an opponent record or live feed',async()=>{
  const response=await gameResearch(new Request('https://family.test/api/game-research?teamPage=eli.html&opponent=Napa%20United&date=2026-10-24'),async()=>{throw new Error('offline')});
@@ -78,6 +78,7 @@ test('game page uses automatic results and specific team profiles without old pr
  assert.doesNotMatch(page,/Like the NFL|research launch|What the analysis checks|Ask ChatGPT/);
  assert.match(page,/game-page.js/);assert.match(page,/id="backTeam"/);assert.match(page,/id="series-content"/);assert.equal(teams['jack.html'].sport,'JV football');assert.equal(teams['gracie.html'].sport,"Women's soccer");
  const script=readFileSync(new URL('../game-page.js',import.meta.url),'utf8');assert.match(script,/fresh:\s*Date\.now\(\)/);assert.match(script,/Return to \$\{profile\.name\} team page/);
+ assert.match(page,/id="game-context"/);assert.match(script,/gameContextFromResearch/);
 });
 test('every configured college, high-school and club team uses the shared sourced game page',()=>{
  for(const [page,team] of Object.entries(teams)){

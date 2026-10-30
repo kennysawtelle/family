@@ -26,6 +26,17 @@ const verifiedHistories=new Map([
   }]
 ]);
 const verifiedMatchups=new Map([
+  ['gracie.html|2026-10-29|austin peay',{
+    source:'North Alabama and Austin Peay Athletics',sourceUrl:'https://roarlions.com/news/2026/10/25/womens-soccer-walker-ties-all-time-winning-mark-after-eku-win-1-0.aspx',
+    context:[
+      {label:'North Alabama',value:'6–4–5 overall · 3–3–2 UAC'},
+      {label:'Austin Peay',value:'2–13–2 overall · 1–6–1 UAC'},
+      {label:'Recent form',value:'UNA won 1–0 at first-place Eastern Kentucky'},
+      {label:'Road form',value:'Austin Peay is 1–8–1 in its last 10 road matches'},
+      {label:'Postseason',value:'North Alabama has clinched; Austin Peay can clinch by matching West Georgia’s result',highlight:true},
+      {label:'Milestone',value:'Chris Walker can become North Alabama’s all-time wins leader with No. 112',highlight:true}
+    ],checkedAt:'2026-10-29T16:30:00-07:00'
+  }],
   ['eli.html|2026-10-24|napa united',{
     source:'Napa United ECNL Boys',sourceUrl:'https://napaunited.org/ecnl-boys',
     kickoff:'2026-10-24T16:00:00Z',venue:'Silverado Middle School Football Field, 1133 Coombsville Rd, Napa, CA 94558',
@@ -144,14 +155,14 @@ export async function gameResearch(request, fetcher = fetch) {
   const results = await Promise.allSettled([read(profile.source, fetcher), ...feeds.map(url => read(url, fetcher))]);
   const verified=verifiedMatchups.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`);
   const sourcedGame = results[0].status === 'fulfilled' ? scheduleGame(results[0].value, profile, opponent, date) : null;
-  const game = verified ? {...(sourcedGame||{}),title:`${profile.name} at ${opponent}`,detail:verified.detail || `${profile.name} at ${opponent} · ${profile.sport}`,kickoff:verified.kickoff,venue:verified.venue,sourceUrl:verified.sourceUrl,source:verified.source,watch:verified.watch,cancelled:false} : sourcedGame;
+  const game = verified&&(verified.kickoff||sourcedGame) ? {...(sourcedGame||{}),title:`${profile.name} at ${opponent}`,detail:verified.detail || `${profile.name} at ${opponent} · ${profile.sport}`,kickoff:verified.kickoff||sourcedGame?.kickoff,venue:verified.venue||sourcedGame?.venue,sourceUrl:verified.sourceUrl,source:verified.source,watch:verified.watch||sourcedGame?.watch,cancelled:false} : sourcedGame;
   const pinned=verifiedReports.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`);
   const articles = [pinned,...results.slice(1).flatMap(result => result.status === 'fulfilled' ? newsItems(result.value, profile, opponent, date) : [])].filter(Boolean).filter((item, i, all) => all.findIndex(other => other.url === item.url || other.title === item.title) === i).slice(0, 4);
   let opponentRecord=verified?.opponentRecord?{...verified.opponentRecord,sourceUrl:verified.sourceUrl}:null;
   if(!opponentRecord&&game?.opponentUrl&&new URL(game.opponentUrl).hostname.endsWith('maxpreps.com'))try{const page=await read(game.opponentUrl,fetcher),record=teamRecord(page);if(record)opponentRecord={record,sourceUrl:game.opponentUrl}}catch{/* The game details remain useful if the opponent profile is offline. */}
   return Response.json({ team: profile.name, opponent, sport: profile.sport, date, game, opponentRecord,
     teamRecord:verified?.teamRecord?{...verified.teamRecord,sourceUrl:verified.sourceUrl}:null,
-    comparison:verified?.comparison||null,insights:verified?.insights||[],headToHead:verifiedHistories.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`)||null,comparisonSource:verified?{label:verified.source,url:verified.sourceUrl,checkedAt:verified.checkedAt}:null,articles,
+    comparison:verified?.comparison||null,insights:verified?.insights||[],context:verified?.context||[],headToHead:verifiedHistories.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`)||null,comparisonSource:verified?{label:verified.source,url:verified.sourceUrl,checkedAt:verified.checkedAt}:null,articles,
     sourceUrl: profile.source, checkedAt: new Date().toISOString(), unavailable: results.every(result => result.status === 'rejected') },
     { headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
 }

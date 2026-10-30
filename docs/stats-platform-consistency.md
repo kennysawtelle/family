@@ -1,6 +1,6 @@
 # Athlete and matchup statistics consistency
 
-Checked October 8, 2026.
+Checked October 29, 2026.
 
 ## Family Sports
 
@@ -27,12 +27,18 @@ Checked October 8, 2026.
   from their checked team sources and explicitly identify unavailable detail.
 - Current live-game statistics remain in the separate live/final card so season
   averages are not confused with one game's box score.
+- Every sports game page uses a compact Game context summary when verified data
+  is available. It prioritizes overall and conference/division records,
+  home/road and recent form, postseason stakes, streaks, and meaningful
+  milestones. Missing fields are omitted instead of producing unavailable
+  filler; detailed comparisons and head-to-head history remain below.
 
 ## Equivalent platforms checked
 
 | Platform | Equivalent behavior | Result |
 | --- | --- | --- |
-| NFL | League game pages already provide team records, matchup data, and live/game statistics from the NFL data pipeline. | Checked; unaffected because its league-wide sources and UI are separate. |
+| NFL | League game pages provide team records, matchup data, and live/game statistics from the NFL data pipeline. | Updated with the same compact Game context hierarchy using live ESPN overall, conference, division, home, road, streak, and playoff-position fields when published. |
+| Tiki Events | Event pages and galleries do not represent sports teams or athletes. | Checked; no equivalent feature to add. |
 
 ## October 23, 2026 Bonita–Charter Oak check
 
@@ -47,7 +53,6 @@ Checked October 8, 2026.
 - NFL was checked and already provides its league-wide comparison and live-game
   pipeline. Events, Health Pilot, Good Old Ken's Polling, Vouch, and Tiki
   Console do not implement sports matchup statistics and are unaffected.
-| Tiki Events | Event pages and galleries do not represent sports teams or athletes. | Checked; no equivalent feature to add. |
 
 ## Source limitations
 

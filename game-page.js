@@ -52,6 +52,28 @@ el('research-status').textContent = `Checking ${matchup}…`;
 function link(label, url) {
   const a = document.createElement('a'); a.textContent = label; a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a;
 }
+function renderGameContext(items=[], source=null) {
+  const card=el('game-context'),grid=el('game-context-grid'),sourceLine=el('game-context-source');
+  grid.replaceChildren();sourceLine.replaceChildren();
+  for(const fact of items.filter(item=>item?.label&&item?.value).slice(0,6)){
+    const cell=document.createElement('div'),label=document.createElement('span'),value=document.createElement('strong');
+    cell.className='game-context-item'+(fact.highlight?' game-context-highlight':'');label.textContent=fact.label;value.textContent=fact.value;cell.append(label,value);grid.append(cell);
+  }
+  card.hidden=!grid.children.length;
+  if(source?.url)sourceLine.append(link(`${source.label||'Official game sources'}${source.checkedAt?' · Checked '+new Intl.DateTimeFormat('en-US',{dateStyle:'medium'}).format(new Date(source.checkedAt)):''} ↗`,source.url));
+}
+function gameContextFromResearch(data){
+  const facts=[...(data.context||[])];
+  const addRecord=(label,record)=>{if(record?.record)facts.push({label,value:[record.record,record.league].filter(Boolean).join(' · ')})};
+  addRecord(team,data.teamRecord);addRecord(opponent,data.opponentRecord);
+  for(const insight of data.insights||[]){
+    if(facts.length>=6)break;
+    const match=insight.match(/\b(postseason|playoff|tournament|clinch|ranked?|road|home|last|streak|undefeated|milestone)\b/i);
+    if(!match)continue;
+    facts.push({label:/postseason|playoff|tournament|clinch/i.test(match[0])?'At stake':/rank/i.test(match[0])?'Rankings':/road|home/i.test(match[0])?'Venue form':'What to know',value:insight,highlight:/postseason|playoff|tournament|clinch|milestone/i.test(insight)});
+  }
+  return facts.filter((fact,index,all)=>all.findIndex(other=>other.label===fact.label&&other.value===fact.value)===index);
+}
 function timeText(instant) {
   return ['America/Los_Angeles', 'America/New_York'].map(timeZone => new Intl.DateTimeFormat('en-US', { timeZone, month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }).format(new Date(instant))).join(' / ');
 }
@@ -192,6 +214,7 @@ async function refresh() {
     if(data.opponentRecord){el(opponentSide+'Record').textContent=data.opponentRecord.record;el(opponentSide+'RecordDate').textContent=[data.opponentRecord.league,'Current record · MaxPreps'].filter(Boolean).join(' · ');}
     else if(!sides[opponentSide].record&&!opponentResult&&/football/i.test(profile?.sport || '')){el(opponentSide+'Record').textContent='Official record unavailable';el(opponentSide+'RecordDate').textContent='Checked team source';}
     matchupComparison=data.comparison;matchupComparisonSource=data.comparisonSource;
+    renderGameContext(gameContextFromResearch(data),data.comparisonSource);
     if(matchupComparison?.length){document.querySelector('.comparison-card').hidden=false;refreshTeamComparison();}
     if(data.insights?.length){
       const section=document.createElement('section'),heading=document.createElement('h3'),list=document.createElement('ul');heading.textContent='What to know tonight';list.className='detail-list';
