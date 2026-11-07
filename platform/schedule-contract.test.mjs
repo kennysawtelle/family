@@ -17,6 +17,9 @@ test('release contract: completed and cancelled games cannot be next',()=>{
  assert.equal(schedulePhase({dateKey:'2026-10-17'},now),'past');
  assert.equal(schedulePhase({dateKey:'2026-10-18'},now),'upcoming');
 });
+test('release contract: a live-stats link does not make an old game live',()=>{
+ assert.equal(schedulePhase({dateKey:'2026-10-29',status:'CONFIRMED',description:'Watch on ESPN+. Live stats: https://example.test'},Date.parse('2026-11-07T20:00:00Z')),'past');
+});
 test('release contract: Pacific midnight and unknown kickoff times',()=>{
  const beforeMidnight=Date.parse('2026-10-19T06:59:00Z');
  assert.equal(schedulePhase({dateKey:'2026-10-18'},beforeMidnight),'upcoming');

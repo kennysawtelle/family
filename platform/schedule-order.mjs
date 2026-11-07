@@ -1,8 +1,9 @@
 // Canonical shared schedule policy. Distributed to Family by sync-schedule-order.mjs.
 export function schedulePhase(item, now = Date.now()) {
   const today = new Intl.DateTimeFormat('en-CA', {timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now));
-  const status = `${item.status || ''} ${item.description || ''}`;
-  if (item.completed || item.state === 'post' || /cancel|final|completed|(?:^|\s)[WLT]\s+\d/i.test(status)) return 'past';
+  const status = `${item.status || ''}`;
+  const completion = `${status} ${item.description || ''}`;
+  if (item.completed || item.state === 'post' || /cancel|final|completed|(?:^|\s)[WLT]\s+\d/i.test(completion)) return 'past';
   if (item.state === 'in' || /halftime|overtime|\b(?:1st|2nd|3rd|4th)\s+(?:quarter|qtr)|\blive\b/i.test(status)) return 'live';
   if (item.dateKey && item.dateKey < today) return 'past';
   return 'upcoming';
