@@ -11,7 +11,12 @@ const managed=[
  'jack.html','jack-2026.ics','index.html','family-schedule.html','schedule-ui.js','_worker.js'
 ];
 const sources={
- gracie:['https://roarlions.com/sports/womens-soccer/schedule/2026'],
+ gracie:[
+  'https://roarlions.com/sports/womens-soccer/schedule/2026',
+  'https://roarlions.com/sports/womens-soccer/archives',
+  'https://uacsports.com/tournaments/?id=185',
+  'https://uacsports.com/sports/womens-soccer'
+ ],
  dane:['https://www.maxpreps.com/ca/la-verne/bonita-bearcats/football/'],
  eliSoccer:['https://losgatosunited.com/'],
  eliSchoolSoccer:['https://www.maxpreps.com/ca/santa-cruz/santa-cruz-cardinals/soccer/winter/schedule/'],
@@ -33,6 +38,8 @@ ${JSON.stringify(sources,null,2)}
 
 Rules:
 - Prefer official athletics/team/league sources. For high-school football also verify NFHS event pages. For Los Gatos/ECNL do not promote third-party results when no authoritative public source exists.
+- Check postseason brackets, championship pages, official team news, and the latest completed result every day. When a team advances, replace conditional round information with the newly confirmed opponent, date, time, venue, live stats, and stream on both its page and subscribed calendar.
+- Show a compact postseason path on the athlete page. Add only confirmed matchups to the subscribed calendar; keep future rounds clearly labeled as conditional until advancement is official.
 - Never guess dates, times, venues, addresses, results, records, or streams. Leave TBD when not verified.
 - Preserve every existing ICS UID and subscription filename. For a changed event increment SEQUENCE and update DTSTAMP/LAST-MODIFIED.
 - For verified streams put provider + clickable URL in DESCRIPTION, URL, X-STREAM-PROVIDER and X-STREAM-URL. For unverified streams use TBD and no invented URL.
