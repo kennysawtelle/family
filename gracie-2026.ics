@@ -331,4 +331,25 @@ SEQUENCE:4
 DTSTAMP:20260924T122245Z
 LAST-MODIFIED:20260924T122245Z
 END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-08-uac-central-arkansas@family.kensawtelle.com
+DTSTART;TZID=America/Chicago:20261108T130000
+DTEND;TZID=America/Chicago:20261108T150000
+SUMMARY:Gracie Soccer — #3 Central Arkansas (UAC First Round)
+LOCATION:Bill Stephens Track & Soccer Complex\, 2210 Dave Ward Dr\, Conway\
+ , AR 72034
+DESCRIPTION:UAC Women's Soccer Championship first round. North Alabama vs. 
+ #3 Central Arkansas. 1:00 PM Central / 11:00 AM Pacific.\nWatch on ESPN+: 
+ https://www.espn.com/watch/player/_/id/6ffffc4b-3f9c-43c5-a62f-c21e66d708e
+ 4\nLive stats: https://ucasports.com/sidearmstats/wsoc/summary
+URL:https://www.espn.com/watch/player/_/id/6ffffc4b-3f9c-43c5-a62f-c21e66d7
+ 08e4
+STATUS:CONFIRMED
+X-STREAM-PROVIDER:ESPN+
+X-STREAM-URL:https://www.espn.com/watch/player/_/id/6ffffc4b-3f9c-43c5-a62f
+ -c21e66d708e4
+SEQUENCE:2
+DTSTAMP:20261107T202539Z
+LAST-MODIFIED:20261107T202539Z
+END:VEVENT
 END:VCALENDAR
