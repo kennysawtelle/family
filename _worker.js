@@ -56,6 +56,12 @@ const brandedPage=async({asset,title,description,image,canonical},request,env)=>
 export default {
   async fetch(request,env){
     const url=new URL(request.url);
+    if(url.pathname==='/schedule-ui.js'||url.pathname==='/platform/schedule-order.mjs'){
+      const response=await env.ASSETS.fetch(request);
+      const headers=new Headers(response.headers);
+      headers.set('Cache-Control','public, max-age=0, must-revalidate');
+      return new Response(response.body,{status:response.status,headers});
+    }
     if(url.pathname==='/standings'||url.pathname==='/standings.html'){
       const profiles={
         gracie:{title:'Gracie — UAC Blue Division Standings',description:'North Alabama women’s soccer division standings, conference record, points and overall record.',image:'/Gracie.jpg'},

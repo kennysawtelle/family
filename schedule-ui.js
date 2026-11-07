@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',async()=>{
-  const {orderSchedule,schedulePhase}=await import('./platform/schedule-order.mjs?v=20261018');
+  const {orderSchedule,schedulePhase}=await import('./platform/schedule-order.mjs?v=20261107');
   if('scrollRestoration' in history) history.scrollRestoration='manual';
   window.scrollTo(0,0);
 
