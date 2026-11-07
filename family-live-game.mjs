@@ -1,3 +1,6 @@
+import { teams } from './game-teams.mjs';
+import { scheduleGame } from './game-research.mjs';
+
 const sources = new Map([
   ['eli|2026-10-24|napa united', {
     type: 'link', date: '2026-10-24', teams: ['Los Gatos United', 'Napa United'],
@@ -106,6 +109,94 @@ const totals = team => {
     .map(name => [name, integer(values[name])]).filter(([, value]) => value !== null));
 };
 
+const maxPrepsApi='https://production.api.maxpreps.com/gatewayweb/react/live-game-data/v2';
+const cleanUpdate=value=>text(value).replace(/\s+/g,' ').replace(/\s+([,.])/g,'$1');
+const scoreParts=value=>[...String(value||'').matchAll(/(?:^|,\s*)(.+?)\s+(\d+)(?=,|$)/g)].map(match=>({name:match[1].trim(),score:Number(match[2])}));
+const updatePriority=row=>/Touchdown|FieldGoal|Safety|Interception|FumbleRecovery|LongRun|LongPass|Sack|TackleForLoss|EndOfGame|StartOfGame/i.test(row.alertTypeString||'')?2:/Commentary|Possession|Update|Punt|Kickoff|TwoMinute/i.test(row.alertTypeString||'')?1:0;
+
+const flightText=html=>{
+  let output='';
+  for(const match of String(html).matchAll(/self\.__next_f\.push\((\[1,"(?:\\.|[^"\\])*"\])\)/g))try{output+=JSON.parse(match[1])[1]}catch{}
+  return output;
+};
+const jsonObjects=value=>{
+  const objects=[];
+  for(let index=0;(index=value.indexOf('{"name":"',index))>=0;index++){
+    let depth=0,inString=false,escaped=false,end=index;
+    for(;end<value.length;end++){
+      const char=value[end];
+      if(inString){if(escaped)escaped=false;else if(char==='\\')escaped=true;else if(char==='"')inString=false;continue}
+      if(char==='"'){inString=true;continue}if(char==='{')depth++;else if(char==='}'&&!--depth){end++;break}
+    }
+    try{objects.push(JSON.parse(value.slice(index,end)))}catch{}
+  }
+  return objects;
+};
+export function maxPrepsAthleteStats(html,athlete){
+  const slug=athlete.toLowerCase().replace(/[^a-z0-9]+/g,'-'),last=athlete.split(/\s+/).at(-1)||'';
+  const wanted=['Receptions','Receiving Yards','Receiving TDs','Total Tackles','QB Hurries','Interceptions','Sacks','Yards Per Catch','Receiving Long','Rushing TDs','Carries','Rushing Yards','Solo Tackle'];
+  const found=[];let athleteUrl='';
+  for(const category of jsonObjects(flightText(html)).filter(value=>value?.stats?.columns&&value?.stats?.rows)){
+    const row=category.stats.rows.find(item=>item.columns?.some(cell=>String(cell.href||'').toLowerCase().includes(`/${slug}/`)||new RegExp(`\\b${last}\\b`,'i').test(cell.value||'')));
+    if(!row)continue;athleteUrl||=row.columns.find(cell=>String(cell.href||'').includes('/athletes/'))?.href||'';
+    category.stats.columns.forEach((column,index)=>{const label=column.displayName,value=text(row.columns[index]?.value);if(wanted.includes(label)&&value!=='')found.push({label,value,category:category.name})});
+  }
+  const stats=[];for(const label of wanted){const item=found.find(value=>value.label===label);if(item&&!stats.some(value=>value.label===label))stats.push(item)}
+  return {stats:stats.slice(0,8),athleteUrl:athleteUrl||null};
+}
+
+export function normalizeMaxPrepsGame(raw,source,profile,now=new Date()){
+  const rows=(raw?.data?.gameData||raw?.gameData||[]).filter(row=>row&&!row.isDeleted&&cleanUpdate(row.gameDataString||row.scorerCommentary));
+  if(!rows.length)throw new Error('The official Scoretracker has not published updates.');
+  rows.sort((a,b)=>String(a.stamp||a.updateOn||'').localeCompare(String(b.stamp||b.updateOn||'')));
+  const latest=rows.at(-1),scores=scoreParts(latest.currentScore),ended=rows.some(row=>/EndOfGame/i.test(row.alertTypeString||'')||row.gamePeriod==='F');
+  const started=rows.some(row=>/StartOfGame/i.test(row.alertTypeString||''));
+  const side=(item,fallback)=>({name:item?.name||fallback,score:Number.isFinite(item?.score)?item.score:null,logo:null});
+  const away=side(scores[0],source.opponent),home=side(scores[1],profile.alias);
+  const period=text(latest.gamePeriodString)||text(latest.gamePeriod),gameClock=text(latest.gameTime);
+  const status=ended?'Final':[period&&period!=='Game is Over'?period:'',gameClock&&gameClock!=='00:00'&&gameClock!=='99:59'?gameClock:''].filter(Boolean).join(' · ')||(started?'Live':'Updates available');
+  const athlete=profile.athlete||'',lastName=athlete.split(/\s+/).at(-1)||'';
+  const athleteRows=lastName?rows.filter(row=>new RegExp(`\\b${lastName.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}\\b`,'i').test(`${row.gameDataString||''} ${row.scorerCommentary||''}`)):[];
+  const mapUpdate=row=>({id:row.qwixcoreGameDataId,type:text(row.gameDataLogHeader)||text(row.alertTypeString),period:text(row.gamePeriodString),clock:text(row.gameTime),text:cleanUpdate(row.gameDataString||row.scorerCommentary),score:text(row.currentScore),at:row.stamp||row.updateOn||null});
+  const significant=rows.filter(row=>updatePriority(row)>0).sort((a,b)=>updatePriority(b)-updatePriority(a)||String(b.stamp||'').localeCompare(String(a.stamp||'')));
+  const recent=[...rows].reverse().filter(row=>updatePriority(row)>0).slice(0,12).map(mapUpdate);
+  const scoring=rows.filter(row=>/Touchdown|FieldGoal|Safety/i.test(row.alertTypeString||'')).map(row=>({period:text(row.gamePeriodString),clock:text(row.gameTime),narrative:cleanUpdate(row.gameDataString),homeScore:row.homeTeam?.score??null,awayScore:row.awayTeam?.score??null}));
+  return {state:ended?'final':started?'live':'pregame',status,home,away,homeStats:{},awayStats:{},scoring,updates:recent,
+    athleteHighlight:athleteRows.length?{name:athlete,...mapUpdate(athleteRows.at(-1)),updates:[...athleteRows].reverse().slice(0,6).map(mapUpdate)}:null,
+    venue:source.venue||'',attendance:null,officials:'',notes:[],previewUrl:null,previewTitle:null,sourceUrl:source.sourceUrl,source:'MaxPreps Scoretracker',watchUrl:source.watch||null,watchLabel:source.watch?'Watch the official broadcast':null,checkedAt:now.toISOString()};
+}
+
+async function maxPrepsLiveGame(params,fetcher){
+  const rawPage=params.get('teamPage')||'',pageKey=rawPage.endsWith('.html')?rawPage:`${rawPage}.html`,profile=teams[pageKey];
+  if(!profile||!profile.source.includes('maxpreps.com'))return null;
+  const opponent=text(params.get('opponent')),date=text(params.get('date'));
+  if(!opponent||!/^20\d\d-\d\d-\d\d$/.test(date))return null;
+  const scheduleResponse=await fetcher(profile.source,{signal:AbortSignal.timeout(6500),headers:{Accept:'text/html'}});
+  if(!scheduleResponse.ok)throw new Error('Team schedule unavailable');
+  const contest=scheduleGame(await scheduleResponse.text(),profile,opponent,date);
+  if(!contest?.sourceUrl||!new URL(contest.sourceUrl).hostname.endsWith('maxpreps.com'))return null;
+  const contestUrl=new URL(contest.sourceUrl);contestUrl.searchParams.set('tab','Scoretracker');
+  const contestResponse=await fetcher(contestUrl,{signal:AbortSignal.timeout(6500),headers:{Accept:'text/html'}});
+  if(!contestResponse.ok)throw new Error('Scoretracker unavailable');
+  const html=await contestResponse.text();
+  const ids=[...new Set([...html.matchAll(/\\?"qwixcoreGameId\\?":\\?"([0-9a-f-]{36})/gi)].map(match=>match[1]))];
+  if(!ids.length)return null;
+  const statsUrl=new URL(contest.sourceUrl);statsUrl.searchParams.set('tab','Stats');
+  const [results,statsResult]=await Promise.all([
+    Promise.allSettled(ids.map(id=>fetcher(`${maxPrepsApi}?qwixCoreGameId=${encodeURIComponent(id)}`,{signal:AbortSignal.timeout(6500),headers:{Accept:'application/json'}}).then(async response=>response.ok?response.json():Promise.reject(new Error('Live feed unavailable'))))),
+    fetcher(statsUrl,{signal:AbortSignal.timeout(6500),headers:{Accept:'text/html'}}).then(response=>response.ok?response.text():'').catch(()=>''),
+  ]);
+  const payloads=results.flatMap(result=>result.status==='fulfilled'?[result.value]:[]);
+  if(!payloads.length)throw new Error('Live feed unavailable');
+  const athlete=profile.athlete?.split(/\s+/).at(-1)||'';
+  const richness=payload=>{const rows=payload?.data?.gameData||[];return rows.filter(row=>athlete&&new RegExp(`\\b${athlete}\\b`,'i').test(row.gameDataString||'')).length*1000+rows.filter(row=>/#\d+\s+[A-Z]/.test(row.gameDataString||'')).length*10+rows.length};
+  payloads.sort((a,b)=>richness(b)-richness(a));
+  const game=normalizeMaxPrepsGame(payloads[0],{...contest,opponent,sourceUrl:contest.sourceUrl},profile);
+  const published=maxPrepsAthleteStats(statsResult,profile.athlete||'');
+  if(published.stats.length){game.athleteHighlight=game.athleteHighlight||{name:profile.athlete,type:'Game statistics',period:'',clock:'',text:'Verified game statistics',score:'',updates:[]};game.athleteHighlight.stats=published.stats;game.athleteHighlight.athleteUrl=published.athleteUrl}
+  return game;
+}
+
 export function normalizeLiveGame(raw, source, now = new Date()) {
   const game = raw?.Game;
   if (!game?.HomeTeam || !game?.VisitingTeam) throw new Error('The official live score is unavailable.');
@@ -187,6 +278,7 @@ export async function enrichNcaaGame(game,fetcher=fetch){
 
 export async function familyLiveGame(request, fetcher = fetch) {
   const params = new URL(request.url).searchParams;
+  try{const maxPreps=await maxPrepsLiveGame(params,fetcher);if(maxPreps)return Response.json({available:true,...maxPreps},{headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}})}catch{/* Keep the configured source fallback when Scoretracker is unavailable. */}
   const teamKey = key(params.get('teamPage'));
   const id = `${teamKey}|${params.get('date') || ''}|${key(params.get('opponent'))}`;
   const source = sources.get(id) || teamFallbacks.get(teamKey);

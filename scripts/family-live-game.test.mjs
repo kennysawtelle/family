@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { familyLiveGame, normalizeLiveGame, normalizeNcaaGame, enrichNcaaGame } from '../family-live-game.mjs';
+import { familyLiveGame, normalizeLiveGame, normalizeNcaaGame, normalizeMaxPrepsGame, maxPrepsAthleteStats, enrichNcaaGame } from '../family-live-game.mjs';
 
 const source = { page: 'https://example.com/live', provider: 'Official live stats' };
 const fixture = {
@@ -31,6 +31,30 @@ test('rejects a provider response for a different game or date', () => {
   const expected = { ...source, date: '2026-09-27', teams: ['Austin Peay', 'North Alabama'] };
   assert.throws(() => normalizeLiveGame({ ...fixture, Game: { ...fixture.Game, Date: '9/28/2026' } }, expected), /different game/);
   assert.throws(() => normalizeLiveGame({ ...fixture, Game: { ...fixture.Game, HomeTeam: { Name: 'Wrong Team', Score: 0 } } }, expected), /different game/);
+});
+
+test('promotes a family athlete update from a MaxPreps Scoretracker game',()=>{
+  const feed={data:{gameData:[
+    {qwixcoreGameDataId:1,alertTypeString:'FootballStartOfGame',gameDataLogHeader:'Start of Game',gamePeriodString:'1st Quarter',gamePeriod:'Q1',gameTime:'12:00',gameDataString:'Glendora kicking off to Bonita.',currentScore:'Glendora 0, Bonita 0',stamp:'2026-10-30T02:00:00'},
+    {qwixcoreGameDataId:2,alertTypeString:'FootballTouchdownPassing',gameDataLogHeader:'Passing Touchdown',gamePeriodString:'2nd Quarter',gamePeriod:'Q2',gameTime:'02:00',gameDataString:'Bonita - #17 Isaiah Guerrero 36 Yd pass completed to #21 Dane Gosserand for a TD.',currentScore:'Glendora 7, Bonita 20',homeTeam:{score:20},awayTeam:{score:7},stamp:'2026-10-30T02:57:27'},
+    {qwixcoreGameDataId:3,alertTypeString:'FootballEndOfGame',gameDataLogHeader:'End of Game',gamePeriodString:'Game is Over',gamePeriod:'F',gameTime:'00:00',gameDataString:'End of game.',currentScore:'Glendora 14, Bonita 28',homeTeam:{score:28},awayTeam:{score:14},stamp:'2026-10-30T04:25:16'}
+  ]}};
+  const game=normalizeMaxPrepsGame(feed,{opponent:'Glendora',sourceUrl:'https://www.maxpreps.com/game',venue:'Bonita High'}, {alias:'Bonita',athlete:'Dane Gosserand'},new Date('2026-10-30T04:26:00Z'));
+  assert.equal(game.state,'final');assert.equal(game.away.score,14);assert.equal(game.home.score,28);assert.equal(game.athleteHighlight.name,'Dane Gosserand');assert.match(game.athleteHighlight.text,/36 Yd pass.*Dane Gosserand.*TD/);assert.equal(game.source,'MaxPreps Scoretracker');
+});
+
+test('extracts only the family athlete’s published MaxPreps game totals',()=>{
+  const category={name:'Receiving',stats:{columns:[{displayName:'#'},{displayName:'Name'},{displayName:'Receptions'},{displayName:'Receiving Yards'},{displayName:'Receiving TDs'}],rows:[{columns:[{value:'21'},{value:'D. Gosserand',href:'https://www.maxpreps.com/ca/la-verne/bonita-bearcats/athletes/dane-gosserand/'},{value:'1'},{value:'36'},{value:'1'}]},{columns:[{value:'2'},{value:'J. Lara',href:'https://www.maxpreps.com/athletes/joseph-lara/'},{value:'3'},{value:'40'},{value:'0'}]}]}};
+  const html=`<script>self.__next_f.push(${JSON.stringify([1,`5:${JSON.stringify(category)}\n`])})</script>`;
+  const result=maxPrepsAthleteStats(html,'Dane Gosserand');assert.deepEqual(result.stats.map(item=>[item.label,item.value]),[['Receptions','1'],['Receiving Yards','36'],['Receiving TDs','1']]);assert.match(result.athleteUrl,/dane-gosserand/);
+});
+
+test('discovers the exact MaxPreps contest and serves its score feed on the Family page',async()=>{
+  const event={'@type':'SportsEvent',name:'Glendora at Bonita',description:'Varsity football',sport:'Football',startDate:'2026-10-30T02:00:00Z',url:'https://www.maxpreps.com/ca/football/game/bonita-vs-glendora/10-29-2026/?c=contest',homeTeam:{name:'Bonita'},awayTeam:{name:'Glendora'}};
+  const score={data:{gameData:[{qwixcoreGameDataId:9,alertTypeString:'FootballEndOfGame',gameDataLogHeader:'End of Game',gamePeriodString:'Game is Over',gamePeriod:'F',gameTime:'00:00',gameDataString:'End of game.',currentScore:'Glendora 14, Bonita 28',homeTeam:{score:28},awayTeam:{score:14},stamp:'2026-10-30T04:25:16'}]}};
+  const fetcher=async url=>{url=String(url);if(url.includes('/schedule/'))return new Response(`<script type="application/ld+json">${JSON.stringify(event)}</script>`);if(url.includes('tab=Scoretracker'))return new Response('<script>{\\"qwixcoreGameId\\":\\"f3e02b91-3420-4ea8-a1bb-232e8572b167\\"}</script>');if(url.includes('live-game-data'))return Response.json(score);throw new Error(url)};
+  const response=await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=dane&date=2026-10-29&opponent=Glendora'),fetcher);const data=await response.json();
+  assert.equal(data.available,true);assert.equal(data.state,'final');assert.equal(data.home.score,28);assert.match(data.sourceUrl,/maxpreps\.com/);
 });
 
 test('uses the NCAA scoreboard when StatBroadcast has no server-readable API', async () => {
@@ -73,22 +97,22 @@ test('only the exact scheduled game can use its configured official feed', async
   assert.equal(requests, 1);
 });
 
-test('links Eli’s exact Santa Cruz game to the official NFHS live event without claiming unverified stats', async () => {
+test('falls back to Eli’s exact NFHS event when MaxPreps Scoretracker is unavailable', async () => {
   let requests = 0;
   const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=eli-football&date=2026-10-08&opponent=Rancho%20San%20Juan'), async () => {
     requests += 1;
-    throw new Error('A link-only source must not be fetched by the API.');
+    throw new Error('Scoretracker unavailable.');
   });
   const data = await response.json();
   assert.equal(data.available, false);
   assert.equal(data.configured, true);
   assert.match(data.sourceUrl, /nfhsnetwork\.com\/events\/rancho-san-juan-high-school-salinas-ca\/gamcbb5b26d8d/);
   assert.match(data.status, /scorekeeper publishes them/);
-  assert.equal(requests, 0);
+  assert.equal(requests, 1);
 });
 
-test('links tonight’s Bonita at Charter Oak game to its exact official broadcast', async () => {
-  const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=dane&date=2026-10-23&opponent=Charter%20Oak'));
+test('links tonight’s Bonita at Charter Oak game to its exact official broadcast when Scoretracker is unavailable', async () => {
+  const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=dane&date=2026-10-23&opponent=Charter%20Oak'),async()=>{throw new Error('offline')});
   const data = await response.json();
   assert.equal(data.available, false);
   assert.equal(data.configured, true);
@@ -128,7 +152,7 @@ test('applies official school live-event hubs to every high-school and JV game',
     ['eli-football', 'Harbor', /santa-cruz-high-school/],
   ];
   for (const [teamPage, opponent, expected] of cases) {
-    const response = await familyLiveGame(new Request(`https://family.test/api/family-live-game?teamPage=${teamPage}&date=2026-10-16&opponent=${opponent}`));
+    const response = await familyLiveGame(new Request(`https://family.test/api/family-live-game?teamPage=${teamPage}&date=2026-10-16&opponent=${opponent}`),async()=>{throw new Error('offline')});
     const data = await response.json();
     assert.equal(data.configured, true);
     assert.match(data.sourceUrl, expected);

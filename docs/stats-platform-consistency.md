@@ -27,6 +27,13 @@ Checked October 29, 2026.
   from their checked team sources and explicitly identify unavailable detail.
 - Current live-game statistics remain in the separate live/final card so season
   averages are not confused with one game's box score.
+- MaxPreps-backed game pages discover the exact scheduled contest and read its
+  public Scoretracker feed on the Family page. During a game the score, period,
+  clock, and recent verified updates refresh every 15 seconds while the page is
+  visible. Afterward the final score and game updates remain available. When a
+  published update names the family athlete, that play is promoted in a large
+  athlete-first panel above the general feed. The page never infers an athlete
+  play or box-score total that the scorekeeper did not publish.
 - Every sports game page uses a compact Game context summary when verified data
   is available. It prioritizes overall and conference/division records,
   home/road and recent form, postseason stakes, streaks, and meaningful

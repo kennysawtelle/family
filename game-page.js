@@ -132,13 +132,26 @@ function renderLiveGame(game) {
   el('live-away-name').textContent = game.away.name; el('live-home-name').textContent = game.home.name;
   el('live-away-score').textContent = game.away.score ?? '—'; el('live-home-score').textContent = game.home.score ?? '—';
   el('live-status').textContent = game.status;
+  const athleteLive=el('athlete-live');athleteLive.replaceChildren();athleteLive.hidden=!game.athleteHighlight;
+  if(game.athleteHighlight){
+    const label=document.createElement('span'),headline=document.createElement('strong'),meta=document.createElement('small');
+    label.textContent=`${game.athleteHighlight.name} in this game`;headline.textContent=game.athleteHighlight.text;
+    meta.textContent=[game.athleteHighlight.period,game.athleteHighlight.clock,game.athleteHighlight.score].filter(Boolean).join(' · ');
+    athleteLive.append(label,headline,meta);
+    if(game.athleteHighlight.stats?.length){const grid=document.createElement('div');grid.className='athlete-stat-grid';for(const stat of game.athleteHighlight.stats){const item=document.createElement('div'),value=document.createElement('strong'),name=document.createElement('span');item.className='athlete-stat';value.textContent=stat.value;name.textContent=stat.label;item.append(value,name);grid.append(item)}athleteLive.append(grid)}
+  }
   const stats = el('live-stats'); stats.replaceChildren();
   const availableStats = liveStatLabels.filter(([key]) => game.awayStats[key] != null || game.homeStats[key] != null);
   if (availableStats.length) {
     stats.append(comparisonTable(availableStats.map(([key,label])=>[label,game.awayStats[key]??'—',game.homeStats[key]??'—'])));
   }
   const scoring = el('live-scoring'); scoring.replaceChildren();
-  if (game.scoring.length) {
+  if(game.updates?.length){
+    const heading=document.createElement('h3');heading.textContent=game.state==='final'?'Game updates':'Latest game updates';
+    const list=document.createElement('div');list.className='live-updates';
+    for(const update of game.updates){const item=document.createElement('div'),meta=document.createElement('span'),copy=document.createElement('strong'),score=document.createElement('small');item.className='live-update';meta.textContent=[update.period,update.clock,update.type].filter(Boolean).join(' · ');copy.textContent=update.text;score.textContent=update.score||'';item.append(meta,copy,score);list.append(item)}
+    scoring.append(heading,list);
+  } else if (game.scoring.length) {
     const heading = document.createElement('h3'); heading.textContent = 'Scoring';
     const list = document.createElement('ol'); list.className = 'scoring-list';
     for (const play of game.scoring) { const item = document.createElement('li'); item.textContent = `${play.period === 1 ? '1st' : play.period === 2 ? '2nd' : `Period ${play.period}`} ${play.clock} — ${play.narrative}`; list.append(item); }
@@ -177,7 +190,7 @@ function renderOfficialLiveLink(game) {
   el('live-away-name').textContent = away; el('live-home-name').textContent = home;
   el('live-away-score').textContent = '—'; el('live-home-score').textContent = '—';
   el('live-status').textContent = game.status || 'Open the official live event';
-  el('live-stats').replaceChildren(); el('live-scoring').replaceChildren(); el('verified-details').replaceChildren();
+  el('athlete-live').hidden=true;el('athlete-live').replaceChildren();el('live-stats').replaceChildren(); el('live-scoring').replaceChildren(); el('verified-details').replaceChildren();
   const source = el('live-source'); source.replaceChildren();
   if (game.sourceUrl) source.append(link(game.linkLabel || 'Open official live stats ↗', game.sourceUrl));
   else source.textContent = game.source || '';

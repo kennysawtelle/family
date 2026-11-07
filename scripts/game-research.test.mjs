@@ -79,6 +79,7 @@ test('game page uses automatic results and specific team profiles without old pr
  assert.match(page,/game-page.js/);assert.match(page,/id="backTeam"/);assert.match(page,/id="series-content"/);assert.equal(teams['jack.html'].sport,'JV football');assert.equal(teams['gracie.html'].sport,"Women's soccer");
  const script=readFileSync(new URL('../game-page.js',import.meta.url),'utf8');assert.match(script,/fresh:\s*Date\.now\(\)/);assert.match(script,/Return to \$\{profile\.name\} team page/);
  assert.match(page,/id="game-context"/);assert.match(script,/gameContextFromResearch/);
+ assert.match(page,/id="athlete-live"/);assert.match(script,/athleteHighlight/);assert.match(script,/Latest game updates/);
 });
 test('every configured college, high-school and club team uses the shared sourced game page',()=>{
  for(const [page,team] of Object.entries(teams)){
