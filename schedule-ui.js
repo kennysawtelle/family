@@ -299,9 +299,15 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
   const describe=item=>({...item.ev,completed:item.completed});
   const reorder=()=>{
-    for(const item of orderSchedule(rendered,describe))table.tBodies[0].appendChild(item.row);
+    const ordered=orderSchedule(rendered,describe);
+    const firstPast=ordered.findIndex(item=>schedulePhase(describe(item))==='past');
+    const active=firstPast<0?ordered:ordered.slice(0,firstPast);
+    const past=firstPast<0?[]:ordered.slice(firstPast);
+    for(const item of active)table.tBodies[0].appendChild(item.row);
+    for(const {row} of originalRows)if(row.classList.contains('conditional'))table.tBodies[0].appendChild(row);
+    for(const item of past)table.tBodies[0].appendChild(item.row);
     // Unmatched entries such as byes follow real games rather than hiding the next game.
-    for(const {row} of originalRows)if(!rendered.some(item=>item.row===row))table.tBodies[0].appendChild(row);
+    for(const {row} of originalRows)if(!row.classList.contains('conditional')&&!rendered.some(item=>item.row===row))table.tBodies[0].appendChild(row);
     if(wrap)wrap.scrollTop=0;
   };
   reorder();
