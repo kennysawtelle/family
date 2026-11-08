@@ -10,7 +10,11 @@ const safeUrl = value => { try { const url = new URL(value); return url.protocol
 const pacificDate = value => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(value));
 const verifiedReports=new Map([
   ['gracie.html|2026-10-08|abilene christian',{title:'North Alabama hosts Abilene Christian in UAC crossover match',summary:'North Alabama enters the conference crossover match at 2–1 in UAC play after a 3–2 loss to Eastern Kentucky. Abilene Christian is 4–2–5 overall and 1–0–2 in conference play, led by Addison Briscoe with five goals and three assists. UNA is seeking its first win in the series after losing the teams’ first two meetings.',url:'https://roarlions.com/news/2026/10/7/womens-soccer-soccer-to-welcome-abilene-christian-for-thursday-night-matchup.aspx',source:'University of North Alabama Athletics',published:'2026-10-07T16:00:00.000Z'}],
-  ['gracie.html|2026-11-08|central arkansas',{title:'North Alabama opens the UAC Championship against host Central Arkansas',summary:'North Alabama enters as the Blue Division runner-up after a 3–0 win over West Georgia. Central Arkansas is the Red Division No. 3 seed at 7–6–6 overall and 4–2–4 in conference play. The Bears won the regular-season meeting 2–0 in Conway; the winner advances to face Abilene Christian in Wednesday’s semifinal.',url:'https://roarlions.com/news/2026/11/7/womens-soccer-soccer-to-open-uac-championship-at-central-arkansas.aspx',source:'University of North Alabama Athletics',published:'2026-11-07T16:00:00.000Z'}]
+  ['gracie.html|2026-11-08|central arkansas',[
+    {title:'North Alabama opens the UAC Championship against host Central Arkansas',summary:'North Alabama enters the first-ever UAC Women’s Soccer Championship as the Blue Division runner-up after closing the regular season with a 3–0 win over West Georgia. Central Arkansas is the Red Division No. 3 seed at 7–6–6 overall and 4–2–4 in conference play. The Bears won the regular-season meeting 2–0 in Conway; Sunday’s winner advances to face Abilene Christian in Wednesday’s semifinal.',url:'https://roarlions.com/news/2026/11/7/womens-soccer-soccer-to-open-uac-championship-at-central-arkansas.aspx',source:'University of North Alabama Athletics',published:'2026-11-07T16:00:00.000Z'},
+    {title:'The road from Sunday to the NCAA Tournament',summary:'A North Alabama win Sunday earns a place in Wednesday’s semifinal against Red Division champion Abilene Christian. The semifinal winner advances to Saturday’s UAC championship match, and the tournament champion receives the conference’s automatic bid to the 2026 NCAA Division I Women’s Soccer Tournament.',url:'https://uacsports.com/news/2026/11/1/2026-uac-womens-soccer-tournament-bracket-set.aspx',source:'United Athletic Conference',published:'2026-11-02T00:00:00.000Z'},
+    {title:'Gracie Tyrrell enters the postseason as UAC Defensive Player of the Week',summary:'Gracie enters the postseason as the UAC Defensive Player of the Week, the first weekly conference award of the senior left back’s North Alabama career. She played all 90 minutes in the scoreless draw against Austin Peay and 82 minutes in the 3–0 win over West Georgia. UNA allowed no goals across its final three regular-season matches, and Gracie helped the Lions secure the Blue Division’s No. 2 seed.',url:'https://roarlions.com/news/2026/11/2/womens-soccer-sobotka-tyrrell-claim-uac-weekly-awards.aspx',source:'University of North Alabama Athletics',published:'2026-11-02T22:00:00.000Z'}
+  ]]
 ]);
 const verifiedHistories=new Map([
   ['gracie.html|2026-10-29|austin peay',{
@@ -46,11 +50,11 @@ const verifiedMatchups=new Map([
     teamRecord:{record:'7–4–6',league:'Blue Division No. 2'},opponentRecord:{record:'7–6–6',league:'4–2–4 UAC · Red Division No. 3'},
     context:[
       {label:'At stake',value:'Winner advances to Wednesday’s semifinal against Abilene Christian',highlight:true},
+      {label:'Tournament path',value:'Semifinal Wednesday · Championship Saturday · Champion earns the NCAA automatic bid',highlight:true},
+      {label:'Gracie',value:'Senior defender · UAC Defensive Player of the Week · Three straight team shutouts',highlight:true},
       {label:'Season meeting',value:'Central Arkansas won 2–0 in Conway on Oct. 18'},
       {label:'North Alabama form',value:'Closed the regular season with a 3–0 win over West Georgia'},
-      {label:'Central Arkansas form',value:'Three consecutive draws entering the tournament'},
-      {label:'Series',value:'Central Arkansas leads 8–6–1'},
-      {label:'Kickoff',value:'Sunday at 1:00 PM Central · ESPN+'}
+      {label:'Kickoff',value:'Sunday at 1:00 PM Central · 11:00 AM Pacific · ESPN+'}
     ],
     insights:[
       'North Alabama is the UAC Blue Division runner-up; Central Arkansas is the Red Division No. 3 seed and tournament host.',
@@ -191,7 +195,7 @@ export async function gameResearch(request, fetcher = fetch) {
   const sourcedGame = results[0].status === 'fulfilled' ? scheduleGame(results[0].value, profile, opponent, date) : null;
   const game = verified&&(verified.kickoff||sourcedGame) ? {...(sourcedGame||{}),title:`${profile.name} at ${opponent}`,detail:verified.detail || `${profile.name} at ${opponent} · ${profile.sport}`,kickoff:verified.kickoff||sourcedGame?.kickoff,venue:verified.venue||sourcedGame?.venue,sourceUrl:verified.sourceUrl,source:verified.source,watch:verified.watch||sourcedGame?.watch,cancelled:false} : sourcedGame;
   const pinned=verifiedReports.get(`${params.get('teamPage')}|${date}|${normalized(opponent)}`);
-  const articles = [pinned,...results.slice(1).flatMap(result => result.status === 'fulfilled' ? newsItems(result.value, profile, opponent, date) : [])].filter(Boolean).filter((item, i, all) => all.findIndex(other => other.url === item.url || other.title === item.title) === i).slice(0, 4);
+  const articles = [...(Array.isArray(pinned)?pinned:[pinned]),...results.slice(1).flatMap(result => result.status === 'fulfilled' ? newsItems(result.value, profile, opponent, date) : [])].filter(Boolean).filter((item, i, all) => all.findIndex(other => other.url === item.url || other.title === item.title) === i).slice(0, 4);
   let opponentRecord=verified?.opponentRecord?{...verified.opponentRecord,sourceUrl:verified.sourceUrl}:null;
   if(!opponentRecord&&game?.opponentUrl&&new URL(game.opponentUrl).hostname.endsWith('maxpreps.com'))try{const page=await read(game.opponentUrl,fetcher),record=teamRecord(page);if(record)opponentRecord={record,sourceUrl:game.opponentUrl}}catch{/* The game details remain useful if the opponent profile is offline. */}
   return Response.json({ team: profile.name, opponent, sport: profile.sport, date, game, opponentRecord,

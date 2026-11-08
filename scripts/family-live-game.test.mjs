@@ -97,6 +97,11 @@ test('only the exact scheduled game can use its configured official feed', async
   assert.equal(requests, 1);
 });
 
+test('tomorrow’s tournament game keeps ESPN and official live stats available before the feed switches',async()=>{
+ const response=await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=gracie&date=2026-11-08&opponent=Central%20Arkansas'),async()=>Response.json(fixture));
+ const data=await response.json();assert.equal(response.status,200);assert.equal(data.configured,true);assert.match(data.sourceUrl,/espn\.com\/watch/);assert.match(data.status,/Live statistics will appear/);
+});
+
 test('falls back to Eli’s exact NFHS event when MaxPreps Scoretracker is unavailable', async () => {
   let requests = 0;
   const response = await familyLiveGame(new Request('https://family.test/api/family-live-game?teamPage=eli-football&date=2026-10-08&opponent=Rancho%20San%20Juan'), async () => {

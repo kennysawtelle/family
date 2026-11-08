@@ -63,6 +63,20 @@ const sources = new Map([
     watchUrl: 'https://www.espn.com/watch/player/_/eventCalendarId/401901499?gameId=401901499',
     watchLabel: 'Watch on ESPN+',
   }],
+  ['gracie|2026-11-08|central arkansas', {
+    type: 'sidearm', date: '2026-11-08', teams: ['North Alabama', 'Central Arkansas'],
+    feed: 'https://sidearmstats.com/uca/wsoc/game.json?detail=full',
+    page: 'https://ucasports.com/sidearmstats/wsoc/summary', provider: 'Central Arkansas SIDEARM Live Stats',
+    watchUrl: 'https://www.espn.com/watch/player/_/id/6ffffc4b-3f9c-43c5-a62f-c21e66d708e4',
+    watchLabel: 'Watch on ESPN+',
+    previewUrl: 'https://roarlions.com/news/2026/11/7/womens-soccer-soccer-to-open-uac-championship-at-central-arkansas.aspx',
+    previewTitle: 'Official North Alabama tournament preview',
+    notes: [
+      'The winner advances to Wednesday’s semifinal against Abilene Christian.',
+      'North Alabama enters after three consecutive shutouts and a 3–0 win over West Georgia.',
+      'Gracie Tyrrell enters as the UAC Defensive Player of the Week.',
+    ],
+  }],
 ]);
 
 const teamFallbacks = new Map([
@@ -223,7 +237,7 @@ export function normalizeLiveGame(raw, source, now = new Date()) {
     homeStats: totals(raw.Stats?.HomeTeam), awayStats: totals(raw.Stats?.VisitingTeam), scoring,
     venue: text(game.Location), attendance: integer(game.Attendance), officials: text(game.Officials),
     notes: source.notes || [], previewUrl: source.previewUrl || null, previewTitle: source.previewTitle || null,
-    sourceUrl: source.page, source: source.provider, checkedAt: now.toISOString(),
+    sourceUrl: source.page, source: source.provider, watchUrl: source.watchUrl || null, watchLabel: source.watchLabel || null, checkedAt: now.toISOString(),
   };
 }
 
