@@ -14,6 +14,18 @@ test('all athlete calendars have a sourced athlete-stat state',async()=>{
   assert.match(ui,/Official player\/team source/);
   for(const name of ['Gracie Tyrrell','Dane Gosserand','Elijah \\(Eli\\) Landig','Jack Harn'])assert.match(ui,new RegExp(name));
 });
+
+test('Dane calendar closes the season with the verified CIF playoff result',async()=>{
+  const [page,calendar]=await Promise.all([read('dane.html'),read('dane-2026.ics')]);
+  for(const source of [page,calendar]){
+    assert.match(source,/Great Oak/);
+  }
+  assert.match(page,/L 30–34/);
+  assert.match(page,/Season complete/);
+  assert.match(page,/10–1/);
+  assert.match(calendar,/CIF-SS Division 3 First Round/);
+  assert.match(calendar,/Season record: 10-1/);
+});
 test('MaxPreps team leaders appear on applicable team and shared game pages',async()=>{
  const [ui,game,worker]=await Promise.all([read('schedule-ui.js'),read('game-page.js'),read('_worker.js')]);
  for(const page of ['dane.html','eli-football.html','jack.html','eli-santa-cruz-soccer.html'])assert.match(ui,new RegExp(page.replace('.','\\.')));

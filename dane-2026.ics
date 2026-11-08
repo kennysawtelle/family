@@ -223,4 +223,22 @@ SEQUENCE:4
 DTSTAMP:20260924T122245Z
 LAST-MODIFIED:20260924T122245Z
 END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-06-cifss-d3-great-oak@family.kensawtelle.com
+DTSTART;TZID=America/Los_Angeles:20261106T190000
+DTEND;TZID=America/Los_Angeles:20261106T220000
+SUMMARY:Dane Football — @ Great Oak (CIF-SS Division 3 First Round)
+LOCATION:Great Oak High School\, 32555 Deer Hollow Way\, Temecula\, CA 9259
+ 2
+DESCRIPTION:Final: Great Oak 34\, Bonita 30. Season record: 10-1.
+STATUS:CONFIRMED
+URL:https://www.maxpreps.com/ca/football/game/bonita-la-verne-vs-great-oak-
+ temecula/11-6-2026/?c=054e9a66-c6f7-44df-9771-843064a26b74
+X-STREAM-PROVIDER:NFHS Network
+X-STREAM-URL:https://www.maxpreps.com/ca/football/game/bonita-la-verne-vs-g
+ reat-oak-temecula/11-6-2026/?c=054e9a66-c6f7-44df-9771-843064a26b74
+SEQUENCE:5
+DTSTAMP:20261108T202135Z
+LAST-MODIFIED:20261108T202135Z
+END:VEVENT
 END:VCALENDAR
