@@ -18,7 +18,7 @@ const opponentResult = resultMatch ? `${({W:'L',L:'W',T:'T'})[resultMatch[1].toU
 const ownSide = q.get('ha') === 'Away' ? 'away' : 'home';
 function setTopRecord(side,record='',detail=''){
   const value=el(side+'Record'),context=el(side+'RecordDate');
-  value.textContent=record;value.hidden=!record;context.textContent=detail;
+  value.textContent=record;value.removeAttribute('hidden');context.textContent=detail;
 }
 document.title = `${matchup} | Sawtelle Family Sports`;
 el('sport').textContent = profile?.sport || '';
