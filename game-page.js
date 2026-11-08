@@ -16,14 +16,16 @@ const scoreMatch = resultMatch?.[2].match(/^(\d+)\s*[-–]\s*(\d+)$/);
 const opponentScore = scoreMatch ? `${scoreMatch[2]}–${scoreMatch[1]}` : resultMatch?.[2] || '';
 const opponentResult = resultMatch ? `${({W:'L',L:'W',T:'T'})[resultMatch[1].toUpperCase()]}${opponentScore ? ` ${opponentScore}` : ''}` : '';
 const ownSide = q.get('ha') === 'Away' ? 'away' : 'home';
+function setTopRecord(side,record='',detail=''){
+  const value=el(side+'Record'),context=el(side+'RecordDate');
+  value.textContent=record;value.hidden=!record;context.textContent=detail;
+}
 document.title = `${matchup} | Sawtelle Family Sports`;
 el('sport').textContent = profile?.sport || '';
 el('awayLink').textContent = away; el('homeLink').textContent = home;
 for (const side of ['away', 'home']) {
   const result = side === ownSide ? ownResult : opponentResult;
-  el(side + 'Record').textContent = sides[side].record || (result ? `Game: ${result}` : '');
-  el(side + 'Record').hidden = !el(side + 'Record').textContent;
-  el(side + 'RecordDate').textContent = sides[side].record ? sides[side].asOf : result ? 'Final result' : '';
+  setTopRecord(side,sides[side].record || (result ? `Game: ${result}` : ''),sides[side].record ? sides[side].asOf : result ? 'Final result' : '');
 }
 async function refreshRecords() {
   if (profile?.sport !== "Women's soccer") return;
@@ -34,8 +36,7 @@ async function refreshRecords() {
     for (const side of ['away', 'home']) {
       const found = records.get(schoolKey(sides[side].name));
       if (!found) continue;
-      el(side + 'Record').textContent = found.record;
-      el(side + 'RecordDate').textContent = 'Current NCAA record · Updated ' + new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(current.checkedAt));
+      setTopRecord(side,found.record,'Current NCAA record · Updated ' + new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(current.checkedAt)));
     }
   } catch { /* Keep the saved record or final result when NCAA is offline. */ }
 }
@@ -223,9 +224,10 @@ async function refresh() {
       if (game.watch) { el('watch-card').hidden = false; el('watch').replaceChildren(link('Watch this game on NFHS Network ↗', game.watch)); }
     }
     const opponentSide=ownSide==='away'?'home':'away';
-    if(data.teamRecord){el(ownSide+'Record').textContent=data.teamRecord.record;el(ownSide+'RecordDate').textContent=[data.teamRecord.league,data.teamRecord.asOf||'Current record · MaxPreps'].filter(Boolean).join(' · ');}
-    if(data.opponentRecord){el(opponentSide+'Record').textContent=data.opponentRecord.record;el(opponentSide+'RecordDate').textContent=[data.opponentRecord.league,'Current record · MaxPreps'].filter(Boolean).join(' · ');}
-    else if(!sides[opponentSide].record&&!opponentResult&&/football/i.test(profile?.sport || '')){el(opponentSide+'Record').textContent='Official record unavailable';el(opponentSide+'RecordDate').textContent='Checked team source';}
+    const recordSource=data.comparisonSource?.label||'Verified team source';
+    if(data.teamRecord)setTopRecord(ownSide,data.teamRecord.record,[data.teamRecord.league,data.teamRecord.asOf||'Current record',recordSource].filter(Boolean).join(' · '));
+    if(data.opponentRecord)setTopRecord(opponentSide,data.opponentRecord.record,[data.opponentRecord.league,'Current record',recordSource].filter(Boolean).join(' · '));
+    else if(!sides[opponentSide].record&&!opponentResult&&/football/i.test(profile?.sport || ''))setTopRecord(opponentSide,'Official record unavailable','Checked team source');
     matchupComparison=data.comparison;matchupComparisonSource=data.comparisonSource;
     renderGameContext(gameContextFromResearch(data),data.comparisonSource);
     if(matchupComparison?.length){document.querySelector('.comparison-card').hidden=false;refreshTeamComparison();}

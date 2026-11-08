@@ -26,6 +26,8 @@ test('one verified Family matchup response feeds records, context, report and hi
   for(const field of ['teamRecord','opponentRecord','context','headToHead','articles'])assert.match(research,new RegExp(field));
   assert.match(research,/displayTeamName\(params\.get\('opponent'\)\)/);
   const client=readFileSync(new URL('../game-page.js',import.meta.url),'utf8');
+  assert.match(client,/function setTopRecord/);
+  assert.match(client,/value\.hidden=!record/);
   assert.match(client,/renderHeadToHead\(data\.headToHead\)/);
   assert.match(client,/renderGameContext\(gameContextFromResearch\(data\)/);
   assert.match(client,/data\.opponentRecord/);
