@@ -2001,6 +2001,23 @@
         "X-STREAM-PROVIDER:ESPN+",
         "X-STREAM-URL:https://www.espn.com/watch/player/_/id/6ffffc4b-3f9c-43c5-a62f-c21e66d708e4"
       ]
+    },
+    "2026-11-11-uac-semifinal-abilene-christian@family.kensawtelle.com": {
+      "hash": "bd0d6f9acb7ef3f4f377e2dbbecc3b987194a62c35ffc736dbdea373f9c0ac51",
+      "sequence": 2,
+      "modified": "20261108T221449Z",
+      "lines": [
+        "UID:2026-11-11-uac-semifinal-abilene-christian@family.kensawtelle.com",
+        "DTSTART;TZID=America/Chicago:20261111T160000",
+        "DTEND;TZID=America/Chicago:20261111T180000",
+        "SUMMARY:Gracie Soccer — #1 Abilene Christian (UAC Semifinal)",
+        "LOCATION:Bill Stephens Track & Soccer Complex\\, 2210 Dave Ward Dr\\, Conway\\\\, AR 72034",
+        "DESCRIPTION:UAC Women's Soccer Championship semifinal. North Alabama vs. #1 Abilene Christian. Confirmed after North Alabama advanced over Central Arkansas on penalty kicks following a 1-1 draw. 4:00 PM Central / 2:00 PM Pacific. The winner advances to the UAC Championship on Saturday\\, Nov. 14.\\nWatch on ESPN+: https://www.espn.com/watch/\\nLive stats: https://ucasports.com/sidearmstats/wsoc/summary",
+        "URL:https://uacsports.com/tournaments/?id=185",
+        "STATUS:CONFIRMED",
+        "X-STREAM-PROVIDER:ESPN+",
+        "X-STREAM-URL:https://www.espn.com/watch/"
+      ]
     }
   },
   "jack-2026.ics": {

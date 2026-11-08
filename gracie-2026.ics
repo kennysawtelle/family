@@ -352,4 +352,25 @@ SEQUENCE:2
 DTSTAMP:20261107T202539Z
 LAST-MODIFIED:20261107T202539Z
 END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-11-uac-semifinal-abilene-christian@family.kensawtelle.com
+DTSTART;TZID=America/Chicago:20261111T160000
+DTEND;TZID=America/Chicago:20261111T180000
+SUMMARY:Gracie Soccer — #1 Abilene Christian (UAC Semifinal)
+LOCATION:Bill Stephens Track & Soccer Complex\, 2210 Dave Ward Dr\, Conway\
+ \, AR 72034
+DESCRIPTION:UAC Women's Soccer Championship semifinal. North Alabama vs. #1
+  Abilene Christian. Confirmed after North Alabama advanced over Central Ar
+ kansas on penalty kicks following a 1-1 draw. 4:00 PM Central / 2:00 PM Pa
+ cific. The winner advances to the UAC Championship on Saturday\, Nov. 14.\
+ nWatch on ESPN+: https://www.espn.com/watch/\nLive stats: https://ucasport
+ s.com/sidearmstats/wsoc/summary
+URL:https://uacsports.com/tournaments/?id=185
+STATUS:CONFIRMED
+X-STREAM-PROVIDER:ESPN+
+X-STREAM-URL:https://www.espn.com/watch/
+SEQUENCE:2
+DTSTAMP:20261108T221449Z
+LAST-MODIFIED:20261108T221449Z
+END:VEVENT
 END:VCALENDAR
