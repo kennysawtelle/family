@@ -1,6 +1,21 @@
 # Athlete and matchup statistics consistency
 
-Checked October 29, 2026.
+Checked November 7, 2026.
+
+## Shared matchup-page contract
+
+- Display labels such as rankings, seeds, playoff rounds, and tournament names
+  never become part of team identity. Records and statistics resolve against the
+  canonical team before the header, comparison, report, or series history loads.
+- Every Family and NFL game uses its platform's single shared game route. The
+  release tests require the top records, team comparison, matchup report, and
+  head-to-head section to remain present together across all configured teams.
+- A verified matchup response is reused for header records, compact context,
+  report details, and series history. A missing optional field is omitted or
+  labeled with a sourced unavailable state; it is never converted to zero.
+- NFL game pages canonicalize all 32 team identities, including postseason
+  display labels. Season scoring averages appear only after both teams have a
+  verified completed game.
 
 ## Family Sports
 

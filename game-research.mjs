@@ -1,4 +1,5 @@
 import { teams } from './game-teams.mjs';
+import { displayTeamName } from './game-records.mjs';
 export { teams };
 
 const plain = value => String(value ?? '').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/\s+/g, ' ').trim();
@@ -173,7 +174,7 @@ export function newsItems(xml, profile, opponent, date, now = Date.now()) {
 export async function gameResearch(request, fetcher = fetch) {
   const params = new URL(request.url).searchParams;
   const profile = teams[params.get('teamPage')];
-  const opponent = (params.get('opponent') || '').trim(), date = params.get('date') || '';
+  const opponent = displayTeamName(params.get('opponent')), date = params.get('date') || '';
   if (!profile || opponent.length < 2 || opponent.length > 100 || !/^[\p{L}\p{N} .&'’()/-]+$/u.test(opponent) || !/^20\d\d-\d\d-\d\d$/.test(date) || !Number.isFinite(Date.parse(date))) return Response.json({ error: 'Choose a game from a family schedule.' }, { status: 400 });
   const gameDate=new Date(date+'T12:00:00Z');
   const monthDay=new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',timeZone:'UTC'}).format(gameDate);
