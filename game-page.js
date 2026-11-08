@@ -1,5 +1,5 @@
 import { teams, resolveTeamPage } from './game-teams.mjs';
-import { matchupSides } from './game-matchup.mjs';
+import { matchupSides } from './game-matchup.mjs?v=20261107-postseason-team-2';
 import { displayTeamName, ncaaSoccerRecords, schoolKey } from './game-records.mjs?v=20261107-postseason-team';
 const q = new URLSearchParams(location.search);
 const teamPage = resolveTeamPage(q), profile = teams[teamPage];
@@ -257,7 +257,7 @@ function renderHeadToHead(history){
   const summary=document.createElement('div');summary.className='series-summary';
   const cells=[[history.opponent.name,`${history.opponent.wins} wins`],[`${history.meetings} meetings`,`${history.ties} ties`],[history.team.name,`${history.team.wins} wins`]];
   for(const [title,value] of cells){const cell=document.createElement('div'),strong=document.createElement('strong'),span=document.createElement('span');strong.textContent=value;span.textContent=title;cell.append(strong,span);summary.append(cell)}
-  const scoring=document.createElement('p');scoring.className='series-scoring';scoring.textContent=`Combined scoring: ${history.opponent.name} ${history.opponent.points}, ${history.team.name} ${history.team.points}.`;
+  const scoring=document.createElement('p');scoring.className='series-scoring';scoring.hidden=!Number.isFinite(history.opponent.points)||!Number.isFinite(history.team.points);if(!scoring.hidden)scoring.textContent=`Combined scoring: ${history.opponent.name} ${history.opponent.points}, ${history.team.name} ${history.team.points}.`;
   const splits=document.createElement('ul');splits.className='detail-list';for(const text of history.splits||[]){const item=document.createElement('li');item.textContent=text;splits.append(item)}
   const heading=document.createElement('h3');heading.textContent='Recent meetings';const list=document.createElement('div');list.className='series-games';
   for(const game of history.recent||[]){const row=document.createElement('div'),when=document.createElement('span'),score=document.createElement('strong'),site=document.createElement('small');when.textContent=game.date;score.textContent=game.score;site.textContent=game.site;row.append(when,score,site);list.append(row)}

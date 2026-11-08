@@ -8,7 +8,8 @@ const hasTeamName = (text, profile) => (profile.newsAliases || [profile.alias]).
 const safeUrl = value => { try { const url = new URL(value); return url.protocol === 'https:' && !url.username && !url.password ? url.href : null; } catch { return null; } };
 const pacificDate = value => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(value));
 const verifiedReports=new Map([
-  ['gracie.html|2026-10-08|abilene christian',{title:'North Alabama hosts Abilene Christian in UAC crossover match',summary:'North Alabama enters the conference crossover match at 2–1 in UAC play after a 3–2 loss to Eastern Kentucky. Abilene Christian is 4–2–5 overall and 1–0–2 in conference play, led by Addison Briscoe with five goals and three assists. UNA is seeking its first win in the series after losing the teams’ first two meetings.',url:'https://roarlions.com/news/2026/10/7/womens-soccer-soccer-to-welcome-abilene-christian-for-thursday-night-matchup.aspx',source:'University of North Alabama Athletics',published:'2026-10-07T16:00:00.000Z'}]
+  ['gracie.html|2026-10-08|abilene christian',{title:'North Alabama hosts Abilene Christian in UAC crossover match',summary:'North Alabama enters the conference crossover match at 2–1 in UAC play after a 3–2 loss to Eastern Kentucky. Abilene Christian is 4–2–5 overall and 1–0–2 in conference play, led by Addison Briscoe with five goals and three assists. UNA is seeking its first win in the series after losing the teams’ first two meetings.',url:'https://roarlions.com/news/2026/10/7/womens-soccer-soccer-to-welcome-abilene-christian-for-thursday-night-matchup.aspx',source:'University of North Alabama Athletics',published:'2026-10-07T16:00:00.000Z'}],
+  ['gracie.html|2026-11-08|central arkansas',{title:'North Alabama opens the UAC Championship against host Central Arkansas',summary:'North Alabama enters as the Blue Division runner-up after a 3–0 win over West Georgia. Central Arkansas is the Red Division No. 3 seed at 7–6–6 overall and 4–2–4 in conference play. The Bears won the regular-season meeting 2–0 in Conway; the winner advances to face Abilene Christian in Wednesday’s semifinal.',url:'https://roarlions.com/news/2026/11/7/womens-soccer-soccer-to-open-uac-championship-at-central-arkansas.aspx',source:'University of North Alabama Athletics',published:'2026-11-07T16:00:00.000Z'}]
 ]);
 const verifiedHistories=new Map([
   ['gracie.html|2026-10-29|austin peay',{
@@ -23,9 +24,41 @@ const verifiedHistories=new Map([
       {date:'Oct. 1, 2023',site:'at Austin Peay',score:'Austin Peay 1–0'}
     ],
     sourceLabel:'North Alabama Athletics',sourceUrl:'https://roarlions.com/sports/womens-soccer/opponent-history',checkedAt:'2026-10-29T16:30:00-07:00'
+  }],
+  ['gracie.html|2026-11-08|central arkansas',{
+    label:'All meetings before November 8, 2026',meetings:15,ties:1,
+    team:{name:'North Alabama',wins:6},opponent:{name:'Central Arkansas',wins:8},
+    splits:['North Alabama is 2–4–1 against Central Arkansas in the Division I era.','North Alabama won both 2025 meetings 1–0; Central Arkansas won the October 2026 meeting 2–0 in Conway.'],
+    recent:[
+      {date:'Oct. 18, 2026',site:'at Central Arkansas',score:'Central Arkansas 2–0'},
+      {date:'Oct. 25, 2025',site:'at Central Arkansas',score:'North Alabama 1–0'},
+      {date:'Sep. 21, 2025',site:'vs. Central Arkansas',score:'North Alabama 1–0'},
+      {date:'Oct. 26, 2024',site:'vs. Central Arkansas',score:'Central Arkansas 2–1'},
+      {date:'Oct. 21, 2023',site:'at Central Arkansas',score:'Tie 0–0'}
+    ],
+    sourceLabel:'North Alabama Athletics',sourceUrl:'https://roarlions.com/sports/womens-soccer/opponent-history/university-of-central-arkansas/199',checkedAt:'2026-11-07T16:30:00-08:00'
   }]
 ]);
 const verifiedMatchups=new Map([
+  ['gracie.html|2026-11-08|central arkansas',{
+    source:'University of North Alabama Athletics',sourceUrl:'https://roarlions.com/news/2026/11/7/womens-soccer-soccer-to-open-uac-championship-at-central-arkansas.aspx',
+    teamRecord:{record:'7–4–6',league:'Blue Division No. 2'},opponentRecord:{record:'7–6–6',league:'4–2–4 UAC · Red Division No. 3'},
+    context:[
+      {label:'At stake',value:'Winner advances to Wednesday’s semifinal against Abilene Christian',highlight:true},
+      {label:'Season meeting',value:'Central Arkansas won 2–0 in Conway on Oct. 18'},
+      {label:'North Alabama form',value:'Closed the regular season with a 3–0 win over West Georgia'},
+      {label:'Central Arkansas form',value:'Three consecutive draws entering the tournament'},
+      {label:'Series',value:'Central Arkansas leads 8–6–1'},
+      {label:'Kickoff',value:'Sunday at 1:00 PM Central · ESPN+'}
+    ],
+    insights:[
+      'North Alabama is the UAC Blue Division runner-up; Central Arkansas is the Red Division No. 3 seed and tournament host.',
+      'Central Arkansas won the regular-season meeting 2–0 in Conway.',
+      'North Alabama has a 6–8–1 all-time record against Central Arkansas and is 2–4–1 in the Division I era.',
+      'Central Arkansas enters after three straight draws; North Alabama enters after a 3–0 win over West Georgia.',
+      'The winner advances to play Abilene Christian in the UAC semifinal on Wednesday.'
+    ],checkedAt:'2026-11-07T16:30:00-08:00'
+  }],
   ['gracie.html|2026-10-29|austin peay',{
     source:'North Alabama and Austin Peay Athletics',sourceUrl:'https://roarlions.com/news/2026/10/25/womens-soccer-walker-ties-all-time-winning-mark-after-eku-win-1-0.aspx',
     context:[
