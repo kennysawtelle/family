@@ -1,4 +1,5 @@
 import { teams, resolveTeamPage } from './game-teams.mjs';
+import { displayTeamName } from './game-records.mjs';
 const verifiedOpponentRecords = {
   'UC San Diego': { record: '5–2–2', asOf: 'As of September 23, 2026' },
   'West Georgia': { record: '0–5–2', asOf: 'As of September 13, 2026' }
@@ -16,7 +17,7 @@ export function matchupSides(params) {
   const teamPage = resolveTeamPage(params);
   const profile = teams[teamPage];
   const cleanRecord = value => /^\d{1,3}\s*[-–]\s*\d{1,3}(?:\s*[-–]\s*\d{1,3})?$/.test(value || '') ? value : '';
-  const opponentName = params.get('opponent') || 'Opponent';
+  const opponentName = displayTeamName(params.get('opponent')) || 'Opponent';
   const matchupKey = `${teamPage}|${params.get('date') || ''}|${opponentName.trim().toLowerCase()}`;
   const matchup = verifiedMatchupRecords[matchupKey];
   const own = { name: profile?.name || params.get('team') || 'Team', record: matchup?.own.record || cleanRecord(params.get('record')), asOf: matchup?.own.asOf || params.get('recordAsOf') || 'From shared link' };

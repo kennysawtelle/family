@@ -1,9 +1,9 @@
 import { teams, resolveTeamPage } from './game-teams.mjs';
 import { matchupSides } from './game-matchup.mjs';
-import { ncaaSoccerRecords, schoolKey } from './game-records.mjs?v=20260924';
+import { displayTeamName, ncaaSoccerRecords, schoolKey } from './game-records.mjs?v=20261107-postseason-team';
 const q = new URLSearchParams(location.search);
 const teamPage = resolveTeamPage(q), profile = teams[teamPage];
-const opponent = q.get('opponent') || '', date = q.get('date') || '';
+const opponent = displayTeamName(q.get('opponent')), date = q.get('date') || '';
 const sides = matchupSides(q);
 const team = profile?.name || q.get('team') || '', away = sides.away.name, home = sides.home.name;
 const matchup = `${away} at ${home}`;

@@ -40,5 +40,13 @@ test('all NCAA soccer rows become current opponent records with school aliases',
  assert.equal(records.get(schoolKey('North Alabama')).record,'4–1–3');
  assert.equal(records.get(schoolKey('Austin Peay')).record,'3–4–2');
  assert.equal(schoolKey('Central Arkansas'),schoolKey('Central Ark.'));
+ assert.equal(schoolKey('#3 Central Arkansas — UAC First Round'),schoolKey('Central Ark.'));
  assert.equal(schoolKey('Tarleton State'),schoolKey('Tarleton St.'));
+});
+
+test('postseason seed and round labels resolve to the actual opponent',()=>{
+ const q=new URLSearchParams({teamPage:'gracie.html',opponent:'#3 Central Arkansas — UAC First Round'});
+ const sides=matchupSides(q);
+ assert.equal(sides.away.name,'Central Arkansas');
+ assert.equal(schoolKey(sides.away.name),schoolKey('Central Ark.'));
 });

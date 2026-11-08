@@ -7,8 +7,15 @@ const schoolAliases = new Map([
 ]);
 
 export function schoolKey(name) {
-  const key = String(name || '').toLowerCase().replace(/[.’']/g, '').replace(/\s+/g, ' ').trim();
+  const key = displayTeamName(name).toLowerCase().replace(/[.’']/g, '').replace(/\s+/g, ' ').trim();
   return schoolAliases.get(key) || key;
+}
+
+export function displayTeamName(name) {
+  return String(name || '')
+    .replace(/^#\d+\s+/, '')
+    .replace(/\s+—\s+.*$/, '')
+    .trim();
 }
 
 export function ncaaSoccerRecords(rows) {
