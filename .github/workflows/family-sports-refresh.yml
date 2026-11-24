@@ -20,6 +20,9 @@ concurrency:
 
 jobs:
   refresh:
+    # Paused at the owner's request on 2026-11-23 for the family sports offseason.
+    # Remove this condition to resume scheduled and manual refreshes.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
